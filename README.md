@@ -1,9 +1,9 @@
 ---
 title: |
-Eloquent JavaScript - 21 chapters
-author: "Marijn Haverbene"
-date first editted: "11/20/2024 9+pm"
-date late editted: "11/21/2024 1+pm"
+  Eloquent JavaScript - 21 chapters
+  author: "Marijn Haverbene"
+  date first editted: "11/20/2024 9+pm"
+  date late editted: "11/21/2024 1+pm"
 output: 
   markdown:
     with some style
