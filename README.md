@@ -4,22 +4,21 @@ title: |
   by 
 author: "bbauska"
 date first editted: "11/20/2024 9+pm"
-date late editted: "11/20/2024 9+pm"
+date late editted: "11/21/2024 1+pm"
 output: 
   markdown:
     with some style
 ---
 
 <h1 align="center">Eloquent JavaScript</h2>
-
-// <h6 align="center">(by Colleen van Lent - University of Michigan)</h6>
+<p align="center"><small><small>(by Marijn Haverbeke)</small></small></p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ readme.md of eloquent-js ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~ 01/02. eloquent javascript (01) ~~~~~~~~~~~~~~~~~-->
 <p align="center" width="100%">
 <img src="./images/image001.png?raw=true"
-  style="width:15%;"
+  style="width:50%;"
   title="Eloquent JavaScript logo"
   alt="Eloquent JavaScript logo."
 nbsp;nbsp;nbsp;nbsp;nbsp;
@@ -30,761 +29,14 @@ nbsp;nbsp;nbsp;nbsp;nbsp;
 </p>
 
 <h2 id="#about">About this Course:</h2>
-**Eloquent JavaScript**
->
-**A Modern Introduction to Programming**
 
-### Marijn Haverbeke
+<h3>Copyright © 2014 by Marijn Haverbeke</h3>
 
-Copyright © 2014 by Marijn Haverbeke
+<h4 id="TOC">Table of Contents</h4>
 
-This work is licensed under a Creative Commons attribution-noncommercial
+<h4>Introduction</h4>
 
-license (<http://creativecommons.org/licenses/by-nc/3.0/>). All code in
-the book may also be considered licensed under an MIT license ([http://
-opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)).
-
-The illustrations are contributed by various artists: Cover by Wasif
-Hyder. Computer (introduction) and unicycle people (Chapter 21) by
-
-Max Xiantu. Sea of bits (Chapter 1) and weresquirrel (Chapter 4) by
-Margarita Martínez and José Menor. Octopuses (Chapter 2 and 4) by Jim
-Tierney. Object with on/off switch (Chapter 6) by Dyle MacGregor.
-Regular expression diagrams in Chapter 9 generated with
-[regexper.com](http://regexper.com/) by Jeff Avallone. Game concept for
-Chapter 15 by [Thomas Palef.](http://lessmilk.com/) Pixel art in Chapter
-16 by Antonio Perdomo Pastor.
-
-The second edition of Eloquent JavaScript was made possible by [454
-financial backers.](http://eloquentjavascript.net/backers.html)
-
-You can buy a print version of this book, with an extra bonus chapter
-included, printed by No Starch Press at
-[http://www.amazon.com/gp/product/](http://www.amazon.com/gp/product/1593275846/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1593275846&linkCode=as2&tag=marijhaver-20&linkId=VPXXXSRYC5COG5R5)
-
-[1593275846/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=
-1593275846&linkCode=as2&tag=marijhaver-20&linkId=VPXXXSRYC5COG5R5](http://www.amazon.com/gp/product/1593275846/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1593275846&linkCode=as2&tag=marijhaver-20&linkId=VPXXXSRYC5COG5R5).
-
-**Contents**
-
-[On programming [2](#on-programming)](#on-programming)
-
-[Why language matters [4](#why-language-matters)](#why-language-matters)
-
-[What is JavaScript? [7](#what-is-javascript)](#what-is-javascript)
-
-[Code, and what to do with it
-[8](#code-and-what-to-do-with-it)](#code-and-what-to-do-with-it)
-
-[Overview of this book
-[9](#overview-of-this-book)](#overview-of-this-book)
-
-[Typographic conventions
-[10](#typographic-conventions)](#typographic-conventions)
-
-[**1 Values, Types, and Operators**
-[**11**](#values-types-and-operators)](#values-types-and-operators)
-
-[Values [11](#values)](#values)
-
-[Numbers [12](#numbers)](#numbers)
-
-[Strings [15](#strings)](#strings)
-
-[Unary operators [16](#unary-operators)](#unary-operators)
-
-[Boolean values [17](#boolean-values)](#boolean-values)
-
-[Undefined values [19](#undefined-values)](#undefined-values)
-
-[Automatic type conversion
-[19](#automatic-type-conversion)](#automatic-type-conversion)
-
-[Summary [22](#summary)](#summary)
-
-[**2 Program Structure**
-[**23**](#program-structure)](#program-structure)
-
-[Expressions and statements
-[23](#expressions-and-statements)](#expressions-and-statements)
-
-[Variables [24](#variables)](#variables)
-
-[Keywords and reserved words
-[26](#keywords-and-reserved-words)](#keywords-and-reserved-words)
-
-[The environment [27](#the-environment)](#the-environment)
-
-[Functions [27](#functions)](#functions)
-
-[The console.log function
-[28](#the-console.log-function)](#the-console.log-function)
-
-[Return values [28](#return-values)](#return-values)
-
-[prompt and confirm [29](#prompt-and-confirm)](#prompt-and-confirm)
-
-[Control flow [30](#control-flow)](#control-flow)
-
-[Conditional execution
-[30](#conditional-execution)](#conditional-execution)
-
-[while and do loops [32](#while-and-do-loops)](#while-and-do-loops)
-
-[Indenting Code [34](#indenting-code)](#indenting-code)
-
-[for loops [35](#for-loops)](#for-loops)
-
-[Breaking Out of a Loop
-[36](#breaking-out-of-a-loop)](#breaking-out-of-a-loop)
-
-[Updating variables succinctly
-[36](#updating-variables-succinctly)](#updating-variables-succinctly)
-
-[Dispatching on a value with switch
-[37](#dispatching-on-a-value-with-switch)](#dispatching-on-a-value-with-switch)
-
-[Capitalization [38](#capitalization)](#capitalization)
-
-[Comments [38](#comments)](#comments)
-
-[Summary [39](#summary-1)](#summary-1)
-
-[Exercises [40](#exercises)](#exercises)
-
-[**3 Functions** [**42**](#functions-1)](#functions-1)
-
-[Defining a function [42](#defining-a-function)](#defining-a-function)
-
-[Parameters and scopes
-[43](#parameters-and-scopes)](#parameters-and-scopes)
-
-[Nested scope [45](#nested-scope)](#nested-scope)
-
-[Functions as values [46](#functions-as-values)](#functions-as-values)
-
-[Declaration notation
-[47](#declaration-notation)](#declaration-notation)
-
-[The call stack [48](#the-call-stack)](#the-call-stack)
-
-[Optional Arguments [49](#optional-arguments)](#optional-arguments)
-
-[Closure [50](#closure)](#closure)
-
-[Recursion [52](#recursion)](#recursion)
-
-[Growing functions [55](#growing-functions)](#growing-functions)
-
-[Functions and side effects
-[58](#functions-and-side-effects)](#functions-and-side-effects)
-
-[Summary [58](#summary-2)](#summary-2)
-
-[Exercises [59](#exercises-1)](#exercises-1)
-
-[**4 Data Structures: Objects and Arrays**
-[**61**](#data-structures-objects-and-arrays)](#data-structures-objects-and-arrays)
-
-[The weresquirrel [61](#the-weresquirrel)](#the-weresquirrel)
-
-[Data sets [62](#data-sets)](#data-sets)
-
-[Properties [63](#properties)](#properties)
-
-[Methods [64](#methods)](#methods)
-
-[Objects [65](#objects)](#objects)
-
-[Mutability [68](#mutability)](#mutability)
-
-[The lycanthrope's log
-[69](#the-lycanthropes-log)](#the-lycanthropes-log)
-
-[Computing correlation
-[71](#computing-correlation)](#computing-correlation)
-
-[Objects as maps [73](#objects-as-maps)](#objects-as-maps)
-
-[The final analysis [74](#the-final-analysis)](#the-final-analysis)
-
-[Further arrayology [76](#further-arrayology)](#further-arrayology)
-
-[Strings and their properties
-[78](#strings-and-their-properties)](#strings-and-their-properties)
-
-[The arguments object
-[79](#the-arguments-object)](#the-arguments-object)
-
-[The Math object [80](#the-math-object)](#the-math-object)
-
-[The global object [82](#the-global-object)](#the-global-object)
-
-[Summary [82](#summary-3)](#summary-3)
-
-[Exercises [83](#exercises-2)](#exercises-2)
-
-[**5 Higher-Order Functions**
-[**86**](#higher-order-functions)](#higher-order-functions)
-
-[Abstraction [87](#abstraction)](#abstraction)
-
-[Abstracting array traversal
-[88](#abstracting-array-traversal)](#abstracting-array-traversal)
-
-[Higher-order functions
-[90](#higher-order-functions-1)](#higher-order-functions-1)
-
-[Passing along arguments
-[91](#passing-along-arguments)](#passing-along-arguments)
-
-[JSON [92](#json)](#json)
-
-[Filtering an array [94](#filtering-an-array)](#filtering-an-array)
-
-[Transforming with map
-[95](#transforming-with-map)](#transforming-with-map)
-
-[Summarizing with reduce
-[95](#summarizing-with-reduce)](#summarizing-with-reduce)
-
-[Composability [96](#composability)](#composability)
-
-[The cost [98](#the-cost)](#the-cost)
-
-[Great-great-great-great-
-[99](#great-great-great-great-)](#great-great-great-great-)
-
-[Binding [102](#binding)](#binding)
-
-[Summary [102](#summary-4)](#summary-4)
-
-[Exercises [103](#exercises-3)](#exercises-3)
-
-[**6 The Secret Life of Objects**
-[**105**](#the-secret-life-of-objects)](#the-secret-life-of-objects)
-
-[History [105](#history)](#history)
-
-[Methods [107](#methods-1)](#methods-1)
-
-[Prototypes [108](#prototypes)](#prototypes)
-
-[Constructors [109](#constructors)](#constructors)
-
-[Overriding derived properties
-[110](#overriding-derived-properties)](#overriding-derived-properties)
-
-[Prototype interference
-[112](#prototype-interference)](#prototype-interference)
-
-[Prototype-less objects
-[114](#prototype-less-objects)](#prototype-less-objects)
-
-[Polymorphism [115](#polymorphism)](#polymorphism)
-
-[Laying out a table [115](#laying-out-a-table)](#laying-out-a-table)
-
-[Getters and setters [121](#getters-and-setters)](#getters-and-setters)
-
-[Inheritance [122](#inheritance)](#inheritance)
-
-[The instanceof operator
-[124](#the-instanceof-operator)](#the-instanceof-operator)
-
-[Summary [125](#summary-5)](#summary-5)
-
-[Exercises [126](#exercises-4)](#exercises-4)
-
-[**7 Project: Electronic Life**
-[**128**](#project-electronic-life)](#project-electronic-life)
-
-[Definition [128](#definition)](#definition)
-
-[Representing space [129](#representing-space)](#representing-space)
-
-[A critter's programming interface
-[131](#a-critters-programming-interface)](#a-critters-programming-interface)
-
-[The world object [132](#the-world-object)](#the-world-object)
-
-[this and its scope [134](#this-and-its-scope)](#this-and-its-scope)
-
-[Animating life [136](#animating-life)](#animating-life)
-
-[It moves [139](#it-moves)](#it-moves)
-
-[More life forms [140](#more-life-forms)](#more-life-forms)
-
-[A more lifelike simulation
-[141](#a-more-lifelike-simulation)](#a-more-lifelike-simulation)
-
-[Action handlers [142](#action-handlers)](#action-handlers)
-
-[Populating the new world
-[144](#populating-the-new-world)](#populating-the-new-world)
-
-[Bringing it to life [145](#bringing-it-to-life)](#bringing-it-to-life)
-
-[Exercises [147](#exercises-5)](#exercises-5)
-
-[**8 Bugs and Error Handling**
-[**149**](#bugs-and-error-handling)](#bugs-and-error-handling)
-
-[Programmer mistakes [149](#programmer-mistakes)](#programmer-mistakes)
-
-[Strict mode [150](#strict-mode)](#strict-mode)
-
-[Testing [151](#testing)](#testing)
-
-[Debugging [153](#debugging)](#debugging)
-
-[Error propagation [154](#error-propagation)](#error-propagation)
-
-[Exceptions [156](#exceptions)](#exceptions)
-
-[Cleaning up after exceptions
-[157](#cleaning-up-after-exceptions)](#cleaning-up-after-exceptions)
-
-[Selective catching [159](#selective-catching)](#selective-catching)
-
-[Assertions [161](#assertions)](#assertions)
-
-[Summary [162](#summary-6)](#summary-6)
-
-[Exercises [163](#exercises-6)](#exercises-6)
-
-[**9 Regular Expressions**
-[**164**](#regular-expressions)](#regular-expressions)
-
-[Creating a regular expression
-[164](#creating-a-regular-expression)](#creating-a-regular-expression)
-
-[Testing for matches [165](#testing-for-matches)](#testing-for-matches)
-
-[Matching a set of characters
-[165](#matching-a-set-of-characters)](#matching-a-set-of-characters)
-
-[Repeating parts of a pattern
-[167](#repeating-parts-of-a-pattern)](#repeating-parts-of-a-pattern)
-
-[Grouping subexpressions
-[168](#grouping-subexpressions)](#grouping-subexpressions)
-
-[Matches and groups [168](#matches-and-groups)](#matches-and-groups)
-
-[The date type [170](#the-date-type)](#the-date-type)
-
-[Word and string boundaries
-[171](#word-and-string-boundaries)](#word-and-string-boundaries)
-
-[Choice patterns [172](#choice-patterns)](#choice-patterns)
-
-[The mechanics of matching
-[172](#the-mechanics-of-matching)](#the-mechanics-of-matching)
-
-[Backtracking [174](#backtracking)](#backtracking)
-
-[The replace method [176](#the-replace-method)](#the-replace-method)
-
-[Greed [177](#greed)](#greed)
-
-[Dynamically creating RegExp objects
-[179](#dynamically-creating-regexp-objects)](#dynamically-creating-regexp-objects)
-
-[The search method [180](#the-search-method)](#the-search-method)
-
-[The lastIndex property
-[180](#the-lastindex-property)](#the-lastindex-property)
-
-[Parsing an INI file [182](#parsing-an-ini-file)](#parsing-an-ini-file)
-
-[International characters
-[184](#international-characters)](#international-characters)
-
-[Summary [185](#summary-7)](#summary-7)
-
-[Exercises [186](#exercises-7)](#exercises-7)
-
-[**10 Modules** [**188**](#modules)](#modules)
-
-[Why modules help [188](#why-modules-help)](#why-modules-help)
-
-[Using functions as namespaces
-[191](#using-functions-as-namespaces)](#using-functions-as-namespaces)
-
-[Objects as interfaces
-[192](#objects-as-interfaces)](#objects-as-interfaces)
-
-[Detaching from the global scope
-[193](#detaching-from-the-global-scope)](#detaching-from-the-global-scope)
-
-[Evaluating data as code
-[194](#evaluating-data-as-code)](#evaluating-data-as-code)
-
-[Require [195](#require)](#require)
-
-[Slow-loading modules
-[197](#slow-loading-modules)](#slow-loading-modules)
-
-[Interface design [200](#interface-design)](#interface-design)
-
-[Summary [202](#summary-8)](#summary-8)
-
-[Exercises [203](#exercises-8)](#exercises-8)
-
-[**11 Project: A Programming Language**
-[**205**](#project-a-programming-language)](#project-a-programming-language)
-
-[Parsing [205](#parsing)](#parsing)
-
-[The evaluator [210](#the-evaluator)](#the-evaluator)
-
-[Special forms [211](#special-forms)](#special-forms)
-
-[The environment [213](#the-environment-1)](#the-environment-1)
-
-[Functions [215](#functions-2)](#functions-2)
-
-[Compilation [216](#compilation)](#compilation)
-
-[Cheating [217](#cheating)](#cheating)
-
-[Exercises [218](#exercises-9)](#exercises-9)
-
-[**12 JavaScript and the Browser**
-[**220**](#javascript-and-the-browser)](#javascript-and-the-browser)
-
-[Networks and the Internet
-[220](#networks-and-the-internet)](#networks-and-the-internet)
-
-[The Web [222](#the-web)](#the-web)
-
-[HTML [223](#html)](#html)
-
-[HTML and JavaScript [225](#html-and-javascript)](#html-and-javascript)
-
-[In the sandbox [226](#in-the-sandbox)](#in-the-sandbox)
-
-[Compatibility and the browser wars
-[227](#compatibility-and-the-browser-wars)](#compatibility-and-the-browser-wars)
-
-[**13 The Document Object Model**
-[**229**](#the-document-object-model)](#the-document-object-model)
-
-[Document structure [229](#document-structure)](#document-structure)
-
-[Trees [230](#trees)](#trees)
-
-[The standard [232](#the-standard)](#the-standard)
-
-[Moving through the tree
-[233](#moving-through-the-tree)](#moving-through-the-tree)
-
-[Finding elements [234](#finding-elements)](#finding-elements)
-
-[Changing the document
-[235](#changing-the-document)](#changing-the-document)
-
-[Creating nodes [236](#creating-nodes)](#creating-nodes)
-
-[Attributes [238](#attributes)](#attributes)
-
-[Layout [241](#layout)](#layout)
-
-[Styling [243](#styling)](#styling)
-
-[Cascading styles [244](#cascading-styles)](#cascading-styles)
-
-[Query selectors [246](#query-selectors)](#query-selectors)
-
-[Positioning and animating
-[247](#positioning-and-animating)](#positioning-and-animating)
-
-[Summary [249](#summary-9)](#summary-9)
-
-[Exercises [250](#exercises-10)](#exercises-10)
-
-[**14 Handling Events** [**252**](#handling-events)](#handling-events)
-
-[Event handlers [252](#event-handlers)](#event-handlers)
-
-[Events and DOM nodes
-[253](#events-and-dom-nodes)](#events-and-dom-nodes)
-
-[Event objects [254](#event-objects)](#event-objects)
-
-[Propagation [254](#propagation)](#propagation)
-
-[Default actions [256](#default-actions)](#default-actions)
-
-[Key events [257](#key-events)](#key-events)
-
-[Mouse clicks [259](#mouse-clicks)](#mouse-clicks)
-
-[Mouse motion [260](#mouse-motion)](#mouse-motion)
-
-[Scroll events [263](#scroll-events)](#scroll-events)
-
-[Focus events [264](#focus-events)](#focus-events)
-
-[Load event [265](#load-event)](#load-event)
-
-[Script execution timeline
-[266](#script-execution-timeline)](#script-execution-timeline)
-
-[Setting timers [267](#setting-timers)](#setting-timers)
-
-[Debouncing [268](#debouncing)](#debouncing)
-
-[Summary [270](#summary-10)](#summary-10)
-
-[Exercises [270](#exercises-11)](#exercises-11)
-
-[**15 Project: A Platform Game**
-[**272**](#project-a-platform-game)](#project-a-platform-game)
-
-[The game [272](#the-game)](#the-game)
-
-[The technology [273](#the-technology)](#the-technology)
-
-[Levels [274](#levels)](#levels)
-
-[Reading a level [275](#reading-a-level)](#reading-a-level)
-
-[Actors [276](#actors)](#actors)
-
-[Encapsulation as a burden
-[279](#encapsulation-as-a-burden)](#encapsulation-as-a-burden)
-
-[Drawing [280](#drawing)](#drawing)
-
-[Motion and collision
-[285](#motion-and-collision)](#motion-and-collision)
-
-[Actors and actions [288](#actors-and-actions)](#actors-and-actions)
-
-[Tracking keys [292](#tracking-keys)](#tracking-keys)
-
-[Running the game [293](#running-the-game)](#running-the-game)
-
-[Exercises [295](#exercises-12)](#exercises-12)
-
-[**16 Drawing on Canvas**
-[**297**](#drawing-on-canvas)](#drawing-on-canvas)
-
-[SVG [297](#svg)](#svg)
-
-[The canvas element [298](#the-canvas-element)](#the-canvas-element)
-
-[Filling and stroking
-[300](#filling-and-stroking)](#filling-and-stroking)
-
-[Paths [301](#paths)](#paths)
-
-[Curves [302](#curves)](#curves)
-
-[Drawing a pie chart [306](#drawing-a-pie-chart)](#drawing-a-pie-chart)
-
-[Text [307](#text)](#text)
-
-[Images [308](#images)](#images)
-
-[Transformation [310](#transformation)](#transformation)
-
-[Storing and clearing transformations
-[313](#storing-and-clearing-transformations)](#storing-and-clearing-transformations)
-
-[Back to the game [314](#back-to-the-game)](#back-to-the-game)
-
-[Choosing a graphics interface
-[320](#choosing-a-graphics-interface)](#choosing-a-graphics-interface)
-
-[Summary [321](#summary-11)](#summary-11)
-
-[Exercises [322](#exercises-13)](#exercises-13)
-
-[**17 HTTP** [**324**](#http)](#http)
-
-[The protocol [324](#the-protocol)](#the-protocol)
-
-[Browsers and HTTP [326](#browsers-and-http)](#browsers-and-http)
-
-[XMLHttpRequest [328](#xmlhttprequest)](#xmlhttprequest)
-
-[Sending a request [328](#sending-a-request)](#sending-a-request)
-
-[Asynchronous Requests
-[330](#asynchronous-requests)](#asynchronous-requests)
-
-[Fetching XML Data [330](#fetching-xml-data)](#fetching-xml-data)
-
-[HTTP sandboxing [331](#http-sandboxing)](#http-sandboxing)
-
-[Abstracting requests
-[332](#abstracting-requests)](#abstracting-requests)
-
-[Promises [335](#promises)](#promises)
-
-[Appreciating HTTP [338](#appreciating-http)](#appreciating-http)
-
-[Security and HTTPS [338](#security-and-https)](#security-and-https)
-
-[Summary [339](#summary-12)](#summary-12)
-
-[Exercises [340](#exercises-14)](#exercises-14)
-
-[**18 Forms and Form Fields**
-[**342**](#forms-and-form-fields)](#forms-and-form-fields)
-
-[Fields [342](#fields)](#fields)
-
-[Focus [344](#focus)](#focus)
-
-[Disabled fields [345](#disabled-fields)](#disabled-fields)
-
-[The form as a whole [345](#the-form-as-a-whole)](#the-form-as-a-whole)
-
-[Text fields [347](#text-fields)](#text-fields)
-
-[Checkboxes and radio buttons
-[348](#checkboxes-and-radio-buttons)](#checkboxes-and-radio-buttons)
-
-[Select fields [349](#select-fields)](#select-fields)
-
-[File fields [351](#file-fields)](#file-fields)
-
-[Storing data client-side
-[353](#storing-data-client-side)](#storing-data-client-side)
-
-[Summary [356](#summary-13)](#summary-13)
-
-[Exercises [357](#exercises-15)](#exercises-15)
-
-[**19 Project: A Paint Program**
-[**359**](#project-a-paint-program)](#project-a-paint-program)
-
-[Implementation [360](#implementation)](#implementation)
-
-[Building the DOM [360](#building-the-dom)](#building-the-dom)
-
-[The foundation [361](#the-foundation)](#the-foundation)
-
-[Tool selection [362](#tool-selection)](#tool-selection)
-
-[Color and brush size
-[365](#color-and-brush-size)](#color-and-brush-size)
-
-[Saving [367](#saving)](#saving)
-
-[Loading image files [368](#loading-image-files)](#loading-image-files)
-
-[Finishing up [370](#finishing-up)](#finishing-up)
-
-[Exercises [372](#exercises-16)](#exercises-16)
-
-[**20 Node.js** [**376**](#node.js)](#node.js)
-
-[Background [376](#background)](#background)
-
-[Asynchronicity [377](#asynchronicity)](#asynchronicity)
-
-[The node command [378](#the-node-command)](#the-node-command)
-
-[Modules [380](#modules-1)](#modules-1)
-
-[Installing with NPM [381](#installing-with-npm)](#installing-with-npm)
-
-[The file system module
-[382](#the-file-system-module)](#the-file-system-module)
-
-[The HTTP module [384](#the-http-module)](#the-http-module)
-
-[Streams [386](#streams)](#streams)
-
-[A simple file server
-[388](#a-simple-file-server)](#a-simple-file-server)
-
-[Error handling [393](#error-handling)](#error-handling)
-
-[Summary [395](#summary-14)](#summary-14)
-
-[Exercises [395](#exercises-17)](#exercises-17)
-
-[**21 Project: Skill-Sharing Website**
-[**399**](#project-skill-sharing-website)](#project-skill-sharing-website)
-
-[Design [400](#design)](#design)
-
-[Long polling [401](#long-polling)](#long-polling)
-
-[HTTP interface [402](#http-interface)](#http-interface)
-
-[The server [404](#the-server)](#the-server)
-
-[The client [413](#the-client)](#the-client)
-
-[Exercises [421](#exercises-18)](#exercises-18)
-
-[Program Structure [424](#program-structure-1)](#program-structure-1)
-
-[Functions [425](#functions-3)](#functions-3)
-
-[Data Structures: Objects and Arrays
-[426](#data-structures-objects-and-arrays-1)](#data-structures-objects-and-arrays-1)
-
-[Higher-Order Functions
-[428](#higher-order-functions-2)](#higher-order-functions-2)
-
-[The Secret Life of Objects
-[429](#the-secret-life-of-objects-1)](#the-secret-life-of-objects-1)
-
-[Project: Electronic Life
-[430](#project-electronic-life-1)](#project-electronic-life-1)
-
-[Bugs and Error Handling
-[432](#bugs-and-error-handling-1)](#bugs-and-error-handling-1)
-
-[Regular Expressions
-[432](#regular-expressions-1)](#regular-expressions-1)
-
-[Modules [433](#modules-2)](#modules-2)
-
-[Project: A Programming Language
-[435](#project-a-programming-language-1)](#project-a-programming-language-1)
-
-[The Document Object Model
-[436](#the-document-object-model-1)](#the-document-object-model-1)
-
-[Handling Events [437](#handling-events-1)](#handling-events-1)
-
-[Project: A Platform Game
-[438](#project-a-platform-game-1)](#project-a-platform-game-1)
-
-[Drawing on Canvas [439](#drawing-on-canvas-1)](#drawing-on-canvas-1)
-
-[HTTP [441](#http-1)](#http-1)
-
-[Forms and Form Fields
-[442](#forms-and-form-fields-1)](#forms-and-form-fields-1)
-
-[Project: A Paint Program
-[444](#project-a-paint-program-1)](#project-a-paint-program-1)
-
-[Node.js [446](#node.js-1)](#node.js-1)
-
-[Project: Skill-Sharing Website
-[448](#project-skill-sharing-website-1)](#project-skill-sharing-website-1)
-
-**Introduction**
-
-This is a book about getting computers to do what you want them to do.
-Computers are about as common as screwdrivers today, but they contain a
-lot more hidden complexity and thus are harder to operate and
-understand. To many, they remain alien, slightly threatening things.
-
-![](./images/media/image1.png){width="5.236319991251094in"
-height="1.7437970253718285in"}
+// ![](./images/image001.png){width="5.236319991251094in" height="1.7437970253718285in"}
 
 We've found two effective ways of bridging the communication gap between
 us, squishy biological organisms with a talent for social and spatial
@@ -821,7 +73,7 @@ I do not enlighten those who are not eager to learn, nor arouse those
 who are not anxious to give an explanation themselves. If I have
 presented one corner of the square and they cannot come back to me
 with the other three, I should not go over the points again.
->
+
 ---Confucius
 
 Besides explaining JavaScript, I also will introduce the basic
@@ -898,25 +150,17 @@ In the beginning, at the birth of computing, there were no programming
 languages. Programs looked something like this:
 
 00110001 00000000 00000000
->
 00110001 00000001 00000001
->
 00110011 00000001 00000010
->
 01010001 00001011 00000010
->
 00100010 00000010 00001000
->
 01000011 00000001 00000000
->
 01000001 00000001 00000001
->
 00010000 00000010 00000000
->
 01100010 00000000 00000000
 
 That is a program to add the numbers from 1 to 10 together and print out
-the result: 1 + 2 + \... + 10 = 55. It could run on a simple,
+the result: 1 + 2 + &hellip; + 10 = 55. It could run on a simple,
 hypothetical machine. To program early computers, it was necessary to
 set large arrays of switches in the right position or punch holes in
 strips of cardboard and feed them to the computer. You can probably
@@ -1182,7 +426,7 @@ which you have already seen a few), are written as follows:
 function fac(n) {
 if (n == 0) return 1;
 else
-return fac(n - 1) \* n;
+return fac(n - 1) &ast; n;
 }
 ```
 
@@ -1328,9 +572,9 @@ The main thing to do with numbers is arithmetic. Arithmetic operations
 such as addition or multiplication take two number values and produce a
 new number from them. Here is what they look like in JavaScript:
 
-100 + 4 \* 11
+100 + 4 &ast; 11
 
-The + and \* symbols are called *operators*. The first stands for
+The + and &ast; symbols are called *operators*. The first stands for
 addition, and the second stands for multiplication. Putting an operator
 between two values will apply it to those values and produce a new
 value.
@@ -1340,7 +584,7 @@ is the multiplication done before the adding? As you might have guessed,
 the multiplication happens first. But as in mathematics, you can change
 this by wrapping the addition in parentheses.
 
-(100 + 4) \* 11
+(100 + 4) &ast; 11
 
 For subtraction, there is the - operator, and division can be done with
 the / operator.
@@ -1348,7 +592,7 @@ the / operator.
 When operators appear together without parentheses, the order in which
 they are applied is determined by the *precedence* of the operators. The
 example shows that multiplication comes before addition. The / operator
-has the same precedence as \*. Likewise for + and -. When multiple
+has the same precedence as &ast;. Likewise for + and -. When multiple
 operators with the same precedence appear next to each other, as in 1 -
 2 + 1, they are applied left to right: (1 - 2)+ 1.
 
@@ -1386,7 +630,7 @@ text. They are written by enclosing their content in quotes.
 
 &quot;Patch my boat with chewing gum&quot;
 >
-\'Monkeys wave goodbye\'
+&apos;Monkeys wave goodbye&apos;
 
 Both single and double quotes can be used to mark strings as long as the
 quotes at the start and the end of the string match.
@@ -1398,7 +642,7 @@ characters you get when you press Enter) also can't be put between
 quotes. The string has to stay on a single line.
 
 To make it possible to include such characters in a string, the
-following notation is used: whenever a backslash (\\) is found inside
+following notation is used: whenever a backslash (&bsol;&bsol;) is found inside
 quoted text, it indicates that the character after it has a special
 meaning. This is called *escaping* the character. A quote that is
 preceded by a backslash will not end the string but be part of it. When
@@ -1406,7 +650,7 @@ an n character occurs after a backslash, it is interpreted as a newline.
 Similarly, a t after a backslash means a tab character. Take the
 following string:
 
-&quot;This is the first line\\nAnd this is the second&quot; The actual text
+&quot;This is the first line&bsol;&bsol;nAnd this is the second&quot; The actual text
 contained is this:
 
 This is the first line
@@ -1417,9 +661,9 @@ There are, of course, situations where you want a backslash in a string
 to be just a backslash, not a special code. If two backslashes follow
 each other, they will collapse together, and only one will be left in
 the resulting string value. This is how the string "A newline character
-is written like &quot;\\n&quot;." can be expressed:
+is written like &quot;&bsol;&bsol;n&quot;." can be expressed:
 
-&quot;A newline character is written like \\&quot;\\\\n\\&quot;.&quot;
+&quot;A newline character is written like &bsol;&bsol;&quot;&bsol;&bsol;&bsol;&bsol;n&bsol;&bsol;&quot;.&quot;
 
 Strings cannot be divided, multiplied, or subtracted, but the + operator
 *can* be used on them. It does not add, but it *concatenates*---it glues
@@ -1526,12 +770,12 @@ console.log(true && false)
 
 // ~→~ true
 
-The \|\| operator denotes logical *or*. It produces true if either of
+The &vert;&vert; operator denotes logical *or*. It produces true if either of
 the values given to it is true.
 
-console.log(false \|\| true)
+console.log(false &vert;&vert; true)
 
-// ~→~ true console.log(false \|\| false)
+// ~→~ true console.log(false &vert;&vert; false)
 
 // ~→~ false
 
@@ -1542,12 +786,12 @@ true.
 When mixing these Boolean operators with arithmetic and other operators,
 it is not always obvious when parentheses are needed. In practice, you
 can usually get by with knowing that of the operators we have seen so
-far, \|\| has the lowest precedence, then comes &&, then the comparison
+far, &vert;&vert; has the lowest precedence, then comes &&, then the comparison
 operators (&gt;, ==, and so on), and then the rest. This order has been
 chosen such that, in typical expressions like the following one, as few
 parentheses as possible are necessary:
 
-1 + 1 == 2 && 10 \* 10 &gt; 50
+1 + 1 == 2 && 10 &ast; 10 &gt; 50
 
 The last logical operator I will discuss is not unary, not binary, but
 *ternary*, operating on three values. It is written with a question mark
@@ -1588,7 +832,7 @@ In the introduction, I mentioned that JavaScript goes out of its way to
 accept almost any program you give it, even programs that do odd things.
 This is nicely demonstrated by the following expressions:
 
-console.log(8 \* null)
+console.log(8 &ast; null)
 
 // ~→~ 0
 
@@ -1600,7 +844,7 @@ console.log(&quot;5&quot; + 1)
 
 // ~→~ 51
 
-console.log(&quot;five&quot; \* 2) // ~→~ NaN
+console.log(&quot;five&quot; &ast; 2) // ~→~ NaN
 
 console.log(false == 0)
 
@@ -1659,24 +903,24 @@ problem with using the shorter operators.
 
 #### Short-circuiting of logical operators
 
-The logical operators && and \|\| handle values of different types in a
+The logical operators && and &vert;&vert; handle values of different types in a
 peculiar way. They will convert the value on their left side to Boolean
 type in order to decide what to do, but depending on the operator and
 the result of that conversion, they return either the *original*
 left-hand value or the right-hand value.
 
-The \|\| operator, for example, will return the value to its left when
+The &vert;&vert; operator, for example, will return the value to its left when
 that can be converted to true and will return the value on its right
 otherwise. This conversion works as you'd expect for Boolean values and
 should do something analogous for values of other types.
 
-console.log(null \|\| &quot;user&quot;)
+console.log(null &vert;&vert; &quot;user&quot;)
 
-// ~→~ user console.log(&quot;Karl&quot; \|\| &quot;user&quot;)
+// ~→~ user console.log(&quot;Karl&quot; &vert;&vert; &quot;user&quot;)
 
 // ~→~ Karl
 
-This functionality allows the \|\| operator to be used as a way to fall
+This functionality allows the &vert;&vert; operator to be used as a way to fall
 back on a default value. If you give it an expression that might produce
 an empty value on the left, the value on the right will be used as a
 replacement in that case.
@@ -1687,7 +931,7 @@ value, and otherwise it returns the value on its right.
 
 Another important property of these two operators is that the expression
 to their right is evaluated only when necessary. In the case of true
-\|\| X, no matter what X is---even if it's an expression that does
+&vert;&vert; X, no matter what X is---even if it's an expression that does
 something *terrible*---the result will be true, and X is never
 evaluated. The same goes for false && X, which is false and will ignore
 X. This is called *short-circuit evaluation*.
@@ -1703,9 +947,9 @@ strings, Booleans, and undefined values.
 
 Such values are created by typing in their name (true, null) or value
 (13, &quot;abc&quot;). You can combine and transform values with operators. We
-saw binary operators for arithmetic (+, -, \*, /, and %), string
+saw binary operators for arithmetic (+, -, &ast;, /, and %), string
 concatenation (+), comparison (==, !=, ===, !==, &lt;, &gt;, &lt;=, &gt;=), and
-logic (&&, \|\|), as well as several unary operators (- to negate a
+logic (&&, &vert;&vert;), as well as several unary operators (- to negate a
 number, ! to negate logically, and typeof to find a value's type) and a
 ternary operator (?:) to pick one of two values based on a third value.
 
@@ -1718,7 +962,7 @@ they have to administer 10cc of JavaScript to get me to come back. (I
 respond well to toxins in the blood.) Man, that stuff will kick the
 peaches right out your gills!"*
 
----\_why, *Why's (Poignant) Guide to Ruby*
+---&lowbar;why, *Why's (Poignant) Guide to Ruby*
 
 # 2 Program Structure
 
@@ -1783,7 +1027,7 @@ not change the old values, and the new value has to be immediately used
 or it will dissipate again. To catch and hold values, JavaScript
 provides a thing called a *variable*.
 
-var caught = 5 \* 5;
+var caught = 5 &ast; 5;
 
 And that gives us our second kind of statement. The special word
 (*keyword*) var indicates that this sentence is going to define a
@@ -1797,7 +1041,7 @@ After a variable has been defined, its name can be used as an
 expression. The value of such an expression is the value the variable
 currently holds. Here's an example:
 
-var ten = 10; console.log(ten \* ten);
+var ten = 10; console.log(ten &ast; ten);
 
 // ~→~ 100
 
@@ -1805,7 +1049,7 @@ Variable names can be any word that isn't a reserved word (such as var).
 They may not include spaces. Digits can also be part of variable
 names---catch22 is a valid name, for example---but the name must not
 start with a digit. A variable name cannot include punctuation, except
-for the characters \$ and \_.
+for the characters &dollar; and &lowbar;.
 
 When a variable points at a value, that does not mean it is tied to that
 value forever. The = operator can be used at any time on existing
@@ -1834,7 +1078,7 @@ hold on to it or you reattach one of your existing tentacles to it.
 // ![](./images/media/image3.jpg){width="5.236770559930009in" height="2.380349956255468in"}
 
 Let's look at an example. To remember the number of dollars that Luigi
-still owes you, you create a variable. And then when he pays back \$35,
+still owes you, you create a variable. And then when he pays back &dollar;35,
 you give this variable a new value.
 
 var luigisDebt = 140; luigisDebt = luigisDebt - 35;
@@ -1984,7 +1228,7 @@ argument is the question, the second one is the text that the user
 starts with. A line of text can be typed into the dialog window, and the
 function will return this text as a string.
 
-prompt(&quot;Tell me everything you know.&quot;, &quot;\...&quot;);
+prompt(&quot;Tell me everything you know.&quot;, &quot;&hellip;&quot;);
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 06.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -2008,7 +1252,7 @@ and the second, which is executed afterward, shows the square of that
 number.
 
 var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;)); alert(&quot;Your
-number is the square root of &quot; + theNumber \* theNumber);
+number is the square root of &quot; + theNumber &ast; theNumber);
 
 The function Number converts a value to a number. We need that
 conversion because the result of prompt is a string value, and we want a
@@ -2032,7 +1276,7 @@ a number. var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;)
 
 if (!isNaN(theNumber))
 
-alert(&quot;Your number is the square root of &quot; + theNumber \*
+alert(&quot;Your number is the square root of &quot; + theNumber &ast;
 theNumber);
 
 With this modification, if you enter "cheese", no output will be shown.
@@ -2057,12 +1301,12 @@ var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;));
 
 if (!isNaN(theNumber))
 
-alert(&quot;Your number is the square root of &quot; + theNumber \*
+alert(&quot;Your number is the square root of &quot; + theNumber &ast;
 theNumber);
 
 else
 
-alert(&quot;Hey. Why didn\'t you give me a number?&quot;);
+alert(&quot;Hey. Why didn&apos;t you give me a number?&quot;);
 
 If we have more than two paths to choose from, multiple if/else pairs
 can be "chained" together. Here's an example: var num =
@@ -2113,7 +1357,7 @@ number + 2;
 
 // ~→~ 2
 
-// \... etcetera
+// &hellip; etcetera
 
 A statement starting with the keyword while creates a loop. The word
 while is followed by an expression in parentheses and then a statement,
@@ -2148,7 +1392,7 @@ whether the second variable has reached 10 yet and then updates both
 variables.
 
 var result = 1; var counter = 0; while (counter &lt; 10) { result =
-result \* 2;
+result &ast; 2;
 
 counter = counter + 1;
 
@@ -2210,7 +1454,7 @@ console.log(number);
 
 // ~→~ 2
 
-// \... etcetera
+// &hellip; etcetera
 
 This program is exactly equivalent to the earlier even-number-printing
 example. The only change is that all the statements that are related to
@@ -2229,7 +1473,7 @@ var result = 1;
 
 for (var counter = 0; counter &lt; 10; counter = counter + 1)
 
-result = result \* 2; console.log(result);
+result = result &ast; 2; console.log(result);
 
 // ~→~ 1024
 
@@ -2281,7 +1525,7 @@ JavaScript provides a shortcut for this:
 
 counter += 1;
 
-Similar shortcuts work for many other operators, such as result \*= 2 to
+Similar shortcuts work for many other operators, such as result &ast;= 2 to
 double result or counter -= 1 to count downward.
 
 This allows us to shorten our counting example a little more.
@@ -2369,7 +1613,7 @@ ignored by the computer. JavaScript has two ways of writing comments. To
 write a single-line comment, you can use two slash characters (//) and
 then the comment text after it.
 
-var accountBalance = calculateBalance(account); // It\'s a green
+var accountBalance = calculateBalance(account); // It&apos;s a green
 hollow where a river sings accountBalance.adjust();
 
 // Madly catching white tatters in the grass. var report = new
@@ -2379,21 +1623,21 @@ Report();
 
 addToReport(accountBalance, report);
 
-// It\'s a little valley, foaming like light in a glass.
+// It&apos;s a little valley, foaming like light in a glass.
 
 A // comment goes only to the end of the line. A section of text between
-/\* and \*/ will be ignored, regardless of whether it contains line
+/&ast; and &ast;/ will be ignored, regardless of whether it contains line
 breaks. This is often useful for adding blocks of information about a
 file or a chunk of program.
 
-/\*
+/&ast;
 
 I first found this number scrawled on the back of one of my notebooks
 a few years ago. Since then, it has often dropped by, showing up in
-phone numbers and the serial numbers of products that I\'ve bought. It
-obviously likes me, so I\'ve decided to keep it.
+phone numbers and the serial numbers of products that I&apos;ve bought. It
+obviously likes me, so I&apos;ve decided to keep it.
 
-\*/
+&ast;/
 
 var myNumber = 11213;
 
@@ -2437,19 +1681,19 @@ you've attacked it long and hard enough to have a slight headache.
 Write a loop that makes seven calls to console.log to output the
 following triangle:
 
-\#
+&bsol;#
 
-\##
+&bsol;##
 
-\###
+&bsol;###
 
-\####
+&bsol;####
 
-\#####
+&bsol;#####
 
-\######
+&bsol;######
 
-\#######
+&bsol;#######
 
 It may be useful to know that you can find the length of a string by
 writing .length after it.
@@ -2484,15 +1728,15 @@ board.
 
 Passing this string to console.log should show something like this:
 
-\# \# \# \# \# \# \# \#
+&bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 
-\# \# \# \# \# \# \# \#
+&bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 
-\# \# \# \# \# \# \# \#
+&bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 
-\# \# \# \#
+&bsol;# &bsol;# &bsol;# &bsol;#
 
-\# \# \# \#
+&bsol;# &bsol;# &bsol;# &bsol;#
 
 When you have a program that generates this pattern, define a variable
 size = 8 and change the program so that it works for any size,
@@ -2533,7 +1777,7 @@ produces the square of a given number:
 
 var square = function(x) {
 
-return x \* x;
+return x &ast; x;
 
 };
 
@@ -2566,7 +1810,7 @@ var result = 1;
 
 for (var count = 0; count &lt; exponent; count++)
 
-result \*= base;
+result &ast;= base;
 
 return result;
 
@@ -2650,7 +1894,7 @@ function(size) {
 
 for (var count = 0; count &lt; size; count++)
 
-result += &quot;\_&quot;;
+result += &quot;&lowbar;&quot;;
 
 };
 
@@ -2660,9 +1904,9 @@ result += &quot;/&quot;;
 
 for (var count = 0; count &lt; size; count++)
 
-result += &quot;\'&quot;;
+result += &quot;&apos;&quot;;
 
-result += &quot;\\\\&quot;;
+result += &quot;&bsol;&bsol;&bsol;&bsol;&quot;;
 
 };
 
@@ -2672,7 +1916,7 @@ flat(3); mountain(4); flat(6); mountain(1); flat(1); return result;
 
 console.log(landscape());
 
-// ~→~ \_\_\_/\'\'\'\'\\\_\_\_\_\_\_/\'\\\_
+// ~→~ &lowbar;&lowbar;&lowbar;/&apos;&apos;&apos;&apos;&bsol;&bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/&apos;&bsol;&bsol;&lowbar;
 
 The flat and mountain functions can "see" the variable called result,
 since they are inside the function that defines it. But they cannot see
@@ -2701,11 +1945,11 @@ var something = 1;
 
 var something = 2;
 
-// Do stuff with variable something\...
+// Do stuff with variable something&hellip;
 
 }
 
-// Outside of the block again\...
+// Outside of the block again&hellip;
 
 But the something inside the block refers to the same variable as the
 one outside the block. In fact, although blocks like this are allowed,
@@ -2735,20 +1979,20 @@ missileSystem.launch(&quot;now&quot;);
 
 }; if (safeMode)
 
-launchMissiles = function(value) {/\* do nothing \*/};
+launchMissiles = function(value) {/&ast; do nothing &ast;/};
 
 In Chapter 5, we will discuss the wonderful things that can be done by
 passing around function values to other functions.
 
 ## Declaration notation
 
-There is a slightly shorter way to say "var square = \...function". The
+There is a slightly shorter way to say "var square = &hellip;function". The
 function keyword can also be used at the start of a statement, as in the
 following:
 
 function square(x) {
 
-return x \* x;
+return x &ast; x;
 
 }
 
@@ -2880,7 +2124,7 @@ exponent = 2; var result = 1;
 
 for (var count = 0; count &lt; exponent; count++)
 
-result \*= base;
+result &ast;= base;
 
 return result;
 
@@ -2948,7 +2192,7 @@ With a slight change, we can turn the previous example into a way to
 create functions that multiply by an arbitrary amount.
 
 function multiplier(factor) { return function(number) { return number
-\* factor;
+&ast; factor;
 
 };
 
@@ -2964,12 +2208,12 @@ a parameter is itself a local variable.
 Thinking about programs like this takes some practice. A good mental
 model is to think of the function keyword as "freezing" the code in its
 body and wrapping it into a package (the function value). So when you
-read return function(\...){\...}, think of it as returning a handle to a
+read return function(&hellip;){&hellip;}, think of it as returning a handle to a
 piece of computation, frozen for later use.
 
 In the example, multiplier returns a frozen chunk of code that gets
 stored in the twice variable. The last line then calls the value in this
-variable, causing the frozen code (return number \* factor;) to be
+variable, causing the frozen code (return number &ast; factor;) to be
 activated. It still has access to the factor variable from the
 multiplier call that created it, and in addition it gets access to the
 argument passed when unfreezing it, 5, through its number parameter.
@@ -2990,7 +2234,7 @@ return 1;
 
 else
 
-return base \* power(base, exponent - 1);
+return base &ast; power(base, exponent - 1);
 
 }
 
@@ -3064,8 +2308,8 @@ return null;
 
 else
 
-return find(start + 5, &quot;(&quot; + history + &quot; + 5)&quot;) \|\| find(start \*
-3, &quot;(&quot; + history + &quot; \* 3)&quot;);
+return find(start + 5, &quot;(&quot; + history + &quot; + 5)&quot;) &vert;&vert; find(start &ast;
+3, &quot;(&quot; + history + &quot; &ast; 3)&quot;);
 
 }
 
@@ -3075,7 +2319,7 @@ return find(1, &quot;1&quot;);
 
 console.log(findSolution(24));
 
-// ~→~ (((1 \* 3) + 5) \* 3)
+// ~→~ (((1 &ast; 3) + 5) &ast; 3)
 
 Note that this program doesn't necessarily find the *shortest* sequence
 of operations. It is satisfied when it finds any sequence at all.
@@ -3115,28 +2359,28 @@ find(16, &quot;(((1 + 5) + 5) + 5)&quot;)
 
 too big
 
-find(33, &quot;(((1 + 5) + 5) \* 3)&quot;)
+find(33, &quot;(((1 + 5) + 5) &ast; 3)&quot;)
 
 too big
 
-find(18, &quot;((1 + 5) \* 3)&quot;)
+find(18, &quot;((1 + 5) &ast; 3)&quot;)
 
 too big
 
-find(3, &quot;(1 \* 3)&quot;)
+find(3, &quot;(1 &ast; 3)&quot;)
 
-find(8, &quot;((1 \* 3) + 5)&quot;) find(13, &quot;(((1 \* 3) + 5) + 5)&quot;) found!
+find(8, &quot;((1 &ast; 3) + 5)&quot;) find(13, &quot;(((1 &ast; 3) + 5) + 5)&quot;) found!
 
 The indentation suggests the depth of the call stack. The first time
 find is called it calls itself twice to explore the solutions that start
-with (1 + 5) and (1 \* 3). The first call tries to find a solution that
+with (1 + 5) and (1 &ast; 3). The first call tries to find a solution that
 starts with (1 + 5) and, using recursion, explores *every* solution that
 yields a number less than or equal to the target number. Since it
 doesn't find a solution that hits the target, it returns null back to
-the first call. There the \|\| operator causes the call that explores (1
-\* 3) to happen. This search has more luck because its first recursive
+the first call. There the &vert;&vert; operator causes the call that explores (1
+&ast; 3) to happen. This search has more luck because its first recursive
 call, through yet *another* recursive call, hits upon the target number,
-13. This innermost recursive call returns a string, and each of the \|\|
+13. This innermost recursive call returns a string, and each of the &vert;&vert;
 operators in the intermediate calls pass that string along, ultimately
 returning our solution.
 
@@ -3313,7 +2557,7 @@ function as its value.
 
 // Declare g to be a function function g(a, b) {
 
-return a \* b \* 3.5;
+return a &ast; b &ast; 3.5;
 
 }
 
@@ -3496,7 +2740,7 @@ nonvalues, you get an error.
 
 null.length;
 
-// ~→~ TypeError: Cannot read property \'length\' of null
+// ~→~ TypeError: Cannot read property &apos;length&apos; of null
 
 The two most common ways to access properties in JavaScript are with a
 dot and with square brackets. Both value.x and value&lbrack;x&rbrack; access a
@@ -3547,7 +2791,7 @@ Interestingly, even though the call to toUpperCase does not pass any
 arguments, the function somehow has access to the string &quot;Doh&quot;, the
 value whose property we called. How this works is described in Chapter
 
-6\.
+6&bsol;.
 
 Properties that contain functions are generally called *methods* of the
 value they belong to. As in, "toUpperCase is a method of a string".
@@ -3709,7 +2953,7 @@ var journal = &lbrack;
 
 &quot;peanuts&quot;, &quot;beer&quot;&rbrack;, squirrel: true},
 
-/\* and so on\... \*/
+/&ast; and so on&hellip; &ast;/
 
 &rbrack;;
 
@@ -3833,7 +3077,7 @@ false.
 
 So for the pizza table, the part above the division line (the dividend)
 would be 1be the square root of 5×76 - 4×9 = 4085 , and the part below
-it (the divisor) would10 80, or √~340000.\ This\ comes\ out\ to\ *φ\ *~≈
+it (the divisor) would10 80, or √~340000.&bsol; This&bsol; comes&bsol; out&bsol; to&bsol; *φ&bsol; *~≈
 
 × × ×
 
@@ -3860,9 +3104,9 @@ array:
 
 ```
 function phi(table) {
-return (table&lbrack;3&rbrack; \* table&lbrack;0&rbrack; - table&lbrack;2&rbrack; \* table&lbrack;1&rbrack;) /
-Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) \* (table&lbrack;0&rbrack; + table&lbrack;1&rbrack;) \*
-(table&lbrack;1&rbrack; + table&lbrack;3&rbrack;) \*
+return (table&lbrack;3&rbrack; &ast; table&lbrack;0&rbrack; - table&lbrack;2&rbrack; &ast; table&lbrack;1&rbrack;) /
+Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) &ast; (table&lbrack;0&rbrack; + table&lbrack;1&rbrack;) &ast;
+(table&lbrack;1&rbrack; + table&lbrack;3&rbrack;) &ast;
 (table&lbrack;0&rbrack; + table&lbrack;2&rbrack;));
 }
 
@@ -3964,10 +3208,10 @@ itself by the use of the word in.
 
 ```
 for (var event in map)
-console.log(&quot;The correlation for \'&quot; + event +
-&quot;\' is &quot; + map&lbrack;event&rbrack;);
-// ~→~ The correlation for \'pizza\' is 0.069
-// ~→~ The correlation for \'touched tree\' is -0.081
+console.log(&quot;The correlation for &apos;&quot; + event +
+&quot;&apos; is &quot; + map&lbrack;event&rbrack;);
+// ~→~ The correlation for &apos;pizza&apos; is 0.069
+// ~→~ The correlation for &apos;touched tree&apos; is -0.081
 ```
 
 ## The final analysis
@@ -4003,7 +3247,7 @@ for (var event in correlations)
 console.log(event + &quot;: &quot; + correlations&lbrack;event&rbrack;);
 // ~→~ carrot: 0.0140970969 // ~→~ exercise: 0.0685994341 // ~→~
 weekend: 0.1371988681 // ~→~ bread: -0.0757554019 // ~→~ pudding:
--0.0648203724 // and so on\...
+-0.0648203724 // and so on&hellip;
 ```
 
 Most correlations seem to lie close to zero. Eating carrots, bread, or
@@ -4013,7 +3257,7 @@ results to show only correlations greater than 0.1 or less than -0.1.
 
 ```
 for (var event in correlations) {
-var correlation = correlations&lbrack;event&rbrack;; if (correlation &gt; 0.1 \|\|
+var correlation = correlations&lbrack;event&rbrack;; if (correlation &gt; 0.1 &vert;&vert;
 correlation &lt; -0.1)
 console.log(event + &quot;: &quot; + correlation);
 }
@@ -4167,7 +3411,7 @@ The trim method removes whitespace (spaces, newlines, tabs, and similar
 characters) from the start and end of a string.
 
 ```
-console.log(&quot; okay \\n &quot;.trim());
+console.log(&quot; okay &bsol;&bsol;n &quot;.trim());
 // ~→~ okay
 ```
 
@@ -4273,8 +3517,8 @@ programming tradition of writing the names of constant values in all
 caps.)
 
 ```
-function randomPointOnCircle(radius) { var angle = Math.random() \* 2
-\* Math.PI; return {x: radius \* Math.cos(angle), y: radius \*
+function randomPointOnCircle(radius) { var angle = Math.random() &ast; 2
+&ast; Math.PI; return {x: radius &ast; Math.cos(angle), y: radius &ast;
 Math.sin(angle)};
 }
 console.log(randomPointOnCircle(2));
@@ -4311,7 +3555,7 @@ Math.floor (which rounds down to the nearest whole number) on the result
 of Math.random.
 
 ```
-console.log(Math.floor(Math.random() \* 10));
+console.log(Math.floor(Math.random() &ast; 10));
 // ~→~ 2
 ```
 
@@ -4319,7 +3563,7 @@ Multiplying the random number by 10 gives us a number greater than or
 equal to zero, and below 10. Since Math.floor rounds down, this
 expression will produce, with equal chance, any number from 0 through
 
-9\.
+9&bsol;.
 
 There are also the functions Math.ceil (for "ceiling", which rounds up
 to a whole number) and Math.round (to the nearest whole number).
@@ -4825,7 +4069,7 @@ The file I created looks something like this:
 {&quot;name&quot;: &quot;Carolus Haverbeke&quot;, &quot;sex&quot;: &quot;m&quot;,
 
 &quot;born&quot;: 1832, &quot;died&quot;: 1905, &quot;father&quot;: &quot;Carel Haverbeke&quot;,
-&quot;mother&quot;: &quot;Maria van Brussel&quot;},\...
+&quot;mother&quot;: &quot;Maria van Brussel&quot;},&hellip;
 
 and so on
 
@@ -4891,7 +4135,7 @@ return person.born &gt; 1900 && person.born &lt; 1925;
 
 }));
 
-// ~→~ &lbrack;{name: &quot;Philibert Haverbeke&quot;, \...}, \...&rbrack;
+// ~→~ &lbrack;{name: &quot;Philibert Haverbeke&quot;, &hellip;}, &hellip;&rbrack;
 
 This uses the argument named test, a function value, to fill in a "gap"
 in the computation. The test function is called for each element, and
@@ -4916,7 +4160,7 @@ return person.father == &quot;Carel Haverbeke&quot;;
 
 }));
 
-// ~→~ &lbrack;{name: &quot;Carolus Haverbeke&quot;, \...}&rbrack;
+// ~→~ &lbrack;{name: &quot;Carolus Haverbeke&quot;, &hellip;}&rbrack;
 
 ## Transforming with map
 
@@ -5012,7 +4256,7 @@ if (cur.born &lt; min.born) return cur; else return min;
 
 }));
 
-// ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, \...}
+// ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
 
 ## Composability
 
@@ -5033,7 +4277,7 @@ min = cur;
 
 console.log(min);
 
-// ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, \...}
+// ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
 
 There are a few more variables, and the program is two lines longer but
 still quite easy to understand.
@@ -5137,7 +4381,7 @@ byName&lbrack;person.name&rbrack; = person;
 
 console.log(byName&lbrack;&quot;Philibert Haverbeke&quot;&rbrack;);
 
-// ~→~ {name: &quot;Philibert Haverbeke&quot;, \...}
+// ~→~ {name: &quot;Philibert Haverbeke&quot;, &hellip;}
 
 Now, the problem is not entirely as simple as following the father
 properties and counting how many we need to reach Pauwels. There are
@@ -5302,12 +4546,12 @@ return isInSet(theSet, person);
 
 }));
 
-// ~→~ &lbrack;{name: &quot;Maria van Brussel&quot;, \...}, // {name: &quot;Carel
-Haverbeke&quot;, \...}&rbrack;
+// ~→~ &lbrack;{name: &quot;Maria van Brussel&quot;, &hellip;}, // {name: &quot;Carel
+Haverbeke&quot;, &hellip;}&rbrack;
 
 console.log(ancestry.filter(isInSet.bind(null, theSet)));
 
-// ~→~\... same result
+// ~→~&hellip; same result
 
 The call to bind returns a function that will call isInSet with theSet
 as first argument, followed by any remaining arguments given to the
@@ -5457,13 +4701,13 @@ simple method:
 
 var rabbit = {}; rabbit.speak = function(line) {
 
-console.log(&quot;The rabbit says \'&quot; + line + &quot;\'&quot;);
+console.log(&quot;The rabbit says &apos;&quot; + line + &quot;&apos;&quot;);
 
 };
 
-rabbit.speak(&quot;I\'m alive.&quot;);
+rabbit.speak(&quot;I&apos;m alive.&quot;);
 
-// ~→~ The rabbit says \'I\'m alive.\'
+// ~→~ The rabbit says &apos;I&apos;m alive.&apos;
 
 Usually a method needs to do something with the object it was called on.
 When a function is called as a method---looked up as a property and
@@ -5472,8 +4716,8 @@ its body will point to the object that it was called on.
 
 function speak(line) {
 
-console.log(&quot;The &quot; + this.type + &quot; rabbit says \'&quot; + line +
-&quot;\'&quot;);
+console.log(&quot;The &quot; + this.type + &quot; rabbit says &apos;&quot; + line +
+&quot;&apos;&quot;);
 
 }
 
@@ -5482,17 +4726,17 @@ var whiteRabbit = {type: &quot;white&quot;, speak: speak}; var fatRabbit =
 
 whiteRabbit.speak(&quot;Oh my ears and whiskers, &quot; +
 
-&quot;how late it\'s getting!&quot;);
+&quot;how late it&apos;s getting!&quot;);
 
-// ~→~ The white rabbit says \'Oh my ears and whiskers, how
+// ~→~ The white rabbit says &apos;Oh my ears and whiskers, how
 
-// late it\'s getting!\'
+// late it&apos;s getting!&apos;
 
 fatRabbit.speak(&quot;I could sure use a carrot right now.&quot;);
 
-// ~→~ The fat rabbit says \'I could sure use a carrot
+// ~→~ The fat rabbit says &apos;I could sure use a carrot
 
-// right now.\'
+// right now.&apos;
 
 The code uses the this keyword to output the type of rabbit that is
 speaking. Recall that the apply and bind methods both take a first
@@ -5504,8 +4748,8 @@ function it is a method of but takes its arguments normally, rather than
 as an array. Like apply and bind, call can be passed a specific this
 value. speak.apply(fatRabbit, &lbrack;&quot;Burp!&quot;&rbrack;);
 
-// ~→~ The fat rabbit says \'Burp!\' speak.call({type: &quot;old&quot;}, &quot;Oh
-my.&quot;); // ~→~ The old rabbit says \'Oh my.\'
+// ~→~ The fat rabbit says &apos;Burp!&apos; speak.call({type: &quot;old&quot;}, &quot;Oh
+my.&quot;); // ~→~ The old rabbit says &apos;Oh my.&apos;
 
 ## Prototypes
 
@@ -5513,7 +4757,7 @@ Watch closely.
 
 var empty = {};
 
-console.log(empty.toString); // ~→~ function toString()\...{}
+console.log(empty.toString); // ~→~ function toString()&hellip;{}
 
 console.log(empty.toString());
 
@@ -5573,7 +4817,7 @@ prototype.
 var protoRabbit = {
 
 speak: function(line) { console.log(&quot;The &quot; + this.type + &quot; rabbit
-says \'&quot; + line + &quot;\'&quot;);
+says &apos;&quot; + line + &quot;&apos;&quot;);
 
 } };
 
@@ -5582,7 +4826,7 @@ var killerRabbit = Object.create(protoRabbit); killerRabbit.type =
 
 killerRabbit.speak(&quot;SKREEEE!&quot;);
 
-// ~→~ The killer rabbit says \'SKREEEE!\'
+// ~→~ The killer rabbit says &apos;SKREEEE!&apos;
 
 The "proto" rabbit acts as a container for the properties that are
 shared by all rabbits. An individual rabbit object, like the killer
@@ -5623,13 +4867,13 @@ have this object as its prototype. So to add a speak method to rabbits
 created with the Rabbit constructor, we can simply do this:
 
 Rabbit.prototype.speak = function(line) { console.log(&quot;The &quot; +
-this.type + &quot; rabbit says \'&quot; + line + &quot;\'&quot;);
+this.type + &quot; rabbit says &apos;&quot; + line + &quot;&apos;&quot;);
 
 };
 
-blackRabbit.speak(&quot;Doom\...&quot;);
+blackRabbit.speak(&quot;Doom&hellip;&quot;);
 
-// ~→~ The black rabbit says \'Doom\...\'
+// ~→~ The black rabbit says &apos;Doom&hellip;&apos;
 
 It is important to note the distinction between the way a prototype is
 associated with a constructor (through its prototype property) and the
@@ -5668,7 +4912,7 @@ be looked up.
 
 toString: &lt;function&gt;
 
-\...
+&hellip;
 
 teeth: &quot;small&quot;
 
@@ -5676,7 +4920,7 @@ speak: &lt;function&gt;
 
 killerRabbit
 
-teeth: &quot;long, sharp, \...&quot;
+teeth: &quot;long, sharp, &hellip;&quot;
 
 adjective: &quot;killer&quot;
 
@@ -5690,7 +4934,7 @@ create: &lt;function&gt;
 
 prototype
 
-\...
+&hellip;
 
 Overriding properties that exist in a prototype is often a useful thing
 to do. As the rabbit teeth example shows, it can be used to express
@@ -5816,7 +5060,7 @@ for (var name in map) {
 
 if (map.hasOwnProperty(name)) {
 
-// \... this is an own property
+// &hellip; this is an own property
 
 }
 
@@ -5924,14 +5168,14 @@ function rowHeights(rows) {
  }, 0); });
 }
 function colWidths(rows) {
-  return rows&lbrack;0&rbrack;.map(function(\_, i) {
+  return rows&lbrack;0&rbrack;.map(function(&lowbar;, i) {
     return rows.reduce(function(max, row) {
       return Math.max(max, row&lbrack;i&rbrack;.minWidth());
     }, 0); });
 }
 ```
 
-Using a variable name starting with an underscore (\_) or consisting
+Using a variable name starting with an underscore (&lowbar;) or consisting
 entirely of a single underscore is a way to indicate (to human readers)
 that this argument is not going to be used.
 
@@ -5963,11 +5207,11 @@ function drawTable(rows) {
     var blocks = row.map(function(cell, colNum) {
       return cell.draw(widths&lbrack;colNum&rbrack;, heights&lbrack;rowNum&rbrack;);
     });
-    return blocks&lbrack;0&rbrack;.map(function(\_, lineNo) {
+    return blocks&lbrack;0&rbrack;.map(function(&lowbar;, lineNo) {
       return drawLine(blocks, lineNo);
-    }).join(&quot;\\n&quot;);
+    }).join(&quot;&bsol;&bsol;n&quot;);
   }
-  return rows.map(drawRow).join(&quot;\\n&quot;); 
+  return rows.map(drawRow).join(&quot;&bsol;&bsol;n&quot;); 
 }
 ```
 
@@ -5981,7 +5225,7 @@ might be represented by a single-element array like &lbrack;&quot;3776&quot;&rbr
 whereas an underlined cell might take up two lines and be represented by
 the array &lbrack;&quot;name&quot;,
 
-&quot;\-\-\--&quot;&rbrack;.
+&quot;&hyphen;&hyphen;&hyphen;-&quot;&rbrack;.
 
 The blocks for a row, which all have the same height, should appear next
 to each other in the final output. The second call to map in drawRow
@@ -6013,7 +5257,7 @@ return result;
 
 function TextCell(text) {
 
-this.text = text.split(&quot;\\n&quot;);
+this.text = text.split(&quot;&bsol;&bsol;n&quot;);
 
 }
 
@@ -6034,7 +5278,7 @@ return this.text.length;
 
 TextCell.prototype.draw = function(width, height) { var result = &lbrack;&rbrack;;
 for (var i = 0; i &lt; height; i++) {
-var line = this.text&lbrack;i&rbrack; \|\| &quot;&quot;;
+var line = this.text&lbrack;i&rbrack; &vert;&vert; &quot;&quot;;
 
 result.push(line + repeat(&quot; &quot;, width - line.length));
 
@@ -6072,13 +5316,13 @@ rows.push(row);
 
 console.log(drawTable(rows));
 
-// ~→~ \## \## \## // \## \##
+// ~→~ &bsol;## &bsol;## &bsol;## // &bsol;## &bsol;##
 
-// \## \## \##
+// &bsol;## &bsol;## &bsol;##
 
-// \## \##
+// &bsol;## &bsol;##
 
-// \## \## \##
+// &bsol;## &bsol;## &bsol;##
 
 It works! But since all cells have the same size, the table-layout code
 doesn't really do anything interesting.
@@ -6148,10 +5392,10 @@ return &lbrack;headers&rbrack;.concat(body);
 } console.log(drawTable(dataTable(MOUNTAINS))); // ~→~ name height
 country
 
-// \-\-\-\-\-\-\-\-\-\-\-- \-\-\-\-\-- \-\-\-\-\-\-\-\-\-\-\--//
+// &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;-//
 Kilimanjaro 5895 Tanzania
 
-// \... etcetera
+// &hellip; etcetera
 
 The standard Object.keys function returns an array of property names in
 an object. The top row of the table must contain underlined cells that
@@ -6217,7 +5461,7 @@ function() { return this.text.length; }
 
 });
 
-var cell = new TextCell(&quot;no\\nway&quot;); console.log(cell.heightProp);
+var cell = new TextCell(&quot;no&bsol;&bsol;nway&quot;); console.log(cell.heightProp);
 
 // ~→~ 2
 
@@ -6252,7 +5496,7 @@ RTextCell.prototype = Object.create(TextCell.prototype);
 RTextCell.prototype.draw = function(width, height) { var result =
 &lbrack;&rbrack;; for (var i = 0; i &lt; height; i++) {
 
-var line = this.text&lbrack;i&rbrack; \|\| &quot;&quot;;
+var line = this.text&lbrack;i&rbrack; &vert;&vert; &quot;&quot;;
 
 result.push(repeat(&quot; &quot;, width - line.length) + line);
 
@@ -6310,7 +5554,7 @@ return &lbrack;headers&rbrack;.concat(body);
 
 console.log(drawTable(dataTable(MOUNTAINS)));
 
-// ~→~\... beautifully aligned table
+// ~→~&hellip; beautifully aligned table
 
 Inheritance is a fundamental part of the object-oriented tradition,
 alongside encapsulation and polymorphism. But while the latter two are
@@ -6464,20 +5708,20 @@ not accurate, so we can freely cut such corners.
 We can define a world with a *plan*, an array of strings that lays out
 the world's grid using one character per square.
 
-var plan = &lbrack;&quot;############################&quot;, &quot;# \# \# o ##&quot;, &quot;#
-#&quot;, &quot;# \##### #&quot;,
+var plan = &lbrack;&quot;############################&quot;, &quot;# &bsol;# &bsol;# o ##&quot;, &quot;#
+#&quot;, &quot;# &bsol;##### #&quot;,
 
-&quot;## \# \# \## #&quot;,
+&quot;## &bsol;# &bsol;# &bsol;## #&quot;,
 
-&quot;### \## \# #&quot;,
+&quot;### &bsol;## &bsol;# #&quot;,
 
-&quot;# \### \# #&quot;,
+&quot;# &bsol;### &bsol;# #&quot;,
 
-&quot;# \#### #&quot;,
+&quot;# &bsol;#### #&quot;,
 
-&quot;# \## o #&quot;, &quot;# o \# o \### #&quot;,
+&quot;# &bsol;## o #&quot;, &quot;# o &bsol;# o &bsol;### #&quot;,
 
-&quot;# \# #&quot;,
+&quot;# &bsol;# #&quot;,
 
 &quot;############################&quot;&rbrack;;
 
@@ -6535,7 +5779,7 @@ array.
 var grid = &lbrack;&quot;top left&quot;, &quot;top middle&quot;, &quot;top right&quot;,
 
 &quot;bottom left&quot;, &quot;bottom middle&quot;, &quot;bottom right&quot;&rbrack;;
-console.log(grid&lbrack;2 + (1 \* 3)&rbrack;);
+console.log(grid&lbrack;2 + (1 &ast; 3)&rbrack;);
 
 // ~→~ bottom right
 
@@ -6549,7 +5793,7 @@ This code defines the Grid object, with some basic methods:
 
 function Grid(width, height) {
 
-this.space = new Array(width \* height); this.width = width;
+this.space = new Array(width &ast; height); this.width = width;
 
 this.height = height;
 
@@ -6561,12 +5805,12 @@ vector.x &lt; this.width && vector.y &gt;= 0 && vector.y &lt; this.height;
 };
 
 Grid.prototype.get = function(vector) { return this.space&lbrack;vector.x +
-this.width \* vector.y&rbrack;;
+this.width &ast; vector.y&rbrack;;
 
 };
 
 Grid.prototype.set = function(vector, value) { this.space&lbrack;vector.x +
-this.width \* vector.y&rbrack; = value;
+this.width &ast; vector.y&rbrack; = value;
 
 };
 
@@ -6621,7 +5865,7 @@ var directions = {
 };
 
 The view object has a method look, which takes a direction and returns a
-character, for example &quot;\\#&quot; when there is a wall in that direction,
+character, for example &quot;&bsol;&bsol;#&quot; when there is a wall in that direction,
 or &quot; &quot; (space) when there is nothing there. The object also provides
 the convenient methods find and findAll. Both take a map character as an
 argument. The first returns a direction in which the character can be
@@ -6630,7 +5874,7 @@ The second returns an array containing all directions with that
 character. For example, a creature sitting left (west) of a wall will
 get &lbrack;&quot;ne&quot;, &quot;e&quot;,
 
-&quot;se&quot;&rbrack; when calling findAll on its view object with the &quot;\\#&quot;
+&quot;se&quot;&rbrack; when calling findAll on its view object with the &quot;&bsol;&bsol;#&quot;
 character as argument.
 
 Here is a simple, stupid critter that just follows its nose until it
@@ -6638,7 +5882,7 @@ hits an obstacle and then bounces off in a random open direction:
 
 function randomElement(array) {
 
-return array&lbrack;Math.floor(Math.random() \* array.length)&rbrack;;
+return array&lbrack;Math.floor(Math.random() &ast; array.length)&rbrack;;
 
 }
 
@@ -6653,7 +5897,7 @@ this.direction = randomElement(directionNames);
 BouncingCritter.prototype.act = function(view) { if
 (view.look(this.direction) != &quot; &quot;)
 
-this.direction = view.find(&quot; &quot;) \|\| &quot;s&quot;;
+this.direction = view.find(&quot; &quot;) &vert;&vert; &quot;s&quot;;
 
 return {type: &quot;move&quot;, direction: this.direction}; };
 
@@ -6670,7 +5914,7 @@ properties are listed. In most situations, modern JavaScript engines
 will return properties in the order they were defined, but they are not
 required to.
 
-The "\|\| &quot;s&quot;" in the act method is there to prevent this.direction
+The "&vert;&vert; &quot;s&quot;" in the act method is there to prevent this.direction
 from getting the value null if the critter is somehow trapped with no
 empty space around it (for example when crowded into a corner by other
 critters).
@@ -6735,7 +5979,7 @@ charFromElement(element);
 
 }
 
-output += &quot;\\n&quot;;
+output += &quot;&bsol;&bsol;n&quot;;
 
 }
 
@@ -6754,21 +5998,21 @@ var world = new World(plan, {&quot;#&quot;: Wall,
 
 &quot;o&quot;: BouncingCritter});
 
-console.log(world.toString()); // ~→~ \############################
+console.log(world.toString()); // ~→~ &bsol;############################
 
-// \# \# \# o \## // \# \# // \# \##### \#
+// &bsol;# &bsol;# &bsol;# o &bsol;## // &bsol;# &bsol;# // &bsol;# &bsol;##### &bsol;#
 
-// \## \# \# \## \#
+// &bsol;## &bsol;# &bsol;# &bsol;## &bsol;#
 
-// \### \## \# \#
+// &bsol;### &bsol;## &bsol;# &bsol;#
 
-// \# \### \# \#
+// &bsol;# &bsol;### &bsol;# &bsol;#
 
-// \# \#### \#
+// &bsol;# &bsol;#### &bsol;#
 
-// \# \## o \# // \# o \# o \### \# // \# \# \#
+// &bsol;# &bsol;## o &bsol;# // &bsol;# o &bsol;# o &bsol;### &bsol;# // &bsol;# &bsol;# &bsol;#
 
-// \############################
+// &bsol;############################
 
 ## this and its scope
 
@@ -6851,7 +6095,7 @@ this.height; y++) {
 
 for (var x = 0; x &lt; this.width; x++) {
 
-var value = this.space&lbrack;x + y \* this.width&rbrack;; if (value != null)
+var value = this.space&lbrack;x + y &ast; this.width&rbrack;; if (value != null)
 
 f.call(context, value, new Vector(x, y));
 
@@ -6953,7 +6197,7 @@ does not, so you will have to rely on some other form of communication
 to describe what is part of an object's interface. Sometimes it can help
 to use a naming scheme to distinguish between external and internal
 properties, for example by prefixing all internal ones with an
-underscore character (\_). This will make accidental uses of properties
+underscore character (&lowbar;). This will make accidental uses of properties
 that are not part of an object's interface easier to spot. The one
 missing part, the View type, looks like this:
 
@@ -7010,48 +6254,48 @@ console.log(world.toString());
 
 }
 
-// ~→~\... five turns of moving critters
+// ~→~&hellip; five turns of moving critters
 
 The first two maps that are displayed will look something like this
 (depending on the random direction the critters picked):
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# | \#    | \#     |   | \## \#     | \#    | \#     | \##    |
+| &bsol;# | &bsol;#    | &bsol;#     |   | &bsol;## &bsol;#     | &bsol;#    | &bsol;#     | &bsol;##    |
 +====+=======+==========+===+============+=======+==========+========+
-| \# |       |          | o | \# \#    |       |          | \#     |
+| &bsol;# |       |          | o | &bsol;# &bsol;#    |       |          | &bsol;#     |
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# |       | \##### |   | \# \#    |       | \##### | o \#   |
+| &bsol;# |       | &bsol;##### |   | &bsol;# &bsol;#    |       | &bsol;##### | o &bsol;#   |
 +----+-------+----------+---+------------+-------+----------+--------+
-|  |       | \# \#    | | \# \##   |       | \# \#    | \## \# |
-|  \ |       |          |   |            |       |          |        |
-| ## |       |          | \ |            |       |          |        |
+|  |       | &bsol;# &bsol;#    | | &bsol;# &bsol;##   |       | &bsol;# &bsol;#    | &bsol;## &bsol;# |
+|  &bsol; |       |          |   |            |       |          |        |
+| ## |       |          | &bsol; |            |       |          |        |
 |    |       |          | # |            |       |          |        |
 |    |       |          | # |            |       |          |        |
 +----+-------+----------+---+------------+-------+----------+--------+
-|  |       | \##    | | \# \###  |       | \##    | \# \#  |
-| \# |       |          |   |            |       |          |        |
-| ## |       |          | \ |            |       |          |        |
+|  |       | &bsol;##    | | &bsol;# &bsol;###  |       | &bsol;##    | &bsol;# &bsol;#  |
+| &bsol;# |       |          |   |            |       |          |        |
+| ## |       |          | &bsol; |            |       |          |        |
 |    |       |          | # |            |       |          |        |
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# |       | \###   | | \# \#    |       | \###   | \# \#  |
+| &bsol;# |       | &bsol;###   | | &bsol;# &bsol;#    |       | &bsol;###   | &bsol;# &bsol;#  |
 |    |       |          |   |            |       |          |        |
-|    |       |          | \ |            |       |          |        |
+|    |       |          | &bsol; |            |       |          |        |
 |    |       |          | # |            |       |          |        |
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# |     |          |   | \# \#    |     |          | \#     |
-|    | \#### |          |   |            | \#### |          |        |
+| &bsol;# |     |          |   | &bsol;# &bsol;#    |     |          | &bsol;#     |
+|    | &bsol;#### |          |   |            | &bsol;#### |          |        |
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# | \##   |          |   | \# \#    | \##   |          | \#     |
+| &bsol;# | &bsol;##   |          |   | &bsol;# &bsol;#    | &bsol;##   |          | &bsol;#     |
 +----+-------+----------+---+------------+-------+----------+--------+
-| \# | \#  | o      |   | \### \# #o | \#  |          | \###   |
-|    |       |          |   |            |       |          | \#     |
+| &bsol;# | &bsol;#  | o      |   | &bsol;### &bsol;# #o | &bsol;#  |          | &bsol;###   |
+|    |       |          |   |            |       |          | &bsol;#     |
 +----+-------+----------+---+------------+-------+----------+--------+
-| #o | \#  | o      |   | \# \#    | \#  | o o    | \#     |
+| #o | &bsol;#  | o      |   | &bsol;# &bsol;#    | &bsol;#  | o o    | &bsol;#     |
 +----+-------+----------+---+------------+-------+----------+--------+
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 They move! To get a more interactive view of these critters crawling
 around and bouncing off the walls, open this chapter in the online
@@ -7217,7 +6461,7 @@ actionTypes.move = function(critter, vector, action) {
 
 var dest = this.checkDestination(action, vector);
 
-if (dest == null \|\| critter.energy &lt;= 1 \|\| this.grid.get(dest) !=
+if (dest == null &vert;&vert; critter.energy &lt;= 1 &vert;&vert; this.grid.get(dest) !=
 null)
 
 return false;
@@ -7236,7 +6480,7 @@ moving, critters can eat.
 
 actionTypes.eat = function(critter, vector, action) { var dest =
 this.checkDestination(action, vector); var atDest = dest != null &&
-this.grid.get(dest); if (!atDest \|\| atDest.energy == null)
+this.grid.get(dest); if (!atDest &vert;&vert; atDest.energy == null)
 
 return false;
 
@@ -7257,12 +6501,12 @@ elementFromChar(this.legend, critter.originChar);
 
 var dest = this.checkDestination(action, vector);
 
-if (dest == null \|\| critter.energy &lt;= 2 \* baby.energy \|\|
+if (dest == null &vert;&vert; critter.energy &lt;= 2 &ast; baby.energy &vert;&vert;
 this.grid.get(dest) != null)
 
 return false;
 
-critter.energy -= 2 \* baby.energy; this.grid.set(dest, baby); return
+critter.energy -= 2 &ast; baby.energy; this.grid.set(dest, baby); return
 true;
 
 };
@@ -7286,7 +6530,7 @@ First we'll write a plant, which is a rather simple life-form.
 
 function Plant() {
 
-this.energy = 3 + Math.random() \* 4;
+this.energy = 3 + Math.random() &ast; 4;
 
 }
 
@@ -7322,7 +6566,7 @@ PlantEater.prototype.act = function(context) { var space =
 context.find(&quot; &quot;); if (this.energy &gt; 60 && space) return {type:
 &quot;reproduce&quot;, direction: space};
 
-var plant = context.find(&quot;\*&quot;); if (plant) return {type: &quot;eat&quot;,
+var plant = context.find(&quot;&ast;&quot;); if (plant) return {type: &quot;eat&quot;,
 direction: plant};
 
 if (space)
@@ -7331,7 +6575,7 @@ return {type: &quot;move&quot;, direction: space};
 
 };
 
-We'll use the \* character for plants, so that's what this creature will
+We'll use the &ast; character for plants, so that's what this creature will
 look for when it searches for food.
 
 ## Bringing it to life
@@ -7342,185 +6586,185 @@ boulders, and lush plant life everywhere.
 
 var valley = new LifelikeWorld(
 
-&lbrack;&quot;############################&quot;, &quot;##### ######&quot;, &quot;## \*\*\*
-\*\*##&quot;, &quot;# \*##\*\* \*\* O \*##&quot;, &quot;# \*\*\* O ##\*\* \*#&quot;, &quot;# O
-##\*\*\* #&quot;,
+&lbrack;&quot;############################&quot;, &quot;##### ######&quot;, &quot;## &ast;&ast;&ast;
+&ast;&ast;##&quot;, &quot;# &ast;##&ast;&ast; &ast;&ast; O &ast;##&quot;, &quot;# &ast;&ast;&ast; O ##&ast;&ast; &ast;#&quot;, &quot;# O
+##&ast;&ast;&ast; #&quot;,
 
-&quot;# ##\*\* #&quot;,
+&quot;# ##&ast;&ast; #&quot;,
 
-&quot;# O #\* #&quot;,
+&quot;# O #&ast; #&quot;,
 
-&quot;#\* #\*\* O #&quot;,
+&quot;#&ast; #&ast;&ast; O #&quot;,
 
-&quot;#\*\*\* ##\*\* O \*\*#&quot;, &quot;##\*\*\*\* ###\*\*\* \*###&quot;,
+&quot;#&ast;&ast;&ast; ##&ast;&ast; O &ast;&ast;#&quot;, &quot;##&ast;&ast;&ast;&ast; ###&ast;&ast;&ast; &ast;###&quot;,
 &quot;############################&quot;&rbrack;,
 
 {&quot;#&quot;: Wall,
 
 &quot;O&quot;: PlantEater,
 
-&quot;\*&quot;: Plant}
+&quot;&ast;&quot;: Plant}
 
 );
 
 Let's see what happens if we run this. These snapshots illustrate a
 typical run of this world.
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 +----+------+--------+-------+----------------+------------------+---+
-|  |      |        | \#  |                | \######          |   |
-| \# |      |        | ##### |                |                  |   |
-| ## |      |        | \   |                |                  |   |
+|  |      |        | &bsol;#  |                | &bsol;######          |   |
+| &bsol;# |      |        | ##### |                |                  |   |
+| ## |      |        | &bsol;   |                |                  |   |
 | ## |      |        | ##### |                |                  |   |
 |    |      |        |     |                |                  |   |
-|    |      |        |  \*\* |                |                  |   |
+|    |      |        |  &ast;&ast; |                |                  |   |
 +====+======+========+=======+================+==================+===+
-|  | \* | O    |       | \*## \## \*\*  | O              | |
-|  \ | \*\* |        |       | \*             |                  |   |
-| ## |      |        |       |                |                  | \ |
+|  | &ast; | O    |       | &ast;## &bsol;## &ast;&ast;  | O              | |
+|  &bsol; | &ast;&ast; |        |       | &ast;             |                  |   |
+| ## |      |        |       |                |                  | &bsol; |
 |    |      |        |       |                |                  | # |
 |    |      |        |       |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-| \# | \*   |        | \*\*  | \*## \# \*\*## |                  | |
-|    | ##\* |        |       |                |                  |   |
-|    |      |        |       |                |                  | \ |
+| &bsol;# | &ast;   |        | &ast;&ast;  | &ast;## &bsol;# &ast;&ast;## |                  | |
+|    | ##&ast; |        |       |                |                  |   |
+|    |      |        |       |                |                  | &bsol; |
 |    |      |        |       |                |                  | # |
 |    |      |        |       |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-| \# |    |        |     | \*# \# \*\*  | ##O            | \ |
-|    | \*\* |        |  ##\* | O            |                  | # |
+| &bsol;# |    |        |     | &ast;# &bsol;# &ast;&ast;  | ##O            | &bsol; |
+|    | &ast;&ast; |        |  ##&ast; | O            |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-| \# |      |        |     | \# \# \*O      | \* \* \##        | \ |
-|    |      |        |  ##\* |                |                  | # |
+| &bsol;# |      |        |     | &bsol;# &bsol;# &ast;O      | &ast; &ast; &bsol;##        | &bsol; |
+|    |      |        |  ##&ast; |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-| \# |      |        | \## O | \# \#        | \*\*\* \##       | O |
-|    |      |        |       |                |                  | \ |
+| &bsol;# |      |        | &bsol;## O | &bsol;# &bsol;#        | &ast;&ast;&ast; &bsol;##       | O |
+|    |      |        |       |                |                  | &bsol; |
 |    |      |        |       |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-| \# |      | #\*  | O   | \# #\*\*     | #\*\*\*        | \ |
+| &bsol;# |      | #&ast;  | O   | &bsol;# #&ast;&ast;     | #&ast;&ast;&ast;        | &bsol; |
 |    |      |        |       |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
-|  |      | #\*\*  |       | \# #\*\*     | O #\*\*\*\*      | \ |
+|  |      | #&ast;&ast;  |       | &bsol;# #&ast;&ast;     | O #&ast;&ast;&ast;&ast;      | &bsol; |
 |  # |      | O      |       |                |                  | # |
-| \* |      |        |       |                |                  |   |
+| &ast; |      |        |       |                |                  |   |
 +----+------+--------+-------+----------------+------------------+---+
-|  | O  | O ##\* |       | \*\*# #\*\*\*  | ##\*\*\* O       | \ |
+|  | O  | O ##&ast; |       | &ast;&ast;# #&ast;&ast;&ast;  | ##&ast;&ast;&ast; O       | &bsol; |
 |  # |      |        |       |                |                  | # |
-| \* |      |        |       |                |                  |   |
+| &ast; |      |        |       |                |                  |   |
 +----+------+--------+-------+----------------+------------------+---+
-|  |      |      |       | \### ##\*\*    | ###\*\* O        | |
-| ## |      |  ###\* |       |                |                  |   |
-| \* |      |        |       |                |                  | \ |
+|  |      |      |       | &bsol;### ##&ast;&ast;    | ###&ast;&ast; O        | |
+| ## |      |  ###&ast; |       |                |                  |   |
+| &ast; |      |        |       |                |                  | &bsol; |
 |    |      |        |       |                |                  | # |
 |    |      |        |       |                |                  | # |
 |    |      |        |       |                |                  | # |
 +----+------+--------+-------+----------------+------------------+---+
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 +-----+------+---------------+------------+---+---------------+------+
-|   |      | \######       |            |   |               | \##  |
-| ### |      | \##### O      |            |   |               | #### |
+|   |      | &bsol;######       |            |   |               | &bsol;##  |
+| ### |      | &bsol;##### O      |            |   |               | #### |
 | ##O |      |               |            |   |               |      |
 | O |      |               |            |   |               |      |
 +=====+======+===============+============+===+===============+======+
-|   |      |               | \## \##  |   |               | \##  |
-| \## |      |               |            |   |               |      |
+|   |      |               | &bsol;## &bsol;##  |   |               | &bsol;##  |
+| &bsol;## |      |               |            |   |               |      |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  | ##O  |               | \## \#   | \ | O           | \##  |
+| &bsol;#  | ##O  |               | &bsol;## &bsol;#   | &bsol; | O           | &bsol;##  |
 |     |      |               |            | # |               |      |
 |     |      |               |            | # |               |      |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  |      | O O \*##    | \# \#    |   | \##         | \#   |
+| &bsol;#  |      | O O &ast;##    | &bsol;# &bsol;#    |   | &bsol;##         | &bsol;#   |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  | O  | O \*\*##    | O \# \#    |   | \##         | \#   |
+| &bsol;#  | O  | O &ast;&ast;##    | O &bsol;# &bsol;#    |   | &bsol;##         | &bsol;#   |
 | O   |      |               |            |   |               |      |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  |      | \*\*##      | O \# \#  |   | O \## \*      | \#   |
+| &bsol;#  |      | &ast;&ast;##      | O &bsol;# &bsol;#  |   | O &bsol;## &ast;      | &bsol;#   |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  |      | \# \*\*\* \*  | \# \#    |   | \# O        | \#   |
+| &bsol;#  |      | &bsol;# &ast;&ast;&ast; &ast;  | &bsol;# &bsol;#    |   | &bsol;# O        | &bsol;#   |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  |      | \#          | \# \#    |   | O \# O        | \#   |
-|     |      | O\*\*\*\*\* |            |   |               |      |
+| &bsol;#  |      | &bsol;#          | &bsol;# &bsol;#    |   | O &bsol;# O        | &bsol;#   |
+|     |      | O&ast;&ast;&ast;&ast;&ast; |            |   |               |      |
 |     |      | O           |            |   |               |      |
 +-----+------+---------------+------------+---+---------------+------+
-| \#  |      | #           | \# \#    |   | \## O         | O \# |
-|     |      | #\*\*\*\*\*\* |            |   |               |      |
+| &bsol;#  |      | #           | &bsol;# &bsol;#    |   | &bsol;## O         | O &bsol;# |
+|     |      | #&ast;&ast;&ast;&ast;&ast;&ast; |            |   |               |      |
 +-----+------+---------------+------------+---+---------------+------+
-|   |      | ##            | \### \## |   | \### O      | \### |
-| \## |      | #\*\*\*\*\*\* |            |   |               |      |
+|   |      | ##            | &bsol;### &bsol;## |   | &bsol;### O      | &bsol;### |
+| &bsol;## |      | #&ast;&ast;&ast;&ast;&ast;&ast; |            |   |               |      |
 +-----+------+---------------+------------+---+---------------+------+
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 +------------+-------+----+---+------------------+-------+-----------+
-| \#####   |       |    | \ |                  |       | \######   |
+| &bsol;#####   |       |    | &bsol; |                  |       | &bsol;######   |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
-|            |       |    | \ |                  |       |           |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 +============+=======+====+===+==================+=======+===========+
-| \##      |       |    | |                  |       | \*\* \* |
-|            |       |    |   |                  |       | \##     |
-|            |       |    | \ |                  |       |           |
+| &bsol;##      |       |    | |                  |       | &ast;&ast; &ast; |
+|            |       |    |   |                  |       | &bsol;##     |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | |                  |       |           |
 |            |       |    |   |                  |       |           |
-|            |       |    | \ |                  |       |           |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 +------------+-------+----+---+------------------+-------+-----------+
-| \# \##     |       |    | \ |                  |       | \       |
-|            |       |    | # |                  |       | *\*\*\*\* |
-|            |       |    | # |                  |       | \##     |
-|            |       |    | \ |                  |       |           |
+| &bsol;# &bsol;##     |       |    | &bsol; |                  |       | &bsol;       |
+|            |       |    | # |                  |       | *&ast;&ast;&ast;&ast; |
+|            |       |    | # |                  |       | &bsol;##     |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
-|            |       |    | \ |                  |       |           |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
 |            |       |    | # |                  |       |           |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         |       | \  | |                  |       | #         |
-|            |       | ## |   |                  |       | #\*\*\*\* |
-|            |       |    | \ |                  |       | \#        |
+| &bsol;#         |       | &bsol;  | |                  |       | #         |
+|            |       | ## |   |                  |       | #&ast;&ast;&ast;&ast; |
+|            |       |    | &bsol; |                  |       | &bsol;#        |
 |            |       |    | # |                  |       |           |
 |            |       |    | |                  |       |           |
 |            |       |    |   |                  |       |           |
-|            |       |    | \ |                  |       |           |
+|            |       |    | &bsol; |                  |       |           |
 |            |       |    | # |                  |       |           |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         |     |    |   | \# \#          |       | ##\       |
-|            |  ##\* |    |   |                  |       | *\*\*\*\* |
-|            | \*  |    |   |                  |       | \#        |
+| &bsol;#         |     |    |   | &bsol;# &bsol;#          |       | ##&bsol;       |
+|            |  ##&ast; |    |   |                  |       | *&ast;&ast;&ast;&ast; |
+|            | &ast;  |    |   |                  |       | &bsol;#        |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         | O   |    |   | \# \#          |       | ##\*\     |
-|            | \## |    |   |                  |       | *\*\*\*\* |
-|            | \*  |    |   |                  |       | \#        |
+| &bsol;#         | O   |    |   | &bsol;# &bsol;#          |       | ##&ast;&bsol;     |
+|            | &bsol;## |    |   |                  |       | *&ast;&ast;&ast;&ast; |
+|            | &ast;  |    |   |                  |       | &bsol;#        |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         | \#  |    |   | \# \#          | \#  | \*\* \*\* |
-|            |       |    |   |                  |       | \#        |
+| &bsol;#         | &bsol;#  |    |   | &bsol;# &bsol;#          | &bsol;#  | &ast;&ast; &ast;&ast; |
+|            |       |    |   |                  |       | &bsol;#        |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         | \#  |    |   | \# \#          | \#  | \#        |
+| &bsol;#         | &bsol;#  |    |   | &bsol;# &bsol;#          | &bsol;#  | &bsol;#        |
 +------------+-------+----+---+------------------+-------+-----------+
-| \#         | \## |    |   | \# \#          | \## | \#        |
+| &bsol;#         | &bsol;## |    |   | &bsol;# &bsol;#          | &bsol;## | &bsol;#        |
 +------------+-------+----+---+------------------+-------+-----------+
-| \##      | \###  |    |   | \### \##         | \###  | \###      |
+| &bsol;##      | &bsol;###  |    |   | &bsol;### &bsol;##         | &bsol;###  | &bsol;###      |
 +------------+-------+----+---+------------------+-------+-----------+
 
-\############################ \############################
+&bsol;############################ &bsol;############################
 
 Most of the time, the plants multiply and expand quite quickly, but then
 the abundance of food causes a population explosion of the herbivores,
@@ -7607,7 +6851,7 @@ expressions before even running a program and will tell you right away
 when a type is used in an inconsistent way. JavaScript considers types
 only when actually running the program, and even then, it allows you to
 do some clearly nonsensical things without complaint, such as x = true
-\* &quot;monkey&quot;.
+&ast; &quot;monkey&quot;.
 
 There are some things that JavaScript does complain about, though.
 Writing a program that is not syntactically valid will immediately
@@ -7681,11 +6925,11 @@ different.
 
 function Person(name) { this.name = name; }
 
-// Oops, forgot \'new\'
+// Oops, forgot &apos;new&apos;
 
 var ferdinand = Person(&quot;Ferdinand&quot;);
 
-// ~→~ TypeError: Cannot set property \'name\' of undefined
+// ~→~ TypeError: Cannot set property &apos;name&apos; of undefined
 
 We are immediately told that something is wrong. This is helpful.
 
@@ -7793,7 +7037,7 @@ return sign + result;
 
 console.log(numberToString(13, 10));
 
-// ~→~ 1.5e-3231.3e-3221.3e-3211.3e-3201.3e-3191.3e\...-3181.3
+// ~→~ 1.5e-3231.3e-3221.3e-3211.3e-3201.3e-3191.3e&hellip;-3181.3
 
 Even if you see the problem already, pretend for a moment that you
 don't. We know that our program is malfunctioning, and we want to find
@@ -7814,7 +7058,7 @@ its value at the start of the loop.
 
 1.3
 
-0.13 0.013\...
+0.13 0.013&hellip;
 
 1.5e-323
 
@@ -8246,16 +7490,16 @@ locked: true,
 unlock: function() { this.locked = false; }, lock: function() {
 this.locked = true; },
 
-\_content: &lbrack;&rbrack;, get content() {
+&lowbar;content: &lbrack;&rbrack;, get content() {
 
-if (this.locked) throw new Error(&quot;Locked!&quot;); return this.\_content;
+if (this.locked) throw new Error(&quot;Locked!&quot;); return this.&lowbar;content;
 
 }
 
 };
 
 It is a box with a lock. Inside is an array, but you can get at it only
-when the box is unlocked. Directly accessing the \_content property is
+when the box is unlocked. Directly accessing the &lowbar;content property is
 not allowed.
 
 Write a function called withBoxUnlocked that takes a function value as
@@ -8305,12 +7549,12 @@ The second notation, where the pattern appears between slash characters,
 treats backslashes somewhat differently. First, since a forward slash
 ends the pattern, we need to put a backslash before any forward slash
 that we want to be *part* of the pattern. In addition, backslashes that
-aren't part of special character codes (like \\n) will be *preserved*,
+aren't part of special character codes (like &bsol;&bsol;n) will be *preserved*,
 rather than ignored as they are in strings, and change the meaning of
 the pattern. Some characters, such as question marks and plus signs,
 have special meanings in regular expressions and must be preceded by a
 backslash if they are meant to represent the character itself. var
-eighteenPlus = /eighteen\\+/;
+eighteenPlus = /eighteen&bsol;&bsol;+/;
 
 Knowing precisely what characters to backslash-escape when writing
 regular expressions requires you to know every character with a special
@@ -8363,28 +7607,28 @@ other in this ordering (codes 48 to 57), so &lbrack;0-9&rbrack; covers all of th
 and matches any digit.
 
 There are a number of common character groups that have their own
-built-in shortcuts. Digits are one of them: \\d means the same thing as
+built-in shortcuts. Digits are one of them: &bsol;&bsol;d means the same thing as
 
 &lbrack;0-9&rbrack;.
 
-\\d Any digit character
+&bsol;&bsol;d Any digit character
 
-\\w An alphanumeric character ("word character")
+&bsol;&bsol;w An alphanumeric character ("word character")
 
-\\s Any whitespace character (space, tab, newline, and similar)
+&bsol;&bsol;s Any whitespace character (space, tab, newline, and similar)
 
-\\D A character that is *not* a digit
+&bsol;&bsol;D A character that is *not* a digit
 
-\\W A nonalphanumeric character
+&bsol;&bsol;W A nonalphanumeric character
 
-\\S A nonwhitespace character
+&bsol;&bsol;S A nonwhitespace character
 
 . Any character except for newline
 
 So you could match a date and time format like 30-01-2003 15:20 with the
 following expression:
 
-var dateTime = /\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d/;
+var dateTime = /&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d &bsol;&bsol;d&bsol;&bsol;d:&bsol;&bsol;d&bsol;&bsol;d/;
 console.log(dateTime.test(&quot;30-01-2003 15:20&quot;));
 
 // ~→~ true
@@ -8399,15 +7643,15 @@ actual pattern expressed. We'll see a slightly improved version of this
 expression later.
 
 These backslash codes can also be used inside square brackets. For
-example, &lbrack;\\d.&rbrack; means any digit or a period character. But note that
+example, &lbrack;&bsol;&bsol;d.&rbrack; means any digit or a period character. But note that
 the period itself, when used between square brackets, loses its special
 meaning. The same goes for other special characters, such as +.
 
 To *invert* a set of characters---that is, to express that you want to
 match any character *except* the ones in the set---you can write a
-caret (\^) character after the opening bracket.
+caret (&Hat;) character after the opening bracket.
 
-var notBinary = /&lbrack;\^01&rbrack;/;
+var notBinary = /&lbrack;&Hat;01&rbrack;/;
 
 console.log(notBinary.test(&quot;1100100010100110&quot;)); // ~→~ false
 
@@ -8421,26 +7665,26 @@ We now know how to match a single digit. What if we want to match a
 whole number---a sequence of one or more digits?
 
 When you put a plus sign (+) after something in a regular expression, it
-indicates that the element may be repeated more than once. Thus, /\\d+/
+indicates that the element may be repeated more than once. Thus, /&bsol;&bsol;d+/
 matches one or more digit characters.
 
-console.log(/\'\\d+\'/.test(&quot;\'123\'&quot;));
+console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;123&apos;&quot;));
 
 // ~→~ true
 
-console.log(/\'\\d+\'/.test(&quot;\'\'&quot;));
+console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;&apos;&quot;));
 
 // ~→~ false
 
-console.log(/\'\\d\*\'/.test(&quot;\'123\'&quot;));
+console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;123&apos;&quot;));
 
 // ~→~ true
 
-console.log(/\'\\d\*\'/.test(&quot;\'\'&quot;));
+console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;&apos;&quot;));
 
 // ~→~ true
 
-The star (\*) has a similar meaning but also allows the pattern to match
+The star (&ast;) has a similar meaning but also allows the pattern to match
 zero times. Something with a star after it never prevents a pattern from
 matching---it'll just match zero instances if it can't find any suitable
 text to match.
@@ -8468,7 +7712,7 @@ Here is another version of the date and time pattern that allows both
 single- and double-digit days, months, and hours. It is also slightly
 more readable.
 
-var dateTime = /\\d{1,2}-\\d{1,2}-\\d{4} \\d{1,2}:\\d{2}/;
+var dateTime = /&bsol;&bsol;d{1,2}-&bsol;&bsol;d{1,2}-&bsol;&bsol;d{4} &bsol;&bsol;d{1,2}:&bsol;&bsol;d{2}/;
 console.log(dateTime.test(&quot;30-1-2003 8:45&quot;));
 
 // ~→~ true
@@ -8479,7 +7723,7 @@ five times, and {5,} means five or more times.
 
 ## Grouping subexpressions
 
-To use an operator like \* or + on more than one element at a time, you
+To use an operator like &ast; or + on more than one element at a time, you
 can use parentheses. A part of a regular expression that is enclosed in
 parentheses counts as a single element as far as the operators following
 it are concerned.
@@ -8507,7 +7751,7 @@ Regular expressions also have an exec (execute) method that will return
 null if no match was found and return an object with information about
 the match otherwise.
 
-var match = /\\d+/.exec(&quot;one two 100&quot;); console.log(match);
+var match = /&bsol;&bsol;d+/.exec(&quot;one two 100&quot;); console.log(match);
 
 // ~→~ &lbrack;&quot;100&quot;&rbrack; console.log(match.index);
 
@@ -8521,7 +7765,7 @@ sequence of digits that we were looking for.
 
 String values have a match method that behaves similarly.
 
-console.log(&quot;one two 100&quot;.match(/\\d+/));
+console.log(&quot;one two 100&quot;.match(/&bsol;&bsol;d+/));
 
 // ~→~ &lbrack;&quot;100&quot;&rbrack;
 
@@ -8531,11 +7775,11 @@ array. The whole match is always the first element. The next element is
 the part matched by the first group (the one whose opening parenthesis
 comes first in the expression), then the second group, and so on.
 
-var quotedText = /\'(&lbrack;\^\'&rbrack;\*)\'/;
+var quotedText = /&apos;(&lbrack;&Hat;&apos;&rbrack;&ast;)&apos;/;
 
-console.log(quotedText.exec(&quot;she said \'hello\'&quot;));
+console.log(quotedText.exec(&quot;she said &apos;hello&apos;&quot;));
 
-// ~→~ &lbrack;&quot;\'hello\'&quot;, &quot;hello&quot;&rbrack;
+// ~→~ &lbrack;&quot;&apos;hello&apos;&quot;, &quot;hello&quot;&rbrack;
 
 When a group does not end up being matched at all (for example, when
 followed by a question mark), its position in the output array will hold
@@ -8543,7 +7787,7 @@ undefined. Similarly, when a group is matched multiple times, only the
 last match ends up in the array.
 
 console.log(/bad(ly)?/.exec(&quot;bad&quot;)); // ~→~ &lbrack;&quot;bad&quot;, undefined&rbrack;
-console.log(/(\\d)+/.exec(&quot;123&quot;));
+console.log(/(&bsol;&bsol;d)+/.exec(&quot;123&quot;));
 
 // ~→~ &lbrack;&quot;123&quot;, &quot;3&quot;&rbrack;
 
@@ -8606,7 +7850,7 @@ interested in, we can now easily create a date object from a string.
 
 function findDate(string) {
 
-var dateTime = /(\\d{1,2})-(\\d{1,2})-(\\d{4})/; var match =
+var dateTime = /(&bsol;&bsol;d{1,2})-(&bsol;&bsol;d{1,2})-(&bsol;&bsol;d{4})/; var match =
 dateTime.exec(string); return new Date(Number(match&lbrack;3&rbrack;),
 
 Number(match&lbrack;2&rbrack;) - 1,
@@ -8626,23 +7870,23 @@ the string, so in this case, it'll just start at the second character
 and end at the second-to-last character.
 
 If we want to enforce that the match must span the whole string, we can
-add the markers \^ and \$. The caret matches the start of the input
-string, while the dollar sign matches the end. So, /\^\\d+\$/ matches a
-string consisting entirely of one or more digits, /\^!/ matches any
-string that starts with an exclamation mark, and /x\^/ does not match
+add the markers &Hat; and &dollar;. The caret matches the start of the input
+string, while the dollar sign matches the end. So, /&Hat;&bsol;&bsol;d+&dollar;/ matches a
+string consisting entirely of one or more digits, /&Hat;!/ matches any
+string that starts with an exclamation mark, and /x&Hat;/ does not match
 any string (there cannot be an *x* before the start of the string).
 
 If, on the other hand, we just want to make sure the date starts and
-ends on a word boundary, we can use the marker \\b. A word boundary can
+ends on a word boundary, we can use the marker &bsol;&bsol;b. A word boundary can
 be the start or end of the string or any point in the string that has a
-word character (as in \\w) on one side and a nonword character on the
+word character (as in &bsol;&bsol;w) on one side and a nonword character on the
 other.
 
 console.log(/cat/.test(&quot;concatenate&quot;));
 
 // ~→~ true
 
-console.log(/\\bcat\\b/.test(&quot;concatenate&quot;));
+console.log(/&bsol;&bsol;bcat&bsol;&bsol;b/.test(&quot;concatenate&quot;));
 
 // ~→~ false
 
@@ -8657,10 +7901,10 @@ but a number followed by one of the words *pig*, *cow*, or *chicken*, or
 any of their plural forms.
 
 We could write three regular expressions and test them in turn, but
-there is a nicer way. The pipe character (\|) denotes a choice between
+there is a nicer way. The pipe character (&vert;) denotes a choice between
 the pattern to its left and the pattern to its right. So I can say this:
 
-var animalCount = /\\b\\d+ (pig\|cow\|chicken)s?\\b/;
+var animalCount = /&bsol;&bsol;b&bsol;&bsol;d+ (pig&vert;cow&vert;chicken)s?&bsol;&bsol;b/;
 console.log(animalCount.test(&quot;15 pigs&quot;));
 
 // ~→~ true
@@ -8738,7 +7982,7 @@ the end of the string and decides that there really is no match.
 
 ## Backtracking
 
-The regular expression /\\b(&lbrack;01&rbrack;+b\|\\d+\|&lbrack;\\da-f&rbrack;+h)\\b/ matches
+The regular expression /&bsol;&bsol;b(&lbrack;01&rbrack;+b&vert;&bsol;&bsol;d+&vert;&lbrack;&bsol;&bsol;da-f&rbrack;+h)&bsol;&bsol;b/ matches
 either a binary number followed by a *b*, a regular decimal number with
 no suffix character, or a hexadecimal number (that is, base 16, with the
 letters *a* to *f* standing for the digits 10 to 15) followed by an *h*.
@@ -8774,7 +8018,7 @@ One of:
 
 digit
 
-\-
+&hyphen;
 
 "
 
@@ -8817,8 +8061,8 @@ if multiple branches could potentially match a string, only the first
 one (ordered by where the branches appear in the regular expression) is
 used.
 
-Backtracking also happens for repetition operators like + and \*. If you
-match /\^.\*x/ against &quot;abcxe&quot;, the .\* part will first try to consume
+Backtracking also happens for repetition operators like + and &ast;. If you
+match /&Hat;.&ast;x/ against &quot;abcxe&quot;, the .&ast; part will first try to consume
 the whole string. The engine will then realize that it needs an *x* to
 match the pattern. Since there is no *x* past the end of the string, the
 star operator tries to match one character less. But the matcher doesn't
@@ -8887,9 +8131,9 @@ format, we can use the following code:
 
 console.log(
 
-&quot;Hopper, Grace\\nMcCarthy, John\\nRitchie, Dennis&quot;
+&quot;Hopper, Grace&bsol;&bsol;nMcCarthy, John&bsol;&bsol;nRitchie, Dennis&quot;
 
-.replace(/(&lbrack;\\w &rbrack;+), (&lbrack;\\w &rbrack;+)/g, &quot;\$2 \$1&quot;));
+.replace(/(&lbrack;&bsol;&bsol;w &rbrack;+), (&lbrack;&bsol;&bsol;w &rbrack;+)/g, &quot;&dollar;2 &dollar;1&quot;));
 
 // ~→~ Grace Hopper
 
@@ -8897,10 +8141,10 @@ console.log(
 
 // Dennis Ritchie
 
-The \$1 and \$2 in the replacement string refer to the parenthesized
-groups in the pattern. \$1 is replaced by the text that matched against
-the first group, \$2 by the second, and so on, up to \$9. The whole
-match can be referred to with \$&.
+The &dollar;1 and &dollar;2 in the replacement string refer to the parenthesized
+groups in the pattern. &dollar;1 is replaced by the text that matched against
+the first group, &dollar;2 by the second, and so on, up to &dollar;9. The whole
+match can be referred to with &dollar;&.
 
 It is also possible to pass a function, rather than a string, as the
 second argument to replace. For each replacement, the function will be
@@ -8911,7 +8155,7 @@ Here's a simple example:
 
 var s = &quot;the cia and fbi&quot;;
 
-console.log(s.replace(/\\b(fbi\|cia)\\b/g, function(str) {
+console.log(s.replace(/&bsol;&bsol;b(fbi&vert;cia)&bsol;&bsol;b/g, function(str) {
 
 return str.toUpperCase();
 
@@ -8926,7 +8170,7 @@ minusOne(match, amount, unit) {
 
 amount = Number(amount) - 1;
 
-if (amount == 1) // only one left, remove the \'s\'
+if (amount == 1) // only one left, remove the &apos;s&apos;
 
 unit = unit.slice(0, unit.length - 1);
 
@@ -8938,7 +8182,7 @@ return amount + &quot; &quot; + unit;
 
 }
 
-console.log(stock.replace(/(\\d+) (\\w+)/g, minusOne));
+console.log(stock.replace(/(&bsol;&bsol;d+) (&bsol;&bsol;w+)/g, minusOne));
 
 // ~→~ no lemon, 1 cabbage, and 100 eggs
 
@@ -8946,9 +8190,9 @@ This takes a string, finds all occurrences of a number followed by an
 alphanumeric word, and returns a string wherein every such occurrence is
 decremented by one.
 
-The (\\d+) group ends up as the amount argument to the function, and the
-(\\w+) group gets bound to unit. The function converts amount to a
-number---which always works, since it matched \\d+---and makes some
+The (&bsol;&bsol;d+) group ends up as the amount argument to the function, and the
+(&bsol;&bsol;w+) group gets bound to unit. The function converts amount to a
+number---which always works, since it matched &bsol;&bsol;d+---and makes some
 adjustments in case there is only one or zero left.
 
 ## Greed
@@ -8957,11 +8201,11 @@ It isn't hard to use replace to write a function that removes all
 comments from a piece of JavaScript code. Here is a first attempt:
 function stripComments(code) {
 
-return code.replace(/\\/\\/.\*\|\\/\\\*&lbrack;\^&rbrack;\*\\\*\\//g, &quot;&quot;);
+return code.replace(/&bsol;&bsol;/&bsol;&bsol;/.&ast;&vert;&bsol;&bsol;/&bsol;&bsol;&ast;&lbrack;&Hat;&rbrack;&ast;&bsol;&bsol;&ast;&bsol;&bsol;//g, &quot;&quot;);
 
 }
 
-console.log(stripComments(&quot;1 + /\* 2 \*/3&quot;));
+console.log(stripComments(&quot;1 + /&ast; 2 &ast;/3&quot;));
 
 // ~→~ 1 + 3
 
@@ -8969,47 +8213,47 @@ console.log(stripComments(&quot;x = 10;// ten!&quot;));
 
 // ~→~ x = 10;
 
-console.log(stripComments(&quot;1 /\* a \*/+/\* b \*/ 1&quot;));
+console.log(stripComments(&quot;1 /&ast; a &ast;/+/&ast; b &ast;/ 1&quot;));
 
 // ~→~ 1 1
 
 The part before the *or* operator simply matches two slash characters
 followed by any number of non-newline characters. The part for multiline
-comments is more involved. We use &lbrack;\^&rbrack; (any character that is not in
+comments is more involved. We use &lbrack;&Hat;&rbrack; (any character that is not in
 the empty set of characters) as a way to match any character. We cannot
 just use a dot here because block comments can continue on a new line,
 and dots do not match the newline character.
 
 But the output of the previous example appears to have gone wrong. Why?
 
-The &lbrack;\^&rbrack;\* part of the expression, as I described in the section on
+The &lbrack;&Hat;&rbrack;&ast; part of the expression, as I described in the section on
 backtracking, will first match as much as it can. If that causes the
 next part of the pattern to fail, the matcher moves back one character
 and tries again from there. In the example, the matcher first tries to
 match the whole rest of the string and then moves back from there. It
-will find an occurrence of \*/ after going back four characters and
+will find an occurrence of &ast;/ after going back four characters and
 match that. This is not what we wanted---the intention was to match a
 single comment, not to go all the way to the end of the code and find
 the end of the last block comment.
 
-Because of this behavior, we say the repetition operators (+, \*, ?, and
+Because of this behavior, we say the repetition operators (+, &ast;, ?, and
 {}) are *greedy*, meaning they match as much as they can and backtrack
-from there. If you put a question mark after them (+?, \*?, ??, {}?),
+from there. If you put a question mark after them (+?, &ast;?, ??, {}?),
 they become nongreedy and start by matching as little as possible,
 matching more only when the remaining pattern does not fit the smaller
 match.
 
 And that is exactly what we want in this case. By having the star match
-the smallest stretch of characters that brings us to a \*/, we consume
+the smallest stretch of characters that brings us to a &ast;/, we consume
 one block comment and nothing more.
 
 function stripComments(code) {
 
-return code.replace(/\\/\\/.\*\|\\/\\\*&lbrack;\^&rbrack;\*?\\\*\\//g, &quot;&quot;);
+return code.replace(/&bsol;&bsol;/&bsol;&bsol;/.&ast;&vert;&bsol;&bsol;/&bsol;&bsol;&ast;&lbrack;&Hat;&rbrack;&ast;?&bsol;&bsol;&ast;&bsol;&bsol;//g, &quot;&quot;);
 
 }
 
-console.log(stripComments(&quot;1 /\* a \*/+/\* b \*/ 1&quot;));
+console.log(stripComments(&quot;1 /&ast; a &ast;/+/&ast; b &ast;/ 1&quot;));
 
 // ~→~ 1 + 1
 
@@ -9030,12 +8274,12 @@ But you can build up a string and use the RegExp constructor on that.
 Here's an example:
 
 var name = &quot;harry&quot;; var text = &quot;Harry is a suspicious character.&quot;;
-var regexp = new RegExp(&quot;\\\\b(&quot; + name + &quot;)\\\\b&quot;, &quot;gi&quot;);
+var regexp = new RegExp(&quot;&bsol;&bsol;&bsol;&bsol;b(&quot; + name + &quot;)&bsol;&bsol;&bsol;&bsol;b&quot;, &quot;gi&quot;);
 
-console.log(text.replace(regexp, &quot;\_\$1\_&quot;)); // ~→~ \_Harry\_ is a
+console.log(text.replace(regexp, &quot;&lowbar;&dollar;1&lowbar;&quot;)); // ~→~ &lowbar;Harry&lowbar; is a
 suspicious character.
 
-When creating the \\b boundary markers, we have to use two backslashes
+When creating the &bsol;&bsol;b boundary markers, we have to use two backslashes
 because we are writing them in a normal string, not a slash-enclosed
 regular expression. The second argument to the RegExp constructor
 contains the options for the regular expression---in this case &quot;gi&quot;
@@ -9047,19 +8291,19 @@ won't actually match the user's name.
 
 To work around this, we can add backslashes before any character that we
 don't trust. Adding backslashes before alphabetic characters is a bad
-idea because things like \\b and \\n have a special meaning. But
+idea because things like &bsol;&bsol;b and &bsol;&bsol;n have a special meaning. But
 escaping everything that's not alphanumeric or whitespace is safe.
 
 var name = &quot;dea+hl&lbrack;&rbrack;rd&quot;;
 
 var text = &quot;This dea+hl&lbrack;&rbrack;rd guy is super annoying.&quot;; var escaped =
-name.replace(/&lbrack;\^\\w\\s&rbrack;/g, &quot;\\\\\$&&quot;);
+name.replace(/&lbrack;&Hat;&bsol;&bsol;w&bsol;&bsol;s&rbrack;/g, &quot;&bsol;&bsol;&bsol;&bsol;&dollar;&&quot;);
 
-var regexp = new RegExp(&quot;\\\\b(&quot; + escaped + &quot;)\\\\b&quot;, &quot;gi&quot;);
+var regexp = new RegExp(&quot;&bsol;&bsol;&bsol;&bsol;b(&quot; + escaped + &quot;)&bsol;&bsol;&bsol;&bsol;b&quot;, &quot;gi&quot;);
 
-console.log(text.replace(regexp, &quot;\_\$1\_&quot;));
+console.log(text.replace(regexp, &quot;&lowbar;&dollar;1&lowbar;&quot;));
 
-// ~→~ This \_dea+hl&lbrack;&rbrack;rd\_ guy is super annoying.
+// ~→~ This &lowbar;dea+hl&lbrack;&rbrack;rd&lowbar; guy is super annoying.
 
 ## The search method
 
@@ -9068,11 +8312,11 @@ expression. But there is another method, search, which does expect a
 regular expression. Like indexOf, it returns the first index on which
 the expression was found, or -1 when it wasn't found.
 
-console.log(&quot; word&quot;.search(/\\S/));
+console.log(&quot; word&quot;.search(/&bsol;&bsol;S/));
 
 // ~→~ 2
 
-console.log(&quot; &quot;.search(/\\S/));
+console.log(&quot; &quot;.search(/&bsol;&bsol;S/));
 
 // ~→~ -1
 
@@ -9116,7 +8360,7 @@ these automatic updates to the lastIndex property can cause problems.
 Your regular expression might be accidentally starting at an index that
 was left over from a previous call.
 
-var digit = /\\d/g;
+var digit = /&bsol;&bsol;d/g;
 
 console.log(digit.exec(&quot;here it is: 1&quot;));
 
@@ -9144,9 +8388,9 @@ A common pattern is to scan through all occurrences of a pattern in a
 string, in a way that gives us access to the match object in the loop
 body, by using lastIndex and exec.
 
-var input = &quot;A string with 3 numbers in it\... 42 and 88.&quot;;
+var input = &quot;A string with 3 numbers in it&hellip; 42 and 88.&quot;;
 
-var number = /\\b(\\d+)\\b/g; var match;
+var number = /&bsol;&bsol;b(&bsol;&bsol;d+)&bsol;&bsol;b/g; var match;
 
 while (match = number.exec(input))
 
@@ -9173,9 +8417,9 @@ information about our enemies from the Internet. (We will not actually
 write that program here, just the part that reads the configuration
 file. Sorry to disappoint.) The configuration file looks like this:
 
-searchengine=http://www.google.com/search?q=\$1 spitefulness=9.7
+searchengine=http://www.google.com/search?q=&dollar;1 spitefulness=9.7
 
-; comments are preceded by a semicolon\...
+; comments are preceded by a semicolon&hellip;
 
 ; each section concerns an individual enemy
 
@@ -9204,13 +8448,13 @@ with a name property and an array of settings. We'll need one such
 object for each section and one for the global settings at the top.
 
 Since the format has to be processed line by line, splitting up the file
-into separate lines is a good start. We used string.split(&quot;\\n&quot;) to do
+into separate lines is a good start. We used string.split(&quot;&bsol;&bsol;n&quot;) to do
 this in Chapter 6. Some operating systems, however, use not just a
 newline character to separate lines but a carriage return character
-followed by a newline (&quot;\\r\\n&quot;). Given that the split method also
+followed by a newline (&quot;&bsol;&bsol;r&bsol;&bsol;n&quot;). Given that the split method also
 allows a regular expression as its argument, we can split on a regular
-expression like /\\r?\\n/ to split in a way that allows both &quot;\\n&quot; and
-&quot;\\r\\n&quot; between lines.
+expression like /&bsol;&bsol;r?&bsol;&bsol;n/ to split in a way that allows both &quot;&bsol;&bsol;n&quot; and
+&quot;&bsol;&bsol;r&bsol;&bsol;n&quot; between lines.
 
 function parseINI(string) {
 
@@ -9218,25 +8462,25 @@ function parseINI(string) {
 currentSection = {name: null, fields: &lbrack;&rbrack;}; var categories =
 &lbrack;currentSection&rbrack;;
 
-string.split(/\\r?\\n/).forEach(function(line) {
+string.split(/&bsol;&bsol;r?&bsol;&bsol;n/).forEach(function(line) {
 
 var match;
 
-if (/\^\\s\*(;.\*)?\$/.test(line)) {
+if (/&Hat;&bsol;&bsol;s&ast;(;.&ast;)?&dollar;/.test(line)) {
 
 return;
 
-} else if (match = line.match(/\^\\&lbrack;(.\*)\\&rbrack;\$/)) { currentSection =
+} else if (match = line.match(/&Hat;&bsol;&bsol;&lbrack;(.&ast;)&bsol;&bsol;&rbrack;&dollar;/)) { currentSection =
 {name: match&lbrack;1&rbrack;, fields: &lbrack;&rbrack;};
 
 categories.push(currentSection);
 
-} else if (match = line.match(/\^(\\w+)=(.\*)\$/)) {
+} else if (match = line.match(/&Hat;(&bsol;&bsol;w+)=(.&ast;)&dollar;/)) {
 currentSection.fields.push({name: match&lbrack;1&rbrack;,
 
 value: match&lbrack;2&rbrack;});
 
-} else { throw new Error(&quot;Line \'&quot; + line + &quot;\' is invalid.&quot;);
+} else { throw new Error(&quot;Line &apos;&quot; + line + &quot;&apos; is invalid.&quot;);
 
 } });
 
@@ -9246,7 +8490,7 @@ return categories;
 
 This code goes over every line in the file, updating the "current
 section" object as it goes along. First, it checks whether the line can
-be ignored, using the expression /\^\\s\*(;.\*)?\$/. Do you see how it
+be ignored, using the expression /&Hat;&bsol;&bsol;s&ast;(;.&ast;)?&dollar;/. Do you see how it
 works? The part between the parentheses will match comments, and the ?
 will make sure it also matches lines containing only whitespace.
 
@@ -9259,12 +8503,12 @@ which the code adds to the current section object.
 
 If a line matches none of these forms, the function throws an error.
 
-Note the recurring use of \^ and \$ to make sure the expression matches
+Note the recurring use of &Hat; and &dollar; to make sure the expression matches
 the whole line, not just part of it. Leaving these out results in code
 that mostly works but behaves strangely for some input, which can be a
 difficult bug to track down.
 
-The pattern if (match = string.match(\...)) is similar to the trick of
+The pattern if (match = string.match(&hellip;)) is similar to the trick of
 using an assignment as the condition for while. You often aren't sure
 that your call to match will succeed, so you can access the resulting
 object only inside an if statement that tests for this. To not break the
@@ -9282,9 +8526,9 @@ far as JavaScript's regular expressions are concerned, a "word
 character" is only one of the 26 characters in the Latin alphabet
 (uppercase or lowercase) and, for some reason, the underscore character.
 Things like *é* or *ß*, which most definitely are word characters, will
-not match \\w (and *will* match uppercase \\W, the nonword category).
+not match &bsol;&bsol;w (and *will* match uppercase &bsol;&bsol;W, the nonword category).
 
-By a strange historical accident, \\s (whitespace) does not have this
+By a strange historical accident, &bsol;&bsol;s (whitespace) does not have this
 problem and matches all characters that the Unicode standard considers
 whitespace, including things like the nonbreaking space and the
 Mongolian vowel separator.
@@ -9305,7 +8549,7 @@ use their own syntax to express these patterns.
   ------------- ----------------------------------------------------------
   /&lbrack;abc&rbrack;/     Any character from a set of characters
 
-  /&lbrack;\^abc&rbrack;/   Any character *not* in a set of characters
+  /&lbrack;&Hat;abc&rbrack;/   Any character *not* in a set of characters
 
   /&lbrack;0-9&rbrack;/     Any character in a range of characters
 
@@ -9313,7 +8557,7 @@ use their own syntax to express these patterns.
 
   /x+?/         One or more occurrences, nongreedy
 
-  /x\*/         Zero or more occurrences
+  /x&ast;/         Zero or more occurrences
 
   /x?/          Zero or one occurrence
 
@@ -9321,21 +8565,21 @@ use their own syntax to express these patterns.
 
   /(abc)/       A group
 
-  /a\|b\|c/     Any one of several patterns
+  /a&vert;b&vert;c/     Any one of several patterns
 
-  /\\d/         Any digit character
+  /&bsol;&bsol;d/         Any digit character
 
-  /\\w/         An alphanumeric character ("word character")
+  /&bsol;&bsol;w/         An alphanumeric character ("word character")
 
-  /\\s/         Any whitespace character
+  /&bsol;&bsol;s/         Any whitespace character
 
   /./           Any character except newlines
 
-  /\\b/         A word boundary
+  /&bsol;&bsol;b/         A word boundary
 
-  /\^/          Start of input
+  /&Hat;/          Start of input
 
-  /\$/          End of input
+  /&dollar;/          End of input
   ------------------------------------------------------------------------
 
 A regular expression has a method test to test whether a given string
@@ -9419,7 +8663,7 @@ craft a call to the replace method that does the proper replacement.
 #### Numbers again
 
 A series of digits can be matched by the simple regular expression
-/\\d+/.
+/&bsol;&bsol;d+/.
 
 Write an expression that matches only JavaScript-style numbers. It must
 support an optional minus *or* plus sign in front of the number, the
@@ -9616,7 +8860,7 @@ We can use a similar pattern to isolate code from the outside world
 entirely. The following module logs a value to the console but does not
 actually provide any values for other modules to use:
 
-(function() { function square(x) { return x \* x; } var hundred = 100;
+(function() { function square(x) { return x &ast; x; } var hundred = 100;
 
 console.log(square(hundred));
 
@@ -10314,14 +9558,14 @@ function parseExpression(program) {
 
 program = skipSpace(program); var match, expr;
 
-if (match = /\^&quot;(&lbrack;\^&quot;&rbrack;\*)&quot;/.exec(program)) expr = {type:
+if (match = /&Hat;&quot;(&lbrack;&Hat;&quot;&rbrack;&ast;)&quot;/.exec(program)) expr = {type:
 &quot;value&quot;, value: match&lbrack;1&rbrack;};
 
-else if (match = /\^\\d+\\b/.exec(program))
+else if (match = /&Hat;&bsol;&bsol;d+&bsol;&bsol;b/.exec(program))
 
 expr = {type: &quot;value&quot;, value: Number(match&lbrack;0&rbrack;)};
 
-else if (match = /\^&lbrack;\^\\s(),&quot;&rbrack;+/.exec(program))
+else if (match = /&Hat;&lbrack;&Hat;&bsol;&bsol;s(),&quot;&rbrack;+/.exec(program))
 
 expr = {type: &quot;word&quot;, name: match&lbrack;0&rbrack;}; else
 
@@ -10331,7 +9575,7 @@ return parseApply(expr, program.slice(match&lbrack;0&rbrack;.length));
 
 }
 
-function skipSpace(string) { var first = string.search(/\\S/); if
+function skipSpace(string) { var first = string.search(/&bsol;&bsol;S/); if
 (first == -1) return &quot;&quot;; return string.slice(first);
 
 }
@@ -10369,7 +9613,7 @@ program = skipSpace(program.slice(1));
 
 else if (program&lbrack;0&rbrack; != &quot;)&quot;)
 
-throw new SyntaxError(&quot;Expected \',\' or \')\'&quot;);
+throw new SyntaxError(&quot;Expected &apos;,&apos; or &apos;)&apos;&quot;);
 
 }
 
@@ -10564,7 +9808,7 @@ return a value. We'll make it return the value that was assigned (just
 like JavaScript's = operator).
 
 specialForms&lbrack;&quot;define&quot;&rbrack; = function(args, env) { if (args.length !=
-2 \|\| args&lbrack;0&rbrack;.type != &quot;word&quot;)
+2 &vert;&vert; args&lbrack;0&rbrack;.type != &quot;word&quot;)
 
 throw new SyntaxError(&quot;Bad use of define&quot;);
 
@@ -10599,7 +9843,7 @@ some function values to the environment. In the interest of keeping the
 code short, we'll use new Function to synthesize a bunch of operator
 functions in a loop, rather than defining them all individually.
 
-&lbrack;&quot;+&quot;, &quot;-&quot;, &quot;\*&quot;, &quot;/&quot;, &quot;==&quot;, &quot;&lt;&quot;,
+&lbrack;&quot;+&quot;, &quot;-&quot;, &quot;&ast;&quot;, &quot;/&quot;, &quot;==&quot;, &quot;&lt;&quot;,
 &quot;&gt;&quot;&rbrack;.forEach(function(op) { topEnv&lbrack;op&rbrack; = new Function(&quot;a, b&quot;,
 &quot;return a &quot; + op + &quot; b;&quot;);
 
@@ -10623,7 +9867,7 @@ function run() {
 
 var env = Object.create(topEnv); var program = Array.prototype.slice
 
-.call(arguments, 0).join(&quot;\\n&quot;); return evaluate(parse(program),
+.call(arguments, 0).join(&quot;&bsol;&bsol;n&quot;); return evaluate(parse(program),
 env);
 
 }
@@ -10714,7 +9958,7 @@ run(&quot;do(define(pow, fun(base, exp,&quot;,
 
 &quot; if(==(exp, 0),&quot;, &quot; 1,&quot;,
 
-&quot; \*(base, pow(base, -(exp, 1)))))),&quot;,
+&quot; &ast;(base, pow(base, -(exp, 1)))))),&quot;,
 
 &quot; print(pow(2, 10)))&quot;); // ~→~ 1024
 
@@ -10800,7 +10044,7 @@ nothing else.
 #### Arrays
 
 Add support for arrays to Egg by adding the following three functions to
-the top scope: array(\...) to construct an array containing the argument
+the top scope: array(&hellip;) to construct an array containing the argument
 values, length(array) to get an array's length, and element(array, n) to
 fetch the n^th^ element from an array.
 
@@ -10827,7 +10071,7 @@ causes this to work.
 #### Comments
 
 It would be nice if we could write comments in Egg. For example,
-whenever we find a hash sign (\\#), we could treat the rest of the line
+whenever we find a hash sign (&bsol;&bsol;#), we could treat the rest of the line
 as a comment and ignore it, similar to // in JavaScript.
 
 We do not have to make any big changes to the parser to support this. We
@@ -10965,7 +10209,7 @@ request documents over the network.
 Each document on the Web is named by a *Universal Resource Locator*
 (URL), which looks something like this:
 
-http://eloquentjavascript.net/12_browser.html \| \| \| \| protocol
+http://eloquentjavascript.net/12_browser.html &vert; &vert; &vert; &vert; protocol
 server path
 
 The first part tells us that this URL uses the HTTP protocol (as opposed
@@ -11144,7 +10388,7 @@ Some attributes can also contain a JavaScript program. The &lt;button&gt;
 tag shown next (which shows up as a button) has an onclick attribute,
 whose content will be run whenever the button is clicked.
 
-&lt;button onclick=&quot;alert(\'Boom!\');&quot;&gt;DO NOT PRESS&lt;/button&gt;
+&lt;button onclick=&quot;alert(&apos;Boom!&apos;);&quot;&gt;DO NOT PRESS&lt;/button&gt;
 
 Note that I had to use single quotes for the string in the onclick
 attribute because double quotes are already used to quote the whole
@@ -11275,7 +10519,7 @@ I also wrote a book! Read it
 
 p
 
-Hello, I am Marijn and this is\...
+Hello, I am Marijn and this is&hellip;
 
 p
 
@@ -11334,7 +10578,7 @@ The same goes for the DOM. Nodes for regular *elements*, which represent
 HTML tags, determine the structure of the document. These can have child
 nodes. An example of such a node is document.body. Some of these
 children can be leaf nodes, such as pieces of text or comments (comments
-are written between &lt;!\-- and \--&gt; in HTML).
+are written between &lt;!&hyphen;- and &hyphen;-&gt; in HTML).
 
 Each DOM node object has a nodeType property, which contains a numeric
 code that identifies the type of node. Regular elements have the value
@@ -11363,11 +10607,11 @@ My home page
 
 p
 
-Hello! I am\...
+Hello! I am&hellip;
 
 p
 
-I also wrote\...
+I also wrote&hellip;
 
 here
 
@@ -11418,11 +10662,11 @@ come with such tools.
 DOM nodes contain a wealth of links to other nearby nodes. The following
 diagram illustrates these:
 
-I also wrote a book! \...
+I also wrote a book! &hellip;
 
 p
 
-Hello, I am Marijn\...
+Hello, I am Marijn&hellip;
 
 p
 
@@ -11595,7 +10839,7 @@ replace them. For this, we use the document.createTextNode method.
 &lt;script&gt; function replaceImages() {
 
 var images = document.body.getElementsByTagName(&quot;img&quot;); for (var i =
-images.length - 1; i &gt;= 0; i\--) {
+images.length - 1; i &gt;= 0; i&hyphen;-) {
 
 var image = images&lbrack;i&rbrack;; if (image.alt) {
 
@@ -11755,7 +10999,7 @@ language.
 
 var languages = {
 
-javascript: /\\b(function\|return\|var)\\b/g /\* \... etc \*/
+javascript: /&bsol;&bsol;b(function&vert;return&vert;var)&bsol;&bsol;b/g /&ast; &hellip; etc &ast;/
 
 };
 
@@ -11822,7 +11066,7 @@ browser and typically corresponds to the smallest dot that your screen
 can display. Similarly, clientWidth and clientHeight give you the size
 of the space *inside* the element, ignoring border width.
 
-&lt;p style=&quot;border: 3px solid red&quot;&gt; I\'m boxed in
+&lt;p style=&quot;border: 3px solid red&quot;&gt; I&apos;m boxed in
 
 &lt;/p&gt;
 
@@ -12016,7 +11260,7 @@ precedence and always win.
 
 It is possible to target things other than tag names in CSS rules. A
 rule for .abc applies to all elements with &quot;abc&quot; in their class
-attributes. A rule for \\#xyz applies to the element with an id
+attributes. A rule for &bsol;&bsol;#xyz applies to the element with an id
 attribute of &quot;xyz&quot; (which should be unique within the document).
 
 .subtle { color: gray;
@@ -12031,7 +11275,7 @@ color: white;
 
 }
 
-/\* p elements, with classes a and b, and id main \*/ p.a.b#main {
+/&ast; p elements, with classes a and b, and id main &ast;/ p.a.b#main {
 
 margin-bottom: 20px;
 
@@ -12044,8 +11288,8 @@ the number and kind (tag, class, or ID) of element aspects it requires.
 For example, a rule that targets p.a is more specific than rules that
 target p or just .a, and would thus take precedence over them.
 
-The notation p &gt; a \...{} applies the given styles to all &lt;a&gt; tags
-that are direct children of &lt;p&gt; tags. Similarly, p a \...{} applies to
+The notation p &gt; a &hellip;{} applies the given styles to all &lt;a&gt; tags
+that are direct children of &lt;p&gt; tags. Similarly, p a &hellip;{} applies to
 all &lt;a&gt; tags inside &lt;p&gt; tags, whether they are direct or indirect
 children.
 
@@ -12069,9 +11313,9 @@ arraylike object containing all the elements that it matches.
 
 &lt;span class=&quot;animal&quot;&gt;rabbits&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;And you know you\'re going to fall&lt;/p&gt;
+&lt;p&gt;And you know you&apos;re going to fall&lt;/p&gt;
 
-&lt;p&gt;Tell \'em a &lt;span class=&quot;character&quot;&gt;hookah smoking
+&lt;p&gt;Tell &apos;em a &lt;span class=&quot;character&quot;&gt;hookah smoking
 
 &lt;span class=&quot;animal&quot;&gt;caterpillar&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 
@@ -12135,12 +11379,12 @@ lastTime = null; function animate(time) {
 
 if (lastTime != null)
 
-angle += (time - lastTime) \* 0.001;
+angle += (time - lastTime) &ast; 0.001;
 
 lastTime = time;
 
-cat.style.top = (Math.sin(angle) \* 20) + &quot;px&quot;; cat.style.left =
-(Math.cos(angle) \* 200) + &quot;px&quot;;
+cat.style.top = (Math.sin(angle) &ast; 20) + &quot;px&quot;; cat.style.left =
+(Math.cos(angle) &ast; 200) + &quot;px&quot;;
 
 requestAnimationFrame(animate);
 
@@ -12673,7 +11917,7 @@ has focus when the key is pressed. Normal nodes cannot have focus
 (unless you give them a tabindex attribute), but things such as links,
 buttons, and form fields can. We'll come back to form fields in Chapter
 
-18\. When nothing in particular has focus, document.body acts as the
+18&bsol;. When nothing in particular has focus, document.body acts as the
 target node of key events.
 
 ## Mouse clicks
@@ -12710,8 +11954,8 @@ height: 200px;
 
 background: beige;
 
-} .dot { height: 8px; width: 8px; border-radius: 4px; /\* rounds
-corners \*/
+} .dot { height: 8px; width: 8px; border-radius: 4px; /&ast; rounds
+corners &ast;/
 
 background: blue;
 
@@ -12911,13 +12155,13 @@ height: 2000px;
 
 &lt;div class=&quot;progress&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Scroll me\...&lt;/p&gt;
+&lt;p&gt;Scroll me&hellip;&lt;/p&gt;
 
 &lt;script&gt; var bar = document.querySelector(&quot;.progress div&quot;);
 addEventListener(&quot;scroll&quot;, function() {
 
 var max = document.body.scrollHeight - innerHeight; var percent =
-(pageYOffset / max) \* 100;
+(pageYOffset / max) &ast; 100;
 
 bar.style.width = percent + &quot;%&quot;;
 
@@ -13048,7 +12292,7 @@ code/squareworker.js:
 
 addEventListener(&quot;message&quot;, function(event) {
 
-postMessage(event.data \* event.data);
+postMessage(event.data &ast; event.data);
 
 });
 
@@ -13141,7 +12385,7 @@ a timeout instead. We also clear the previous timeout (if any) so that
 when events occur close together (closer than our timeout delay), the
 timeout from the previous event will be canceled.
 
-&lt;textarea&gt;Type something here\...&lt;/textarea&gt;
+&lt;textarea&gt;Type something here&hellip;&lt;/textarea&gt;
 
 &lt;script&gt; var textarea = document.querySelector(&quot;textarea&quot;); var
 timeout;
@@ -13375,7 +12619,7 @@ horizontally. Note that the grid for these positions will be set to
 contain empty space, and another data structure is used to track the
 position of such moving elements.
 
-We'll support two other kinds of moving lava: the pipe character (\|)
+We'll support two other kinds of moving lava: the pipe character (&vert;)
 for vertically moving blobs, and v for *dripping* lava---vertically
 moving lava that doesn't bounce back and forth but only moves down,
 jumping back to its start position when it hits the floor.
@@ -13476,7 +12720,7 @@ other.x, this.y + other.y);
 };
 
 Vector.prototype.times = function(factor) { return new Vector(this.x
-\* factor, this.y \* factor);
+&ast; factor, this.y &ast; factor);
 
 };
 
@@ -13495,7 +12739,7 @@ var actorChars = {
 
 &quot;o&quot;: Coin,
 
-&quot;=&quot;: Lava, &quot;\|&quot;: Lava, &quot;v&quot;: Lava
+&quot;=&quot;: Lava, &quot;&vert;&quot;: Lava, &quot;v&quot;: Lava
 
 };
 
@@ -13539,7 +12783,7 @@ this.pos = pos; this.size = new Vector(1, 1); if (ch == &quot;=&quot;) {
 
 this.speed = new Vector(2, 0);
 
-} else if (ch == &quot;\|&quot;) { this.speed = new Vector(0, 2);
+} else if (ch == &quot;&vert;&quot;) { this.speed = new Vector(0, 2);
 
 } else if (ch == &quot;v&quot;) { this.speed = new Vector(0, 3);
 
@@ -13563,7 +12807,7 @@ function Coin(pos) {
 this.basePos = this.pos = pos.plus(new Vector(0.2, 0.1)); this.size =
 new Vector(0.6, 0.6);
 
-this.wobble = Math.random() \* Math.PI \* 2;
+this.wobble = Math.random() &ast; Math.PI &ast; 2;
 
 }
 
@@ -13675,7 +12919,7 @@ the screen. var scale = 20;
 
 DOMDisplay.prototype.drawBackground = function() { var table =
 elt(&quot;table&quot;, &quot;background&quot;); table.style.width = this.level.width
-\* scale + &quot;px&quot;;
+&ast; scale + &quot;px&quot;;
 
 this.level.grid.forEach(function(row) { var rowElt =
 table.appendChild(elt(&quot;tr&quot;)); rowElt.style.height = scale + &quot;px&quot;;
@@ -13727,11 +12971,11 @@ var rect = wrap.appendChild(elt(&quot;div&quot;,
 
 &quot;actor &quot; + actor.type));
 
-rect.style.width = actor.size.x \* scale + &quot;px&quot;; rect.style.height =
-actor.size.y \* scale + &quot;px&quot;; rect.style.left = actor.pos.x \*
+rect.style.width = actor.size.x &ast; scale + &quot;px&quot;; rect.style.height =
+actor.size.y &ast; scale + &quot;px&quot;; rect.style.left = actor.pos.x &ast;
 scale + &quot;px&quot;;
 
-rect.style.top = actor.pos.y \* scale + &quot;px&quot;;
+rect.style.top = actor.pos.y &ast; scale + &quot;px&quot;;
 
 }); return wrap;
 
@@ -13762,7 +13006,7 @@ DOMDisplay.prototype.drawFrame = function() { if (this.actorLayer)
 this.wrap.removeChild(this.actorLayer);
 
 this.actorLayer = this.wrap.appendChild(this.drawActors());
-this.wrap.className = &quot;game &quot; + (this.level.status \|\| &quot;&quot;);
+this.wrap.className = &quot;game &quot; + (this.level.status &vert;&vert; &quot;&quot;);
 
 this.scrollPlayerIntoView();
 
@@ -13918,7 +13162,7 @@ Level.prototype.obstacleAt = function(pos, size) { var xStart =
 Math.floor(pos.x); var xEnd = Math.ceil(pos.x + size.x); var yStart =
 Math.floor(pos.y); var yEnd = Math.ceil(pos.y + size.y);
 
-if (xStart &lt; 0 \|\| xEnd &gt; this.width \|\| yStart &lt; 0)
+if (xStart &lt; 0 &vert;&vert; xEnd &gt; this.width &vert;&vert; yStart &lt; 0)
 
 return &quot;wall&quot;;
 
@@ -14044,8 +13288,8 @@ are simply wobbling around inside of their own square, and collisions
 with the player will be handled by the *player*'s act method. var
 wobbleSpeed = 8, wobbleDist = 0.07;
 
-Coin.prototype.act = function(step) { this.wobble += step \*
-wobbleSpeed; var wobblePos = Math.sin(this.wobble) \* wobbleDist;
+Coin.prototype.act = function(step) { this.wobble += step &ast;
+wobbleSpeed; var wobblePos = Math.sin(this.wobble) &ast; wobbleDist;
 
 this.pos = this.basePos.plus(new Vector(0, wobblePos)); };
 
@@ -14064,7 +13308,7 @@ Player.prototype.moveX = function(step, level, keys) { this.speed.x =
 0;
 
 if (keys.left) this.speed.x -= playerXSpeed; if (keys.right)
-this.speed.x += playerXSpeed; var motion = new Vector(this.speed.x \*
+this.speed.x += playerXSpeed; var motion = new Vector(this.speed.x &ast;
 step, 0);
 
 var newPos = this.pos.plus(motion); var obstacle =
@@ -14090,7 +13334,7 @@ gravity.
 var gravity = 30; var jumpSpeed = 17;
 
 Player.prototype.moveY = function(step, level, keys) { this.speed.y +=
-step \* gravity; var motion = new Vector(0, this.speed.y \* step);
+step &ast; gravity; var motion = new Vector(0, this.speed.y &ast; step);
 
 var newPos = this.pos.plus(motion); var obstacle =
 level.obstacleAt(newPos, this.size); if (obstacle) {
@@ -14711,7 +13955,7 @@ angle.
 
 Those last two parameters make it possible to draw only part of circle.
 The angles are measured in radians, not degrees. This means a full
-circle has an angle of 2*π*, or 2 \* Math.PI, which is about 6.28. The
+circle has an angle of 2*π*, or 2 &ast; Math.PI, which is about 6.28. The
 angle starts counting at the point to the right of the circle's center
 and goes clockwise from there. You can use a start of 0 and an end
 bigger than 2*π* (say, 7) to draw a full circle.
@@ -14727,7 +13971,7 @@ document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); cx.beginP
 ![](./images/media/image59.png){width="0.17333333333333334in"
 height="0.21in"}
 
-cx.arc(150, 50, 40, 0, 0.5 \* Math.PI);
+cx.arc(150, 50, 40, 0, 0.5 &ast; Math.PI);
 
 cx.stroke();
 
@@ -14777,15 +14021,15 @@ results.reduce(function(sum, choice) {
 
 return sum + choice.count;
 
-}, 0); // Start at the top var currentAngle = -0.5 \* Math.PI;
+}, 0); // Start at the top var currentAngle = -0.5 &ast; Math.PI;
 results.forEach(function(result) {
 
-var sliceAngle = (result.count / total) \* 2 \* Math.PI;
+var sliceAngle = (result.count / total) &ast; 2 &ast; Math.PI;
 cx.beginPath();
 
 // center=100,100, radius=100
 
-// from current angle, clockwise by slice\'s angle cx.arc(100, 100,
+// from current angle, clockwise by slice&apos;s angle cx.arc(100, 100,
 100, currentAngle, currentAngle + sliceAngle);
 
 currentAngle += sliceAngle; cx.lineTo(100, 100); cx.fillStyle =
@@ -14913,7 +14157,7 @@ cx.drawImage(img,
 
 // source rectangle
 
-cycle \* spriteW, 0, spriteW, spriteH,
+cycle &ast; spriteW, 0, spriteW, spriteH,
 
 // destination rectangle
 
@@ -14986,9 +14230,9 @@ radians), that rotation will happen *around* point (50,50).
 
 translate(50, 50)
 
-rotate(0.1\*Math.PI)
+rotate(0.1&ast;Math.PI)
 
-rotate(0.1\*Math.PI)
+rotate(0.1&ast;Math.PI)
 
 translate(50, 50)
 
@@ -15080,8 +14324,8 @@ branch(length, angle, scale) {
 cx.fillRect(0, 0, 1, length);
 if (length &lt; 8) return; cx.save(); cx.translate(0, length);
 cx.rotate(-angle);
-branch(length \* scale, angle, scale); cx.rotate(2 \* angle);
-branch(length \* scale, angle, scale);
+branch(length &ast; scale, angle, scale); cx.rotate(2 &ast; angle);
+branch(length &ast; scale, angle, scale);
 cx.restore();
 }
 cx.translate(300, 0); branch(60, 0.5, 0.8);
@@ -15123,8 +14367,8 @@ in.
 <pre
 function CanvasDisplay(parent, level) {
 this.canvas = document.createElement(&quot;canvas&quot;); this.canvas.width =
-Math.min(600, level.width \* scale); this.canvas.height =
-Math.min(450, level.height \* scale);
+Math.min(600, level.width &ast; scale); this.canvas.height =
+Math.min(450, level.height &ast; scale);
 parent.appendChild(this.canvas); this.cx =
 this.canvas.getContext(&quot;2d&quot;);
 this.level = level; this.animationTime = 0; this.flipPlayer = false;
@@ -15236,7 +14480,7 @@ for (var y = yStart; y &lt; yEnd; y++) { for (var x = xStart; x &lt; xEnd;
 x++) {
 
 var tile = this.level.grid&lbrack;y&rbrack;&lbrack;x&rbrack;; if (tile == null) continue; var
-screenX = (x - view.left) \* scale; var screenY = (y - view.top) \*
+screenX = (x - view.left) &ast; scale; var screenY = (y - view.top) &ast;
 scale; var tileX = tile == &quot;lava&quot; ? scale : 0;
 this.cx.drawImage(otherSprites,
 
@@ -15292,7 +14536,7 @@ var playerSprites = document.createElement(&quot;img&quot;); playerSprites.src
 
 CanvasDisplay.prototype.drawPlayer = function(x, y, width, height) {
 
-var sprite = 8, player = this.level.player; width += playerXOverlap \*
+var sprite = 8, player = this.level.player; width += playerXOverlap &ast;
 2; x -= playerXOverlap; if (player.speed.x != 0) this.flipPlayer =
 player.speed.x &lt; 0; if (player.speed.y != 0)
 
@@ -15300,7 +14544,7 @@ sprite = 9;
 
 else if (player.speed.x != 0)
 
-sprite = Math.floor(this.animationTime \* 12) % 8;
+sprite = Math.floor(this.animationTime &ast; 12) % 8;
 
 this.cx.save(); if (this.flipPlayer)
 
@@ -15308,7 +14552,7 @@ flipHorizontally(this.cx, x + width / 2);
 
 this.cx.drawImage(playerSprites,
 
-sprite \* width, 0, width, height,
+sprite &ast; width, 0, width, height,
 
 x, y, width, height);
 
@@ -15324,14 +14568,14 @@ drawing all the actors in the game.
 CanvasDisplay.prototype.drawActors = function() {
 this.level.actors.forEach(function(actor) {
 
-var width = actor.size.x \* scale; var height = actor.size.y \* scale;
-var x = (actor.pos.x - this.viewport.left) \* scale; var y =
-(actor.pos.y - this.viewport.top) \* scale; if (actor.type ==
+var width = actor.size.x &ast; scale; var height = actor.size.y &ast; scale;
+var x = (actor.pos.x - this.viewport.left) &ast; scale; var y =
+(actor.pos.y - this.viewport.top) &ast; scale; if (actor.type ==
 &quot;player&quot;) {
 
 this.drawPlayer(x, y, width, height);
 
-} else { var tileX = (actor.type == &quot;coin&quot; ? 2 : 1) \* scale;
+} else { var tileX = (actor.type == &quot;coin&quot; ? 2 : 1) &ast; scale;
 this.cx.drawImage(otherSprites,
 
 tileX, 0, width, height,
@@ -15540,7 +14784,7 @@ GET /17_http.html HTTP/1.1
 
 Host: eloquentjavascript.net
 
-User-Agent: Your browser\'s name
+User-Agent: Your browser&apos;s name
 
 Then the server responds, through that same connection.
 
@@ -15554,7 +14798,7 @@ Last-Modified: Wed, 09 Apr 2014 10:48:09 GMT
 
 &lt;!doctype html&gt;
 
-\... the rest of the document
+&hellip; the rest of the document
 
 The browser then takes the part of the response after the blank line and
 displays it as an HTML document.
@@ -15893,7 +15137,7 @@ access several domains for legitimate reasons. Fortunately, servers can
 include a header like this in their response to explicitly indicate to
 browsers that it is okay for the request to come from other domains:
 
-Access-Control-Allow-Origin: \*
+Access-Control-Allow-Origin: &ast;
 
 ## Abstracting requests
 
@@ -16140,7 +15384,7 @@ return document.body.appendChild(elt);
 
 }
 
-var loading = showMessage(&quot;Loading\...&quot;);
+var loading = showMessage(&quot;Loading&hellip;&quot;);
 getJSON(&quot;example/bert.json&quot;).then(function(bert) {
 
 return getJSON(bert.spouse);
@@ -16468,7 +15712,7 @@ example document will let focus jump from the text input to the OK
 button, rather than going through the help link first:
 
 &lt;input type=&quot;text&quot; tabindex=1&gt; &lt;a href=&quot;.&quot;&gt;(help)&lt;/a&gt;
-&lt;button onclick=&quot;console.log(\'ok\')&quot; tabindex=2&gt;OK&lt;/button&gt;
+&lt;button onclick=&quot;console.log(&apos;ok&apos;)&quot; tabindex=2&gt;OK&lt;/button&gt;
 
 By default, most types of HTML elements cannot be focused. But you can
 add a tabindex attribute to any element, which will make it focusable.
@@ -16478,9 +15722,9 @@ add a tabindex attribute to any element, which will make it focusable.
 All form fields can be *disabled* through their disabled attribute,
 which also exists as a property on the element's DOM object.
 
-&lt;button&gt;I\'m all right&lt;/button&gt;
+&lt;button&gt;I&apos;m all right&lt;/button&gt;
 
-&lt;button disabled&gt;I\'m out&lt;/button&gt;
+&lt;button disabled&gt;I&apos;m out&lt;/button&gt;
 
 Disabled fields cannot be focused or changed, and unlike active fields,
 they usually look gray and faded.
@@ -16948,7 +16192,7 @@ option.textContent = name; list.appendChild(option);
 
 // Initialize the list from localStorage
 
-var notes = JSON.parse(localStorage.getItem(&quot;notes&quot;)) \|\|
+var notes = JSON.parse(localStorage.getItem(&quot;notes&quot;)) &vert;&vert;
 
 {&quot;shopping list&quot;: &quot;&quot;}; for (var name in notes)
 
@@ -16998,7 +16242,7 @@ The script initializes the notes variable to the value stored in
 localStorage or, if that is missing, to a simple object with only an
 empty &quot;shopping list&quot; note in it. Reading a field that does not exist
 from localStorage will yield null. Passing null to JSON.parse will make
-it parse the string &quot;null&quot; and return null. Thus, the \|\| operator
+it parse the string &quot;null&quot; and return null. Thus, the &vert;&vert; operator
 can be used to provide a default value in a situation like this.
 
 Whenever the note data changes (when a new note is added or an
@@ -17473,7 +16717,7 @@ link.href = cx.canvas.toDataURL();
 
 link.href = &quot;javascript:alert(&quot; +
 
-JSON.stringify(&quot;Can\'t save: &quot; + e.toString()) + &quot;)&quot;; else
+JSON.stringify(&quot;Can&apos;t save: &quot; + e.toString()) + &quot;)&quot;; else
 
 throw e;
 
@@ -17625,7 +16869,7 @@ speckling based on how fast or slow the mouse moves.
 
 tools.Spray = function(event, cx) {
 
-var radius = cx.lineWidth / 2; var area = radius \* radius \* Math.PI;
+var radius = cx.lineWidth / 2; var area = radius &ast; radius &ast; Math.PI;
 var dotsPerTick = Math.ceil(area / 30);
 
 var currentPos = relativePos(event, cx.canvas); var spray =
@@ -17656,18 +16900,18 @@ position and to turn off the interval when the mouse button is released.
 To determine how many dots to draw every time the interval fires, the
 function computes the area of the current brush and divides that by
 
-30\. To find a random position under the brush, the randomPointInRadius
+30&bsol;. To find a random position under the brush, the randomPointInRadius
 function is used.
 
 function randomPointInRadius(radius) {
 
 for (;;) {
 
-var x = Math.random() \* 2 - 1; var y = Math.random() \* 2 - 1;
+var x = Math.random() &ast; 2 - 1; var y = Math.random() &ast; 2 - 1;
 
-if (x \* x + y \* y &lt;= 1)
+if (x &ast; x + y &ast; y &lt;= 1)
 
-return {x: x \* radius, y: y \* radius};
+return {x: x &ast; radius, y: y &ast; radius};
 
 }
 
@@ -17940,7 +17184,7 @@ var message = &quot;Hello world&quot;; console.log(message);
 You can then run node from the command line like this to execute the
 program:
 
-\$ node hello.js
+&dollar; node hello.js
 
 Hello world
 
@@ -17952,7 +17196,7 @@ JavaScript console.
 If you run node without giving it a file, it provides you with a prompt
 at which you can type JavaScript code and immediately see the result.
 
-\$ node &gt; 1 + 1
+&dollar; node &gt; 1 + 1
 
 2
 
@@ -17962,7 +17206,7 @@ at which you can type JavaScript code and immediately see the result.
 
 &gt; process.exit(0)
 
-\$
+&dollar;
 
 The process variable, just like the console variable, is available
 globally in Node. It provides various ways to inspect and manipulate the
@@ -17977,7 +17221,7 @@ the name of the node commands and your script name, so the actual
 arguments start at index 2. If showargv.js simply contains the statement
 console.log(process.argv), you could run it like this:
 
-\$ node showargv.js one &dash;-and two
+&dollar; node showargv.js one &dash;-and two
 
 &lbrack;&quot;node&quot;, &quot;/home/marijn/showargv.js&quot;, &quot;one&quot;, &quot;&dash;-and&quot;,
 &quot;two&quot;&rbrack;
@@ -18050,7 +17294,7 @@ back into a string.
 
 We can now call our tool like this:
 
-\$ node main.js JavaScript Of{fXhwnuy
+&dollar; node main.js JavaScript Of{fXhwnuy
 
 ## Installing with NPM
 
@@ -18063,7 +17307,7 @@ For example, one module you will find on NPM is figlet, which can
 convert text into *ASCII art*---drawings made out of text characters.
 The following transcript shows how to install and use it:
 
-\$ npm install figlet
+&dollar; npm install figlet
 
 npm GET https://registry.npmjs.org/figlet npm 200
 https://registry.npmjs.org/figlet
@@ -18072,7 +17316,7 @@ npm GET https://registry.npmjs.org/figlet/-/figlet-1.0.9.tgz npm 200
 https://registry.npmjs.org/figlet/-/figlet-1.0.9.tgz figlet@1.0.9
 node_modules/figlet
 
-\$ node
+&dollar; node
 
 &gt; var figlet = require(&quot;figlet&quot;);
 
@@ -18086,14 +17330,14 @@ console.log(data);
 
 });
 
-\_ \_ \_ \_ \_ \_ \_ \| \| \| \| \_\_\_\| \| \| \_\_\_ \_\_ \_\_\_\_\_
-\_ \_\_\| \| \_\_\| \| \| \| \|\_\| \|/ \_ \\ \| \|/ \_ \\ \\ \\ /\\ /
-/ \_ \\\| \'\_\_\| \|/ \_\` \| \|
+&lowbar; &lowbar; &lowbar; &lowbar; &lowbar; &lowbar; &lowbar; &vert; &vert; &vert; &vert; &lowbar;&lowbar;&lowbar;&vert; &vert; &vert; &lowbar;&lowbar;&lowbar; &lowbar;&lowbar; &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;
+&lowbar; &lowbar;&lowbar;&vert; &vert; &lowbar;&lowbar;&vert; &vert; &vert; &vert; &vert;&lowbar;&vert; &vert;/ &lowbar; &bsol;&bsol; &vert; &vert;/ &lowbar; &bsol;&bsol; &bsol;&bsol; &bsol;&bsol; /&bsol;&bsol; /
+/ &lowbar; &bsol;&bsol;&vert; &apos;&lowbar;&lowbar;&vert; &vert;/ &lowbar;&bsol;` &vert; &vert;
 
-\| \_ \| \_\_/ \| \| (\_) \| \\ V V / (\_) \| \| \| \| (\_\| \|\_\|
+&vert; &lowbar; &vert; &lowbar;&lowbar;/ &vert; &vert; (&lowbar;) &vert; &bsol;&bsol; V V / (&lowbar;) &vert; &vert; &vert; &vert; (&lowbar;&vert; &vert;&lowbar;&vert;
 
-\|\_\| \|\_\|\\\_\_\_\|\_\|\_\|\\\_\_\_/ \\\_/\\\_/ \\\_\_\_/\|\_\|
-\|\_\|\\\_\_,\_(\_)
+&vert;&lowbar;&vert; &vert;&lowbar;&vert;&bsol;&bsol;&lowbar;&lowbar;&lowbar;&vert;&lowbar;&vert;&lowbar;&vert;&bsol;&bsol;&lowbar;&lowbar;&lowbar;/ &bsol;&bsol;&lowbar;/&bsol;&bsol;&lowbar;/ &bsol;&bsol;&lowbar;&lowbar;&lowbar;/&vert;&lowbar;&vert;
+&vert;&lowbar;&vert;&bsol;&bsol;&lowbar;&lowbar;,&lowbar;(&lowbar;)
 
 After running npm install, NPM will have created a directory called
 node_modules. Inside that directory will be a figlet directory, which
@@ -18398,9 +17642,9 @@ the request refers to.
 We probably don't want to share our whole file system, so we'll
 interpret these paths as starting in the server's working directory,
 which is the directory in which it was started. If I ran the server from
-/home/ marijn/public/ (or C:\\Users\\marijn\\public\\ on Windows), then
+/home/ marijn/public/ (or C:&bsol;&bsol;Users&bsol;&bsol;marijn&bsol;&bsol;public&bsol;&bsol; on Windows), then
 a request for /file.txt should refer to /home/marijn/public/file.txt (or
-C:\\Users\\marijn\\ public\\file.txt).
+C:&bsol;&bsol;Users&bsol;&bsol;marijn&bsol;&bsol; public&bsol;&bsol;file.txt).
 
 We'll build the program piece by piece, using an object called methods
 to store the functions that handle the various HTTP methods. var http =
@@ -18477,7 +17721,7 @@ If you run the following npm command in the directory where the server
 script lives, you'll be able to use require(&quot;mime&quot;) to get access to
 the library:
 
-\$ npm install mime
+&dollar; npm install mime
 
 npm http GET https://registry.npmjs.org/mime npm http 304
 https://registry.npmjs.org/mime mime@1.2.11 node_modules/mime
@@ -18506,7 +17750,7 @@ respond(500, error.toString());
 
 else
 
-respond(200, files.join(&quot;\\n&quot;));
+respond(200, files.join(&quot;&bsol;&bsol;n&quot;));
 
 }); else
 
@@ -18631,17 +17875,17 @@ be used to make HTTP requests. The following session briefly tests our
 server. Note that -X is used to set the request's method and -d is used
 to include a request body.
 
-\$ curl http://localhost:8000/file.txt
+&dollar; curl http://localhost:8000/file.txt
 
 File not found
 
-\$ curl -X PUT -d hello http://localhost:8000/file.txt
+&dollar; curl -X PUT -d hello http://localhost:8000/file.txt
 
-\$ curl http://localhost:8000/file.txt hello
+&dollar; curl http://localhost:8000/file.txt hello
 
-\$ curl -X DELETE http://localhost:8000/file.txt
+&dollar; curl -X DELETE http://localhost:8000/file.txt
 
-\$ curl http://localhost:8000/file.txt
+&dollar; curl http://localhost:8000/file.txt
 
 File not found
 
@@ -18721,7 +17965,7 @@ else if (stats.isDirectory())
 
 return fsp.readdir(path).then(function(files) {
 
-return {code: 200, body: files.join(&quot;\\n&quot;)};
+return {code: 200, body: files.join(&quot;&bsol;&bsol;n&quot;)};
 
 }); else
 
@@ -19118,7 +18362,7 @@ but there is a nicer way.
 A *router* is a component that helps dispatch a request to the function
 that can handle it. You can tell the router, for example, that PUT
 requests with a path that matches the regular expression
-/\^\\/talks\\/(&lbrack;\^\\/&rbrack;+)\$/ (which matches /talks/ followed by a talk
+/&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/ (which matches /talks/ followed by a talk
 title) can be handled by a given function. In addition, it can help
 extract the meaningful parts of the path, in this case the talk title,
 wrapped in parentheses in the regular expression and pass those to the
@@ -19147,7 +18391,7 @@ require(&quot;url&quot;).parse(request.url).pathname;
 
 return this.routes.some(function(route) {
 
-var match = route.url.exec(path); if (!match \|\| route.method !=
+var match = route.url.exec(path); if (!match &vert;&vert; route.method !=
 request.method)
 
 return false;
@@ -19216,7 +18460,7 @@ function respond(response, status, data, type) {
 
 response.writeHead(status, {
 
-&quot;Content-Type&quot;: type \|\| &quot;text/plain&quot;
+&quot;Content-Type&quot;: type &vert;&vert; &quot;text/plain&quot;
 
 });
 
@@ -19242,7 +18486,7 @@ The handler for requests that GET a single talk must look up the talk
 and respond either with the talk's JSON data or with a 404 error
 response. var talks = Object.create(null);
 
-router.add(&quot;GET&quot;, /\^\\/talks\\/(&lbrack;\^\\/&rbrack;+)\$/, function(request,
+router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
 
 if (title in talks)
@@ -19251,13 +18495,13 @@ respondJSON(response, 200, talks&lbrack;title&rbrack;);
 
 else
 
-respond(response, 404, &quot;No talk \'&quot; + title + &quot;\' found&quot;);
+respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos; found&quot;);
 
 });
 
 Deleting a talk is done by removing it from the talks object.
 
-router.add(&quot;DELETE&quot;, /\^\\/talks\\/(&lbrack;\^\\/&rbrack;+)\$/,
+router.add(&quot;DELETE&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/,
 
 function(request, response, title) {
 
@@ -19315,7 +18559,7 @@ If the data looks valid, the handler stores an object that represents
 the new talk in the talks object, possibly overwriting an existing talk
 with this title, and again calls registerChange.
 
-router.add(&quot;PUT&quot;, /\^\\/talks\\/(&lbrack;\^\\/&rbrack;+)\$/, function(request,
+router.add(&quot;PUT&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
 
 readStreamAsJSON(request, function(error, talk) {
@@ -19324,7 +18568,7 @@ if (error) {
 
 respond(response, 400, error.toString());
 
-} else if (!talk \|\| typeof talk.presenter != &quot;string&quot; \|\| typeof
+} else if (!talk &vert;&vert; typeof talk.presenter != &quot;string&quot; &vert;&vert; typeof
 talk.summary != &quot;string&quot;) {
 
 respond(response, 400, &quot;Bad talk data&quot;);
@@ -19346,7 +18590,7 @@ Adding a comment to a talk works similarly. We use readStreamAsJSON to
 get the content of the request, validate the resulting data, and store
 it as a comment when it looks valid.
 
-router.add(&quot;POST&quot;, /\^\\/talks\\/(&lbrack;\^\\/&rbrack;+)\\/comments\$/,
+router.add(&quot;POST&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&bsol;&bsol;/comments&dollar;/,
 function(request, response, title) {
 
 readStreamAsJSON(request, function(error, comment) {
@@ -19355,7 +18599,7 @@ if (error) {
 
 respond(response, 400, error.toString());
 
-} else if (!comment \|\| typeof comment.author != &quot;string&quot; \|\|
+} else if (!comment &vert;&vert; typeof comment.author != &quot;string&quot; &vert;&vert;
 typeof comment.message != &quot;string&quot;) {
 
 respond(response, 400, &quot;Bad comment data&quot;);
@@ -19366,7 +18610,7 @@ talks&lbrack;title&rbrack;.comments.push(comment); registerChange(title);
 
 respond(response, 204, null);
 
-} else { respond(response, 404, &quot;No talk \'&quot; + title + &quot;\'
+} else { respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos;
 found&quot;);
 
 } }); });
@@ -19402,7 +18646,7 @@ will also parse the query part of a URL. The object it returns will have
 a query property, which holds another object that maps parameter names
 to values.
 
-router.add(&quot;GET&quot;, /\^\\/talks\$/, function(request, response) { var
+router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&dollar;/, function(request, response) { var
 query = require(&quot;url&quot;).parse(request.url, true).query; if
 (query.changesSince == null) {
 
@@ -19456,7 +18700,7 @@ sendTalks(&lbrack;&rbrack;, response);
 
 }
 
-}, 90 \* 1000);
+}, 90 &ast; 1000);
 
 }
 
@@ -19655,7 +18899,7 @@ function request(options, callback) {
 
 var req = new XMLHttpRequest();
 
-req.open(options.method \|\| &quot;GET&quot;, options.pathname, true);
+req.open(options.method &vert;&vert; &quot;GET&quot;, options.pathname, true);
 req.addEventListener(&quot;load&quot;, function() {
 
 if (req.status &lt; 400)
@@ -19672,7 +18916,7 @@ callback(new Error(&quot;Network error&quot;));
 
 });
 
-req.send(options.body \|\| null);
+req.send(options.body &vert;&vert; null);
 
 }
 
@@ -19778,7 +19022,7 @@ function instantiateTemplate(name, values) {
 
 function instantiateText(text) {
 
-return text.replace(/\\{\\{(\\w+)\\}\\}/g, function(\_, name) {
+return text.replace(/&bsol;&bsol;{&bsol;&bsol;{(&bsol;&bsol;w+)&bsol;&bsol;}&bsol;&bsol;}/g, function(&lowbar;, name) {
 
 return values&lbrack;name&rbrack;;
 
@@ -19898,7 +19142,7 @@ reference to the &lt;input&gt; field at the top of the page that allows the
 user to specify their name. We also wire up that field to localStorage
 so that it does not have to be filled in again every time the page is
 reloaded. var nameField = document.querySelector(&quot;#name&quot;);
-nameField.value = localStorage.getItem(&quot;name&quot;) \|\| &quot;&quot;;
+nameField.value = localStorage.getItem(&quot;name&quot;) &vert;&vert; &quot;&quot;;
 
 nameField.addEventListener(&quot;change&quot;, function() {
 
@@ -20083,7 +19327,7 @@ introduced.
 
 Now consider the equivalence between numbers and strings of hash
 characters. You can go from 1 to 2 by adding 1 (+= 1). You can go from
-&quot;\\#&quot; to &quot;\\#\\#&quot; by adding a character (+= &quot;\\#&quot;). Thus, your
+&quot;&bsol;&bsol;#&quot; to &quot;&bsol;&bsol;#&bsol;&bsol;#&quot; by adding a character (+= &quot;&bsol;&bsol;#&quot;). Thus, your
 solution can closely follow the number-printing program.
 
 #### FizzBuzz
@@ -20100,13 +19344,13 @@ The second version of the program has a straightforward solution and a
 clever one. The simple way is to add another "branch" to precisely test
 the given condition. For the clever method, build up a string containing
 the word or words to output, and print either this word or the number if
-there is no word, potentially by making elegant use of the \|\|
+there is no word, potentially by making elegant use of the &vert;&vert;
 operator.
 
 #### Chess board
 
 The string can be built by starting with an empty one (&quot;&quot;) and
-repeatedly adding characters. A newline character is written &quot;\\n&quot;.
+repeatedly adding characters. A newline character is written &quot;&bsol;&bsol;n&quot;.
 
 Use console.log to inspect the output of your program.
 
@@ -20415,13 +19659,13 @@ it started out locked.
 #### Quoting style
 
 The most obvious solution is to only replace quotes with a nonword
-character on at least one side. Something like /\\W\'\|\'\\W/. But you
+character on at least one side. Something like /&bsol;&bsol;W&apos;&vert;&apos;&bsol;&bsol;W/. But you
 also have to take the start and end of the line into account.
 
 In addition, you must ensure that the replacement also includes the
-characters that were matched by the \\W pattern so that those are not
+characters that were matched by the &bsol;&bsol;W pattern so that those are not
 dropped. This can be done by wrapping them in parentheses and including
-their groups in the replacement string (\$1, \$2). Groups that are not
+their groups in the replacement string (&dollar;1, &dollar;2). Groups that are not
 matched will be replaced by nothing.
 
 #### Numbers again
@@ -20429,12 +19673,12 @@ matched will be replaced by nothing.
 First, do not forget the backslash in front of the dot.
 
 Matching the optional sign in front of the number, as well as in front
-of the exponent, can be done with &lbrack;+\&dash;&rbrack;? or (\\+\|-\|) (plus, minus,
+of the exponent, can be done with &lbrack;+&bsol;&dash;&rbrack;? or (&bsol;&bsol;+&vert;-&vert;) (plus, minus,
 or nothing).
 
 The more complicated part of the exercise is the problem of matching
 both &quot;5.&quot; and &quot;.5&quot; without also matching &quot;.&quot;. For this, a good
-solution is to use the \| operator to separate the two cases---either
+solution is to use the &vert; operator to separate the two cases---either
 one or more digits optionally followed by a dot and zero or more digits
 *or* a dot followed by one or more digits.
 
@@ -20746,13 +19990,13 @@ You don't want to put the text directly against the side of the pie but
 rather move the text out to the side of the pie by a given number of
 pixels.
 
-The angle of this line is currentAngle + 0.5 \* sliceAngle. The
+The angle of this line is currentAngle + 0.5 &ast; sliceAngle. The
 following code finds a position on this line, 120 pixels from the
 center:
 
-var middleAngle = currentAngle + 0.5 \* sliceAngle; var textX =
-Math.cos(middleAngle) \* 120 + centerX; var textY =
-Math.sin(middleAngle) \* 120 + centerY;
+var middleAngle = currentAngle + 0.5 &ast; sliceAngle; var textX =
+Math.cos(middleAngle) &ast; 120 + centerX; var textY =
+Math.sin(middleAngle) &ast; 120 + centerY;
 
 For textBaseline, the value &quot;middle&quot; is probably appropriate when
 using this approach. What to use for textAlign depends on the side of
@@ -21141,11 +20385,11 @@ served.
 
 **Index**
 
-\* operator, 14, 20, 167
+&ast; operator, 14, 20, 167
 
-\*= operator, 36
+&ast;= operator, 36
 
-\+ operator, 14, 16, 20, 97, 167
+&bsol;+ operator, 14, 16, 20, 97, 167
 
 ++ operator, 37
 
@@ -21175,13 +20419,13 @@ served.
 
 &lbrack;&rbrack; (subscript), 63
 
-\% operator, 14, 36, 310, 424, 425,
+&bsol;% operator, 14, 36, 310, 424, 425,
 
 437, 439
 
 && operator, 18, 21, 104
 
-\|\| operator, 18, 21, 54, 104, 132,
+&vert;&vert; operator, 18, 21, 54, 104, 132,
 
 355, 424
 
@@ -22508,3 +21752,713 @@ yield (reserved word), 26 Yuan-Ma, 11, 376
 
 Zawinski, Jamie, 164 zero-based counting, 60, 63, 170 zeroPad function,
 57 zigzag, 439 zooming, 320
+
+
+[On programming [2](#on-programming)](#on-programming)
+
+[Why language matters [4](#why-language-matters)](#why-language-matters)
+
+[What is JavaScript? [7](#what-is-javascript)](#what-is-javascript)
+
+[Code, and what to do with it
+[8](#code-and-what-to-do-with-it)](#code-and-what-to-do-with-it)
+
+[Overview of this book
+[9](#overview-of-this-book)](#overview-of-this-book)
+
+[Typographic conventions
+[10](#typographic-conventions)](#typographic-conventions)
+
+[**1 Values, Types, and Operators**
+[**11**](#values-types-and-operators)](#values-types-and-operators)
+
+[Values [11](#values)](#values)
+
+[Numbers [12](#numbers)](#numbers)
+
+[Strings [15](#strings)](#strings)
+
+[Unary operators [16](#unary-operators)](#unary-operators)
+
+[Boolean values [17](#boolean-values)](#boolean-values)
+
+[Undefined values [19](#undefined-values)](#undefined-values)
+
+[Automatic type conversion
+[19](#automatic-type-conversion)](#automatic-type-conversion)
+
+[Summary [22](#summary)](#summary)
+
+[**2 Program Structure**
+[**23**](#program-structure)](#program-structure)
+
+[Expressions and statements
+[23](#expressions-and-statements)](#expressions-and-statements)
+
+[Variables [24](#variables)](#variables)
+
+[Keywords and reserved words
+[26](#keywords-and-reserved-words)](#keywords-and-reserved-words)
+
+[The environment [27](#the-environment)](#the-environment)
+
+[Functions [27](#functions)](#functions)
+
+[The console.log function
+[28](#the-console.log-function)](#the-console.log-function)
+
+[Return values [28](#return-values)](#return-values)
+
+[prompt and confirm [29](#prompt-and-confirm)](#prompt-and-confirm)
+
+[Control flow [30](#control-flow)](#control-flow)
+
+[Conditional execution
+[30](#conditional-execution)](#conditional-execution)
+
+[while and do loops [32](#while-and-do-loops)](#while-and-do-loops)
+
+[Indenting Code [34](#indenting-code)](#indenting-code)
+
+[for loops [35](#for-loops)](#for-loops)
+
+[Breaking Out of a Loop
+[36](#breaking-out-of-a-loop)](#breaking-out-of-a-loop)
+
+[Updating variables succinctly
+[36](#updating-variables-succinctly)](#updating-variables-succinctly)
+
+[Dispatching on a value with switch
+[37](#dispatching-on-a-value-with-switch)](#dispatching-on-a-value-with-switch)
+
+[Capitalization [38](#capitalization)](#capitalization)
+
+[Comments [38](#comments)](#comments)
+
+[Summary [39](#summary-1)](#summary-1)
+
+[Exercises [40](#exercises)](#exercises)
+
+[**3 Functions** [**42**](#functions-1)](#functions-1)
+
+[Defining a function [42](#defining-a-function)](#defining-a-function)
+
+[Parameters and scopes
+[43](#parameters-and-scopes)](#parameters-and-scopes)
+
+[Nested scope [45](#nested-scope)](#nested-scope)
+
+[Functions as values [46](#functions-as-values)](#functions-as-values)
+
+[Declaration notation
+[47](#declaration-notation)](#declaration-notation)
+
+[The call stack [48](#the-call-stack)](#the-call-stack)
+
+[Optional Arguments [49](#optional-arguments)](#optional-arguments)
+
+[Closure [50](#closure)](#closure)
+
+[Recursion [52](#recursion)](#recursion)
+
+[Growing functions [55](#growing-functions)](#growing-functions)
+
+[Functions and side effects
+[58](#functions-and-side-effects)](#functions-and-side-effects)
+
+[Summary [58](#summary-2)](#summary-2)
+
+[Exercises [59](#exercises-1)](#exercises-1)
+
+[**4 Data Structures: Objects and Arrays**
+[**61**](#data-structures-objects-and-arrays)](#data-structures-objects-and-arrays)
+
+[The weresquirrel [61](#the-weresquirrel)](#the-weresquirrel)
+
+[Data sets [62](#data-sets)](#data-sets)
+
+[Properties [63](#properties)](#properties)
+
+[Methods [64](#methods)](#methods)
+
+[Objects [65](#objects)](#objects)
+
+[Mutability [68](#mutability)](#mutability)
+
+[The lycanthrope's log
+[69](#the-lycanthropes-log)](#the-lycanthropes-log)
+
+[Computing correlation
+[71](#computing-correlation)](#computing-correlation)
+
+[Objects as maps [73](#objects-as-maps)](#objects-as-maps)
+
+[The final analysis [74](#the-final-analysis)](#the-final-analysis)
+
+[Further arrayology [76](#further-arrayology)](#further-arrayology)
+
+[Strings and their properties
+[78](#strings-and-their-properties)](#strings-and-their-properties)
+
+[The arguments object
+[79](#the-arguments-object)](#the-arguments-object)
+
+[The Math object [80](#the-math-object)](#the-math-object)
+
+[The global object [82](#the-global-object)](#the-global-object)
+
+[Summary [82](#summary-3)](#summary-3)
+
+[Exercises [83](#exercises-2)](#exercises-2)
+
+[**5 Higher-Order Functions**
+[**86**](#higher-order-functions)](#higher-order-functions)
+
+[Abstraction [87](#abstraction)](#abstraction)
+
+[Abstracting array traversal
+[88](#abstracting-array-traversal)](#abstracting-array-traversal)
+
+[Higher-order functions
+[90](#higher-order-functions-1)](#higher-order-functions-1)
+
+[Passing along arguments
+[91](#passing-along-arguments)](#passing-along-arguments)
+
+[JSON [92](#json)](#json)
+
+[Filtering an array [94](#filtering-an-array)](#filtering-an-array)
+
+[Transforming with map
+[95](#transforming-with-map)](#transforming-with-map)
+
+[Summarizing with reduce
+[95](#summarizing-with-reduce)](#summarizing-with-reduce)
+
+[Composability [96](#composability)](#composability)
+
+[The cost [98](#the-cost)](#the-cost)
+
+[Great-great-great-great-
+[99](#great-great-great-great-)](#great-great-great-great-)
+
+[Binding [102](#binding)](#binding)
+
+[Summary [102](#summary-4)](#summary-4)
+
+[Exercises [103](#exercises-3)](#exercises-3)
+
+[**6 The Secret Life of Objects**
+[**105**](#the-secret-life-of-objects)](#the-secret-life-of-objects)
+
+[History [105](#history)](#history)
+
+[Methods [107](#methods-1)](#methods-1)
+
+[Prototypes [108](#prototypes)](#prototypes)
+
+[Constructors [109](#constructors)](#constructors)
+
+[Overriding derived properties
+[110](#overriding-derived-properties)](#overriding-derived-properties)
+
+[Prototype interference
+[112](#prototype-interference)](#prototype-interference)
+
+[Prototype-less objects
+[114](#prototype-less-objects)](#prototype-less-objects)
+
+[Polymorphism [115](#polymorphism)](#polymorphism)
+
+[Laying out a table [115](#laying-out-a-table)](#laying-out-a-table)
+
+[Getters and setters [121](#getters-and-setters)](#getters-and-setters)
+
+[Inheritance [122](#inheritance)](#inheritance)
+
+[The instanceof operator
+[124](#the-instanceof-operator)](#the-instanceof-operator)
+
+[Summary [125](#summary-5)](#summary-5)
+
+[Exercises [126](#exercises-4)](#exercises-4)
+
+[**7 Project: Electronic Life**
+[**128**](#project-electronic-life)](#project-electronic-life)
+
+[Definition [128](#definition)](#definition)
+
+[Representing space [129](#representing-space)](#representing-space)
+
+[A critter's programming interface
+[131](#a-critters-programming-interface)](#a-critters-programming-interface)
+
+[The world object [132](#the-world-object)](#the-world-object)
+
+[this and its scope [134](#this-and-its-scope)](#this-and-its-scope)
+
+[Animating life [136](#animating-life)](#animating-life)
+
+[It moves [139](#it-moves)](#it-moves)
+
+[More life forms [140](#more-life-forms)](#more-life-forms)
+
+[A more lifelike simulation
+[141](#a-more-lifelike-simulation)](#a-more-lifelike-simulation)
+
+[Action handlers [142](#action-handlers)](#action-handlers)
+
+[Populating the new world
+[144](#populating-the-new-world)](#populating-the-new-world)
+
+[Bringing it to life [145](#bringing-it-to-life)](#bringing-it-to-life)
+
+[Exercises [147](#exercises-5)](#exercises-5)
+
+[**8 Bugs and Error Handling**
+[**149**](#bugs-and-error-handling)](#bugs-and-error-handling)
+
+[Programmer mistakes [149](#programmer-mistakes)](#programmer-mistakes)
+
+[Strict mode [150](#strict-mode)](#strict-mode)
+
+[Testing [151](#testing)](#testing)
+
+[Debugging [153](#debugging)](#debugging)
+
+[Error propagation [154](#error-propagation)](#error-propagation)
+
+[Exceptions [156](#exceptions)](#exceptions)
+
+[Cleaning up after exceptions
+[157](#cleaning-up-after-exceptions)](#cleaning-up-after-exceptions)
+
+[Selective catching [159](#selective-catching)](#selective-catching)
+
+[Assertions [161](#assertions)](#assertions)
+
+[Summary [162](#summary-6)](#summary-6)
+
+[Exercises [163](#exercises-6)](#exercises-6)
+
+[**9 Regular Expressions**
+[**164**](#regular-expressions)](#regular-expressions)
+
+[Creating a regular expression
+[164](#creating-a-regular-expression)](#creating-a-regular-expression)
+
+[Testing for matches [165](#testing-for-matches)](#testing-for-matches)
+
+[Matching a set of characters
+[165](#matching-a-set-of-characters)](#matching-a-set-of-characters)
+
+[Repeating parts of a pattern
+[167](#repeating-parts-of-a-pattern)](#repeating-parts-of-a-pattern)
+
+[Grouping subexpressions
+[168](#grouping-subexpressions)](#grouping-subexpressions)
+
+[Matches and groups [168](#matches-and-groups)](#matches-and-groups)
+
+[The date type [170](#the-date-type)](#the-date-type)
+
+[Word and string boundaries
+[171](#word-and-string-boundaries)](#word-and-string-boundaries)
+
+[Choice patterns [172](#choice-patterns)](#choice-patterns)
+
+[The mechanics of matching
+[172](#the-mechanics-of-matching)](#the-mechanics-of-matching)
+
+[Backtracking [174](#backtracking)](#backtracking)
+
+[The replace method [176](#the-replace-method)](#the-replace-method)
+
+[Greed [177](#greed)](#greed)
+
+[Dynamically creating RegExp objects
+[179](#dynamically-creating-regexp-objects)](#dynamically-creating-regexp-objects)
+
+[The search method [180](#the-search-method)](#the-search-method)
+
+[The lastIndex property
+[180](#the-lastindex-property)](#the-lastindex-property)
+
+[Parsing an INI file [182](#parsing-an-ini-file)](#parsing-an-ini-file)
+
+[International characters
+[184](#international-characters)](#international-characters)
+
+[Summary [185](#summary-7)](#summary-7)
+
+[Exercises [186](#exercises-7)](#exercises-7)
+
+[**10 Modules** [**188**](#modules)](#modules)
+
+[Why modules help [188](#why-modules-help)](#why-modules-help)
+
+[Using functions as namespaces
+[191](#using-functions-as-namespaces)](#using-functions-as-namespaces)
+
+[Objects as interfaces
+[192](#objects-as-interfaces)](#objects-as-interfaces)
+
+[Detaching from the global scope
+[193](#detaching-from-the-global-scope)](#detaching-from-the-global-scope)
+
+[Evaluating data as code
+[194](#evaluating-data-as-code)](#evaluating-data-as-code)
+
+[Require [195](#require)](#require)
+
+[Slow-loading modules
+[197](#slow-loading-modules)](#slow-loading-modules)
+
+[Interface design [200](#interface-design)](#interface-design)
+
+[Summary [202](#summary-8)](#summary-8)
+
+[Exercises [203](#exercises-8)](#exercises-8)
+
+[**11 Project: A Programming Language**
+[**205**](#project-a-programming-language)](#project-a-programming-language)
+
+[Parsing [205](#parsing)](#parsing)
+
+[The evaluator [210](#the-evaluator)](#the-evaluator)
+
+[Special forms [211](#special-forms)](#special-forms)
+
+[The environment [213](#the-environment-1)](#the-environment-1)
+
+[Functions [215](#functions-2)](#functions-2)
+
+[Compilation [216](#compilation)](#compilation)
+
+[Cheating [217](#cheating)](#cheating)
+
+[Exercises [218](#exercises-9)](#exercises-9)
+
+[**12 JavaScript and the Browser**
+[**220**](#javascript-and-the-browser)](#javascript-and-the-browser)
+
+[Networks and the Internet
+[220](#networks-and-the-internet)](#networks-and-the-internet)
+
+[The Web [222](#the-web)](#the-web)
+
+[HTML [223](#html)](#html)
+
+[HTML and JavaScript [225](#html-and-javascript)](#html-and-javascript)
+
+[In the sandbox [226](#in-the-sandbox)](#in-the-sandbox)
+
+[Compatibility and the browser wars
+[227](#compatibility-and-the-browser-wars)](#compatibility-and-the-browser-wars)
+
+[**13 The Document Object Model**
+[**229**](#the-document-object-model)](#the-document-object-model)
+
+[Document structure [229](#document-structure)](#document-structure)
+
+[Trees [230](#trees)](#trees)
+
+[The standard [232](#the-standard)](#the-standard)
+
+[Moving through the tree
+[233](#moving-through-the-tree)](#moving-through-the-tree)
+
+[Finding elements [234](#finding-elements)](#finding-elements)
+
+[Changing the document
+[235](#changing-the-document)](#changing-the-document)
+
+[Creating nodes [236](#creating-nodes)](#creating-nodes)
+
+[Attributes [238](#attributes)](#attributes)
+
+[Layout [241](#layout)](#layout)
+
+[Styling [243](#styling)](#styling)
+
+[Cascading styles [244](#cascading-styles)](#cascading-styles)
+
+[Query selectors [246](#query-selectors)](#query-selectors)
+
+[Positioning and animating
+[247](#positioning-and-animating)](#positioning-and-animating)
+
+[Summary [249](#summary-9)](#summary-9)
+
+[Exercises [250](#exercises-10)](#exercises-10)
+
+[**14 Handling Events** [**252**](#handling-events)](#handling-events)
+
+[Event handlers [252](#event-handlers)](#event-handlers)
+
+[Events and DOM nodes
+[253](#events-and-dom-nodes)](#events-and-dom-nodes)
+
+[Event objects [254](#event-objects)](#event-objects)
+
+[Propagation [254](#propagation)](#propagation)
+
+[Default actions [256](#default-actions)](#default-actions)
+
+[Key events [257](#key-events)](#key-events)
+
+[Mouse clicks [259](#mouse-clicks)](#mouse-clicks)
+
+[Mouse motion [260](#mouse-motion)](#mouse-motion)
+
+[Scroll events [263](#scroll-events)](#scroll-events)
+
+[Focus events [264](#focus-events)](#focus-events)
+
+[Load event [265](#load-event)](#load-event)
+
+[Script execution timeline
+[266](#script-execution-timeline)](#script-execution-timeline)
+
+[Setting timers [267](#setting-timers)](#setting-timers)
+
+[Debouncing [268](#debouncing)](#debouncing)
+
+[Summary [270](#summary-10)](#summary-10)
+
+[Exercises [270](#exercises-11)](#exercises-11)
+
+[**15 Project: A Platform Game**
+[**272**](#project-a-platform-game)](#project-a-platform-game)
+
+[The game [272](#the-game)](#the-game)
+
+[The technology [273](#the-technology)](#the-technology)
+
+[Levels [274](#levels)](#levels)
+
+[Reading a level [275](#reading-a-level)](#reading-a-level)
+
+[Actors [276](#actors)](#actors)
+
+[Encapsulation as a burden
+[279](#encapsulation-as-a-burden)](#encapsulation-as-a-burden)
+
+[Drawing [280](#drawing)](#drawing)
+
+[Motion and collision
+[285](#motion-and-collision)](#motion-and-collision)
+
+[Actors and actions [288](#actors-and-actions)](#actors-and-actions)
+
+[Tracking keys [292](#tracking-keys)](#tracking-keys)
+
+[Running the game [293](#running-the-game)](#running-the-game)
+
+[Exercises [295](#exercises-12)](#exercises-12)
+
+[**16 Drawing on Canvas**
+[**297**](#drawing-on-canvas)](#drawing-on-canvas)
+
+[SVG [297](#svg)](#svg)
+
+[The canvas element [298](#the-canvas-element)](#the-canvas-element)
+
+[Filling and stroking
+[300](#filling-and-stroking)](#filling-and-stroking)
+
+[Paths [301](#paths)](#paths)
+
+[Curves [302](#curves)](#curves)
+
+[Drawing a pie chart [306](#drawing-a-pie-chart)](#drawing-a-pie-chart)
+
+[Text [307](#text)](#text)
+
+[Images [308](#images)](#images)
+
+[Transformation [310](#transformation)](#transformation)
+
+[Storing and clearing transformations
+[313](#storing-and-clearing-transformations)](#storing-and-clearing-transformations)
+
+[Back to the game [314](#back-to-the-game)](#back-to-the-game)
+
+[Choosing a graphics interface
+[320](#choosing-a-graphics-interface)](#choosing-a-graphics-interface)
+
+[Summary [321](#summary-11)](#summary-11)
+
+[Exercises [322](#exercises-13)](#exercises-13)
+
+[**17 HTTP** [**324**](#http)](#http)
+
+[The protocol [324](#the-protocol)](#the-protocol)
+
+[Browsers and HTTP [326](#browsers-and-http)](#browsers-and-http)
+
+[XMLHttpRequest [328](#xmlhttprequest)](#xmlhttprequest)
+
+[Sending a request [328](#sending-a-request)](#sending-a-request)
+
+[Asynchronous Requests
+[330](#asynchronous-requests)](#asynchronous-requests)
+
+[Fetching XML Data [330](#fetching-xml-data)](#fetching-xml-data)
+
+[HTTP sandboxing [331](#http-sandboxing)](#http-sandboxing)
+
+[Abstracting requests
+[332](#abstracting-requests)](#abstracting-requests)
+
+[Promises [335](#promises)](#promises)
+
+[Appreciating HTTP [338](#appreciating-http)](#appreciating-http)
+
+[Security and HTTPS [338](#security-and-https)](#security-and-https)
+
+[Summary [339](#summary-12)](#summary-12)
+
+[Exercises [340](#exercises-14)](#exercises-14)
+
+[**18 Forms and Form Fields**
+[**342**](#forms-and-form-fields)](#forms-and-form-fields)
+
+[Fields [342](#fields)](#fields)
+
+[Focus [344](#focus)](#focus)
+
+[Disabled fields [345](#disabled-fields)](#disabled-fields)
+
+[The form as a whole [345](#the-form-as-a-whole)](#the-form-as-a-whole)
+
+[Text fields [347](#text-fields)](#text-fields)
+
+[Checkboxes and radio buttons
+[348](#checkboxes-and-radio-buttons)](#checkboxes-and-radio-buttons)
+
+[Select fields [349](#select-fields)](#select-fields)
+
+[File fields [351](#file-fields)](#file-fields)
+
+[Storing data client-side
+[353](#storing-data-client-side)](#storing-data-client-side)
+
+[Summary [356](#summary-13)](#summary-13)
+
+[Exercises [357](#exercises-15)](#exercises-15)
+
+[**19 Project: A Paint Program**
+[**359**](#project-a-paint-program)](#project-a-paint-program)
+
+[Implementation [360](#implementation)](#implementation)
+
+[Building the DOM [360](#building-the-dom)](#building-the-dom)
+
+[The foundation [361](#the-foundation)](#the-foundation)
+
+[Tool selection [362](#tool-selection)](#tool-selection)
+
+[Color and brush size
+[365](#color-and-brush-size)](#color-and-brush-size)
+
+[Saving [367](#saving)](#saving)
+
+[Loading image files [368](#loading-image-files)](#loading-image-files)
+
+[Finishing up [370](#finishing-up)](#finishing-up)
+
+[Exercises [372](#exercises-16)](#exercises-16)
+
+[**20 Node.js** [**376**](#node.js)](#node.js)
+
+[Background [376](#background)](#background)
+
+[Asynchronicity [377](#asynchronicity)](#asynchronicity)
+
+[The node command [378](#the-node-command)](#the-node-command)
+
+[Modules [380](#modules-1)](#modules-1)
+
+[Installing with NPM [381](#installing-with-npm)](#installing-with-npm)
+
+[The file system module
+[382](#the-file-system-module)](#the-file-system-module)
+
+[The HTTP module [384](#the-http-module)](#the-http-module)
+
+[Streams [386](#streams)](#streams)
+
+[A simple file server
+[388](#a-simple-file-server)](#a-simple-file-server)
+
+[Error handling [393](#error-handling)](#error-handling)
+
+[Summary [395](#summary-14)](#summary-14)
+
+[Exercises [395](#exercises-17)](#exercises-17)
+
+[**21 Project: Skill-Sharing Website**
+[**399**](#project-skill-sharing-website)](#project-skill-sharing-website)
+
+[Design [400](#design)](#design)
+
+[Long polling [401](#long-polling)](#long-polling)
+
+[HTTP interface [402](#http-interface)](#http-interface)
+
+[The server [404](#the-server)](#the-server)
+
+[The client [413](#the-client)](#the-client)
+
+[Exercises [421](#exercises-18)](#exercises-18)
+
+[Program Structure [424](#program-structure-1)](#program-structure-1)
+
+[Functions [425](#functions-3)](#functions-3)
+
+[Data Structures: Objects and Arrays
+[426](#data-structures-objects-and-arrays-1)](#data-structures-objects-and-arrays-1)
+
+[Higher-Order Functions
+[428](#higher-order-functions-2)](#higher-order-functions-2)
+
+[The Secret Life of Objects
+[429](#the-secret-life-of-objects-1)](#the-secret-life-of-objects-1)
+
+[Project: Electronic Life
+[430](#project-electronic-life-1)](#project-electronic-life-1)
+
+[Bugs and Error Handling
+[432](#bugs-and-error-handling-1)](#bugs-and-error-handling-1)
+
+[Regular Expressions
+[432](#regular-expressions-1)](#regular-expressions-1)
+
+[Modules [433](#modules-2)](#modules-2)
+
+[Project: A Programming Language
+[435](#project-a-programming-language-1)](#project-a-programming-language-1)
+
+[The Document Object Model
+[436](#the-document-object-model-1)](#the-document-object-model-1)
+
+[Handling Events [437](#handling-events-1)](#handling-events-1)
+
+[Project: A Platform Game
+[438](#project-a-platform-game-1)](#project-a-platform-game-1)
+
+[Drawing on Canvas [439](#drawing-on-canvas-1)](#drawing-on-canvas-1)
+
+[HTTP [441](#http-1)](#http-1)
+
+[Forms and Form Fields
+[442](#forms-and-form-fields-1)](#forms-and-form-fields-1)
+
+[Project: A Paint Program
+[444](#project-a-paint-program-1)](#project-a-paint-program-1)
+
+[Node.js [446](#node.js-1)](#node.js-1)
+
+[Project: Skill-Sharing Website
+[448](#project-skill-sharing-website-1)](#project-skill-sharing-website-1)
