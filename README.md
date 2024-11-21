@@ -18,7 +18,7 @@ output:
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~ 01/02. eloquent javascript (01) ~~~~~~~~~~~~~~~~~-->
 <p align="center" width="100%">
-<img src="./images/image001.jpg?raw=true"
+<img src="./images/image001.png?raw=true"
   style="width:15%;"
   title="Eloquent JavaScript logo"
   alt="Eloquent JavaScript logo."
@@ -15099,11 +15099,8 @@ To flip a picture around the vertical line at a given x position, we can
 do the following:
 
 > function flipHorizontally(context, around) {
->
 > context.translate(around, 0); context.scale(-1, 1);
->
 > context.translate(-around, 0);
->
 > }
 
 We move the y-axis to where we want our mirror to be, apply the
@@ -15113,11 +15110,8 @@ mirrored universe. The following picture explains why this works:
 mirror
 
 1
-
 2
-
 3
-
 4
 
 This shows the coordinate systems before and after mirroring across the
@@ -15144,7 +15138,6 @@ world around the character's vertical center.
 100, 0, spriteW, spriteH);
 
 > });
->
 > \</script\>
 
 ## Storing and clearing transformations
@@ -15179,25 +15172,17 @@ Every call reduces the length of the branch drawn, and the recursion
 stops when the length drops below 8.
 
 > \<canvas width=\"600\" height=\"300\"\>\</canvas\>
->
 > \<script\> var cx =
 > document.querySelector(\"canvas\").getContext(\"2d\"); function
 > branch(length, angle, scale) {
->
 > cx.fillRect(0, 0, 1, length);
->
 > if (length \< 8) return; cx.save(); cx.translate(0, length);
 > cx.rotate(-angle);
->
 > branch(length \* scale, angle, scale); cx.rotate(2 \* angle);
 > branch(length \* scale, angle, scale);
->
 > cx.restore();
->
 > }
->
 > cx.translate(300, 0); branch(60, 0.5, 0.8);
->
 > \</script\>
 
 The result is a simple fractal.
@@ -15233,46 +15218,39 @@ use. And finally, it keeps a flipPlayer property so that even when the
 player is standing still, it keeps facing the direction it last moved
 in.
 
-> function CanvasDisplay(parent, level) {
->
-> this.canvas = document.createElement(\"canvas\"); this.canvas.width =
-> Math.min(600, level.width \* scale); this.canvas.height =
-> Math.min(450, level.height \* scale);
->
-> parent.appendChild(this.canvas); this.cx =
-> this.canvas.getContext(\"2d\");
->
-> this.level = level; this.animationTime = 0; this.flipPlayer = false;
->
-> this.viewport = {
->
-> left: 0, top: 0,
->
-> width: this.canvas.width / scale,
->
-> height: this.canvas.height / scale
->
-> };
->
-> this.drawFrame(0);
->
-> }
->
-> CanvasDisplay.prototype.clear = function() {
-> this.canvas.parentNode.removeChild(this.canvas); };
+<pre>
+function CanvasDisplay(parent, level) {
+this.canvas = document.createElement(\"canvas\"); this.canvas.width =
+Math.min(600, level.width \* scale); this.canvas.height =
+Math.min(450, level.height \* scale);
+parent.appendChild(this.canvas); this.cx =
+this.canvas.getContext(\"2d\");
+this.level = level; this.animationTime = 0; this.flipPlayer = false;
+this.viewport = {
+left: 0, top: 0,
+width: this.canvas.width / scale,
+height: this.canvas.height / scale
+};
+this.drawFrame(0);
+}
+CanvasDisplay.prototype.clear = function() {
+this.canvas.parentNode.removeChild(this.canvas); };
+</pre>
 
 The animationTime counter is the reason we passed the step size to
 drawFrame in Chapter 15, even though DOMDisplay does not use it. Our new
 drawFrame function uses the counter to track time so that it can switch
 between animation frames based on the current time.
 
-> CanvasDisplay.prototype.drawFrame = function(step) {
-> this.animationTime += step;
->
-> this.updateViewport(); this.clearDisplay(); this.drawBackground();
-> this.drawActors();
->
-> };
+<pre>
+CanvasDisplay.prototype.drawFrame = function(step) {
+this.animationTime += step;
+
+this.updateViewport(); this.clearDisplay(); this.drawBackground();
+this.drawActors();
+
+};
+</pre>
 
 Other than tracking time, the method updates the viewport for the
 current player position, fills the whole canvas with a background color,
@@ -15288,6 +15266,7 @@ The updateViewport method is similar to DOMDisplay's
 scrollPlayerIntoView method. It checks whether the player is too close
 to the edge of the screen and moves the viewport when this is the case.
 
+```
 > CanvasDisplay.prototype.updateViewport = function() { var view =
 > this.viewport, margin = view.width / 3;
 >
@@ -15311,6 +15290,7 @@ to the edge of the screen and moves the viewport when this is the case.
 >
 > view.top = Math.min(center.y + margin - view.height,
 > this.level.height - view.height); };
+```
 
 The calls to Math.max and Math.min ensure that the viewport does not end
 up showing space outside of the level. Math.max(x, 0) ensures that the
@@ -15320,6 +15300,7 @@ value stays below a given bound.
 When clearing the display, we'll use a slightly different color
 depending on whether the game is won (brighter) or lost (darker).
 
+```
 > CanvasDisplay.prototype.clearDisplay = function() { if
 > (this.level.status == \"won\")
 >
@@ -15334,11 +15315,13 @@ depending on whether the game is won (brighter) or lost (darker).
 > this.cx.fillStyle = \"rgb(52, 166, 251)\";
 >
 > this.cx.fillRect(0, 0, this.canvas.width, this.canvas.height); };
+```
 
 To draw the background, we run through the tiles that are visible in the
 current viewport, using the same trick used in obstacleAt in the
 previous chapter.
 
+```
 > var otherSprites = document.createElement(\"img\"); otherSprites.src =
 > \"img/sprites.png\";
 >
@@ -15364,6 +15347,7 @@ tileX, 0, scale, scale,
 > }
 >
 > };
+```
 
 Tiles that are not empty (null) are drawn with drawImage. The
 otherSprites image contains the pictures used for elements other than
@@ -15400,6 +15384,7 @@ instead of 16 pixels, to allow some space for feet and arms---the method
 has to adjust the x-coordinate and width by a given amount
 (playerXOverlap).
 
+```
 > var playerSprites = document.createElement(\"img\"); playerSprites.src
 > = \"img/player.png\"; var playerXOverlap = 4;
 >
@@ -15428,10 +15413,12 @@ x, y, width, height);
 > this.cx.restore();
 >
 > };
+```
 
 The drawPlayer method is called by drawActors, which is responsible for
 drawing all the actors in the game.
 
+```
 > CanvasDisplay.prototype.drawActors = function() {
 > this.level.actors.forEach(function(actor) {
 >
@@ -15452,6 +15439,7 @@ x, y, width, height);
 > } }, this);
 >
 > };
+```
 
 When drawing something that is not the player, we look at its type to
 find the offset of the correct sprite. The lava tile is found at offset
@@ -22618,4 +22606,3 @@ yield (reserved word), 26 Yuan-Ma, 11, 376
 
 Zawinski, Jamie, 164 zero-based counting, 60, 63, 170 zeroPad function,
 57 zigzag, 439 zooming, 320
-
