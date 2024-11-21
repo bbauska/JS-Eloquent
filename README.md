@@ -9,11 +9,11 @@ output:
   markdown:
     with some style
 ---
-
+// 21 chapters.
 <h1 align="center">Eloquent JavaScript</h2>
 <p align="center"><small><small>(by Marijn Haverbeke)</small></small></p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ readme.md of eloquent-js ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ readme.md of eloquent-js ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~ 01/02. eloquent javascript (01) ~~~~~~~~~~~~~~~~~-->
 <p align="center" width="100%">
@@ -485,7 +485,7 @@ magnitude more.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-//![](./images/media/image2.jpg){width="5.235998468941382in" height="1.8228412073490814in"}
+//![](./images/image2.jpg){width="5.235998468941382in" height="1.8228412073490814in"}
 
 To be able to work with such quantities of bits without getting lost,
 you can separate them into chunks that represent pieces of information.
@@ -1075,7 +1075,7 @@ hold on to it or you reattach one of your existing tentacles to it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image3.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+// ![](./images/image3.jpg){width="5.236770559930009in" height="2.380349956255468in"}
 
 Let's look at an example. To remember the number of dollars that Luigi
 still owes you, you create a variable. And then when he pays back &dollar;35,
@@ -1144,7 +1144,7 @@ alert(&quot;Good morning!&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/media/image4.jpg){width="4.023651574803149in" height="0.6651115485564304in"}
+// ![](./images/image4.jpg){width="4.023651574803149in" height="0.6651115485564304in"}
 
 Executing a function is called *invoking*, *calling*, or *applying* it.
 You can call a function by putting parentheses after an expression that
@@ -1221,7 +1221,7 @@ confirm(&quot;Shall we, then?&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/media/image5.jpg){width="4.0236220472440944in" height="0.7071030183727034in"}
+// ![](./images/image5.jpg){width="4.0236220472440944in" height="0.7071030183727034in"}
 
 The prompt function can be used to ask an "open" question. The first
 argument is the question, the second one is the text that the user
@@ -1237,7 +1237,7 @@ prompt(&quot;Tell me everything you know.&quot;, &quot;&hellip;&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/media/image6.jpg){width="4.023480971128609in" height="0.8703783902012249in"}
+// ![](./images/image6.jpg){width="4.023480971128609in" height="0.8703783902012249in"}
 
 These two functions aren't used much in modern web programming, mostly
 because you have no control over the way the resulting windows look, but
@@ -2670,7 +2670,7 @@ putting a few walnuts on the floor to keep himself busy.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image7.png){width="5.236205161854768in" height="2.190369641294838in"}
+// ![](./images/image7.png){width="5.236205161854768in" height="2.190369641294838in"}
 
 That takes care of the cat and oak problems. But Jacques still suffers
 from his condition. The irregular occurrences of the transformation make
@@ -2896,7 +2896,7 @@ name inscribed on it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image8.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+// ![](./images/image8.jpg){width="5.236770559930009in" height="2.380349956255468in"}
 
 The delete operator cuts off a tentacle from such an octopus. It is a
 unary operator that, when applied to a property access expression, will
@@ -2935,7 +2935,7 @@ in a neat row, labeled with numbers.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image9.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+// ![](./images/image9.jpg){width="5.236770559930009in" height="2.380349956255468in"}
 
 So we can represent Jacques' journal as an array of objects.
 
@@ -3064,7 +3064,7 @@ table:
   alt="."
   style="border: 2px solid #000000; width:15%;" /
 </p
-// ![](./images/media/image10.png){width="1.47in" height="0.36333333333333334in"} (4.1)
+// ![](./images/image10.png){width="1.47in" height="0.36333333333333334in"} (4.1)
 
 The notation *n*~01~ indicates the number of measurements where the
 first variable (squirrelness) is false (0) and the second variable
@@ -4666,7 +4666,7 @@ going on *inside* the object can be ignored when working with it.
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/media/image11.jpg){width="3.031653543307087in" height="3.148468941382327in"}
+// ![](./images/image11.jpg){width="3.031653543307087in" height="3.148468941382327in"}
 
 As an example, you can imagine an object that provides an interface to
 an area on your screen. It provides a way to draw shapes or text onto
@@ -10275,7 +10275,7 @@ This is what such a document would look like in the browser:
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/media/image12.jpg){width="3.141998031496063in" height="1.211567147856518in"}
+// ![](./images/image12.jpg){width="3.141998031496063in" height="1.211567147856518in"}
 
 The tags, wrapped in angle brackets (&lt; and &gt;), provide information
 about the structure of the document. The other text is just plain text.
@@ -10927,7 +10927,7 @@ This is what the resulting document looks like:
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/media/image41.jpg){width="4.023783902012249in" height="1.0232305336832896in"}
+// ![](./images/image41.jpg){width="4.023783902012249in" height="1.0232305336832896in"}
 
 ## Attributes
 
@@ -11036,7 +11036,7 @@ like this:
   alt="."
   style="border: 2px solid #000000; width:25%;" />
 </p>
-// ![](./images/media/image42.jpg){width="2.4252930883639543in" height="0.7080544619422572in"}
+// ![](./images/image42.jpg){width="2.4252930883639543in" height="0.7080544619422572in"}
 
 There is one commonly used attribute, class, which is a reserved word in
 the JavaScript language. For historical reasons---some old JavaScript
@@ -11085,7 +11085,7 @@ Giving a paragraph a border causes a rectangle to be drawn around it.
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/media/image43.jpg){width="4.023945756780402in" height="0.26010279965004374in"}
+// ![](./images/image43.jpg){width="4.023945756780402in" height="0.26010279965004374in"}
 
 The most effective way to find the precise position of an element on the
 screen is the getBoundingClientRect method. It returns an object with
@@ -11178,7 +11178,7 @@ The second link will be green instead of the default link color.
   alt="."
   style="border: 2px solid #000000; width:10%;" />
 </p>
-// ![](./images/media/image44.jpg){width="1.1024245406824147in" height="0.7269619422572179in"}
+// ![](./images/image44.jpg){width="1.1024245406824147in" height="0.7269619422572179in"}
 
 A style attribute may contain one or more *declarations*, which are a
 property (such as color) followed by a colon and a value (such as
@@ -11200,7 +11200,7 @@ the screen. This is a way to hide elements. It is often preferable to
 removing them from the document entirely because it makes it easy to
 reveal them again at a later time.
 
-![](./images/media/image45.jpg){width="1.984251968503937in"
+![](./images/image045.jpg){width="1.984251968503937in"
 height="0.653251312335958in"}
 
 JavaScript code can directly manipulate the style of an element through
@@ -11396,7 +11396,7 @@ requestAnimationFrame(animate);
 
 The gray arrow shows the path along which the image moves.
 
-![](./images/media/image46.jpg){width="4.023871391076115in"
+![](./images/image046.jpg){width="4.023871391076115in"
 height="1.240939413823272in"}
 
 The picture is centered on the page and given a position of relative.
@@ -12038,7 +12038,7 @@ var newWidth = Math.max(10, rect.offsetWidth + dist); rect.style.width
 
 The resulting page looks like this:
 
-![](./images/media/image47.jpg){width="2.6455139982502187in"
+![](./images/image047.jpg){width="2.6455139982502187in"
 height="0.7856364829396325in"}
 
 Note that the &quot;mousemove&quot; handler is registered on the whole window.
@@ -12226,7 +12226,7 @@ help.textContent = &quot;&quot;;
 
 In the following screenshot, the help text for the age field is shown.
 
-![](./images/media/image48.jpg){width="2.20461176727909in"
+![](./images/image048.jpg){width="2.20461176727909in"
 height="1.0705839895013123in"}
 
 The window object will receive &quot;focus&quot; and &quot;blur&quot; events when the
@@ -12551,7 +12551,7 @@ Thomas Palef. I chose this game because it is both entertaining and
 minimalist, and because it can be built without too much code. It looks
 like this:
 
-![](./images/media/image49.jpg){width="5.236088145231846in"
+![](./images/image049.jpg){width="5.236088145231846in"
 height="2.5800995188101488in"}
 
 The dark box represents the player, whose task is to collect the yellow
@@ -13113,7 +13113,7 @@ We are now able to display our tiny level.
 &lt;script&gt; var simpleLevel = new Level(simpleLevelPlan); var display =
 new DOMDisplay(document.body, simpleLevel); &lt;/script&gt;
 
-![](./images/media/image50.jpg){width="3.52748687664042in"
+![](./images/image050.jpg){width="3.52748687664042in"
 height="1.4405030621172354in"}
 
 The &lt;link&gt; tag, when used with rel=&quot;stylesheet&quot;, is a way to load a
@@ -13684,7 +13684,7 @@ tags, which do not exist in HTML, do have a meaning in SVG---they draw
 shapes using the style and position specified by their attributes. The
 document is displayed like this:
 
-![](./images/media/image51.jpg){width="2.2600743657042868in"
+![](./images/image051.jpg){width="2.2600743657042868in"
 height="1.462007874015748in"}
 
 These tags create DOM elements, just like HTML tags. For example, this
@@ -13735,7 +13735,7 @@ pixels wide and 50 pixels high, with its top-left corner at coordinates
 
 (10,10).
 
-![](./images/media/image52.jpg){width="1.2676946631671042in"
+![](./images/image052.jpg){width="1.2676946631671042in"
 height="1.5146478565179353in"}
 
 Just like in HTML (and SVG), the coordinate system that the canvas uses
@@ -13780,7 +13780,7 @@ cx.strokeRect(135, 5, 50, 50);
 This code draws two blue squares, using a thicker line for the second
 one.
 
-![](./images/media/image53.jpg){width="2.480159667541557in"
+![](./images/image053.jpg){width="2.480159667541557in"
 height="0.8006813210848643in"}
 
 When no width or height attribute is specified, as in the previous
@@ -13815,7 +13815,7 @@ next segment would start at the position passed to moveTo.
 
 The path described by the previous program looks like this:
 
-![](./images/media/image54.jpg){width="1.047247375328084in"
+![](./images/image054.jpg){width="1.047247375328084in"
 height="1.0600196850393702in"}
 
 When filling a path (using the fill method), each shape is filled
@@ -13838,7 +13838,7 @@ triangle's sides are explicitly drawn. The third, from the bottom-right
 corner back to the top, is implied and won't be there when you stroke
 the path.
 
-![](./images/media/image55.jpg){width="1.1023632983377079in"
+![](./images/image055.jpg){width="1.1023632983377079in"
 height="0.8661417322834646in"}
 
 You could also use the closePath method to explicitly close a path by
@@ -13871,7 +13871,7 @@ cx.lineTo(60, 10); cx.closePath(); cx.stroke();
 
 It produces a path that looks like this:
 
-![](./images/media/image56.jpg){width="1.1575754593175853in"
+![](./images/image056.jpg){width="1.1575754593175853in"
 height="1.1575754593175853in"}
 
 We draw a quadratic curve from the left to the right, with (60,10) as
@@ -13903,7 +13903,7 @@ The two control points specify the direction at both ends of the curve.
 The further they are away from their corresponding point, the more the
 curve will "bulge" in that direction.
 
-![](./images/media/image57.jpg){width="1.1024114173228345in"
+![](./images/image057.jpg){width="1.1024114173228345in"
 height="1.1350273403324584in"}
 
 Such curves can be hard to work with---it's not always clear how to find
@@ -13940,7 +13940,7 @@ cx.stroke();
 
 This produces two rounded corners with different radii.
 
-![](./images/media/image58.jpg){width="1.1574803149606299in"
+![](./images/image058.jpg){width="1.1574803149606299in"
 height="1.1574803149606299in"}
 
 The arcTo method won't draw the line from the end of the rounded part to
@@ -13968,7 +13968,7 @@ document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); cx.beginP
 // center=(50,50) radius=40 angle=0 to 7 cx.arc(50, 50, 40, 0, 7);
 
 // center=(150,50) radius=40 angle=0 to
-![](./images/media/image59.png){width="0.17333333333333334in"
+![](./images/image059.png){width="0.17333333333333334in"
 height="0.21in"}
 
 cx.arc(150, 50, 40, 0, 0.5 &ast; Math.PI);
@@ -13983,7 +13983,7 @@ Like other path-drawing methods, a line drawn with arc is connected to
 the previous path segment by default. You'd have to call moveTo or start
 a new path if you want to avoid this.
 
-![](./images/media/image60.jpg){width="2.480158573928259in"
+![](./images/image060.jpg){width="2.480158573928259in"
 height="1.1970898950131235in"}
 
 ## Drawing a pie chart
@@ -14043,7 +14043,7 @@ cx.fill();
 
 This draws the following chart:
 
-![](./images/media/image61.jpg){width="2.4804647856517934in"
+![](./images/image061.jpg){width="2.4804647856517934in"
 height="2.448160542432196in"}
 
 But a chart that doesn't tell us what it means isn't very helpful. We
@@ -14124,7 +14124,7 @@ This can be used to pack multiple *sprites* (image elements) into a
 single image file and then draw only the part you need. For example, we
 have this picture containing a game character in multiple poses:
 
-![](./images/media/image62.png){width="3.0316207349081363in"
+![](./images/image062.png){width="3.0316207349081363in"
 height="0.37895231846019245in"}
 
 By alternating which pose we draw, we can show an animation that looks
@@ -14198,7 +14198,7 @@ cx.stroke();
 Due to the call to scale, the circle is drawn three times as wide and
 half as high.
 
-![](./images/media/image63.jpg){width="3.307234251968504in"
+![](./images/image063.jpg){width="3.307234251968504in"
 height="0.6131758530183727in"}
 
 Scaling will cause everything about the drawn image, including the line
@@ -14333,7 +14333,7 @@ cx.translate(300, 0); branch(60, 0.5, 0.8);
 
 The result is a simple fractal.
 
-![](./images/media/image64.jpg){width="2.480363079615048in"
+![](./images/image064.jpg){width="2.480363079615048in"
 height="1.8350492125984252in"}
 
 If the calls to save and restore were not there, the second recursive
@@ -14500,7 +14500,7 @@ otherSprites image contains the pictures used for elements other than
 the player. It contains, from left to right, the wall tile, the lava
 tile, and the sprite for a coin.
 
-![](./images/media/image65.png){width="0.716499343832021in"
+![](./images/image065.png){width="0.716499343832021in"
 height="0.27557633420822397in"}
 
 Background tiles are 20 by 20 pixels, since we will use the same scale
@@ -14599,7 +14599,7 @@ translate for this. Either way works.
 That concludes the new display system. The resulting game looks
 something like this:
 
-![](./images/media/image66.jpg){width="4.023872484689414in"
+![](./images/image066.jpg){width="4.023872484689414in"
 height="2.5082130358705164in"}
 
 ## Choosing a graphics interface
@@ -14692,7 +14692,7 @@ Write a program that draws the following shapes on a canvas:
 1.  A trapezoid (a rectangle that is wider on one side)
 
 2.  A red diamond (a rectangle rotated 45 degrees or
-    ![](./images/media/image67.png){width="0.17666666666666667in"
+    ![](./images/image067.png){width="0.17666666666666667in"
     height="0.21in"} radians)
 
 3.  A zigzagging line
@@ -14708,7 +14708,7 @@ Write a program that draws the following shapes on a canvas:
   alt="."
   style="border: 2px solid #000000; width:40%;" /
 </p
-// ![](./images/media/image68.jpg){width="4.023483158355206in" height="1.0350984251968505in"}
+// ![](./images/image068.jpg){width="4.023483158355206in" height="1.0350984251968505in"}
 
 When drawing the last two, you may want to refer to the explanation of
 Math.cos and Math.sin in Chapter 13, which describes how to get
@@ -15623,7 +15623,7 @@ The fields created with this HTML code look like this:
   alt="."
   style="border: 2px solid #000000; width:20%;" />
 </p>
-//![](./images/media/image69.jpg){width="1.9842366579177604in" height="1.570906605424322in"}
+//![](./images/image69.jpg){width="1.9842366579177604in" height="1.570906605424322in"}
 
 The JavaScript interface for such elements differs with the type of the
 element. We'll go over each of them later in the chapter.
@@ -15660,7 +15660,7 @@ Such a field looks like this:
   alt="."
   style="border: 2px solid #000000; width:20%;" />
 </p>
-// ![](./images/media/image70.jpg){width="1.9843132108486439in" height="0.6833092738407699in"}
+// ![](./images/image70.jpg){width="1.9843132108486439in" height="0.6833092738407699in"}
 
 Whenever the value of a form field changes, it fires a &quot;change&quot; event.
 
@@ -15736,7 +15736,7 @@ they usually look gray and faded.
   alt="."
   style="border: 2px solid #000000; width:15%;" />
 </p>
-//![](./images/media/image71.jpg){width="1.4882316272965879in" height="0.2527296587926509in"}
+//![](./images/image71.jpg){width="1.4882316272965879in" height="0.2527296587926509in"}
 
 When a program is in the process of handling an action caused by some
 button or other control, which might require communication with the
@@ -15969,7 +15969,7 @@ shows the options only when you open it.
   alt="."
   style="border: 2px solid #000000; width:25%;" />
 </p>
-// ![](./images/media/image72.jpg){width="2.4804407261592303in" height="0.5821916010498688in"}
+// ![](./images/image72.jpg){width="2.4804407261592303in" height="0.5821916010498688in"}
 
 The size attribute to the &lt;select&gt; tag is used to set the number of
 options that are visible at the same time, which gives you explicit
@@ -16362,7 +16362,7 @@ with your mouse, and save them. This is what it will look like:
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image73.jpg){width="5.236213910761155in" height="3.9708803587051618in"}
+// ![](./images/image73.jpg){width="5.236213910761155in" height="3.9708803587051618in"}
 
 Painting on a computer is great. You don't need to worry about
 materials, skill, or talent. You just start smearing.
@@ -16637,7 +16637,7 @@ This is what a color picker may look like:
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/media/image74.jpg){width="3.0315398075240596in" height="3.171996937882765in"}
+// ![](./images/image74.jpg){width="3.0315398075240596in" height="3.171996937882765in"}
 
 controls.color = function(cx) {
 
@@ -18162,7 +18162,7 @@ client makes an HTTP request to tell the server about it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/media/image75.jpg){width="5.015625546806649in" height="2.3754352580927383in"}
+// ![](./images/image75.jpg){width="5.015625546806649in" height="2.3754352580927383in"}
 
 The application will be set up to show a *live* view of the current
 proposed talks and their comments. Whenever someone, somewhere, submits
