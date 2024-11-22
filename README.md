@@ -8,7 +8,8 @@ output:
   markdown:
     with some style
 ---
-// 21 chapters.
+
+<!-- 21 chapters. -->
 <h1 align="center">Eloquent JavaScript</h2>
 <p align="center"><small><small>(by Marijn Haverbeke)</small></small></p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -20,60 +21,50 @@ output:
   style="width:50%;"
   title="Eloquent JavaScript logo"
   alt="Eloquent JavaScript logo."
-nbsp;nbsp;nbsp;nbsp;nbsp;
-<img src="./images/image002.jpg?raw=true"
-  style="width:25%;"
-  title="logo"
-  alt="logo." />
 </p>
 
 <h2 id="#about">About this Course:</h2>
 
-<h3>Copyright © 2014 by Marijn Haverbeke</h3>
+<p><small><small>Copyright © 2014 by Marijn Haverbeke</small></small></p>
 
-<h4 id="TOC">Table of Contents</h4>
+<h3 id="TOC">Table of Contents</h3>
 
 <h4>Introduction</h4>
 
-// ![](./images/image001.png){width="5.236319991251094in" height="1.7437970253718285in"}
+We've found two effective ways of bridging the communication gap between us, squishy 
+biological organisms with a talent for social and spatial reasoning, and computers, 
+unfeeling manipulators of meaningless data. The first is to appeal to our sense of the 
+physical world and build interfaces that mimic that world and allow us to manipulate 
+shapes on a screen with our fingers. This works very well for casual machine interaction.
 
-We've found two effective ways of bridging the communication gap between
-us, squishy biological organisms with a talent for social and spatial
-reasoning, and computers, unfeeling manipulators of meaningless data.
-The first is to appeal to our sense of the physical world and build
-interfaces that mimic that world and allow us to manipulate shapes on a
-screen with our fingers. This works very well for casual machine
-interaction.
-
-But we have not yet found a good way to use the point-and-click approach
-to communicate things to the computer that the designer of the interface
-did not anticipate. For open-ended interfaces, such as instructing the
-computer to perform arbitrary tasks, we've had more luck with an
-approach that makes use of our talent for language: teaching the machine
+But we have not yet found a good way to use the point-and-click approach to communicate 
+things to the computer that the designer of the interface did not anticipate. For open-
+ended interfaces, such as instructing the computer to perform arbitrary tasks, we've had 
+more luck with an approach that makes use of our talent for language: teaching the machine
 a language.
 
-Human languages allow words and phrases to be combined in many ways,
-which allows us to say many different things. Computer languages, though
-typically less grammatically flexible, follow a similar principle.
+Human languages allow words and phrases to be combined in many ways, which allows us to 
+say many different things. Computer languages, though typically less grammatically 
+flexible, follow a similar principle. 
 
-Casual computing has become much more widespread in the past 20 years,
-and language-based interfaces, which once were the default way in which
-people interacted with computers, have largely been replaced with
-graphical interfaces. But they are still there, if you know where to
-look. One such language, JavaScript, is built into almost every web
+Casual computing has become much more widespread in the past 20 years, and language-based 
+interfaces, which once were the default way in which people interacted with computers, 
+have largely been replaced with graphical interfaces. But they are still there, if you 
+know where to look. One such language, JavaScript, is built into almost every web
 browser and is thus available on just about every consumer device.
 
-This book intends to make you familiar enough with this language to be
-able to make a computer do what you want.
+This book intends to make you familiar enough with this language to be able to make a 
+computer do what you want.
 
-## On programming
-
+<h4>On programming</h4>
+<blockquote>
 I do not enlighten those who are not eager to learn, nor arouse those
 who are not anxious to give an explanation themselves. If I have
 presented one corner of the square and they cannot come back to me
 with the other three, I should not go over the points again.
 
 ---Confucius
+</blockquote>
 
 Besides explaining JavaScript, I also will introduce the basic
 principles of programming. Programming, it turns out, is hard. The
@@ -94,11 +85,13 @@ reread some material, and *always* make sure you read and understand the
 example programs and exercises. Learning is hard work, but everything
 you learn is yours and will make subsequent learning easier.
 
+<blockquote>
 The computer programmer is a creator of universes for which he &lbrack;sic&rbrack;
 alone is responsible. Universes of virtually unlimited complexity can
 be created in the form of computer programs.
 
 ---Joseph Weizenbaum, *Computer Power and Human Reason*
+</blockquote>
 
 A program is many things. It is a piece of text typed by a programmer,
 it is the directing force that makes the computer do what it does, it is
@@ -143,79 +136,65 @@ new challenges and new territory to explore. Programmers who refuse to
 keep exploring will stagnate, forget their joy, and get bored with their
 craft.
 
-## Why language matters
+<h4>Why language matters</h4>
 
-In the beginning, at the birth of computing, there were no programming
-languages. Programs looked something like this:
+In the beginning, at the birth of computing, there were no programming languages. 
+Programs looked something like this:
 
-00110001 00000000 00000000
-00110001 00000001 00000001
-00110011 00000001 00000010
-01010001 00001011 00000010
-00100010 00000010 00001000
-01000011 00000001 00000000
-01000001 00000001 00000001
-00010000 00000010 00000000
+00110001 00000000 00000000<br>
+00110001 00000001 00000001<br>
+00110011 00000001 00000010<br>
+01010001 00001011 00000010<br>
+00100010 00000010 00001000<br>
+01000011 00000001 00000000<br>
+01000001 00000001 00000001<br>
+00010000 00000010 00000000<br>
 01100010 00000000 00000000
 
-That is a program to add the numbers from 1 to 10 together and print out
-the result: 1 + 2 + &hellip; + 10 = 55. It could run on a simple,
-hypothetical machine. To program early computers, it was necessary to
-set large arrays of switches in the right position or punch holes in
-strips of cardboard and feed them to the computer. You can probably
-imagine how tedious and error-prone this procedure was. Even writing
-simple programs required much cleverness and discipline. Complex ones
-were nearly inconceivable.
+That is a program to add the numbers from 1 to 10 together and print out the result: 
+1 + 2 + &hellip; + 10 = 55. It could run on a simple, hypothetical machine. To program 
+early computers, it was necessary to set large arrays of switches in the right position 
+or punch holes in strips of cardboard and feed them to the computer. You can probably
+imagine how tedious and error-prone this procedure was. Even writing simple programs 
+required much cleverness and discipline. Complex ones were nearly inconceivable.
 
-Of course, manually entering these arcane patterns of bits (the ones and
-zeros) did give the programmer a profound sense of being a mighty
-wizard. And that has to be worth something in terms of job satisfaction.
+Of course, manually entering these arcane patterns of bits (the ones and zeros) did give 
+the programmer a profound sense of being a mighty wizard. And that has to be worth 
+something in terms of job satisfaction.
 
-Each line of the previous program contains a single instruction. It
-could be written in English like this:
+Each line of the previous program contains a single instruction. It could be written in 
+English like this:
 
-1.  Store the number 0 in memory location 0.
-
-2.  Store the number 1 in memory location 1.
-
-3.  Store the value of memory location 1 in memory location 2.
-
-4.  Subtract the number 11 from the value in memory location 2.
-
-5.  If the value in memory location 2 is the number 0,continue with
-    instruction 9.
-
-6.  Add the value of memory location 1 to memory location 0.
-
-7.  Add the number 1 to the value of memory location 1.
-
-8.  Continue with instruction 3.
-
-9.  Output the value of memory location 0.
+<ol type="1">
+  <li>Store the number 0 in memory location 0.</li>
+  <li>Store the number 1 in memory location 1.</li>
+  <li>Store the value of memory location 1 in memory location 2.</li>
+  <li>Subtract the number 11 from the value in memory location 2.</li>
+  <li>If the value in memory location 2 is the number 0,continue with instruction 9.</li>
+  <li>Add the value of memory location 1 to memory location 0.</li>
+  <li>Add the number 1 to the value of memory location 1.</li>
+  <li>Continue with instruction 3.</li>
+  <li>Output the value of memory location 0.</li>
+</ol>
 
 Although that is already more readable than the soup of bits, it is
 still rather unpleasant. It might help to use names instead of numbers
 for the instructions and memory locations.
 
+<pre>
 Set &quot;total&quot; to 0.
-
 Set &quot;count&quot; to 1.
-
 &lbrack;loop&rbrack;
-
 Set &quot;compare&quot; to &quot;count&quot;.
-
 Subtract 11 from &quot;compare&quot;.
 
 If &quot;compare&quot; is zero, continue at &lbrack;end&rbrack;.
 
 Add &quot;count&quot; to &quot;total&quot;.
-
 Add 1 to &quot;count&quot;.
-
 Continue at &lbrack;loop&rbrack;.
-
 &lbrack;end&rbrack; Output &quot;total&quot;.
+</pre>
 
 Can you see how the program works at this point? The first two lines
 give two memory locations their starting values: total will be used to
@@ -277,7 +256,7 @@ blocks (such as while and console.log), allows you to define your own
 building blocks (such as sum and range), and makes those blocks easy to
 compose.
 
-## What is JavaScript?
+<h4>What is JavaScript?</h4>
 
 JavaScript was introduced in 1995 as a way to add programs to web pages
 in the Netscape Navigator browser. The language has since been adopted
@@ -341,7 +320,7 @@ programming, most notably the Node.js project (the subject of Chapter
 20) are providing a powerful environment for programming JavaScript
 outside of the browser.
 
-## Code, and what to do with it
+<h4>Code, and what to do with it</h4>
 
 Code is the text that makes up programs. Most chapters in this book
 contain quite a lot of it. In my experience, reading code and writing
@@ -377,7 +356,7 @@ each other or on external files. The
 links to Zip files containing all of the scripts and data files
 necessary to run the code for a given chapter.
 
-## Overview of this book
+<h4>Overview of this book</h4>
 
 This book contains roughly three parts. The first 11 chapters discuss
 the JavaScript language itself. The next eight chapters are about web
@@ -414,7 +393,7 @@ chapters in this part.
 After that, Chapter 20 describes Node.js, and Chapter 21 builds a simple
 web system using that tool.
 
-## Typographic conventions
+<h4>Typographic conventions</h4>
 
 In this book, text written in a monospaced font will represent elements
 of programs---sometimes they are self-sufficient fragments, and
@@ -438,14 +417,16 @@ console.log(fac(8));
 // ~→~ 40320 Good luck!
 ```
 
+<blockquote>
 *"Below the surface of the machine, the program moves. Without effort,
 it expands and contracts. In great harmony, electrons scatter and
 regroup. The forms on the monitor are but ripples on the water. The
 essence stays invisibly below."*
 
 ---Master Yuan-Ma, *The Book of Programming*
+</blockquote>
 
-# 1 Values, Types, and Operators
+<h3>1. Values, Types, and Operators</h3>
 
 Inside the computer's world, there is only data. You can read data,
 modify data, create new data---but anything that isn't data simply does
@@ -470,7 +451,7 @@ number 13, with the weights of the digits shown below them:
 
 So that's the binary number 00001101, or 8 + 4 + 1, which equals 13.
 
-## Values
+<h4>Values</h4>
 
 Imagine a sea of bits. An ocean of them. A typical modern computer has
 more than 30 billion bits in its volatile data storage. Nonvolatile
@@ -484,7 +465,7 @@ magnitude more.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-//![](./images/image2.jpg){width="5.235998468941382in" height="1.8228412073490814in"}
+<!-- ![](./images/image2.jpg){width="5.235998468941382in" height="1.8228412073490814in"} -->
 
 To be able to work with such quantities of bits without getting lost,
 you can separate them into chunks that represent pieces of information.
@@ -493,7 +474,7 @@ all values are made of bits, they play different roles. Every value has
 a type that determines its role. There are six basic types of values in
 JavaScript:
 
-numbers, strings, Booleans, objects, functions, and undefined values.
+<h5>numbers, strings, Booleans, objects, functions, and undefined values</h5>
 
 To create a value, you must merely invoke its name. This is convenient.
 You don't have to gather building material for your values or pay for
@@ -509,7 +490,7 @@ This chapter introduces the atomic elements of JavaScript programs, that
 is, the simple value types and the operators that can act on such
 values.
 
-## Numbers
+<h4>Numbers</h4>
 
 Values of the *number* type are, unsurprisingly, numeric values. In a
 JavaScript program, they are written as follows:
@@ -565,13 +546,15 @@ problems only in specific situations. The important thing is to be aware
 of it and treat fractional digital numbers as approximations, not as
 precise values.
 
-#### Arithmetic
+<h4>Arithmetic</h4>
 
 The main thing to do with numbers is arithmetic. Arithmetic operations
 such as addition or multiplication take two number values and produce a
 new number from them. Here is what they look like in JavaScript:
 
+```
 100 + 4 &ast; 11
+```
 
 The + and &ast; symbols are called *operators*. The first stands for
 addition, and the second stands for multiplication. Putting an operator
@@ -583,7 +566,9 @@ is the multiplication done before the adding? As you might have guessed,
 the multiplication happens first. But as in mathematics, you can change
 this by wrapping the addition in parentheses.
 
+```
 (100 + 4) &ast; 11
+```
 
 For subtraction, there is the - operator, and division can be done with
 the / operator.
@@ -606,7 +591,7 @@ that of multiplication and division. You'll often see this operator
 referred to as *modulo*, though technically *remainder* is more
 accurate.
 
-#### Special numbers
+<h4>Special numbers</h4>
 
 There are three special values in JavaScript that are considered numbers
 but don't behave like normal numbers.
@@ -622,14 +607,15 @@ type. You'll get this result when you, for example, try to calculate 0 /
 0 (zero divided by zero), Infinity - Infinity, or any number of other
 numeric operations that don't yield a precise, meaningful result.
 
-## Strings
+<h4>Strings</h4>
 
 The next basic data type is the *string*. Strings are used to represent
 text. They are written by enclosing their content in quotes.
 
+```
 &quot;Patch my boat with chewing gum&quot;
->
 &apos;Monkeys wave goodbye&apos;
+```
 
 Both single and double quotes can be used to mark strings as long as the
 quotes at the start and the end of the string match.
@@ -649,8 +635,10 @@ an n character occurs after a backslash, it is interpreted as a newline.
 Similarly, a t after a backslash means a tab character. Take the
 following string:
 
-&quot;This is the first line&bsol;&bsol;nAnd this is the second&quot; The actual text
-contained is this:
+```
+&quot;This is the first line&bsol;&bsol;nAnd this is the second&quot; 
+The actual text contained is this:
+```
 
 This is the first line
 
@@ -662,27 +650,32 @@ each other, they will collapse together, and only one will be left in
 the resulting string value. This is how the string "A newline character
 is written like &quot;&bsol;&bsol;n&quot;." can be expressed:
 
+```
 &quot;A newline character is written like &bsol;&bsol;&quot;&bsol;&bsol;&bsol;&bsol;n&bsol;&bsol;&quot;.&quot;
+```
 
 Strings cannot be divided, multiplied, or subtracted, but the + operator
 *can* be used on them. It does not add, but it *concatenates*---it glues
 two strings together. The following line will produce the string
 &quot;concatenate&quot;:
 
+```
 &quot;con&quot; + &quot;cat&quot; + &quot;e&quot; + &quot;nate&quot;
+```
 
 There are more ways of manipulating strings, which we will discuss when
 we get to methods in Chapter 4.
 
-## Unary operators
+<h4>Unary operators</h4>
 
 Not all operators are symbols. Some are written as words. One example is
 the typeof operator, which produces a string value naming the type of
 the value you give it.
 
+```
 console.log(typeof 4.5) // ~→~ number console.log(typeof &quot;x&quot;)
-
 // ~→~ string
+```
 
 We will use console.log in example code to indicate that we want to see
 the result of evaluating something. When you run such code, the value
@@ -694,24 +687,26 @@ only one. Operators that use two values are called *binary* operators,
 while those that take one are called *unary* operators. The minus
 operator can be used both as a binary operator and as a unary operator.
 
+```
 console.log(- (10 - 2))
-
 // ~→~ -8
+```
 
-## Boolean values
+<h4>Boolean values</h4>
 
 Often, you will need a value that simply distinguishes between two
 possibilities, like "yes" and "no" or "on" and "off". For this,
 JavaScript has a *Boolean* type, which has just two values: true and
 false (which are written simply as those words).
 
-#### Comparisons
+<h5>Comparisons</h5>
 
 Here is one way to produce Boolean values:
 
+```
 console.log(3 &gt; 2) // ~→~ true console.log(3 &lt; 2)
-
 // ~→~ false
+```
 
 The &gt; and &lt; signs are the traditional symbols for "is greater than"
 and "is less than", respectively. They are binary operators. Applying
@@ -720,9 +715,10 @@ this case.
 
 Strings can be compared in the same way.
 
+```
 console.log(&quot;Aardvark&quot; &lt; &quot;Zoroaster&quot;)
-
 // ~→~ true
+```
 
 The way strings are ordered is more or less alphabetic: uppercase
 letters are always "less" than lowercase ones, so &quot;Z&quot; &lt; &quot;a&quot; is
@@ -739,22 +735,24 @@ one.
 Other similar operators are &gt;= (greater than or equal to), &lt;= (less
 than or equal to), == (equal to), and != (not equal to).
 
+```
 console.log(&quot;Itchy&quot; != &quot;Scratchy&quot;)
-
 // ~→~ true
+```
 
 There is only one value in JavaScript that is not equal to itself, and
 that is NaN, which stands for "not a number".
 
+```
 console.log(NaN == NaN)
-
 // ~→~ false
+```
 
 NaN is supposed to denote the result of a nonsensical computation, and
 as such, it isn't equal to the result of any *other* nonsensical
 computations.
 
-#### Logical operators
+<h5>Logical operators</h5>
 
 There are also some operations that can be applied to Boolean values
 themselves. JavaScript supports three logical operators: *and*, *or*,
@@ -763,20 +761,20 @@ and *not*. These can be used to "reason" about Booleans.
 The && operator represents logical *and*. It is a binary operator, and
 its result is true only if both the values given to it are true.
 
+```
 console.log(true && false)
-
 // ~→~ false console.log(true && true)
-
 // ~→~ true
+```
 
 The &vert;&vert; operator denotes logical *or*. It produces true if either of
 the values given to it is true.
 
+```
 console.log(false &vert;&vert; true)
-
 // ~→~ true console.log(false &vert;&vert; false)
-
 // ~→~ false
+```
 
 *Not* is written as an exclamation mark (!). It is a unary operator that
 flips the value given to it---!true produces false and !false gives
@@ -790,19 +788,21 @@ operators (&gt;, ==, and so on), and then the rest. This order has been
 chosen such that, in typical expressions like the following one, as few
 parentheses as possible are necessary:
 
+```
 1 + 1 == 2 && 10 &ast; 10 &gt; 50
+```
 
 The last logical operator I will discuss is not unary, not binary, but
 *ternary*, operating on three values. It is written with a question mark
 and a colon, like this:
 
+```
 console.log(true ? 1 : 2);
-
 // ~→~ 1
 
 console.log(false ? 1 : 2);
-
 // ~→~ 2
+```
 
 This one is called the *conditional* operator (or sometimes just
 *ternary* operator since it is the only such operator in the language).
@@ -810,7 +810,7 @@ The value on the left of the question mark "picks" which of the other
 two values will come out. When it is true, the middle value is chosen,
 and when it is false, the value on the right comes out.
 
-## Undefined values
+<h4>Undefined values</h4>
 
 There are two special values, written null and undefined, that are used
 to denote the absence of a meaningful value. They are themselves values,
@@ -825,29 +825,26 @@ JavaScript's design, and it doesn't matter most of the time. In the
 cases where you actually have to concern yourself with these values, I
 recommend treating them as interchangeable (more on that in a moment).
 
-## Automatic type conversion
+<h4>Automatic type conversion</h4>
 
 In the introduction, I mentioned that JavaScript goes out of its way to
 accept almost any program you give it, even programs that do odd things.
 This is nicely demonstrated by the following expressions:
 
+```
 console.log(8 &ast; null)
-
 // ~→~ 0
 
 console.log(&quot;5&quot; - 1)
-
 // ~→~ 4
 
 console.log(&quot;5&quot; + 1)
-
 // ~→~ 51
 
 console.log(&quot;five&quot; &ast; 2) // ~→~ NaN
-
 console.log(false == 0)
-
 // ~→~ true
+```
 
 When an operator is applied to the "wrong" type of value, JavaScript
 will quietly convert that value to the type it wants, using a set of
@@ -873,11 +870,11 @@ type. However, when null or undefined occurs on either side of the
 operator, it produces true only if both sides are one of null or
 undefined.
 
+```
 console.log(null == undefined);
-
 // ~→~ true console.log(null == 0);
-
 // ~→~ false
+```
 
 That last piece of behavior is often useful. When you want to test
 whether a value has a real value instead of null or undefined, you can
@@ -900,7 +897,7 @@ to prevent unexpected type conversions from tripping you up. But when
 you're certain the types on both sides will be the same, there is no
 problem with using the shorter operators.
 
-#### Short-circuiting of logical operators
+<h4>Short-circuiting of logical operators</h4>
 
 The logical operators && and &vert;&vert; handle values of different types in a
 peculiar way. They will convert the value on their left side to Boolean
@@ -913,11 +910,11 @@ that can be converted to true and will return the value on its right
 otherwise. This conversion works as you'd expect for Boolean values and
 should do something analogous for values of other types.
 
+```
 console.log(null &vert;&vert; &quot;user&quot;)
-
 // ~→~ user console.log(&quot;Karl&quot; &vert;&vert; &quot;user&quot;)
-
 // ~→~ Karl
+```
 
 This functionality allows the &vert;&vert; operator to be used as a way to fall
 back on a default value. If you give it an expression that might produce
@@ -939,7 +936,7 @@ The conditional operator works in a similar way. The first expression is
 always evaluated, but the second or third value, the one that is not
 picked, is not.
 
-## Summary
+<h3>Summary</h3>
 
 We looked at four types of JavaScript values in this chapter: numbers,
 strings, Booleans, and undefined values.
@@ -956,21 +953,23 @@ This gives you enough information to use JavaScript as a pocket
 calculator, but not much more. The next chapter will start tying these
 expressions together into basic programs.
 
+<blockquote>
 *"And my heart glows bright red under my filmy, translucent skin and
 they have to administer 10cc of JavaScript to get me to come back. (I
 respond well to toxins in the blood.) Man, that stuff will kick the
 peaches right out your gills!"*
 
 ---&lowbar;why, *Why's (Poignant) Guide to Ruby*
+</blockquote>
 
-# 2 Program Structure
+<h2 id="ch2">2. Program Structure</h2>
 
 In this chapter, we will start to do things that can actually be called
 *programming*. We will expand our command of the JavaScript language
 beyond the nouns and sentence fragments we've seen so far, to the point
 where we can express some meaningful prose.
 
-## Expressions and statements
+<h3>Expressions and statements</h3>
 
 In Chapter 1, we made some values and then applied operators to them to
 get new values. Creating values like this is an essential part of every
@@ -1026,7 +1025,9 @@ not change the old values, and the new value has to be immediately used
 or it will dissipate again. To catch and hold values, JavaScript
 provides a thing called a *variable*.
 
+```
 var caught = 5 &ast; 5;
+```
 
 And that gives us our second kind of statement. The special word
 (*keyword*) var indicates that this sentence is going to define a
@@ -1040,9 +1041,10 @@ After a variable has been defined, its name can be used as an
 expression. The value of such an expression is the value the variable
 currently holds. Here's an example:
 
+```
 var ten = 10; console.log(ten &ast; ten);
-
 // ~→~ 100
+```
 
 Variable names can be any word that isn't a reserved word (such as var).
 They may not include spaces. Digits can also be part of variable
@@ -1055,11 +1057,11 @@ value forever. The = operator can be used at any time on existing
 variables to disconnect them from their current value and have them
 point to a new one.
 
+```
 var mood = &quot;light&quot;; console.log(mood);
-
 // ~→~ light mood = &quot;dark&quot;; console.log(mood);
-
 // ~→~ dark
+```
 
 You should imagine variables as tentacles, rather than boxes. They do
 not *contain* values; they *grasp* them---two variables can refer to the
@@ -1074,16 +1076,17 @@ hold on to it or you reattach one of your existing tentacles to it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/image3.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+<!-- ![](./images/image3.jpg){width="5.236770559930009in" height="2.380349956255468in"} -->
 
 Let's look at an example. To remember the number of dollars that Luigi
 still owes you, you create a variable. And then when he pays back &dollar;35,
 you give this variable a new value.
 
+```
 var luigisDebt = 140; luigisDebt = luigisDebt - 35;
 console.log(luigisDebt);
-
 // ~→~ 105
+```
 
 When you define a variable without giving it a value, the tentacle has
 nothing to grasp, so it ends in thin air. If you ask for the value of an
@@ -1092,13 +1095,13 @@ empty variable, you'll get the value undefined.
 A single var statement may define multiple variables. The definitions
 must be separated by commas.
 
+```
 var one = 1, two = 2;
-
 console.log(one + two);
-
 // ~→~ 3
+```
 
-## Keywords and reserved words
+<h3>Keywords and reserved words</h3>
 
 Words with a special meaning, such as var, are *keywords*, and they may
 not be used as variable names. There are also a number of words that are
@@ -1116,7 +1119,7 @@ with yield
 Don't worry about memorizing these, but remember that this might be the
 problem when a variable definition does not work as expected.
 
-## The environment
+<h3>The environment</h3>
 
 The collection of variables and their values that exist at a given time
 is called the *environment*. When a program starts up, this environment
@@ -1126,7 +1129,7 @@ interact with the surrounding system. For example, in a browser, there
 are variables and functions to inspect and influence the currently
 loaded website and to read mouse and keyboard input.
 
-## Functions
+<h3>Functions</h3>
 
 A lot of the values provided in the default environment have the type
 *function*. A function is a piece of program wrapped in a value. Such
@@ -1134,7 +1137,9 @@ values can be *applied* in order to run the wrapped program. For
 example, in a browser environment, the variable alert holds a function
 that shows a little dialog box with a message. It is used like this:
 
+```
 alert(&quot;Good morning!&quot;);
+```
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 04.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1143,7 +1148,7 @@ alert(&quot;Good morning!&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/image4.jpg){width="4.023651574803149in" height="0.6651115485564304in"}
+<!-- ![](./images/image4.jpg){width="4.023651574803149in" height="0.6651115485564304in"} -->
 
 Executing a function is called *invoking*, *calling*, or *applying* it.
 You can call a function by putting parentheses after an expression that
@@ -1155,7 +1160,7 @@ dialog box. Values given to functions are called *arguments*. The alert
 function needs only one of them, but other functions might need a
 different number or different types of arguments.
 
-## The console.log function
+<h3>The console.log function</h3>
 
 The alert function can be useful as an output device when experimenting,
 but clicking away all those little windows will get on your nerves. In
@@ -1168,11 +1173,11 @@ browsers open it when you press F12 or, on Mac, when you press
 Command-Option-I. If that does not work, search through the menus for an
 item named "web console" or "developer tools".
 
+```
 var x = 30;
-
 console.log(&quot;the value of x is&quot;, x);
-
 // ~→~ the value of x is 30
+```
 
 Though variable names cannot contain period characters, console.log
 clearly has one. This is because console.log isn't a simple variable. It
@@ -1180,7 +1185,7 @@ is actually an expression that retrieves the log property from the value
 held by the console variable. We will find out exactly what this means
 in Chapter 4.
 
-## Return values
+<h3>Return values</h3>
 
 Showing a dialog box or writing text to the screen is a *side effect*. A
 lot of functions are useful because of the side effects they produce.
@@ -1188,9 +1193,10 @@ Functions may also produce values, and in that case, they don't need to
 have a side effect to be useful. For example, the function Math.max
 takes any number of number values and gives back the greatest.
 
+```
 console.log(Math.max(2, 4));
-
 // ~→~ 4
+```
 
 When a function produces a value, it is said to *return* that value.
 Anything that produces a value is an expression in JavaScript, which
@@ -1198,20 +1204,23 @@ means function calls can be used within larger expressions. Here a call
 to Math .min, which is the opposite of Math.max, is used as an input to
 the plus operator:
 
+```
 console.log(Math.min(2, 4) + 100);
-
 // ~→~ 102
+```
 
 The next chapter explains how to write your own functions.
 
-## prompt and confirm
+<h3>prompt and confirm</h3>
 
 Browser environments contain other functions besides alert for popping
 up windows. You can ask the user an OK/Cancel question using confirm.
 This returns a Boolean: true if the user clicks OK and false if the user
 clicks Cancel.
 
+```
 confirm(&quot;Shall we, then?&quot;);
+```
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 05.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1220,14 +1229,16 @@ confirm(&quot;Shall we, then?&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/image5.jpg){width="4.0236220472440944in" height="0.7071030183727034in"}
+<!-- ![](./images/image5.jpg){width="4.0236220472440944in" height="0.7071030183727034in"} -->
 
 The prompt function can be used to ask an "open" question. The first
 argument is the question, the second one is the text that the user
 starts with. A line of text can be typed into the dialog window, and the
 function will return this text as a string.
 
+```
 prompt(&quot;Tell me everything you know.&quot;, &quot;&hellip;&quot;);
+```
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 06.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1236,13 +1247,13 @@ prompt(&quot;Tell me everything you know.&quot;, &quot;&hellip;&quot;);
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/image6.jpg){width="4.023480971128609in" height="0.8703783902012249in"}
+<!-- ![](./images/image6.jpg){width="4.023480971128609in" height="0.8703783902012249in"} -->
 
 These two functions aren't used much in modern web programming, mostly
 because you have no control over the way the resulting windows look, but
 they are useful for toy programs and experiments.
 
-## Control flow
+<h3>Control flow</h3>
 
 When your program contains more than one statement, the statements are
 executed, predictably, from top to bottom. As a basic example, this
@@ -1258,10 +1269,9 @@ conversion because the result of prompt is a string value, and we want a
 number. There are similar functions called String and Boolean that
 convert values to those types.
 
-Here is the rather trivial schematic representation of straight control
-flow:
+Here is the rather trivial schematic representation of straight control flow:
 
-## Conditional execution
+<h3>Conditional execution</h3>
 
 Executing statements in straight-line order isn't the only option we
 have. An alternative is *conditional execution*, where we choose between
@@ -1273,10 +1283,11 @@ a certain condition holds. For example, in the previous program, we
 might want to show the square of the input only if the input is actually
 a number. var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;));
 
+```
 if (!isNaN(theNumber))
-
 alert(&quot;Your number is the square root of &quot; + theNumber &ast;
 theNumber);
+```
 
 With this modification, if you enter "cheese", no output will be shown.
 
@@ -1296,30 +1307,26 @@ represented by the second arrow in the diagram. The else keyword can be
 used, together with if, to create two separate, alternative execution
 paths.
 
+```
 var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;));
-
 if (!isNaN(theNumber))
-
 alert(&quot;Your number is the square root of &quot; + theNumber &ast;
 theNumber);
-
 else
-
 alert(&quot;Hey. Why didn&apos;t you give me a number?&quot;);
+```
 
 If we have more than two paths to choose from, multiple if/else pairs
 can be "chained" together. Here's an example: var num =
 Number(prompt(&quot;Pick a number&quot;, &quot;0&quot;));
 
+```
 if (num &lt; 10)
-
 alert(&quot;Small&quot;);
-
 else if (num &lt; 100) alert(&quot;Medium&quot;);
-
 else
-
 alert(&quot;Large&quot;);
+```
 
 The program will first check whether num is less than 10. If it is, it
 chooses that branch, shows &quot;Small&quot;, and is done. If it isn't, it takes
@@ -1330,7 +1337,7 @@ branch is chosen.
 
 The flow chart for this program looks something like this:
 
-## while and do loops
+<h3>while and do loops</h3>
 
 Consider a program that prints all even numbers from 0 to 12. One way to
 write this is as follows:
@@ -1347,16 +1354,15 @@ Looping control flow allows us to go back to some point in the program
 where we were before and repeat it with our current program state. If we
 combine this with a variable that counts, we can do something like this:
 
-var number = 0; while (number &lt;= 12) { console.log(number); number =
-number + 2;
-
+```
+var number = 0; 
+while (number &lt;= 12) { console.log(number);
+  number = number + 2;
 }
-
 // ~→~ 0
-
 // ~→~ 2
-
 // &hellip; etcetera
+```
 
 A statement starting with the keyword while creates a loop. The word
 while is followed by an expression in parentheses and then a statement,
@@ -1390,16 +1396,14 @@ count how often we have multiplied this result by 2. The loop tests
 whether the second variable has reached 10 yet and then updates both
 variables.
 
-var result = 1; var counter = 0; while (counter &lt; 10) { result =
-result &ast; 2;
-
-counter = counter + 1;
-
+```
+var result = 1; var counter = 0;
+while (counter &lt; 10) { result = result &ast; 2;
+  counter = counter + 1;
 }
-
 console.log(result);
-
 // ~→~ 1024
+```
 
 The counter could also start at 1 and check for &lt;= 10, but, for reasons
 that will become apparent in Chapter 4, it is a good idea to get used to
@@ -1410,18 +1414,18 @@ only on one point: a do loop always executes its body at least once, and
 it starts testing whether it should stop only after that first
 execution. To reflect this, the test appears after the body of the loop:
 
+```
 do {
-
 var name = prompt(&quot;Who are you?&quot;);
-
 } while (!name); console.log(name);
+```
 
 This program will force you to enter a name. It will ask again and again
 until it gets something that is not an empty string. Applying the !
 operator will convert a value to Boolean type before negating it, and
 all strings except &quot;&quot; convert to true.
 
-## Indenting Code
+<h3>Indenting Code</h3>
 
 You've probably noticed the spaces I put in front of some statements. In
 JavaScript, these are not required---the computer will accept the
@@ -1435,7 +1439,7 @@ shape of a program corresponds to the shape of the blocks inside it. I
 like to use two spaces for every open block, but tastes differ---some
 people use four spaces, and some people use tab characters.
 
-## for loops
+<h3>for loops</h3>
 
 Many loops follow the pattern seen in the previous while examples.
 First, a "counter" variable is created to track the progress of the
@@ -1446,14 +1450,14 @@ loop body, the counter is updated to track progress.
 Because this pattern is so common, JavaScript and similar languages
 provide a slightly shorter and more comprehensive form, the for loop.
 
-for (var number = 0; number &lt;= 12; number = number + 2)
-console.log(number);
-
+```
+for (var number = 0; 
+  number &lt;= 12; number = number + 2)
+  console.log(number);
 // ~→~ 0
-
 // ~→~ 2
-
 // &hellip; etcetera
+```
 
 This program is exactly equivalent to the earlier even-number-printing
 example. The only change is that all the statements that are related to
@@ -1468,19 +1472,18 @@ clearer than a while construct.
 
 Here is the code that computes 2^10^, using for instead of while:
 
+```
 var result = 1;
-
 for (var counter = 0; counter &lt; 10; counter = counter + 1)
-
 result = result &ast; 2; console.log(result);
-
 // ~→~ 1024
+```
 
 Note that even though no block is opened with a {, the statement in the
 loop is still indented two spaces to make it clear that it "belongs" to
 the line before it.
 
-## Breaking Out of a Loop
+<h3>Breaking Out of a Loop</h3>
 
 Having the loop's condition produce false is not the only way a loop can
 finish. There is a special statement called break that has the effect of
@@ -1489,13 +1492,12 @@ immediately jumping out of the enclosing loop.
 This program illustrates the break statement. It finds the first number
 that is both greater than or equal to 20 and divisible by 7.
 
+```
 for (var current = 20; ; current++) {
-
 if (current % 7 == 0) break; }
-
 console.log(current);
-
 // ~→~ 21
+```
 
 Using the remainder (%) operator is an easy way to test whether a number
 is divisible by another number. If it is, the remainder of their
@@ -1514,7 +1516,7 @@ The continue keyword is similar to break, in that it influences the
 progress of a loop. When continue is encountered in a loop body, control
 jumps out of the body and continues with the loop's next iteration.
 
-## Updating variables succinctly
+<h3>Updating variables succinctly</h3>
 
 Especially when looping, a program often needs to "update" a variable to
 hold a value based on that variable's previous value. counter =
@@ -1522,7 +1524,9 @@ counter + 1;
 
 JavaScript provides a shortcut for this:
 
+```
 counter += 1;
+```
 
 Similar shortcuts work for many other operators, such as result &ast;= 2 to
 double result or counter -= 1 to count downward.
@@ -1534,7 +1538,7 @@ for (var number = 0; number &lt;= 12; number += 2) console.log(number);
 For counter += 1 and counter -= 1, there are even shorter equivalents:
 counter ++ and counter&dash;-.
 
-## Dispatching on a value with switch
+<h3>Dispatching on a value with switch</h3>
 
 It is common for code to look like this:
 
@@ -1548,23 +1552,17 @@ uses for this (which it inherited from the C/Java line of programming
 languages) is somewhat awkward---a chain of if statements often looks
 better. Here is an example:
 
+```
 switch (prompt(&quot;What is the weather like?&quot;)) {
-
 case &quot;rainy&quot;:
-
 console.log(&quot;Remember to bring an umbrella.&quot;); break;
-
 case &quot;sunny&quot;: console.log(&quot;Dress lightly.&quot;);
-
 case &quot;cloudy&quot;:
-
 console.log(&quot;Go outside.&quot;);
-
 break; default: console.log(&quot;Unknown weather type!&quot;);
-
 break;
-
 }
+```
 
 You may put any number of case labels inside the block opened by switch.
 The program will jump to the label that corresponds to the value that
@@ -1576,15 +1574,17 @@ recommends going outside for both sunny and cloudy weather). But beware:
 it is easy to forget such a break, which will cause the program to
 execute code you do not want executed.
 
-## Capitalization
+<h3>Capitalization</h3>
 
 Variable names may not contain spaces, yet it is often helpful to use
 multiple words to clearly describe what the variable represents. These
 are pretty much your choices for writing a variable name with several
 words in it:
 
+```
 fuzzylittleturtle fuzzy_little_turtle FuzzyLittleTurtle
 fuzzyLittleTurtle
+```
 
 The first style can be hard to read. Personally, I like the look of the
 underscores, though that style is a little painful to type. The standard
@@ -1599,7 +1599,7 @@ constructor. What a constructor is will become clear in Chapter 6. For
 now, the important thing is not to be bothered by this apparent lack of
 consistency.
 
-## Comments
+<h3>Comments</h3>
 
 Often, raw code does not convey all the information you want a program
 to convey to human readers, or it conveys it in such a cryptic way that
@@ -1615,14 +1615,12 @@ then the comment text after it.
 var accountBalance = calculateBalance(account); // It&apos;s a green
 hollow where a river sings accountBalance.adjust();
 
-// Madly catching white tatters in the grass. var report = new
-Report();
-
+```
+// Madly catching white tatters in the grass. var report = new Report();
 // Where the sun on the proud mountain rings:
-
 addToReport(accountBalance, report);
-
 // It&apos;s a little valley, foaming like light in a glass.
+```
 
 A // comment goes only to the end of the line. A section of text between
 /&ast; and &ast;/ will be ignored, regardless of whether it contains line
@@ -1636,11 +1634,12 @@ a few years ago. Since then, it has often dropped by, showing up in
 phone numbers and the serial numbers of products that I&apos;ve bought. It
 obviously likes me, so I&apos;ve decided to keep it.
 
+```
 &ast;/
-
 var myNumber = 11213;
+```
 
-## Summary
+<h3>Summary</h3>
 
 You now know that a program is built out of statements, which themselves
 sometimes contain more statements. Statements tend to contain
@@ -1660,7 +1659,7 @@ Functions are special values that encapsulate a piece of program. You
 can invoke them by writing functionName(argument1, argument2). Such a
 function call is an expression, and may produce a value.
 
-## Exercises
+<h3>Exercises</h3>
 
 If you are unsure how to try your solutions to exercises, refer to the
 introduction.
@@ -1680,28 +1679,24 @@ you've attacked it long and hard enough to have a slight headache.
 Write a loop that makes seven calls to console.log to output the
 following triangle:
 
+```
 &bsol;#
-
 &bsol;##
-
 &bsol;###
-
 &bsol;####
-
 &bsol;#####
-
 &bsol;######
-
 &bsol;#######
+```
 
 It may be useful to know that you can find the length of a string by
 writing .length after it.
 
+```
 var abc = &quot;abc&quot;;
-
 console.log(abc.length);
-
 // ~→~ 3
+```
 
 #### FizzBuzz
 
@@ -1727,25 +1722,25 @@ board.
 
 Passing this string to console.log should show something like this:
 
+```
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
-
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
-
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
-
 &bsol;# &bsol;# &bsol;# &bsol;#
-
 &bsol;# &bsol;# &bsol;# &bsol;#
+```
 
 When you have a program that generates this pattern, define a variable
 size = 8 and change the program so that it works for any size,
 outputting a grid of the given width and height.
 
+<blockquote>
 *"People think that computer science is the art of geniuses but the
 actual reality is the opposite, just many people doing things that
 build on each other, like a wall of mini stones."*
 
 ---Donald Knuth
+</blockquote>
 
 # 3 Functions
 
@@ -1774,15 +1769,13 @@ value given to the variable happens to be a function. For example, the
 following code defines the variable square to refer to a function that
 produces the square of a given number:
 
+```
 var square = function(x) {
-
 return x &ast; x;
-
 };
-
 console.log(square(12));
-
 // ~→~ 144
+```
 
 A function is created by an expression that starts with the keyword
 function. Functions have a set of *parameters* (in this case, only x)
@@ -1795,29 +1788,20 @@ A function can have multiple parameters or no parameters at all. In the
 following example, makeNoise does not list any parameter names, whereas
 power lists two:
 
+```
 var makeNoise = function() {
-
 console.log(&quot;Pling!&quot;);
-
 };
-
 makeNoise(); // ~→~ Pling!
-
 var power = function(base, exponent) {
-
 var result = 1;
-
 for (var count = 0; count &lt; exponent; count++)
-
 result &ast;= base;
-
 return result;
-
 };
-
 console.log(power(2, 10));
-
 // ~→~ 1024
+```
 
 Some functions produce a value, such as power and square, and some
 don't, such as makeNoise, which produces only a side effect. A return
@@ -1852,23 +1836,17 @@ variable as local and thus changes only the local variable. The second
 does not declare x locally, so references to x inside of it refer to the
 global variable x defined at the top of the example.
 
+```
 var x = &quot;outside&quot;;
-
 var f1 = function() {
-
 var x = &quot;inside f1&quot;;
-
 }; f1(); console.log(x); // ~→~ outside
-
 var f2 = function() {
-
 x = &quot;inside f2&quot;;
-
 }; f2();
-
 console.log(x);
-
 // ~→~ inside f2
+```
 
 This behavior helps prevent accidental interference between functions.
 If all variables were shared by the whole program, it'd take a lot of
@@ -1888,34 +1866,23 @@ several degrees of locality.
 For example, this rather nonsensical function has two functions inside
 of it:
 
-var landscape = function() { var result = &quot;&quot;; var flat =
-function(size) {
-
+```
+var landscape = function() { var result = &quot;&quot;; 
+var flat = function(size) {
 for (var count = 0; count &lt; size; count++)
-
 result += &quot;&lowbar;&quot;;
-
 };
-
 var mountain = function(size) {
-
 result += &quot;/&quot;;
-
 for (var count = 0; count &lt; size; count++)
-
 result += &quot;&apos;&quot;;
-
 result += &quot;&bsol;&bsol;&bsol;&bsol;&quot;;
-
 };
-
 flat(3); mountain(4); flat(6); mountain(1); flat(1); return result;
-
 };
-
 console.log(landscape());
-
 // ~→~ &lowbar;&lowbar;&lowbar;/&apos;&apos;&apos;&apos;&bsol;&bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/&apos;&bsol;&bsol;&lowbar;
+```
 
 The flat and mountain functions can "see" the variable called result,
 since they are inside the function that defines it. But they cannot see
@@ -1938,17 +1905,14 @@ that any block of code between braces produces a new local environment.
 But in JavaScript, functions are the only things that create a new
 scope. You are allowed to use free-standing blocks.
 
+```
 var something = 1;
-
 {
-
 var something = 2;
-
 // Do stuff with variable something&hellip;
-
 }
-
 // Outside of the block again&hellip;
+```
 
 But the something inside the block refers to the same variable as the
 one outside the block. In fact, although blocks like this are allowed,
@@ -1972,13 +1936,12 @@ it as an argument to a function, and so on. Similarly, a variable that
 holds a function is still just a regular variable and can be assigned a
 new value, like so:
 
+```
 var launchMissiles = function(value) {
-
 missileSystem.launch(&quot;now&quot;);
-
 }; if (safeMode)
-
 launchMissiles = function(value) {/&ast; do nothing &ast;/};
+```
 
 In Chapter 5, we will discuss the wonderful things that can be done by
 passing around function values to other functions.
@@ -1989,22 +1952,23 @@ There is a slightly shorter way to say "var square = &hellip;function". The
 function keyword can also be used at the start of a statement, as in the
 following:
 
+```
 function square(x) {
-
 return x &ast; x;
-
 }
+```
 
 This is a function *declaration*. The statement defines the variable
 square and points it at the given function. So far so good. There is one
 subtlety with this form of function definition, however.
+
 console.log(&quot;The future says:&quot;, future());
 
+```
 function future() {
-
 return &quot;We STILL have no flying cars.&quot;;
-
 }
+```
 
 This code works, even though the function is defined *below* the code
 that uses it. This is because function declarations are not part of the
@@ -2022,13 +1986,12 @@ forbids it. If you want your programs to behave consistently, only use
 this form of functiondefining statements in the outermost block of a
 function or program.
 
+```
 function example() { function a() {} // Okay if (something) {
-
 function b() {} // Danger!
-
 }
-
 }
+```
 
 ## The call stack
 
@@ -2036,11 +1999,11 @@ It will be helpful to take a closer look at the way control flows
 through functions. Here is a simple program that makes a few function
 calls:
 
+```
 function greet(who) {
-
 console.log(&quot;Hello &quot; + who);
-
 } greet(&quot;Harry&quot;); console.log(&quot;Bye&quot;);
+```
 
 A run through this program goes roughly like this: the call to greet
 causes control to jump to the start of that function (line 2). It calls
@@ -2052,11 +2015,8 @@ The line after that calls console.log again.
 We could show the flow of control schematically like this:
 
 top greet console.log
-
 greet
-
 top console.log
-
 top
 
 Because a function has to jump back to the place of the call when it
@@ -2077,19 +2037,15 @@ infinite back-and-forth between two functions. Rather, it *would* be
 infinite, if the computer had an infinite stack. As it is, we will run
 out of space, or "blow the stack".
 
+```
 function chicken() {
-
 return egg();
-
 }
-
 function egg() {
-
 return chicken();
-
 }
-
 console.log(chicken() + &quot; came first.&quot;); // ~→~ ??
+```
 
 ## Optional Arguments
 
@@ -2115,27 +2071,19 @@ called either with two arguments or with a single argument, in which
 case the exponent is assumed to be two, and the function behaves like
 square.
 
+```
 function power(base, exponent) {
-
 if (exponent == undefined)
-
 exponent = 2; var result = 1;
-
 for (var count = 0; count &lt; exponent; count++)
-
 result &ast;= base;
-
 return result;
-
 }
-
 console.log(power(4));
-
 // ~→~ 16
-
 console.log(power(4, 3));
-
 // ~→~ 64
+```
 
 In the next chapter, we will see a way in which a function body can get
 at the exact list of arguments that were passed. This is helpful because
@@ -2143,9 +2091,10 @@ it makes it possible for a function to accept any number of arguments.
 For example, console.log makes use of this---it outputs all of the
 values it is given.
 
+```
 console.log(&quot;R&quot;, 2, &quot;D&quot;, 2);
-
 // ~→~ R 2 D 2
+```
 
 ## Closure
 
@@ -2158,22 +2107,17 @@ The following code shows an example of this. It defines a function,
 wrapValue, which creates a local variable. It then returns a function
 that accesses and returns this local variable.
 
+```
 function wrapValue(n) {
-
 var localVariable = n;
-
 return function() { return localVariable; };
-
 }
-
 var wrap1 = wrapValue(1); var wrap2 = wrapValue(2);
 console.log(wrap1());
-
 // ~→~ 1
-
 console.log(wrap2());
-
 // ~→~ 2
+```
 
 This is allowed and works as you'd hope---the variable can still be
 accessed. In fact, multiple instances of the variable can be alive at
@@ -2190,16 +2134,13 @@ variables but also allows for some creative use of function values.
 With a slight change, we can turn the previous example into a way to
 create functions that multiply by an arbitrary amount.
 
-function multiplier(factor) { return function(number) { return number
-&ast; factor;
-
+```
+function multiplier(factor) { return function(number) { return number &ast; factor;
 };
-
 }
-
 var twice = multiplier(2); console.log(twice(5));
-
 // ~→~ 10
+```
 
 The explicit localVariable from the wrapValue example isn't needed since
 a parameter is itself a local variable.
@@ -2225,21 +2166,16 @@ care not to overflow the stack. A function that calls itself is called
 different style. Take, for example, this alternative implementation of
 power:
 
+```
 function power(base, exponent) {
-
 if (exponent == 0)
-
 return 1;
-
 else
-
 return base &ast; power(base, exponent - 1);
-
 }
-
 console.log(power(2, 3));
-
 // ~→~ 8
+```
 
 This is rather close to the way mathematicians define exponentiation and
 arguably describes the concept in a more elegant way than the looping
@@ -2295,30 +2231,22 @@ produce that number? For example, the number 13 could be reached by
 first multiplying by 3 and then adding 5 twice, whereas the number 15
 cannot be reached at all. Here is a recursive solution:
 
+```
 function findSolution(target) { function find(start, history) {
 
 if (start == target)
-
 return history;
-
 else if (start &gt; target)
-
 return null;
-
 else
-
 return find(start + 5, &quot;(&quot; + history + &quot; + 5)&quot;) &vert;&vert; find(start &ast;
 3, &quot;(&quot; + history + &quot; &ast; 3)&quot;);
-
 }
-
 return find(1, &quot;1&quot;);
-
 }
-
 console.log(findSolution(24));
-
 // ~→~ (((1 &ast; 3) + 5) &ast; 3)
+```
 
 Note that this program doesn't necessarily find the *shortest* sequence
 of operations. It is satisfied when it finds any sequence at all.
@@ -2348,27 +2276,19 @@ To better understand how this function produces the effect we're looking
 for, let's look at all the calls to find that are made when searching
 for a solution for the number 13.
 
+```
 find(1, &quot;1&quot;)
-
 find(6, &quot;(1 + 5)&quot;)
-
 find(11, &quot;((1 + 5) + 5)&quot;)
-
 find(16, &quot;(((1 + 5) + 5) + 5)&quot;)
-
 too big
-
 find(33, &quot;(((1 + 5) + 5) &ast; 3)&quot;)
-
 too big
-
 find(18, &quot;((1 + 5) &ast; 3)&quot;)
-
 too big
-
 find(3, &quot;(1 &ast; 3)&quot;)
-
 find(8, &quot;((1 &ast; 3) + 5)&quot;) find(13, &quot;(((1 &ast; 3) + 5) + 5)&quot;) found!
+```
 
 The indentation suggests the depth of the call stack. The first time
 find is called it calls itself twice to explore the solutions that start
@@ -2415,22 +2335,17 @@ long.
 
 That clearly asks for a function of two arguments. Let's get coding.
 
+```
 function printFarmInventory(cows, chickens) {
-
 var cowString = String(cows); while (cowString.length &lt; 3)
-
 cowString = &quot;0&quot; + cowString;
-
 console.log(cowString + &quot; Cows&quot;); var chickenString =
 String(chickens); while (chickenString.length &lt; 3)
-
 chickenString = &quot;0&quot; + chickenString;
-
 console.log(chickenString + &quot; Chickens&quot;);
-
 }
-
 printFarmInventory(7, 11);
+```
 
 Adding .length after a string value will give us the length of that
 string. Thus, the while loops keep adding zeros in front of the number
@@ -2445,25 +2360,19 @@ We sure can. But just as we're in the process of copying and pasting
 those four lines one more time, we stop and reconsider. There has to be
 a better way. Here's a first attempt:
 
+```
 function printZeroPaddedWithLabel(number, label) {
-
 var numberString = String(number); while (numberString.length &lt; 3)
-
 numberString = &quot;0&quot; + numberString;
-
 console.log(numberString + &quot; &quot; + label);
-
 }
-
 function printFarmInventory(cows, chickens, pigs) {
 printZeroPaddedWithLabel(cows, &quot;Cows&quot;);
 printZeroPaddedWithLabel(chickens, &quot;Chickens&quot;);
-
 printZeroPaddedWithLabel(pigs, &quot;Pigs&quot;);
-
 }
-
 printFarmInventory(7, 11, 3);
+```
 
 It works! But that name, printZeroPaddedWithLabel, is a little awkward.
 It conflates three things---printing, zero-padding, and adding a
@@ -2472,24 +2381,19 @@ label---into a single function.
 Instead of lifting out the repeated part of our program wholesale, let's
 try to pick out a single *concept*.
 
+```
 function zeroPad(number, width) { var string = String(number); while
 (string.length &lt; width)
-
 string = &quot;0&quot; + string;
-
 return string;
-
 }
-
 function printFarmInventory(cows, chickens, pigs) {
 console.log(zeroPad(cows, 3) + &quot; Cows&quot;);
 console.log(zeroPad(chickens, 3) + &quot; Chickens&quot;);
-
 console.log(zeroPad(pigs, 3) + &quot; Pigs&quot;);
-
 }
-
 printFarmInventory(7, 16, 3);
+```
 
 A function with a nice, obvious name like zeroPad makes it easier for
 someone who reads the code to figure out what it does. And it is useful
@@ -2550,15 +2454,13 @@ keyword, when used as an expression, can create a function value. When
 used as a statement, it can be used to declare a variable and give it a
 function as its value.
 
+```
 // Create a function value f var f = function(a) { console.log(a + 2);
-
 };
-
 // Declare g to be a function function g(a, b) {
-
 return a &ast; b &ast; 3.5;
-
 }
+```
 
 A key aspect in understanding functions is understanding local scopes.
 Parameters and variables declared inside a function are local to the
@@ -2617,14 +2519,16 @@ except it takes a second argument that indicates the character that is
 to be counted (rather than counting only uppercase "B" characters).
 Rewrite countBs to make use of this new function.
 
+<blockquote>
 *"On two occasions I have been asked, 'Pray, Mr. Babbage, if you put
 into the machine wrong figures, will the right answers come out?'
 &lbrack;...&rbrack; I am not able rightly to apprehend the kind of confusion of
 ideas that could provoke such a question."*
 
 ---Charles Babbage, *Passages from the Life of a Philosopher (1864)*
+</blockquote>
 
-# 4 Data Structures: Objects and Arrays
+<h2 id="ch4">Chapter 4 Data Structures: Objects and Arrays</h2>
 
 Numbers, Booleans, and strings are the bricks that data structures are
 built from. But you can't make much of a house out of a single brick.
@@ -2701,14 +2605,13 @@ Fortunately, JavaScript provides a data type specifically for storing
 sequences of values. It is called an *array* and is written as a list of
 values between square brackets, separated by commas.
 
+```
 var listOfNumbers = &lbrack;2, 3, 5, 7, 11&rbrack;;
 console.log(listOfNumbers&lbrack;1&rbrack;);
-
 // ~→~ 3
-
 console.log(listOfNumbers&lbrack;1 - 1&rbrack;);
-
 // ~→~ 2
+```
 
 The notation for getting at the elements inside an array also uses
 square brackets. A pair of square brackets immediately after an
@@ -2737,9 +2640,10 @@ Almost all JavaScript values have properties. The exceptions are null
 and undefined. If you try to access a property on one of these
 nonvalues, you get an error.
 
+```
 null.length;
-
 // ~→~ TypeError: Cannot read property &apos;length&apos; of null
+```
 
 The two most common ways to access properties in JavaScript are with a
 dot and with square brackets. Both value.x and value&lbrack;x&rbrack; access a
@@ -2774,13 +2678,12 @@ because that is easier to write than array&lbrack;&quot;length&quot;&rbrack;.
 Both string and array objects contain, in addition to the length
 property, a number of properties that refer to function values.
 
+```
 var doh = &quot;Doh&quot;;
-
 console.log(typeof doh.toUpperCase);
-
 // ~→~ function console.log(doh.toUpperCase());
-
 // ~→~ DOH
+```
 
 Every string has a toUpperCase property. When called, it will return a
 copy of the string, in which all letters have been converted to
@@ -2797,23 +2700,17 @@ value they belong to. As in, "toUpperCase is a method of a string".
 
 This example demonstrates some methods that array objects have:
 
+```
 var mack = &lbrack;&rbrack;;
-
 mack.push(&quot;Mack&quot;); mack.push(&quot;the&quot;, &quot;Knife&quot;);
-
 console.log(mack);
-
 // ~→~ &lbrack;&quot;Mack&quot;, &quot;the&quot;, &quot;Knife&quot;&rbrack;
-
 console.log(mack.join(&quot; &quot;)); // ~→~ Mack the Knife
-
 console.log(mack.pop());
-
 // ~→~ Knife
-
 console.log(mack);
-
 // ~→~ &lbrack;&quot;Mack&quot;, &quot;the&quot;&rbrack;
+```
 
 The push method can be used to add values to the end of an array. The
 pop method does the opposite: it removes the value at the end of the
@@ -2834,23 +2731,18 @@ Values of the type *object* are arbitrary collections of properties, and
 we can add or remove these properties as we please. One way to create an
 object is by using a curly brace notation.
 
+```
 var day1 = {
-
 squirrel: false,
-
 events: &lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;, &quot;running&quot;,
 &quot;television&quot;&rbrack;
-
 };
-
 console.log(day1.squirrel);
-
 // ~→~ false
-
 console.log(day1.wolf); // ~→~ undefined day1.wolf = false;
 console.log(day1.wolf);
-
 // ~→~ false
+```
 
 Inside the curly braces, we can give a list of properties separated by
 commas. Each property is written as a name, followed by a colon,
@@ -2860,13 +2752,12 @@ lines, indenting it like in the previous example improves readability.
 Properties whose names are not valid variable names or valid numbers
 have to be quoted.
 
+```
 var descriptions = {
-
 work: &quot;Went to work&quot;,
-
 &quot;touched tree&quot;: &quot;Touched a tree&quot;
-
 };
+```
 
 This means that curly braces have *two* meanings in JavaScript. At the
 start of a statement, they start a block of statements. In any other
@@ -2902,18 +2793,14 @@ unary operator that, when applied to a property access expression, will
 remove the named property from the object. This is not a common thing to
 do, but it is possible.
 
+```
 var anObject = {left: 1, right: 2}; console.log(anObject.left);
-
 // ~→~ 1
-
 delete anObject.left;
-
-console.log(anObject.left); // ~→~ undefined console.log(&quot;left&quot; in
-anObject);
-
+console.log(anObject.left); // ~→~ undefined console.log(&quot;left&quot; in anObject);
 // ~→~ false console.log(&quot;right&quot; in anObject);
-
 // ~→~ true
+```
 
 The binary in operator, when applied to a string and an object, returns
 a Boolean value that indicates whether that object has that property.
@@ -2934,27 +2821,21 @@ in a neat row, labeled with numbers.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/image9.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+<!-- ![](./images/image9.jpg){width="5.236770559930009in" height="2.380349956255468in"} -->
 
 So we can represent Jacques' journal as an array of objects.
 
+```
 var journal = &lbrack;
-
 {events: &lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;,
-
 &quot;running&quot;, &quot;television&quot;&rbrack;, squirrel: false},
-
 {events: &lbrack;&quot;work&quot;, &quot;ice cream&quot;, &quot;cauliflower&quot;,
-
 &quot;lasagna&quot;, &quot;touched tree&quot;, &quot;brushed teeth&quot;&rbrack;, squirrel: false},
-
 {events: &lbrack;&quot;weekend&quot;, &quot;cycling&quot;, &quot;break&quot;,
-
 &quot;peanuts&quot;, &quot;beer&quot;&rbrack;, squirrel: true},
-
 /&ast; and so on&hellip; &ast;/
-
 &rbrack;;
+```
 
 ## Mutability
 
@@ -3063,7 +2944,7 @@ table:
   alt="."
   style="border: 2px solid #000000; width:15%;" /
 </p
-// ![](./images/image10.png){width="1.47in" height="0.36333333333333334in"} (4.1)
+<!-- ![](./images/image10.png){width="1.47in" height="0.36333333333333334in"} (4.1) -->
 
 The notation *n*~01~ indicates the number of measurements where the
 first variable (squirrelness) is false (0) and the second variable
@@ -4665,7 +4546,7 @@ going on *inside* the object can be ignored when working with it.
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/image11.jpg){width="3.031653543307087in" height="3.148468941382327in"}
+<!-- ![](./images/image11.jpg){width="3.031653543307087in" height="3.148468941382327in"} -->
 
 As an example, you can imagine an object that provides an interface to
 an area on your screen. It provides a way to draw shapes or text onto
@@ -10274,7 +10155,7 @@ This is what such a document would look like in the browser:
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/image12.jpg){width="3.141998031496063in" height="1.211567147856518in"}
+<!-- ![](./images/image12.jpg){width="3.141998031496063in" height="1.211567147856518in"} -->
 
 The tags, wrapped in angle brackets (&lt; and &gt;), provide information
 about the structure of the document. The other text is just plain text.
@@ -10829,28 +10710,20 @@ image.
 This involves not only removing the images but adding a new text node to
 replace them. For this, we use the document.createTextNode method.
 
+```
 &lt;p&gt;The &lt;img src=&quot;img/cat.png&quot; alt=&quot;Cat&quot;&gt; in the
-
 &lt;img src=&quot;img/hat.png&quot; alt=&quot;Hat&quot;&gt;.&lt;/p&gt;
-
 &lt;p&gt;&lt;button onclick=&quot;replaceImages()&quot;&gt;Replace&lt;/button&gt;&lt;/p&gt;
-
 &lt;script&gt; function replaceImages() {
-
 var images = document.body.getElementsByTagName(&quot;img&quot;); for (var i =
 images.length - 1; i &gt;= 0; i&hyphen;-) {
-
 var image = images&lbrack;i&rbrack;; if (image.alt) {
-
 var text = document.createTextNode(image.alt);
-
 image.parentNode.replaceChild(text, image); }
-
 }
-
 }
-
 &lt;/script&gt;
+```
 
 Given a string, createTextNode gives us a type 3 DOM node (a text node),
 which we can insert into the document to make it show up on the screen.
@@ -10867,13 +10740,13 @@ If you want a *solid* collection of nodes, as opposed to a live one, you
 can convert the collection to a real array by calling the array slice
 method on it.
 
+```
 var arrayish = {0: &quot;one&quot;, 1: &quot;two&quot;, length: 2}; var real =
 Array.prototype.slice.call(arrayish, 0); real.forEach(function(elt) {
 console.log(elt); });
-
 // ~→~ one
-
 // two
+```
 
 To create regular element nodes (type 1), you can use the document.
 createElement method. This method takes a tag name and returns a new
@@ -10883,39 +10756,31 @@ The following example defines a utility elt, which creates an element
 node and treats the rest of its arguments as children to that node. This
 function is then used to add a simple attribution to a quote.
 
+```
 &lt;blockquote id=&quot;quote&quot;&gt;
+```
 
 No book can ever be finished. While working on it we learn just enough
 to find it immature the moment we turn away from it.
 
+```
 &lt;/blockquote&gt;
-
 &lt;script&gt; function elt(type) {
-
 var node = document.createElement(type); for (var i = 1; i &lt;
 arguments.length; i++) {
-
 var child = arguments&lbrack;i&rbrack;; if (typeof child == &quot;string&quot;) child =
 document.createTextNode(child);
-
 node.appendChild(child);
-
 }
-
 return node;
-
 }
-
 document.getElementById(&quot;quote&quot;).appendChild(
-
 elt(&quot;footer&quot;, &dash;&dash;-&quot;&quot;, elt(&quot;strong&quot;, &quot;Karl Popper&quot;),
-
 &quot;, preface to the second editon of &quot;, elt(&quot;em&quot;, &quot;The Open Society
 and Its Enemies&quot;),
-
 &quot;, 1950&quot;));
-
 &lt;/script&gt;
+```
 
 This is what the resulting document looks like:
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -10940,19 +10805,16 @@ If you make up your own attribute names, though, such attributes will
 not be present as a property on the element's node. Instead, you'll have
 to use the getAttribute and setAttribute methods to work with them.
 
+```
 &lt;p data-classified=&quot;secret&quot;&gt;The launch code is 00000000.&lt;/p&gt; &lt;p
 data-classified=&quot;unclassified&quot;&gt;I have two feet.&lt;/p&gt;
-
 &lt;script&gt; var paras = document.body.getElementsByTagName(&quot;p&quot;);
 Array.prototype.forEach.call(paras, function(para) {
-
 if (para.getAttribute(&quot;data-classified&quot;) == &quot;secret&quot;)
-
 para.parentNode.removeChild(para);
-
 });
-
 &lt;/script&gt;
+```
 
 I recommended prefixing the names of such made-up attributes with data-
 to ensure they do not conflict with any other attributes.
@@ -10962,24 +10824,20 @@ As a simple example, we'll write a "syntax highlighter" that looks for
 a data-language attribute and crudely tries to highlight the keywords
 for that language.
 
+```
 function highlightCode(node, keywords) { var text = node.textContent;
 node.textContent = &quot;&quot;; // Clear the node
-
 var match, pos = 0;
-
 while (match = keywords.exec(text)) {
-
 var before = text.slice(pos, match.index);
 node.appendChild(document.createTextNode(before)); var strong =
 document.createElement(&quot;strong&quot;);
 strong.appendChild(document.createTextNode(match&lbrack;0&rbrack;));
 node.appendChild(strong); pos = keywords.lastIndex;
-
 }
-
 var after = text.slice(pos);
-
 node.appendChild(document.createTextNode(after)); }
+```
 
 The function highlightCode takes a &lt;pre&gt; node and a regular expression
 (with the "global" option turned on) that matches the keywords of the
@@ -10996,37 +10854,30 @@ all the &lt;pre&gt; elements that have a data-language attribute and calling
 highlightCode on each one with the correct regular expression for the
 language.
 
+```
 var languages = {
-
 javascript: /&bsol;&bsol;b(function&vert;return&vert;var)&bsol;&bsol;b/g /&ast; &hellip; etc &ast;/
-
 };
-
 function highlightAllCode() {
-
 var pres = document.body.getElementsByTagName(&quot;pre&quot;); for (var i =
 0; i &lt; pres.length; i++) {
-
 var pre = pres&lbrack;i&rbrack;;
-
 var lang = pre.getAttribute(&quot;data-language&quot;); if
 (languages.hasOwnProperty(lang))
-
 highlightCode(pre, languages&lbrack;lang&rbrack;); }
-
 }
+```
 
 Here is an example:
 
+```
 &lt;p&gt;Here it is, the identity function:&lt;/p&gt; &lt;pre
 data-language=&quot;javascript&quot;&gt;
-
 function id(x) { return x; }
-
 &lt;/pre&gt;
-
 &lt;script&gt;highlightAllCode();&lt;/script&gt; This produces a page that looks
 like this:
+```
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 42.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -11035,7 +10886,7 @@ like this:
   alt="."
   style="border: 2px solid #000000; width:25%;" />
 </p>
-// ![](./images/image42.jpg){width="2.4252930883639543in" height="0.7080544619422572in"}
+<!-- ![](./images/image42.jpg){width="2.4252930883639543in" height="0.7080544619422572in"} -->
 
 There is one commonly used attribute, class, which is a reserved word in
 the JavaScript language. For historical reasons---some old JavaScript
@@ -11065,15 +10916,14 @@ browser and typically corresponds to the smallest dot that your screen
 can display. Similarly, clientWidth and clientHeight give you the size
 of the space *inside* the element, ignoring border width.
 
+```
 &lt;p style=&quot;border: 3px solid red&quot;&gt; I&apos;m boxed in
-
 &lt;/p&gt;
-
 &lt;script&gt; var para = document.body.getElementsByTagName(&quot;p&quot;)&lbrack;0&rbrack;;
 console.log(&quot;clientHeight:&quot;, para.clientHeight);
 console.log(&quot;offsetHeight:&quot;, para.offsetHeight);
-
 &lt;/script&gt;
+```
 
 Giving a paragraph a border causes a rectangle to be drawn around it.
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -11084,7 +10934,7 @@ Giving a paragraph a border causes a rectangle to be drawn around it.
   alt="."
   style="border: 2px solid #000000; width:40%;" />
 </p>
-// ![](./images/image43.jpg){width="4.023945756780402in" height="0.26010279965004374in"}
+<!-- ![](./images/image43.jpg){width="4.023945756780402in" height="0.26010279965004374in"} -->
 
 The most effective way to find the precise position of an element on the
 screen is the getBoundingClientRect method. It returns an object with
@@ -11110,45 +10960,29 @@ will consequently run really slowly. The following code shows an example
 of this. It contains two different programs that build up a line of *X*
 characters 2,000 pixels wide and measures the time each one takes.
 
+```
 &lt;p&gt;&lt;span id=&quot;one&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;span id=&quot;two&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-
 &lt;script&gt; function time(name, action) {
-
 var start = Date.now(); // Current time in milliseconds action();
-
 console.log(name, &quot;took&quot;, Date.now() - start, &quot;ms&quot;);
-
 }
-
 time(&quot;naive&quot;, function() {
-
 var target = document.getElementById(&quot;one&quot;); while
 (target.offsetWidth &lt; 2000)
-
 target.appendChild(document.createTextNode(&quot;X&quot;));
-
 });
-
 // ~→~ naive took 32 ms
-
 time(&quot;clever&quot;, function() {
-
 var target = document.getElementById(&quot;two&quot;);
 target.appendChild(document.createTextNode(&quot;XXXXX&quot;));
-
 var total = Math.ceil(2000 / (target.offsetWidth / 5));
-
 for (var i = 5; i &lt; total; i++)
-
 target.appendChild(document.createTextNode(&quot;X&quot;));
-
 });
-
 // ~→~ clever took 1 ms
-
 &lt;/script&gt;
+```
 
 ## Styling
 
@@ -11164,9 +10998,10 @@ the default styling associated with an element, such as the text color
 or underline, can be changed by us. Here is an example using the style
 property:
 
+```
 &lt;p&gt;&lt;a href=&quot;.&quot;&gt;Normal link&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&quot;.&quot; style=&quot;color: green&quot;&gt;Green link&lt;/a&gt;&lt;/p&gt;
+```
 
 The second link will be green instead of the default link color.
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -11177,7 +11012,7 @@ The second link will be green instead of the default link color.
   alt="."
   style="border: 2px solid #000000; width:10%;" />
 </p>
-// ![](./images/image44.jpg){width="1.1024245406824147in" height="0.7269619422572179in"}
+<!-- ![](./images/image44.jpg){width="1.1024245406824147in" height="0.7269619422572179in"} -->
 
 A style attribute may contain one or more *declarations*, which are a
 property (such as color) followed by a colon and a value (such as
@@ -11208,15 +11043,13 @@ properties for all possible style properties. The values of these
 properties are strings, which we can write to in order to change a
 particular aspect of the element's style.
 
+```
 &lt;p id=&quot;para&quot; style=&quot;color: purple&quot;&gt; Pretty text
-
 &lt;/p&gt;
-
 &lt;script&gt; var para = document.getElementById(&quot;para&quot;);
-
 console.log(para.style.color); para.style.color = &quot;magenta&quot;;
-
 &lt;/script&gt;
+```
 
 Some style property names contain dashes, such as font-family. Because
 such property names are awkward to work with in JavaScript (you'd have
@@ -11232,17 +11065,14 @@ document.
 
 It can be given inside a &lt;style&gt; tag.
 
+```
 &lt;style&gt; strong {
-
 font-style: italic;
-
 color: gray;
-
 }
-
 &lt;/style&gt;
-
 &lt;p&gt;Now &lt;strong&gt;strong text&lt;/strong&gt; is italic and gray.&lt;/p&gt;
+```
 
 The *cascading* in the name refers to the fact that multiple such rules
 are combined to produce the final style for an element. In the previous
@@ -11262,23 +11092,17 @@ rule for .abc applies to all elements with &quot;abc&quot; in their class
 attributes. A rule for &bsol;&bsol;#xyz applies to the element with an id
 attribute of &quot;xyz&quot; (which should be unique within the document).
 
+```
 .subtle { color: gray;
-
 font-size: 80%;
-
 }
-
 #header { background: blue;
-
 color: white;
-
 }
-
 /&ast; p elements, with classes a and b, and id main &ast;/ p.a.b#main {
-
 margin-bottom: 20px;
-
 }
+```
 
 The precedence rule favoring the most recently defined rule holds true
 only when the rules have the same *specificity*. A rule's specificity is
@@ -11308,41 +11132,26 @@ The querySelectorAll method, which is defined both on the document
 object and on element nodes, takes a selector string and returns an
 arraylike object containing all the elements that it matches.
 
+```
 &lt;p&gt;And if you go chasing
-
 &lt;span class=&quot;animal&quot;&gt;rabbits&lt;/span&gt;&lt;/p&gt;
-
 &lt;p&gt;And you know you&apos;re going to fall&lt;/p&gt;
-
 &lt;p&gt;Tell &apos;em a &lt;span class=&quot;character&quot;&gt;hookah smoking
-
 &lt;span class=&quot;animal&quot;&gt;caterpillar&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-
 &lt;p&gt;Has given you the call&lt;/p&gt;
-
 &lt;script&gt; function count(selector) {
-
 return document.querySelectorAll(selector).length;
-
 }
-
 console.log(count(&quot;p&quot;)); // All &lt;p&gt; elements
-
 // ~→~ 4
-
 console.log(count(&quot;.animal&quot;)); // Class animal
-
 // ~→~ 2
-
 console.log(count(&quot;p .animal&quot;)); // Animal inside of &lt;p&gt;
-
 // ~→~ 2
-
 console.log(count(&quot;p &gt; .animal&quot;)); // Direct child of &lt;p&gt;
-
 // ~→~ 1
-
 &lt;/script&gt;
+```
 
 Unlike methods such as getElementsByTagName, the object returned by
 querySelectorAll is *not* live. It won't change when you change the
@@ -11369,29 +11178,21 @@ the document if no such enclosing element exists.
 We can use this to create an animation. The following document displays
 a picture of a cat that floats around in an ellipse:
 
+```
 &lt;p style=&quot;text-align: center&quot;&gt;
-
 &lt;img src=&quot;img/cat.png&quot; style=&quot;position: relative&quot;&gt; &lt;/p&gt;
-
 &lt;script&gt; var cat = document.querySelector(&quot;img&quot;); var angle = 0,
 lastTime = null; function animate(time) {
-
 if (lastTime != null)
-
 angle += (time - lastTime) &ast; 0.001;
-
 lastTime = time;
-
 cat.style.top = (Math.sin(angle) &ast; 20) + &quot;px&quot;; cat.style.left =
 (Math.cos(angle) &ast; 200) + &quot;px&quot;;
-
 requestAnimationFrame(animate);
-
 }
-
 requestAnimationFrame(animate);
-
 &lt;/script&gt;
+```
 
 The gray arrow shows the path along which the image moves.
 
@@ -11438,29 +11239,20 @@ the circle, while Math.sin yields the y-coordinate. Positions (or
 angles) greater than 2*π* or less than 0 are valid---the rotation
 repeats so that *a*+2*π* refers to the same angle as *a*.
 
+```
 cos(¼
-
 π
-
 )
-
 sin(¼
-
 π
-
 )
-
 cos(-
-
 ⅔π
-
 )
-
 sin(-
-
 ⅔π
-
 )
+```
 
 The cat animation code keeps a counter, angle, for the current angle of
 the animation and increments it in proportion to the elapsed time every
@@ -11504,35 +11296,28 @@ We built plaintext tables in Chapter 6. HTML makes laying out tables
 quite a bit easier. An HTML table is built with the following tag
 structure:
 
+```
 &lt;table&gt;
-
 &lt;tr&gt;
-
 &lt;th&gt;name&lt;/th&gt;
-
 &lt;th&gt;height&lt;/th&gt;
-
 &lt;th&gt;country&lt;/th&gt;
-
 &lt;/tr&gt;
-
 &lt;tr&gt;
-
 &lt;td&gt;Kilimanjaro&lt;/td&gt;
-
 &lt;td&gt;5895&lt;/td&gt;
-
 &lt;td&gt;Tanzania&lt;/td&gt;
-
 &lt;/tr&gt;
-
 &lt;/table&gt;
+```
 
 For each *row*, the &lt;table&gt; tag contains a &lt;tr&gt; tag. Inside of these
 &lt;tr&gt; tags, we can put cell elements: either heading cells (&lt;th&gt;) or
 regular cells
 
+```
 (&lt;td&gt;).
+```
 
 The same source data that was used in Chapter 6 is again available in
 the MOUNTAINS variable in the sandbox. It can also be
@@ -11578,10 +11363,12 @@ counted relative to the top left of the document. To avoid using
 negative coordinates, you can simply add a fixed number of pixels to the
 position values.
 
+<blockquote>
 *"You have power over your mind---not outside events. Realize this,
 and you will find strength."*
 
 ---Marcus Aurelius, *Meditations*
+</blockquote>
 
 # 14 Handling Events
 
@@ -11613,15 +11400,13 @@ A better mechanism is for the underlying system to give our code a
 chance to react to events as they occur. Browsers do this by allowing us
 to register functions as *handlers* for specific events.
 
+```
 &lt;p&gt;Click this document to activate the handler.&lt;/p&gt;
-
 &lt;script&gt; addEventListener(&quot;click&quot;, function() {
-
 console.log(&quot;You clicked!&quot;);
-
 });
-
 &lt;/script&gt;
+```
 
 The addEventListener function registers its second argument to be called
 whenever the event described by its first argument occurs.
@@ -11634,17 +11419,13 @@ the whole window because in the browser the global scope is equivalent
 to the window object. Every DOM element has its own addEventListener
 method, which allows you to listen specifically on that element.
 
+```
 &lt;button&gt;Click me&lt;/button&gt;
-
 &lt;p&gt;No handler here.&lt;/p&gt;
-
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;);
 button.addEventListener(&quot;click&quot;, function() {
-
 console.log(&quot;Button clicked.&quot;);
-
 });
-
 &lt;/script&gt;
 
 The example attaches a handler to the button node. Thus, clicks on the
@@ -11660,24 +11441,19 @@ already been registered.
 The removeEventListener method, called with arguments similar to as
 addEventListener, removes a handler.
 
+```
 &lt;button&gt;Act-once button&lt;/button&gt;
-
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;); function
 once() {
-
 console.log(&quot;Done.&quot;);
-
 button.removeEventListener(&quot;click&quot;, once); }
-
 button.addEventListener(&quot;click&quot;, once);
-
 &lt;/script&gt;
+```
 
 To be able to unregister a handler function, we give it a name (such as
 once) so that we can pass it to both addEventListener and
-removeEventListener
-
-.
+removeEventListener.
 
 ## Event objects
 
@@ -11687,24 +11463,18 @@ us additional information about the event. For example, if we want to
 know *which* mouse button was pressed, we can look at the event object's
 which property.
 
+```
 &lt;button&gt;Click me any way you want&lt;/button&gt;
-
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;);
 button.addEventListener(&quot;mousedown&quot;, function(event) {
-
 if (event.which == 1)
-
 console.log(&quot;Left button&quot;);
-
 else if (event.which == 2) console.log(&quot;Middle button&quot;);
-
 else if (event.which == 3)
-
 console.log(&quot;Right button&quot;);
-
 });
-
 &lt;/script&gt;
+```
 
 The information stored in an event object differs per type of event.
 We'll discuss various types later in this chapter. The object's type
@@ -11737,27 +11507,21 @@ the handler for the button calls stopPropagation, which will prevent the
 handler on the paragraph from running. When the button is clicked with
 another mouse button, both handlers will run.
 
+```
 &lt;p&gt;A paragraph with a &lt;button&gt;button&lt;/button&gt;.&lt;/p&gt;
 
 &lt;script&gt; var para = document.querySelector(&quot;p&quot;); var button =
 document.querySelector(&quot;button&quot;);
 para.addEventListener(&quot;mousedown&quot;, function() {
-
 console.log(&quot;Handler for paragraph.&quot;);
-
 });
-
 button.addEventListener(&quot;mousedown&quot;, function(event) {
-
 console.log(&quot;Handler for button.&quot;);
-
 if (event.which == 3)
-
 event.stopPropagation();
-
 });
-
 &lt;/script&gt;
+```
 
 Most event objects have a target property that refers to the node where
 they originated. You can use this property to ensure that you're not
