@@ -962,7 +962,7 @@ peaches right out your gills!"*
 ---&lowbar;why, *Why's (Poignant) Guide to Ruby*
 </blockquote>
 
-<h2 id="ch2">2. Program Structure</h2>
+<h2 id="ch2">Chapter 2. Program Structure</h2>
 
 In this chapter, we will start to do things that can actually be called
 *programming*. We will expand our command of the JavaScript language
@@ -1742,8 +1742,9 @@ build on each other, like a wall of mini stones."*
 ---Donald Knuth
 </blockquote>
 
-# 3 Functions
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h2 id="ch3>Chapter 3 Functions</h2>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 You've seen function values, such as alert, and how to call them.
 Functions are the bread and butter of JavaScript programming. The
 concept of wrapping a piece of program in a value has many uses. It is a
@@ -1962,9 +1963,8 @@ This is a function *declaration*. The statement defines the variable
 square and points it at the given function. So far so good. There is one
 subtlety with this form of function definition, however.
 
-console.log(&quot;The future says:&quot;, future());
-
 ```
+console.log(&quot;The future says:&quot;, future());
 function future() {
 return &quot;We STILL have no flying cars.&quot;;
 }
@@ -2528,7 +2528,9 @@ ideas that could provoke such a question."*
 ---Charles Babbage, *Passages from the Life of a Philosopher (1864)*
 </blockquote>
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h2 id="ch4">Chapter 4 Data Structures: Objects and Arrays</h2>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 Numbers, Booleans, and strings are the bricks that data structures are
 built from. But you can't make much of a house out of a single brick.
@@ -2573,7 +2575,7 @@ putting a few walnuts on the floor to keep himself busy.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/image7.png){width="5.236205161854768in" height="2.190369641294838in"}
+<!-- ![](./images/image7.png){width="5.236205161854768in" height="2.190369641294838in"} -->
 
 That takes care of the cat and oak problems. But Jacques still suffers
 from his condition. The irregular occurrences of the transformation make
@@ -2693,7 +2695,9 @@ Interestingly, even though the call to toUpperCase does not pass any
 arguments, the function somehow has access to the string &quot;Doh&quot;, the
 value whose property we called. How this works is described in Chapter
 
+```
 6&bsol;.
+```
 
 Properties that contain functions are generally called *methods* of the
 value they belong to. As in, "toUpperCase is a method of a string".
@@ -2786,7 +2790,7 @@ name inscribed on it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/image8.jpg){width="5.236770559930009in" height="2.380349956255468in"}
+<!-- ![](./images/image8.jpg){width="5.236770559930009in" height="2.380349956255468in"} -->
 
 The delete operator cuts off a tentacle from such an octopus. It is a
 unary operator that, when applied to a property access expression, will
@@ -3441,9 +3445,8 @@ console.log(Math.floor(Math.random() &ast; 10));
 
 Multiplying the random number by 10 gives us a number greater than or
 equal to zero, and below 10. Since Math.floor rounds down, this
-expression will produce, with equal chance, any number from 0 through
+expression will produce, with equal chance, any number from 0 through 9&bsol;.
 
-9&bsol;.
 
 There are also the functions Math.ceil (for "ceiling", which rounds up
 to a whole number) and Math.round (to the nearest whole number).
@@ -3531,33 +3534,26 @@ confused with the array). A list is a nested set of objects, with the
 first object holding a reference to the second, the second to the third,
 and so on.
 
+```
 var list = {
-
 value: 1, rest: { value: 2, rest: {
-
 value: 3,
-
 rest: null
-
 }
-
 }
-
 };
+```
 
 The resulting objects form a chain, like this:
 
+```
 value: 1
-
 rest:
-
 value: 2
-
 rest:
-
 value: 3
-
 rest: null
+```
 
 A nice thing about lists is that they can share parts of their
 structure.
@@ -3593,15 +3589,18 @@ typeof operator. If it produces &quot;object&quot; for both values, you should
 do a deep comparison. But you have to take one silly exception into
 account: by a historical accident, typeof null also produces &quot;object&quot;.
 
+<blockquote>
 *"There are two ways of constructing a software design: One way is to
 make it so simple that there are obviously no deficiencies, and the
 other way is to make it so complicated that there are no obvious
 deficiencies."*
 
 ---C.A.R. Hoare, *1980 ACM Turing Award Lecture*
+</blockquote>
 
-# 5 Higher-Order Functions
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h2 id="ch5">Chapter 5 Higher-Order Functions</h2>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 A large program is a costly program, and not just because of the time it
 takes to build. Size almost always involves complexity, and complexity
 confuses programmers. Confused programmers, in turn, tend to introduce
@@ -3611,15 +3610,13 @@ space for these bugs to hide, making them hard to find.
 Let's briefly go back to the final two example programs in the
 introduction. The first is self-contained and six lines long.
 
+```
 var total = 0, count = 1; while (count &lt;= 10) {
-
 total += count;
-
 count += 1;
-
 }
-
 console.log(total);
+```
 
 The second relies on two external functions and is one line long.
 console.log(sum(range(1, 10)));
@@ -3685,11 +3682,11 @@ abstractions. But sometimes they fall short.
 In the previous chapter, this type of for loop made several
 appearances:
 
+```
 var array = &lbrack;1, 2, 3&rbrack;; for (var i = 0; i &lt; array.length; i++) {
-
 var current = array&lbrack;i&rbrack;; console.log(current);
-
 }
+```
 
 It's trying to say, "For each element in the array, log it to the
 console". But it uses a roundabout way that involves a counter variable
@@ -3704,40 +3701,36 @@ So let's try to abstract this into a function. Can you think of a way?
 Well, it's easy to write a function that goes over an array and calls
 console.log on every element.
 
+```
 function logEach(array) { for (var i = 0; i &lt; array.length; i++)
 console.log(array&lbrack;i&rbrack;);
-
 }
+```
 
 But what if we want to do something other than logging the elements?
 Since "doing something" can be represented as a function and functions
 are just values, we can pass our action as a function value.
 
+```
 function forEach(array, action) {
-
 for (var i = 0; i &lt; array.length; i++) action(array&lbrack;i&rbrack;);
-
 }
-
 forEach(&lbrack;&quot;Wampeter&quot;, &quot;Foma&quot;, &quot;Granfalloon&quot;&rbrack;, console.log);
-
 // ~→~ Wampeter
-
 // ~→~ Foma
-
 // ~→~ Granfalloon
+```
 
 Often, you don't pass a predefined function to forEach but create a
 function value on the spot instead.
 
+```
 var numbers = &lbrack;1, 2, 3, 4, 5&rbrack;, sum = 0; forEach(numbers,
 function(number) {
-
 sum += number;
-
 }); console.log(sum);
-
 // ~→~ 15
+```
 
 This looks quite a lot like the classical for loop, with its body
 written as a block below it. However, now the body is inside the
@@ -3757,39 +3750,26 @@ function to be executed for each element.
 To illustrate how helpful this is, let's look back at a function from
 the previous chapter. It contains two array-traversing loops.
 
+```
 function gatherCorrelations(journal) {
-
 var phis = {};
-
 for (var entry = 0; entry &lt; journal.length; entry++) {
-
 var events = journal&lbrack;entry&rbrack;.events; for (var i = 0; i &lt;
 events.length; i++) {
-
 var event = events&lbrack;i&rbrack;; if (!(event in phis))
-
 phis&lbrack;event&rbrack; = phi(tableFor(event, journal));
-
 }
-
 }
-
 return phis;
-
 }
-
 Working with forEach makes it slightly shorter and quite a bit cleaner.
-
 function gatherCorrelations(journal) { var phis = {};
-
 journal.forEach(function(entry) { entry.events.forEach(function(event)
 {
-
 if (!(event in phis))
-
 phis&lbrack;event&rbrack; = phi(tableFor(event, journal)); }); }); return phis;
-
 }
+```
 
 ## Higher-order functions
 
@@ -3804,63 +3784,45 @@ Higher-order functions allow us to abstract over *actions*, not just
 values. They come in several forms. For example, you can have functions
 that create new functions.
 
+```
 function greaterThan(n) {
-
 return function(m) { return m &gt; n; };
-
 }
-
 var greaterThan10 = greaterThan(10); console.log(greaterThan10(11));
-
 // ~→~ true
+```
 
 And you can have functions that change other functions.
 
+```
 function noisy(f) {
-
 return function(arg) {
-
 console.log(&quot;calling with&quot;, arg);
-
 var val = f(arg);
-
 console.log(&quot;called with&quot;, arg, &quot;- got&quot;, val); return val;
-
 }; }
-
 noisy(Boolean)(0);
-
 // ~→~ calling with 0
-
 // ~→~ called with 0 - got false
+```
 
 You can even write functions that provide new types of control flow.
 
+```
 function unless(test, then) {
-
 if (!test) then();
-
 }
-
 function repeat(times, body) {
-
 for (var i = 0; i &lt; times; i++) body(i);
-
 }
-
 repeat(3, function(n) {
-
 unless(n % 2, function() {
-
 console.log(n, &quot;is even&quot;);
-
 });
-
 });
-
 // ~→~ 0 is even
-
 // ~→~ 2 is even
+```
 
 The lexical scoping rules that we discussed in Chapter 3 work to our
 advantage when using functions in this way. In the previous example, the
@@ -3877,19 +3839,15 @@ outer function. And that is usually a good thing.
 The noisy function defined earlier, which wraps its argument in another
 function, has a rather serious deficit.
 
+```
 function noisy(f) {
-
 return function(arg) {
-
 console.log(&quot;calling with&quot;, arg);
-
 var val = f(arg);
-
 console.log(&quot;called with&quot;, arg, &quot;- got&quot;, val); return val;
-
 };
-
 }
+```
 
 If f takes more than one parameter, it gets only the first one. We could
 add a bunch of arguments to the inner function (arg1, arg2, and so on)
@@ -7093,16 +7051,14 @@ sure that, during its execution, the top-level variable context holds a
 specific context value. After it finishes, it restores this variable to
 its old value.
 
+```
 var context = null;
-
 function withContext(newContext, body) {
-
 var oldContext = context; context = newContext; var result = body();
 context = oldContext;
-
 return result;
-
 }
+```
 
 What if body raises an exception? In that case, the call to withContext
 will be thrown off the stack by the exception, and context will never be
@@ -7115,40 +7071,31 @@ trying to run the code in the try block". If a function has to clean
 something up, the cleanup code should usually be put into a finally
 block.
 
+```
 function withContext(newContext, body) {
-
 var oldContext = context; context = newContext;
-
 try {
-
 return body();
-
 } finally { context = oldContext;
-
 }
-
 }
+```
 
 Note that we no longer have to store the result of body (which we want
 to return) in a variable. Even if we return directly from the try block,
 the finally block will be run. Now we can do this and be safe:
 
+```
 try {
-
 withContext(5, function() {
-
 if (context &lt; 10)
-
 throw new Error(&quot;Not enough context!&quot;); }); } catch (e) {
 console.log(&quot;Ignoring: &quot; + e);
-
 }
-
 // ~→~ Ignoring: Error: Not enough context!
-
 console.log(context);
-
 // ~→~ null
+```
 
 Even though the function called from withContext exploded, withContext
 itself still properly cleaned up the context variable.
@@ -7191,17 +7138,13 @@ might have introduced a bug somewhere that is causing an exception. Here
 is an example, which *attempts* to keep on calling promptDirection until
 it gets a valid answer:
 
+```
 for (;;) { try {
-
 var dir = promtDirection(&quot;Where?&quot;); // ← typo!
-
 console.log(&quot;You chose &quot;, dir);
-
 break; } catch (e) { console.log(&quot;Not a valid direction. Try
 again.&quot;);
-
 }
-
 }
 
 The for (;;) construct is a way to intentionally create a loop that
@@ -7232,17 +7175,14 @@ the message, the code will stop working.
 Rather, let's define a new type of error and use instanceof to identify
 it.
 
+```
 function InputError(message) {
-
 this.message = message;
-
 this.stack = (new Error()).stack;
-
 }
-
 InputError.prototype = Object.create(Error.prototype);
-
 InputError.prototype.name = &quot;InputError&quot;;
+```
 
 The prototype is made to derive from Error.prototype so that instanceof
 
@@ -7257,34 +7197,28 @@ its own.
 
 Now promptDirection can throw such an error.
 
+```
 function promptDirection(question) { var result = prompt(question,
 &quot;&quot;); if (result.toLowerCase() == &quot;left&quot;) return &quot;L&quot;; if
 (result.toLowerCase() == &quot;right&quot;) return &quot;R&quot;;
-
 throw new InputError(&quot;Invalid direction: &quot; + result);
-
 }
+```
 
 And the loop can catch it more carefully.
 
+```
 for (;;) {
-
 try {
-
 var dir = promptDirection(&quot;Where?&quot;); console.log(&quot;You chose &quot;,
 dir);
-
 break; } catch (e) { if (e instanceof InputError)
-
 console.log(&quot;Not a valid direction. Try again.&quot;);
-
 else
-
 throw e;
-
 }
-
 }
+```
 
 This will catch only instances of InputError and let unrelated
 exceptions through. If you reintroduce the typo, the undefined variable
@@ -7295,27 +7229,20 @@ error will be properly reported.
 *Assertions* are a tool to do basic sanity checking for programmer
 errors. Consider this helper function, assert:
 
+```
 function AssertionFailed(message) {
-
 this.message = message;
-
 }
-
 AssertionFailed.prototype = Object.create(Error.prototype); function
 assert(test, message) {
-
 if (!test)
-
 throw new AssertionFailed(message);
-
 }
-
 function lastElement(array) {
-
 assert(array.length &gt; 0, &quot;empty array in lastElement&quot;); return
 array&lbrack;array.length - 1&rbrack;;
-
 }
+```
 
 This provides a compact way to enforce expectations, helpfully blowing
 up the program if the stated condition does not hold. For instance, the
@@ -7363,20 +7290,16 @@ Make sure you handle only the exceptions you are trying to handle.
 
 Consider the following (rather contrived) object:
 
+```
 var box = {
-
 locked: true,
-
 unlock: function() { this.locked = false; }, lock: function() {
 this.locked = true; },
-
 &lowbar;content: &lbrack;&rbrack;, get content() {
-
 if (this.locked) throw new Error(&quot;Locked!&quot;); return this.&lowbar;content;
-
 }
-
 };
+```
 
 It is a box with a lock. Inside is an array, but you can get at it only
 when the box is unlocked. Directly accessing the &lowbar;content property is
@@ -7448,11 +7371,11 @@ Regular expression objects have a number of methods. The simplest one is
 test. If you pass it a string, it will return a Boolean telling you
 whether the string contains a match of the pattern in the expression.
 
+```
 console.log(/abc/.test(&quot;abcde&quot;)); // ~→~ true
-
 console.log(/abc/.test(&quot;abxde&quot;));
-
 // ~→~ false
+```
 
 A regular expression consisting of only nonspecial characters simply
 represents that sequence of characters. If *abc* occurs anywhere in the
@@ -7472,13 +7395,12 @@ match any of the characters between the brackets.
 Both of the following expressions match all strings that contain a
 digit:
 
+```
 console.log(/&lbrack;0123456789&rbrack;/.test(&quot;in 1992&quot;));
-
 // ~→~ true
-
 console.log(/&lbrack;0-9&rbrack;/.test(&quot;in 1992&quot;));
-
 // ~→~ true
+```
 
 Within square brackets, a dash (-) between two characters can be used to
 indicate a range of characters, where the ordering is determined by the
@@ -7489,33 +7411,27 @@ and matches any digit.
 There are a number of common character groups that have their own
 built-in shortcuts. Digits are one of them: &bsol;&bsol;d means the same thing as
 
+```
 &lbrack;0-9&rbrack;.
-
 &bsol;&bsol;d Any digit character
-
 &bsol;&bsol;w An alphanumeric character ("word character")
-
 &bsol;&bsol;s Any whitespace character (space, tab, newline, and similar)
-
 &bsol;&bsol;D A character that is *not* a digit
-
 &bsol;&bsol;W A nonalphanumeric character
-
 &bsol;&bsol;S A nonwhitespace character
+```
 
 . Any character except for newline
 
+```
 So you could match a date and time format like 30-01-2003 15:20 with the
 following expression:
-
 var dateTime = /&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d &bsol;&bsol;d&bsol;&bsol;d:&bsol;&bsol;d&bsol;&bsol;d/;
 console.log(dateTime.test(&quot;30-01-2003 15:20&quot;));
-
 // ~→~ true
-
 console.log(dateTime.test(&quot;30-jan-2003 15:20&quot;));
-
 // ~→~ false
+```
 
 That looks completely awful, doesn't it? It has way too many
 backslashes, producing background noise that makes it hard to spot the
@@ -7531,13 +7447,12 @@ To *invert* a set of characters---that is, to express that you want to
 match any character *except* the ones in the set---you can write a
 caret (&Hat;) character after the opening bracket.
 
+```
 var notBinary = /&lbrack;&Hat;01&rbrack;/;
-
 console.log(notBinary.test(&quot;1100100010100110&quot;)); // ~→~ false
-
 console.log(notBinary.test(&quot;1100100010200110&quot;));
-
 // ~→~ true
+```
 
 ## Repeating parts of a pattern
 
@@ -7548,21 +7463,16 @@ When you put a plus sign (+) after something in a regular expression, it
 indicates that the element may be repeated more than once. Thus, /&bsol;&bsol;d+/
 matches one or more digit characters.
 
+```
 console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;123&apos;&quot;));
-
 // ~→~ true
-
 console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;&apos;&quot;));
-
 // ~→~ false
-
 console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;123&apos;&quot;));
-
 // ~→~ true
-
 console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;&apos;&quot;));
-
 // ~→~ true
+```
 
 The star (&ast;) has a similar meaning but also allows the pattern to match
 zero times. Something with a star after it never prevents a pattern from
@@ -7573,14 +7483,13 @@ A question mark makes a part of a pattern "optional", meaning it may
 occur zero or one time. In the following example, the *u* character is
 allowed to occur, but the pattern also matches when it is missing.
 
+```
 var neighbor = /neighbou?r/;
 console.log(neighbor.test(&quot;neighbour&quot;));
-
 // ~→~ true
-
 console.log(neighbor.test(&quot;neighbor&quot;));
-
 // ~→~ true
+```
 
 To indicate that a pattern should occur a precise number of times, use
 curly braces. Putting {4} after an element, for example, requires it to
@@ -7592,10 +7501,11 @@ Here is another version of the date and time pattern that allows both
 single- and double-digit days, months, and hours. It is also slightly
 more readable.
 
+```
 var dateTime = /&bsol;&bsol;d{1,2}-&bsol;&bsol;d{1,2}-&bsol;&bsol;d{4} &bsol;&bsol;d{1,2}:&bsol;&bsol;d{2}/;
 console.log(dateTime.test(&quot;30-1-2003 8:45&quot;));
-
 // ~→~ true
+```
 
 You can also specify open-ended ranges when using curly braces by
 omitting the number on either side of the comma. So {,5} means zero to
@@ -7608,11 +7518,11 @@ can use parentheses. A part of a regular expression that is enclosed in
 parentheses counts as a single element as far as the operators following
 it are concerned.
 
+```
 var cartoonCrying = /boo+(hoo+)+/i;
-
 console.log(cartoonCrying.test(&quot;Boohoooohoohooo&quot;));
-
 // ~→~ true
+```
 
 The first and second + characters apply only to the second *o* in *boo*
 and *hoo*, respectively. The third + applies to the whole group (hoo+),
@@ -7631,11 +7541,11 @@ Regular expressions also have an exec (execute) method that will return
 null if no match was found and return an object with information about
 the match otherwise.
 
+```
 var match = /&bsol;&bsol;d+/.exec(&quot;one two 100&quot;); console.log(match);
-
 // ~→~ &lbrack;&quot;100&quot;&rbrack; console.log(match.index);
-
 // ~→~ 8
+```
 
 An object returned from exec has an index property that tells us *where*
 in the string the successful match begins. Other than that, the object
@@ -7645,9 +7555,10 @@ sequence of digits that we were looking for.
 
 String values have a match method that behaves similarly.
 
+```
 console.log(&quot;one two 100&quot;.match(/&bsol;&bsol;d+/));
-
 // ~→~ &lbrack;&quot;100&quot;&rbrack;
+```
 
 When the regular expression contains subexpressions grouped with
 parentheses, the text that matched those groups will also show up in the
@@ -7655,21 +7566,22 @@ array. The whole match is always the first element. The next element is
 the part matched by the first group (the one whose opening parenthesis
 comes first in the expression), then the second group, and so on.
 
+```
 var quotedText = /&apos;(&lbrack;&Hat;&apos;&rbrack;&ast;)&apos;/;
-
 console.log(quotedText.exec(&quot;she said &apos;hello&apos;&quot;));
-
 // ~→~ &lbrack;&quot;&apos;hello&apos;&quot;, &quot;hello&quot;&rbrack;
+```
 
 When a group does not end up being matched at all (for example, when
 followed by a question mark), its position in the output array will hold
 undefined. Similarly, when a group is matched multiple times, only the
 last match ends up in the array.
 
+```
 console.log(/bad(ly)?/.exec(&quot;bad&quot;)); // ~→~ &lbrack;&quot;bad&quot;, undefined&rbrack;
 console.log(/(&bsol;&bsol;d)+/.exec(&quot;123&quot;));
-
 // ~→~ &lbrack;&quot;123&quot;, &quot;3&quot;&rbrack;
+```
 
 Groups can be useful for extracting parts of a string. If we don't just
 want to verify whether a string contains a date but also extract it and
@@ -7685,15 +7597,14 @@ JavaScript has a standard object type for representing dates---or
 rather, points in time. It is called Date. If you simply create a date
 object using new, you get the current date and time.
 
+```
 console.log(new Date());
-
 // ~→~ Wed Dec 04 2013 14:24:57 GMT+0100 (CET) You can also create an
 object for a specific time.
-
 console.log(new Date(2009, 11, 9)); // ~→~ Wed Dec 09 2009 00:00:00
 GMT+0100 (CET) console.log(new Date(2009, 11, 9, 12, 59, 59, 999));
-
 // ~→~ Wed Dec 09 2009 12:59:59 GMT+0100 (CET)
+```
 
 JavaScript uses a convention where month numbers start at zero (so
 
@@ -7709,11 +7620,11 @@ convention set by "Unix time", which was invented around that time). The
 getTime method on a date object returns this number. It is big, as you
 can imagine.
 
+```
 console.log(new Date(2013, 11, 19).getTime());
-
 // ~→~ 1387407600000 console.log(new Date(1387407600000));
-
 // ~→~ Thu Dec 19 2013 00:00:00 GMT+0100 (CET)
+```
 
 If you give the Date constructor a single argument, that argument is
 treated as such a millisecond count. You can get the current millisecond
@@ -7728,19 +7639,16 @@ value (such as 93 or 14).
 Putting parentheses around the parts of the expression that we are
 interested in, we can now easily create a date object from a string.
 
+```
 function findDate(string) {
-
 var dateTime = /(&bsol;&bsol;d{1,2})-(&bsol;&bsol;d{1,2})-(&bsol;&bsol;d{4})/; var match =
 dateTime.exec(string); return new Date(Number(match&lbrack;3&rbrack;),
-
 Number(match&lbrack;2&rbrack;) - 1,
-
 Number(match&lbrack;1&rbrack;));
-
 }
-
 console.log(findDate(&quot;30-1-2003&quot;)); // ~→~ Thu Jan 30 2003 00:00:00
 GMT+0100 (CET)
+```
 
 ## Word and string boundaries
 
@@ -7762,13 +7670,12 @@ be the start or end of the string or any point in the string that has a
 word character (as in &bsol;&bsol;w) on one side and a nonword character on the
 other.
 
+```
 console.log(/cat/.test(&quot;concatenate&quot;));
-
 // ~→~ true
-
 console.log(/&bsol;&bsol;bcat&bsol;&bsol;b/.test(&quot;concatenate&quot;));
-
 // ~→~ false
+```
 
 Note that a boundary marker doesn't represent an actual character. It
 just enforces that the regular expression matches only when a certain
@@ -7784,14 +7691,13 @@ We could write three regular expressions and test them in turn, but
 there is a nicer way. The pipe character (&vert;) denotes a choice between
 the pattern to its left and the pattern to its right. So I can say this:
 
+```
 var animalCount = /&bsol;&bsol;b&bsol;&bsol;d+ (pig&vert;cow&vert;chicken)s?&bsol;&bsol;b/;
 console.log(animalCount.test(&quot;15 pigs&quot;));
-
 // ~→~ true
-
 console.log(animalCount.test(&quot;15 pigchickens&quot;));
-
 // ~→~ false
+```
 
 Parentheses can be used to limit the part of the pattern that the pipe
 operator applies to, and you can put multiple such operators next to
@@ -7802,23 +7708,17 @@ each other to express a choice between more than two patterns.
 Regular expressions can be thought of as flow diagrams. This is the
 diagram for the livestock expression in the previous example:
 
+```
 &quot; &quot;
-
 boundary
-
 boundary
-
 Group #1
-
 &quot;chicken&quot;
-
 &quot;cow&quot;
-
 &quot;pig&quot;
-
 digit
-
 &quot;s&quot;
+```
 
 Our expression matches a string if we can find a path from the left side
 of the diagram to the right side. We keep a current position in the
@@ -7869,55 +7769,30 @@ letters *a* to *f* standing for the digits 10 to 15) followed by an *h*.
 This is the corresponding diagram:
 
 boundary
-
 Group #1
-
 One of:
-
 "
-
 0
-
 "
-
 "
-
 1
-
 "
-
 "
-
 b
-
 "
-
 digit
-
 One of:
-
 digit
-
 &hyphen;
-
 "
-
 a
-
 "
-
 "
-
 f
-
 "
-
 "
-
 h
-
 "
-
 boundary
 
 When matching this expression, it will often happen that the top
@@ -7957,13 +7832,9 @@ writing a binary-number regular expression, we might accidentally write
 something like /(&lbrack;01&rbrack;+)+b/.
 
 &quot;b&quot;
-
 Group #1
-
 One of:
-
 &quot;1&quot;
-
 &quot;0&quot;
 
 If that tries to match some long series of zeros and ones with no
@@ -7981,20 +7852,21 @@ forever.
 String values have a replace method, which can be used to replace part
 of the string with another string.
 
+```
 console.log(&quot;papa&quot;.replace(&quot;p&quot;, &quot;m&quot;));
-
 // ~→~ mapa
+```
 
 The first argument can also be a regular expression, in which case the
 first match of the regular expression is replaced. When a g option (for
 *global*) is added to the regular expression, *all* matches in the
 string will be replaced, not just the first.
 
+```
 console.log(&quot;Borobudur&quot;.replace(/&lbrack;ou&rbrack;/, &quot;a&quot;));
-
 // ~→~ Barobudur console.log(&quot;Borobudur&quot;.replace(/&lbrack;ou&rbrack;/g, &quot;a&quot;));
-
 // ~→~ Barabadar
+```
 
 It would have been sensible if the choice between replacing one match or
 all matches was made through an additional argument to replace or by
@@ -8009,17 +7881,14 @@ one name per line, in the format Lastname, Firstname. If we want to swap
 these names and remove the comma to get a simple Firstname Lastname
 format, we can use the following code:
 
+```
 console.log(
-
 &quot;Hopper, Grace&bsol;&bsol;nMcCarthy, John&bsol;&bsol;nRitchie, Dennis&quot;
-
 .replace(/(&lbrack;&bsol;&bsol;w &rbrack;+), (&lbrack;&bsol;&bsol;w &rbrack;+)/g, &quot;&dollar;2 &dollar;1&quot;));
-
 // ~→~ Grace Hopper
-
 // John McCarthy
-
 // Dennis Ritchie
+```
 
 The &dollar;1 and &dollar;2 in the replacement string refer to the parenthesized
 groups in the pattern. &dollar;1 is replaced by the text that matched against
@@ -8033,38 +7902,29 @@ arguments, and its return value will be inserted into the new string.
 
 Here's a simple example:
 
+```
 var s = &quot;the cia and fbi&quot;;
-
 console.log(s.replace(/&bsol;&bsol;b(fbi&vert;cia)&bsol;&bsol;b/g, function(str) {
-
 return str.toUpperCase();
-
 }));
-
 // ~→~ the CIA and FBI
+```
 
 And here's a more interesting one:
-
 var stock = &quot;1 lemon, 2 cabbages, and 101 eggs&quot;; function
 minusOne(match, amount, unit) {
 
+```
 amount = Number(amount) - 1;
-
 if (amount == 1) // only one left, remove the &apos;s&apos;
-
 unit = unit.slice(0, unit.length - 1);
-
 else if (amount == 0)
-
 amount = &quot;no&quot;;
-
 return amount + &quot; &quot; + unit;
-
 }
-
 console.log(stock.replace(/(&bsol;&bsol;d+) (&bsol;&bsol;w+)/g, minusOne));
-
 // ~→~ no lemon, 1 cabbage, and 100 eggs
+```
 
 This takes a string, finds all occurrences of a number followed by an
 alphanumeric word, and returns a string wherein every such occurrence is
@@ -8079,23 +7939,18 @@ adjustments in case there is only one or zero left.
 
 It isn't hard to use replace to write a function that removes all
 comments from a piece of JavaScript code. Here is a first attempt:
+
+```
 function stripComments(code) {
-
 return code.replace(/&bsol;&bsol;/&bsol;&bsol;/.&ast;&vert;&bsol;&bsol;/&bsol;&bsol;&ast;&lbrack;&Hat;&rbrack;&ast;&bsol;&bsol;&ast;&bsol;&bsol;//g, &quot;&quot;);
-
 }
-
 console.log(stripComments(&quot;1 + /&ast; 2 &ast;/3&quot;));
-
 // ~→~ 1 + 3
-
 console.log(stripComments(&quot;x = 10;// ten!&quot;));
-
 // ~→~ x = 10;
-
 console.log(stripComments(&quot;1 /&ast; a &ast;/+/&ast; b &ast;/ 1&quot;));
-
 // ~→~ 1 1
+```
 
 The part before the *or* operator simply matches two slash characters
 followed by any number of non-newline characters. The part for multiline
@@ -8127,15 +7982,13 @@ And that is exactly what we want in this case. By having the star match
 the smallest stretch of characters that brings us to a &ast;/, we consume
 one block comment and nothing more.
 
+```
 function stripComments(code) {
-
 return code.replace(/&bsol;&bsol;/&bsol;&bsol;/.&ast;&vert;&bsol;&bsol;/&bsol;&bsol;&ast;&lbrack;&Hat;&rbrack;&ast;?&bsol;&bsol;&ast;&bsol;&bsol;//g, &quot;&quot;);
-
 }
-
 console.log(stripComments(&quot;1 /&ast; a &ast;/+/&ast; b &ast;/ 1&quot;));
-
 // ~→~ 1 + 1
+```
 
 A lot of bugs in regular expression programs can be traced to
 unintentionally using a greedy operator where a nongreedy one would work
@@ -8153,11 +8006,12 @@ But you can build up a string and use the RegExp constructor on that.
 
 Here's an example:
 
+```
 var name = &quot;harry&quot;; var text = &quot;Harry is a suspicious character.&quot;;
 var regexp = new RegExp(&quot;&bsol;&bsol;&bsol;&bsol;b(&quot; + name + &quot;)&bsol;&bsol;&bsol;&bsol;b&quot;, &quot;gi&quot;);
-
 console.log(text.replace(regexp, &quot;&lowbar;&dollar;1&lowbar;&quot;)); // ~→~ &lowbar;Harry&lowbar; is a
 suspicious character.
+```
 
 When creating the &bsol;&bsol;b boundary markers, we have to use two backslashes
 because we are writing them in a normal string, not a slash-enclosed
@@ -8174,16 +8028,14 @@ don't trust. Adding backslashes before alphabetic characters is a bad
 idea because things like &bsol;&bsol;b and &bsol;&bsol;n have a special meaning. But
 escaping everything that's not alphanumeric or whitespace is safe.
 
+```
 var name = &quot;dea+hl&lbrack;&rbrack;rd&quot;;
-
 var text = &quot;This dea+hl&lbrack;&rbrack;rd guy is super annoying.&quot;; var escaped =
 name.replace(/&lbrack;&Hat;&bsol;&bsol;w&bsol;&bsol;s&rbrack;/g, &quot;&bsol;&bsol;&bsol;&bsol;&dollar;&&quot;);
-
 var regexp = new RegExp(&quot;&bsol;&bsol;&bsol;&bsol;b(&quot; + escaped + &quot;)&bsol;&bsol;&bsol;&bsol;b&quot;, &quot;gi&quot;);
-
 console.log(text.replace(regexp, &quot;&lowbar;&dollar;1&lowbar;&quot;));
-
 // ~→~ This &lowbar;dea+hl&lbrack;&rbrack;rd&lowbar; guy is super annoying.
+```
 
 ## The search method
 
@@ -8192,13 +8044,12 @@ expression. But there is another method, search, which does expect a
 regular expression. Like indexOf, it returns the first index on which
 the expression was found, or -1 when it wasn't found.
 
+```
 console.log(&quot; word&quot;.search(/&bsol;&bsol;S/));
-
 // ~→~ 2
-
 console.log(&quot; &quot;.search(/&bsol;&bsol;S/));
-
 // ~→~ -1
+```
 
 Unfortunately, there is no way to indicate that the match should start
 at a given offset (like we can with the second argument to indexOf),
@@ -8221,14 +8072,13 @@ Again, a more sane solution would have been to just allow an extra
 argument to be passed to exec, but sanity is not a defining
 characteristic of JavaScript's regular expression interface.
 
+```
 var pattern = /y/g; pattern.lastIndex = 3; var match =
 pattern.exec(&quot;xyzzy&quot;); console.log(match.index);
-
 // ~→~ 4
-
 console.log(pattern.lastIndex);
-
 // ~→~ 5
+```
 
 If the match was successful, the call to exec automatically updates the
 lastIndex property to point after the match. If no match was found,
@@ -8240,13 +8090,12 @@ these automatic updates to the lastIndex property can cause problems.
 Your regular expression might be accidentally starting at an index that
 was left over from a previous call.
 
+```
 var digit = /&bsol;&bsol;d/g;
-
 console.log(digit.exec(&quot;here it is: 1&quot;));
-
 // ~→~ &lbrack;&quot;1&quot;&rbrack; console.log(digit.exec(&quot;and now: 1&quot;));
-
 // ~→~ null
+```
 
 Another interesting effect of the global option is that it changes the
 way the match method on strings works. When called with a global
@@ -8254,9 +8103,10 @@ expression, instead of returning an array similar to that returned by
 exec, match will find *all* matches of the pattern in the string and
 return an array containing the matched strings.
 
+```
 console.log(&quot;Banana&quot;.match(/an/g));
-
 // ~→~ &lbrack;&quot;an&quot;, &quot;an&quot;&rbrack;
+```
 
 So be cautious with global regular expressions. The cases where they are
 necessary---calls to replace and places where you want to explicitly use
@@ -8268,19 +8118,15 @@ A common pattern is to scan through all occurrences of a pattern in a
 string, in a way that gives us access to the match object in the loop
 body, by using lastIndex and exec.
 
+```
 var input = &quot;A string with 3 numbers in it&hellip; 42 and 88.&quot;;
-
 var number = /&bsol;&bsol;b(&bsol;&bsol;d+)&bsol;&bsol;b/g; var match;
-
 while (match = number.exec(input))
-
 console.log(&quot;Found&quot;, match&lbrack;1&rbrack;, &quot;at&quot;, match.index);
-
 // ~→~ Found 3 at 14
-
 // Found 42 at 33
-
 // Found 88 at 40
+```
 
 This makes use of the fact that the value of an assignment expression
 
@@ -8307,9 +8153,10 @@ searchengine=http://www.google.com/search?q=&dollar;1 spitefulness=9.7
 
 website=http://www.geocities.com/CapeCanaveral/11451
 
+```
 &lbrack;gargamel&rbrack; fullname=Gargamel type=evil sorcerer
-
 outputdir=/home/marijn/enemies/gargamel
+```
 
 The exact rules for this format (which is actually a widely used format,
 usually called an *INI* file) are as follows:
@@ -8336,37 +8183,26 @@ allows a regular expression as its argument, we can split on a regular
 expression like /&bsol;&bsol;r?&bsol;&bsol;n/ to split in a way that allows both &quot;&bsol;&bsol;n&quot; and
 &quot;&bsol;&bsol;r&bsol;&bsol;n&quot; between lines.
 
+```
 function parseINI(string) {
-
 // Start with an object to hold the top-level fields var
 currentSection = {name: null, fields: &lbrack;&rbrack;}; var categories =
 &lbrack;currentSection&rbrack;;
-
 string.split(/&bsol;&bsol;r?&bsol;&bsol;n/).forEach(function(line) {
-
 var match;
-
 if (/&Hat;&bsol;&bsol;s&ast;(;.&ast;)?&dollar;/.test(line)) {
-
 return;
-
 } else if (match = line.match(/&Hat;&bsol;&bsol;&lbrack;(.&ast;)&bsol;&bsol;&rbrack;&dollar;/)) { currentSection =
 {name: match&lbrack;1&rbrack;, fields: &lbrack;&rbrack;};
-
 categories.push(currentSection);
-
 } else if (match = line.match(/&Hat;(&bsol;&bsol;w+)=(.&ast;)&dollar;/)) {
 currentSection.fields.push({name: match&lbrack;1&rbrack;,
-
 value: match&lbrack;2&rbrack;});
-
 } else { throw new Error(&quot;Line &apos;&quot; + line + &quot;&apos; is invalid.&quot;);
-
 } });
-
 return categories;
-
 }
+```
 
 This code goes over every line in the file, updating the "current
 section" object as it goes along. First, it checks whether the line can
@@ -8460,7 +8296,6 @@ use their own syntax to express these patterns.
   /&Hat;/          Start of input
 
   /&dollar;/          End of input
-  ------------------------------------------------------------------------
 
 A regular expression has a method test to test whether a given string
 matches it. It also has an exec method that, when a match is found,
@@ -8693,18 +8528,13 @@ them on functions.
 Consider this trivial module for associating names with day-of-theweek
 numbers, as returned by a Date object's getDay method:
 
+```
 var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
-
 &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 function dayName(number) {
-
 return names&lbrack;number&rbrack;;
-
 }
-
 console.log(dayName(1));
-
 // ~→~ Monday
 
 The dayName function is part of the module's interface, but the names
@@ -8713,21 +8543,16 @@ scope.
 
 We can do this:
 
+```
 var dayName = function() {
-
 var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
-
 &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 return function(number) {
-
 return names&lbrack;number&rbrack;;
-
 }; }();
-
 console.log(dayName(3));
-
 // ~→~ Wednesday
+```
 
 Now names is a local variable in an (unnamed) function. This function is
 created and immediately called, and its return value (the actual dayName
@@ -8740,13 +8565,12 @@ We can use a similar pattern to isolate code from the outside world
 entirely. The following module logs a value to the console but does not
 actually provide any values for other modules to use:
 
+```
 (function() { function square(x) { return x &ast; x; } var hundred = 100;
-
 console.log(square(hundred));
-
 })();
-
 // ~→~ 10000
+```
 
 This code simply outputs the square of 100, but in the real world it
 could be a module that adds a method to some prototype or sets up a
@@ -8769,21 +8593,16 @@ module, one that goes from a day name to a number. We can't simply
 return the function anymore but must wrap the two functions in an
 object.
 
+```
 var weekDay = function() {
-
 var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
-
 &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 return {
-
 name: function(number) { return names&lbrack;number&rbrack;; },
-
 number: function(name) { return names.indexOf(name); } }; }();
-
 console.log(weekDay.name(weekDay.number(&quot;Sunday&quot;)));
-
 // ~→~ Sunday
+```
 
 For bigger modules, gathering all the *exported* values into an object
 at the end of the function becomes awkward since many of the exported
@@ -8796,26 +8615,19 @@ argument, allowing code outside of the function to create it and store
 it in a variable. (Outside of a function, this refers to the global
 scope object.)
 
+```
 (function(exports) { var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;,
 &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 exports.name = function(number) {
-
 return names&lbrack;number&rbrack;;
-
 };
-
 exports.number = function(name) {
-
 return names.indexOf(name);
-
 };
-
 })(this.weekDay = {});
-
 console.log(weekDay.name(weekDay.number(&quot;Saturday&quot;)));
-
 // ~→~ Saturday
+```
 
 ## Detaching from the global scope
 
@@ -8856,27 +8668,25 @@ string of code in the *current* scope. This is usually a bad idea
 because it breaks some of the sane properties that scopes normally have,
 such as being isolated from the outside world.
 
+```
 function evalAndReturnX(code) {
-
 eval(code);
-
 return x;
-
 }
-
 console.log(evalAndReturnX(&quot;var x = 2&quot;));
-
 // ~→~ 2
+```
 
 A better way of interpreting data as code is to use the Function
 constructor. This takes two arguments: a string containing a
 comma-separated list of argument names and a string containing the
 function's body.
 
+```
 var plusOne = new Function(&quot;n&quot;, &quot;return n + 1;&quot;);
 console.log(plusOne(4));
-
 // ~→~ 5
+```
 
 This is precisely what we need for our modules. We can wrap a module's
 code in a function, with that function's scope becoming our module
@@ -8886,19 +8696,15 @@ scope.
 
 The following is a minimal implementation of require:
 
+```
 function require(name) {
-
 var code = new Function(&quot;exports&quot;, readFile(name));
-
 var exports = {}; code(exports);
-
 return exports;
-
 }
-
 console.log(require(&quot;weekDay&quot;).name(1));
-
 // ~→~ Monday
+```
 
 Since the new Function constructor wraps the module code in a function,
 we don't have to write a wrapping namespace function in the module file
@@ -8906,26 +8712,24 @@ itself. And since we make exports an argument to the module function,
 the module does not have to declare it. This removes a lot of clutter
 from our example module.
 
+```
 var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
 &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 exports.name = function(number) {
-
 return names&lbrack;number&rbrack;;
-
 };
-
 exports.number = function(name) {
-
 return names.indexOf(name);
-
 };
+```
 
 When using this pattern, a module typically starts with a few variable
 declarations that load the modules it depends on.
 
+```
 var weekDay = require(&quot;weekDay&quot;); var today = require(&quot;today&quot;);
 console.log(weekDay.name(today.dayNumber()));
+```
 
 The simplistic implementation of require given previously has several
 problems. For one, it will load and run a module every time it is
@@ -8948,20 +8752,16 @@ variable, module, which is an object that has a property exports. This
 property initially points at the empty object created by require but can
 be overwritten with another value in order to export something else.
 
+```
 function require(name) {
-
 if (name in require.cache)
-
 return require.cache&lbrack;name&rbrack;;
-
 var code = new Function(&quot;exports, module&quot;, readFile(name)); var
 exports = {}, module = {exports: exports}; code(exports, module);
-
 require.cache&lbrack;name&rbrack; = module.exports; return module.exports;
-
 }
-
 require.cache = Object.create(null);
+```
 
 We now have a module system that uses a single global variable (require)
 to allow modules to find and use each other without going through the
@@ -9001,11 +8801,11 @@ Definition (AMD) module system does.
 
 Our trivial program with dependencies would look like this in AMD:
 
+```
 define(&lbrack;&quot;weekDay&quot;, &quot;today&quot;&rbrack;, function(weekDay, today) {
-
 console.log(weekDay.name(today.dayNumber()));
-
 });
+```
 
 The define function is central to this approach. It takes first an array
 of module names and then a function that takes one argument for each
@@ -9019,19 +8819,15 @@ The modules that are loaded this way must themselves contain a call to
 define. The value used as their interface is whatever was returned by
 the function passed to define. Here is the weekDay module again:
 
+```
 define(&lbrack;&rbrack;, function() {
-
 var names = &lbrack;&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
-
 &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;&rbrack;;
-
 return {
-
 name: function(number) { return names&lbrack;number&rbrack;; },
-
 number: function(name) { return names.indexOf(name); } };
-
 });
+```
 
 To be able to show a minimal implementation of define, we will pretend
 we have a backgroundReadFile function that takes a filename and a
@@ -9048,22 +8844,17 @@ The getModule function, when given a name, will return such an object
 and ensure that the module is scheduled to be loaded. It uses a cache
 object to avoid loading the same module twice.
 
+```
 var defineCache = Object.create(null); var currentMod = null;
-
 function getModule(name) { if (name in defineCache)
-
 return defineCache&lbrack;name&rbrack;;
-
 var module = {exports: null, loaded: false, onLoad: &lbrack;&rbrack;};
-
 defineCache&lbrack;name&rbrack; = module; backgroundReadFile(name, function(code)
 {
-
 currentMod = module; new Function(&quot;&quot;, code)();
-
 }); return module;
-
 }
+```
 
 We assume the loaded file also contains a (single) call to define. The
 currentMod variable is used to tell this call about the module object
@@ -9081,38 +8872,25 @@ work only once, when the last dependency has finished loading. It is
 also called immediately, from define itself, in case there are no
 dependencies that need to be loaded.
 
+```
 function define(depNames, moduleFunction) {
-
 var myMod = currentMod; var deps = depNames.map(getModule);
-
 deps.forEach(function(mod) {
-
 if (!mod.loaded)
-
 mod.onLoad.push(whenDepsLoaded);
-
 });
-
 function whenDepsLoaded() {
-
 if (!deps.every(function(m) { return m.loaded; }))
-
 return; var args = deps.map(function(m) { return m.exports; }); var
 exports = moduleFunction.apply(null, args);
-
 if (myMod) {
-
 myMod.exports = exports; myMod.loaded = true;
-
 myMod.onLoad.forEach(function(f) { f(); });
-
 }
-
 }
-
 whenDepsLoaded();
-
 }
+```
 
 When all dependencies are available, whenDepsLoaded calls the function
 that holds the module, giving it the dependencies' interfaces as
@@ -9256,15 +9034,10 @@ Vector Grid directions directionNames randomElement BouncingCritter
 elementFromChar World charFromElement
 
 Wall
-
 View WallFollower dirPlus
-
 LifelikeWorld
-
 Plant
-
 PlantEater
-
 SmartPlantEater Tiger
 
 Don't exaggerate and create too many modules. A book that starts a new
@@ -9337,7 +9110,9 @@ Applications are written the way they are in JavaScript, by putting
 parentheses after an expression and having any number of arguments
 between those parentheses, separated by commas.
 
+```
 do(define(x, 10), if(&gt;(x, 5), print(&quot;large&quot;), print(&quot;small&quot;)))
+```
 
 The uniformity of the Egg language means that things that are operators
 in JavaScript (such as &gt;) are normal variables in this language,
@@ -9362,19 +9137,15 @@ refers to an array of argument expressions.
 The &gt;(x, 5) part of the previous program would be represented like
 this:
 
+```
 {
-
 type: &quot;apply&quot;,
-
 operator: {type: &quot;word&quot;, name: &quot;&gt;&quot;}, args: &lbrack;
-
 {type: &quot;word&quot;, name: &quot;x&quot;},
-
 {type: &quot;value&quot;, value: 5}
-
 &rbrack;
-
 }
+```
 
 Such a data structure is called a *syntax tree*. If you imagine the
 objects as dots and the links between them as lines between those dots,
@@ -9382,33 +9153,22 @@ it has a treelike shape. The fact that expressions contain other
 expressions, which in turn might contain more expressions, is similar to
 the way branches split and split again.
 
+```
 do
-
 de
-
 fi
-
 ne
-
 x
-
 10
-
 if
-
 &gt;
-
 x
-
 5
-
 print
-
 &quot;large&quot;
-
 print
-
 &quot;small&quot;
+```
 
 Contrast this to the parser we wrote for the configuration file format
 in Chapter 9, which had a simple structure: it split the input into
@@ -16400,47 +16160,37 @@ This is what a color picker may look like:
   alt="."
   style="border: 2px solid #000000; width:30%;" />
 </p>
-// ![](./images/image74.jpg){width="3.0315398075240596in" height="3.171996937882765in"}
+<!-- ![](./images/image74.jpg){width="3.0315398075240596in" height="3.171996937882765in"} -->
 
+```
 controls.color = function(cx) {
-
 var input = elt(&quot;input&quot;, {type: &quot;color&quot;});
 input.addEventListener(&quot;change&quot;, function() {
-
 cx.fillStyle = input.value; cx.strokeStyle = input.value;
-
 });
-
 return elt(&quot;span&quot;, null, &quot;Color: &quot;, input);
-
 };
+```
 
 Whenever the value of the color field changes, the drawing context's
 fillStyle and strokeStyle are updated to hold the new value.
 
 The field for configuring the brush size works similarly.
 
+```
 controls.brushSize = function(cx) {
-
 var select = elt(&quot;select&quot;);
-
 var sizes = &lbrack;1, 2, 3, 5, 8, 12, 25, 35, 50, 75, 100&rbrack;;
 sizes.forEach(function(size) {
-
 select.appendChild(elt(&quot;option&quot;, {value: size}, size + &quot;
 pixels&quot;));
-
 });
-
 select.addEventListener(&quot;change&quot;, function() {
-
 cx.lineWidth = select.value;
-
 });
-
 return elt(&quot;span&quot;, null, &quot;Brush size: &quot;, select);
-
 };
+```
 
 The code generates options from an array of brush sizes, and again
 ensures that the canvas' lineWidth is updated when a brush size is
@@ -16468,30 +16218,21 @@ data into a link and would be noticeably slow. Instead, we rig the link
 to update its href attribute whenever it is focused with the keyboard or
 the mouse is moved over it.
 
+```
 controls.save = function(cx) {
-
 var link = elt(&quot;a&quot;, {href: &quot;/&quot;}, &quot;Save&quot;); function update() {
-
 try {
-
 link.href = cx.canvas.toDataURL();
-
 } catch (e) { if (e instanceof SecurityError)
-
 link.href = &quot;javascript:alert(&quot; +
-
 JSON.stringify(&quot;Can&apos;t save: &quot; + e.toString()) + &quot;)&quot;; else
-
 throw e;
-
 }
-
 }
-
 link.addEventListener(&quot;mouseover&quot;, update);
 link.addEventListener(&quot;focus&quot;, update); return link;
-
 };
+```
 
 Thus, the link just quietly sits there, pointing at the wrong thing, but
 when the user approaches it, it magically updates itself to point at the
@@ -16533,20 +16274,17 @@ The final two controls are used to load images from local files and from
 URLs. We'll need the following helper function, which tries to load an
 image file from a URL and replace the contents of the canvas with it:
 
+```
 function loadImageURL(cx, url) {
-
 var image = document.createElement(&quot;img&quot;);
 image.addEventListener(&quot;load&quot;, function() {
-
 var color = cx.fillStyle, size = cx.lineWidth;
-
 cx.canvas.width = image.width; cx.canvas.height = image.height;
 cx.drawImage(image, 0, 0); cx.fillStyle = color; cx.strokeStyle =
 color; cx.lineWidth = size;
-
 }); image.src = url;
-
 }
+```
 
 We want to change the size of the canvas to precisely fit the image. For
 some reason, changing the size of a canvas will cause its drawing
@@ -17142,15 +16880,13 @@ functions for working with files and directories.
 For example, there is a function called readFile, which reads a file and
 then calls a callback with the file's contents.
 
+```
 var fs = require(&quot;fs&quot;);
-
 fs.readFile(&quot;file.txt&quot;, &quot;utf8&quot;, function(error, text) {
-
 if (error)
-
 throw error;
-
 console.log(&quot;The file contained:&quot;, text); });
+```
 
 The second argument to readFile indicates the *character encoding* used
 to decode the file into a string. There are several ways in which text
@@ -17162,33 +16898,26 @@ data and will give you a Buffer object instead of a string. This is an
 array-like object that contains numbers representing the bytes in the
 files.
 
+```
 var fs = require(&quot;fs&quot;);
-
 fs.readFile(&quot;file.txt&quot;, function(error, buffer) {
-
 if (error)
-
 throw error;
-
 console.log(&quot;The file contained&quot;, buffer.length, &quot;bytes.&quot;,
-
 &quot;The first byte is:&quot;, buffer&lbrack;0&rbrack;); });
+```
 
 A similar function, writeFile, is used to write a file to disk.
 
+```
 var fs = require(&quot;fs&quot;);
-
 fs.writeFile(&quot;graffiti.txt&quot;, &quot;Node was here&quot;, function(err) {
-
 if (err)
-
 console.log(&quot;Failed to write file:&quot;, err);
-
 else
-
 console.log(&quot;File written.&quot;);
-
 });
+```
 
 Here, it was not necessary to specify the encoding since writeFile will
 assume that if it is given a string to write, rather than a Buffer
@@ -17205,9 +16934,10 @@ Many of the functions in &quot;fs&quot; come in both synchronous and
 asynchronous variants. For example, there is a synchronous version of
 readFile called readFileSync.
 
+```
 var fs = require(&quot;fs&quot;);
-
 console.log(fs.readFileSync(&quot;file.txt&quot;, &quot;utf8&quot;));
+```
 
 Synchronous functions require less ceremony to use and can be useful in
 simple scripts, where the extra speed provided by asynchronous I/O is
@@ -17223,18 +16953,16 @@ running HTTP servers and making HTTP requests.
 
 This is all it takes to start a simple HTTP server:
 
+```
 var http = require(&quot;http&quot;);
-
 var server = http.createServer(function(request, response) {
 response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
 response.write(&quot;&lt;h1&gt;Hello!&lt;/h1&gt;&lt;p&gt;You asked for &lt;code&gt;&quot; +
 request.url + &quot;&lt;/code&gt;&lt;/p&gt;&quot;);
-
 response.end();
-
 });
-
 server.listen(8000);
+```
 
 If you run this script on your own machine, you can point your web
 browser at *<http://localhost:8000/hello* to make a request to your
@@ -17925,7 +17653,7 @@ client makes an HTTP request to tell the server about it.
   alt="."
   style="border: 2px solid #000000; width:50%;" />
 </p>
-// ![](./images/image75.jpg){width="5.015625546806649in" height="2.3754352580927383in"}
+<!-- ![](./images/image75.jpg){width="5.015625546806649in" height="2.3754352580927383in"} -->
 
 The application will be set up to show a *live* view of the current
 proposed talks and their comments. Whenever someone, somewhere, submits
@@ -17998,15 +17726,13 @@ that implements the client-side system.
 
 A GET request to /talks returns a JSON document like this:
 
+```
 {&quot;serverTime&quot;: 1405438911833,
-
 &quot;talks&quot;: &lbrack;{&quot;title&quot;: &quot;Unituning&quot;,
-
 &quot;presenter&quot;: &quot;Carlos&quot;,
-
 &quot;summary&quot;: &quot;Modifying your cycle for extra style&quot;,
-
 &quot;comment&quot;: &lbrack;&rbrack;}&rbrack;}
+```
 
 The serverTime field will be used to make reliable long polling
 possible. I will return to it later.
@@ -18020,19 +17746,19 @@ Since talk titles may contain spaces and other characters that may not
 appear normally in a URL, title strings must be encoded with the
 encodeURIComponent function when building up such a URL.
 
+```
 console.log(&quot;/talks/&quot; + encodeURIComponent(&quot;How to Idle&quot;));
-
 // ~→~ /talks/How%20to%20Idle
+```
 
 A request to create a talk about idling might look something like this:
 
+```
 PUT /talks/How%20to%20Idle HTTP/1.1
-
 Content-Type: application/json Content-Length: 92
-
 {&quot;presenter&quot;: &quot;Dana&quot;,
-
 &quot;summary&quot;: &quot;Standing still on a unicycle&quot;}
+```
 
 Such URLs also support GET requests to retrieve the JSON representation
 of a talk and DELETE requests to delete a talk.
@@ -18042,15 +17768,13 @@ Adding a comment to a talk is done with a POST request to a URL like
 /talks/Unituning/comments, with a JSON object that has author and
 message properties as the body of the request.
 
+```
 POST /talks/Unituning/comments HTTP/1.1
-
 Content-Type: application/json
-
 Content-Length: 72
-
 {&quot;author&quot;: &quot;Alice&quot;,
-
 &quot;message&quot;: &quot;Will you talk about raising a cycle?&quot;}
+```
 
 To support long polling, GET requests to /talks may include a query
 parameter called changesSince, which is used to indicate that the client
@@ -18076,19 +17800,15 @@ receives was created. The client can then simply store this time and
 pass it along in its next polling request to make sure that it receives
 exactly the updates that it has not seen before.
 
+```
 GET /talks?changesSince=1405438911833 HTTP/1.1
-
 (time passes)
-
 HTTP/1.1 200 OK
-
 Content-Type: application/json Content-Length: 95
-
 {&quot;serverTime&quot;: 1405438913401,
-
 &quot;talks&quot;: &lbrack;{&quot;title&quot;: &quot;Unituning&quot;,
-
 &quot;deleted&quot;: true}&rbrack;}
+```
 
 When a talk has been changed, has been newly created, or has a comment
 added, the full representation of the talk is included in the response
@@ -18136,39 +17856,27 @@ write one ourselves to illustrate the principle.
 
 This is router.js, which we will later require from our server module:
 
+```
 var Router = module.exports = function() {
-
 this.routes = &lbrack;&rbrack;;
-
 };
-
 Router.prototype.add = function(method, url, handler) {
 this.routes.push({method: method,
-
 url: url, handler: handler});
-
 };
-
 Router.prototype.resolve = function(request, response) { var path =
 require(&quot;url&quot;).parse(request.url).pathname;
-
 return this.routes.some(function(route) {
-
 var match = route.url.exec(path); if (!match &vert;&vert; route.method !=
 request.method)
-
 return false;
-
 var urlParts = match.slice(1).map(decodeURIComponent);
 route.handler.apply(null, &lbrack;request, response&rbrack;
-
 .concat(urlParts));
-
 return true;
-
 });
-
 };
+```
 
 The module exports the Router constructor. A router object allows new
 handlers to be registered with the add method and can resolve requests
@@ -18204,38 +17912,30 @@ parameters and can be passed directly to createServer to create a server
 that serves *only* files. We want to first check for requests that we
 handle specially, though, so we wrap it in another function.
 
+```
 var http = require(&quot;http&quot;); var Router = require(&quot;./router&quot;); var
 ecstatic = require(&quot;ecstatic&quot;); var fileServer = ecstatic({root:
 &quot;./public&quot;}); var router = new Router();
-
 http.createServer(function(request, response) {
-
 if (!router.resolve(request, response))
-
 fileServer(request, response);
-
 }).listen(8000);
+```
 
 The respond and respondJSON helper functions are used throughout the
 server code to send off responses with a single function call.
 
+```
 function respond(response, status, data, type) {
-
 response.writeHead(status, {
-
 &quot;Content-Type&quot;: type &vert;&vert; &quot;text/plain&quot;
-
 });
-
 response.end(data);
-
 }
-
 function respondJSON(response, status, data) {
-
 respond(response, status, JSON.stringify(data),
-
 &quot;application/json&quot;); }
+```
 
 #### Talks as resources
 
@@ -18249,34 +17949,27 @@ The handler for requests that GET a single talk must look up the talk
 and respond either with the talk's JSON data or with a 404 error
 response. var talks = Object.create(null);
 
+```
 router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
-
 if (title in talks)
-
 respondJSON(response, 200, talks&lbrack;title&rbrack;);
-
 else
-
 respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos; found&quot;);
-
 });
+```
 
 Deleting a talk is done by removing it from the talks object.
 
+```
 router.add(&quot;DELETE&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/,
-
 function(request, response, title) {
-
 if (title in talks) {
-
 delete talks&lbrack;title&rbrack;; registerChange(title);
-
 }
-
 respond(response, 204, null);
-
 });
+```
 
 The registerChange function, which we will define later, notifies
 waiting long-polling requests about the change.
@@ -18285,31 +17978,21 @@ To retrieve the content of JSON-encoded request bodies, we define a
 function called readStreamAsJSON, which reads all content from a stream,
 parses it as JSON, and then calls a callback function.
 
+```
 function readStreamAsJSON(stream, callback) {
-
 var data = &quot;&quot;;
-
 stream.on(&quot;data&quot;, function(chunk) {
-
 data += chunk;
-
 });
-
 stream.on(&quot;end&quot;, function() {
-
 var result, error; try { result = JSON.parse(data); }
-
 catch (e) { error = e; } callback(error, result);
-
 });
-
 stream.on(&quot;error&quot;, function(error) {
-
 callback(error);
-
 });
-
 }
+```
 
 One handler that needs to read JSON responses is the PUT handler, which
 is used to create new talks. It has to check whether the data it was
@@ -18322,61 +18005,44 @@ If the data looks valid, the handler stores an object that represents
 the new talk in the talks object, possibly overwriting an existing talk
 with this title, and again calls registerChange.
 
+```
 router.add(&quot;PUT&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
-
 readStreamAsJSON(request, function(error, talk) {
-
 if (error) {
-
 respond(response, 400, error.toString());
-
 } else if (!talk &vert;&vert; typeof talk.presenter != &quot;string&quot; &vert;&vert; typeof
 talk.summary != &quot;string&quot;) {
-
 respond(response, 400, &quot;Bad talk data&quot;);
-
 } else { talks&lbrack;title&rbrack; = {title: title, presenter: talk.presenter,
 summary: talk.summary, comments: &lbrack;&rbrack;};
-
 registerChange(title);
-
 respond(response, 204, null);
-
 }
-
 });
-
 });
+```
 
 Adding a comment to a talk works similarly. We use readStreamAsJSON to
 get the content of the request, validate the resulting data, and store
 it as a comment when it looks valid.
 
+```
 router.add(&quot;POST&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&bsol;&bsol;/comments&dollar;/,
 function(request, response, title) {
-
 readStreamAsJSON(request, function(error, comment) {
-
 if (error) {
-
 respond(response, 400, error.toString());
-
 } else if (!comment &vert;&vert; typeof comment.author != &quot;string&quot; &vert;&vert;
 typeof comment.message != &quot;string&quot;) {
-
 respond(response, 400, &quot;Bad comment data&quot;);
-
 } else if (title in talks) {
-
 talks&lbrack;title&rbrack;.comments.push(comment); registerChange(title);
-
 respond(response, 204, null);
-
 } else { respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos;
 found&quot;);
-
 } }); });
+```
 
 Trying to add a comment to a nonexistent talk should return a 404 error,
 of course.
@@ -18392,15 +18058,13 @@ There will be various situations in which we have to send a list of
 talks to the client, so we first define a small helper function that
 attaches the serverTime field to such responses.
 
+```
 function sendTalks(talks, response) {
-
 respondJSON(response, 200, {
-
 serverTime: Date.now(), talks: talks
-
 });
-
 }
+```
 
 The handler itself needs to look at the query parameters in the
 request's URL to see whether a changesSince parameter is given. If you
@@ -18409,32 +18073,23 @@ will also parse the query part of a URL. The object it returns will have
 a query property, which holds another object that maps parameter names
 to values.
 
+```
 router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&dollar;/, function(request, response) { var
 query = require(&quot;url&quot;).parse(request.url, true).query; if
 (query.changesSince == null) {
-
 var list = &lbrack;&rbrack;;
-
 for (var title in talks) list.push(talks&lbrack;title&rbrack;); sendTalks(list,
 response);
-
 } else {
-
 var since = Number(query.changesSince); if (isNaN(since)) {
-
 respond(response, 400, &quot;Invalid parameter&quot;);
-
 } else { var changed = getChangedTalks(since);
-
 if (changed.length &gt; 0) sendTalks(changed, response);
-
 else
-
 waitForChanges(since, response);
-
 }
-
 } });
+```
 
 When the changesSince parameter is missing, the handler simply builds up
 a list of all talks and returns that.
@@ -18560,16 +18215,13 @@ Thus, if we want a page to show up when a browser is pointed at our
 server, we should put it in public/index.html. This is how our index
 file starts:
 
+```
 &lt;!doctype html&gt;
-
 &lt;title&gt;Skill Sharing&lt;/title&gt;
-
-&lt;link rel=&quot;stylesheet&quot; href=&quot;skillsharing.css&quot;&gt; &lt;h1&gt;Skill
-sharing&lt;/h1&gt;
-
+&lt;link rel=&quot;stylesheet&quot; href=&quot;skillsharing.css&quot;&gt; &lt;h1&gt;Skill sharing&lt;/h1&gt;
 &lt;p&gt;Your name: &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;&lt;/p&gt;
-
 &lt;div id=&quot;talks&quot;&gt;&lt;/div&gt;
+```
 
 It defines the document title and includes a style sheet, which defines
 a few styles to, among other things, add a border around talks. Then it
@@ -18583,20 +18235,20 @@ server.
 
 Next comes the form that is used to create a new talk.
 
+```
 &lt;form id=&quot;newtalk&quot;&gt;
-
 &lt;h3&gt;Submit a talk&lt;/h3&gt;
-
 Title: &lt;input type=&quot;text&quot; style=&quot;width: 40em&quot; name=&quot;title&quot;&gt;
-
 &lt;br&gt;
+```
 
 Summary: &lt;input type=&quot;text&quot; style=&quot;width: 40em&quot; name=&quot;
 summary&quot;&gt;
 
+```
 &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
-
 &lt;/form&gt;
+```
 
 The script will add a &quot;submit&quot; event handler to this form, from which
 it can make the HTTP request that tells the server about the talk.
@@ -18605,34 +18257,23 @@ Next comes a rather mysterious block, which has its display style set to
 none, preventing it from actually showing up on the page. Can you guess
 what it is for?
 
+```
 &lt;div id=&quot;template&quot; style=&quot;display: none&quot;&gt;
-
 &lt;div class=&quot;talk&quot;&gt;
-
 &lt;h2&gt;{{title}}&lt;/h2&gt;
-
 &lt;div&gt;by &lt;span class=&quot;name&quot;&gt;{{presenter}}&lt;/span&gt;&lt;/div&gt;
-
 &lt;p&gt;{{summary}}&lt;/p&gt;
-
 &lt;div class=&quot;comments&quot;&gt;&lt;/div&gt;
-
 &lt;form&gt;
-
 &lt;input type=&quot;text&quot; name=&quot;comment&quot;&gt;
-
 &lt;button type=&quot;submit&quot;&gt;Add comment&lt;/button&gt;
-
 &lt;button type=&quot;button&quot; class=&quot;del&quot;&gt;Delete talk&lt;/button&gt;
 &lt;/form&gt;
-
 &lt;/div&gt;
-
 &lt;div class=&quot;comment&quot;&gt;
-
 &lt;span class=&quot;name&quot;&gt;{{author}}&lt;/span&gt;: {{message}} &lt;/div&gt;
-
 &lt;/div&gt;
+```
 
 Creating complicated DOM structures with JavaScript code produces ugly
 code. You can make the code slightly better by introducing helper
@@ -18648,7 +18289,9 @@ between double braces with the values of a specific talk.
 Finally, the HTML document includes the script file that contains the
 client-side code.
 
+```
 &lt;script src=&quot;skillsharing_client.js&quot;&gt;&lt;/script&gt;
+```
 
 #### Starting up
 
@@ -18658,50 +18301,36 @@ HTTP requests, we will again define a small wrapper around
 XMLHttpRequest, which accepts an object to configure the request as well
 as a callback to call when the request finishes.
 
+```
 function request(options, callback) {
-
 var req = new XMLHttpRequest();
-
 req.open(options.method &vert;&vert; &quot;GET&quot;, options.pathname, true);
 req.addEventListener(&quot;load&quot;, function() {
-
 if (req.status &lt; 400)
-
 callback(null, req.responseText);
-
 else callback(new Error(&quot;Request failed: &quot; + req.statusText))
-
 ; });
-
 req.addEventListener(&quot;error&quot;, function() {
-
 callback(new Error(&quot;Network error&quot;));
-
 });
-
 req.send(options.body &vert;&vert; null);
-
 }
+```
 
 The initial request displays the talks it receives on the screen and
 starts the long-polling process by calling waitForChanges.
 
+```
 var lastServerTime = 0;
-
 request({pathname: &quot;talks&quot;}, function(error, response) {
-
 if (error) {
-
 reportError(error);
-
 } else {
-
 response = JSON.parse(response); displayTalks(response.talks);
 lastServerTime = response.serverTime;
-
 waitForChanges();
-
 } });
+```
 
 The lastServerTime variable is used to track the time of the last update
 that was received from the server. After the initial request, the
@@ -18715,11 +18344,11 @@ doing nothing without explanation. So we define a simple function called
 reportError, which at least shows the user a dialog that tells them
 something went wrong.
 
+```
 function reportError(error) { if (error)
-
 alert(error.toString());
-
 }
+```
 
 The function checks whether there *is* an actual error, and it alerts
 only when there is one. That way, we can also directly pass this
@@ -18740,36 +18369,24 @@ and to update it when something changes. It will use the shownTalks
 object, which associates talk titles with DOM nodes, to remember the
 talks it currently has on the screen.
 
+```
 var talkDiv = document.querySelector(&quot;#talks&quot;); var shownTalks =
 Object.create(null);
-
 function displayTalks(talks) {
-
 talks.forEach(function(talk) {
-
 var shown = shownTalks&lbrack;talk.title&rbrack;; if (talk.deleted) {
-
 if (shown) {
-
 talkDiv.removeChild(shown);
-
 delete shownTalks&lbrack;talk.title&rbrack;;
-
 } } else { var node = drawTalk(talk); if (shown)
-
 talkDiv.replaceChild(node, shown);
-
 else
-
 talkDiv.appendChild(node);
-
 shownTalks&lbrack;talk.title&rbrack; = node;
-
 }
-
 });
-
 }
+```
 
 Building up the DOM structure for talks is done using the templates that
 were included in the HTML document. First, we must define
@@ -18781,46 +18398,29 @@ name, which is a child of the element with ID &quot;template&quot;. Using the
 querySelector method makes this easy. There were templates named &quot;
 talk&quot; and &quot;comment&quot; in the HTML page.
 
+```
 function instantiateTemplate(name, values) {
-
 function instantiateText(text) {
-
 return text.replace(/&bsol;&bsol;{&bsol;&bsol;{(&bsol;&bsol;w+)&bsol;&bsol;}&bsol;&bsol;}/g, function(&lowbar;, name) {
-
 return values&lbrack;name&rbrack;;
-
 });
-
 }
-
 function instantiate(node) {
-
 if (node.nodeType == document.ELEMENT_NODE) {
-
 var copy = node.cloneNode();
-
 for (var i = 0; i &lt; node.childNodes.length; i++)
-
 copy.appendChild(instantiate(node.childNodes&lbrack;i&rbrack;));
-
 return copy;
-
 } else if (node.nodeType == document.TEXT_NODE) { return
 document.createTextNode( instantiateText(node.nodeValue));
-
 } else {
-
 return node;
-
 }
-
 }
-
 var template = document.querySelector(&quot;#template .&quot; + name);
-
 return instantiate(template);
-
 }
+```
 
 The cloneNode method, which all DOM nodes have, creates a copy of a
 node. It won't copy the node's child nodes unless true is given as a
@@ -18835,30 +18435,23 @@ title property.
 This is a crude approach to templating, but it is enough to implement
 drawTalk.
 
+```
 function drawTalk(talk) {
-
 var node = instantiateTemplate(&quot;talk&quot;, talk); var comments =
 node.querySelector(&quot;.comments&quot;);
 talk.comments.forEach(function(comment) {
-
 comments.appendChild(
-
 instantiateTemplate(&quot;comment&quot;, comment));
-
 });
-
 node.querySelector(&quot;button.del&quot;).addEventListener( &quot;click&quot;,
 deleteTalk.bind(null, talk.title)); var form =
 node.querySelector(&quot;form&quot;); form.addEventListener(&quot;submit&quot;,
 function(event) {
-
 event.preventDefault();
-
 addComment(talk.title, form.elements.comment.value); form.reset();
-
 }); return node;
-
 }
+```
 
 After instantiating the &quot;talk&quot; template, there are various things that
 need to be patched up. First, the comments have to be filled in by
@@ -18874,31 +18467,31 @@ and addComment to perform the actual actions required to delete a talk
 or add a comment. These will need to build up URLs that refer to talks
 with a given title, for which we define the talkURL helper function.
 
+```
 function talkURL(title) {
-
 return &quot;talks/&quot; + encodeURIComponent(title);
-
 }
+```
 
 The deleteTalk function fires off a DELETE request and reports the error
 when that fails.
 
+```
 function deleteTalk(title) {
-
 request({pathname: talkURL(title), method: &quot;DELETE&quot;}, reportError);
-
 }
+```
 
 Adding a comment requires building up a JSON representation of the
 comment and submitting that as part of a POST request.
 
+```
 function addComment(title, comment) {
-
 var comment = {author: nameField.value, message: comment};
 request({pathname: talkURL(title) + &quot;/comments&quot;, body:
 JSON.stringify(comment), method: &quot;POST&quot;}, reportError);
-
 }
+```
 
 The nameField variable used to set the comment's author property is a
 reference to the &lt;input&gt; field at the top of the page that allows the
@@ -18915,22 +18508,18 @@ The form at the bottom of the page, for proposing a new talk, gets a
 &quot;submit&quot; event handler. This handler prevents the event's default
 effect (which would cause a page reload), clears the form, and fires off
 a PUT request to create the talk. var talkForm =
+
+```
 document.querySelector(&quot;#newtalk&quot;);
-
 talkForm.addEventListener(&quot;submit&quot;, function(event) {
-
 event.preventDefault();
-
 request({pathname: talkURL(talkForm.elements.title.value), method:
 &quot;PUT&quot;, body: JSON.stringify({
-
 presenter: nameField.value,
-
 summary: talkForm.elements.summary.value
-
 })}, reportError); talkForm.reset();
-
 });
+```
 
 #### Noticing changes
 
@@ -18944,29 +18533,21 @@ Given the mechanism that we implemented in our server and the way we
 defined displayTalks to handle updates of talks that are already on the
 page, the actual long polling is surprisingly simple.
 
+```
 function waitForChanges() {
-
 request({pathname: &quot;talks?changesSince=&quot; + lastServerTime},
 function(error, response) {
-
 if (error) {
-
 setTimeout(waitForChanges, 2500);
-
 console.error(error.stack);
-
 } else {
-
 response = JSON.parse(response); displayTalks(response.talks);
 lastServerTime = response.serverTime;
-
 waitForChanges();
-
 }
-
 });
-
 }
+```
 
 This function is called once when the program starts up and then keeps
 calling itself to ensure that a polling request is always active. When
@@ -19028,13 +18609,12 @@ could specify the &quot;talk&quot; template to loop over the array held in a
 talk's comments property and render the nodes that make up a comment for
 every element in the array. It could look like this:
 
+```
 &lt;div class=&quot;comments&quot;&gt;
-
 &lt;div class=&quot;comment&quot; template-repeat=&quot;comments&quot;&gt;
-
 &lt;span class=&quot;name&quot;&gt;{{author}}&lt;/span&gt;: {{message}} &lt;/div&gt;
-
 &lt;/div&gt;
+```
 
 The idea is that whenever a node with a template-repeat attribute is
 found during template instantiation, the instantiating code loops over
@@ -19464,41 +19044,23 @@ Here is what I came up with. I've put parentheses around internal
 functions.
 
 Module &quot;grid&quot;
-
 Vector Grid directions directionNames
-
 Module &quot;world&quot;
-
 (randomElement)
-
 (elementFromChar)
-
 (charFromElement)
-
 View
-
 World LifelikeWorld directions &lbrack;reexported&rbrack;
-
 Module &quot;simple_ecosystem&quot;
-
 (randomElement) &lbrack;duplicated&rbrack;
-
 (dirPlus)
-
 Wall
-
 BouncingCritter
-
 WallFollower
-
 Module &quot;ecosystem&quot;
-
 Wall &lbrack;duplicated&rbrack;
-
 Plant
-
 PlantEater
-
 SmartPlantEater Tiger
 
 I have reexported the directions array from the grid module from world
@@ -19581,9 +19143,7 @@ should be thrown.
 
 Use document.createElement to create new element nodes,
 document.createTextNode to create text nodes, and the appendChild method
-to put nodes into other
-
-nodes.
+to put nodes into other nodes.
 
 You should loop over the key names once to fill in the top row and then
 again for each object in the array to construct the data rows.
@@ -19626,7 +19186,9 @@ decide to handle &quot;keypress&quot; instead, which identifies the actual
 character typed, you have to make sure you test for both cases. One way
 to do that would be this:
 
+```
 /&lbrack;qwx&rbrack;/i.test(String.fromCharCode(event.charCode))
+```
 
 #### Mouse trail
 
@@ -20004,29 +19566,20 @@ stream and calls a callback function with the result, using the usual
 pattern of passing any errors it encounters as the first argument to the
 callback:
 
+```
 function readStreamAsString(stream, callback) {
-
 var data = &quot;&quot;;
-
 stream.on(&quot;data&quot;, function(chunk) {
-
 data += chunk.toString();
-
 });
-
 stream.on(&quot;end&quot;, function() {
-
 callback(null, data);
-
 });
-
 stream.on(&quot;error&quot;, function(error) {
-
 callback(error);
-
 });
-
 }
+```
 
 #### Fixing a leak
 
@@ -20148,92 +19701,52 @@ served.
 
 **Index**
 
+```
 &ast; operator, 14, 20, 167
-
 &ast;= operator, 36
-
 &bsol;+ operator, 14, 16, 20, 97, 167
-
 ++ operator, 37
-
 += operator, 36
-
 &dash; operator, 14, 16, 20
-
 -- operator, 37
-
 -= operator, 36
-
 / operator, 14
-
 /= operator, 36
-
 &lt;= operator, 17
-
 = operator, 25, 66, 182, 184, 213
-
 == operator, 17, 20, 69, 85
-
 === operator, 21, 85, 428
-
 ?: operator, 19, 22
-
 &lbrack;&rbrack; (array), 62
-
 &lbrack;&rbrack; (subscript), 63
-
 &bsol;% operator, 14, 36, 310, 424, 425,
-
 437, 439
-
 && operator, 18, 21, 104
-
 &vert;&vert; operator, 18, 21, 54, 104, 132,
-
 355, 424
-
 &gt; operator, 17
-
 &gt;= operator, 17
-
 &lt; operator, 17
-
 {} (block), 33, 46, 91
-
 {} (object), 65, 122
-
 200 (HTTP status code), 325, 385
-
 204 (HTTP status code), 391, 392
-
 2d (canvas context), 298
-
 400 (HTTP status code), 447
-
 404. (HTTP status code), 325, 390,
-
 407, 410
-
 405. (HTTP status code), 389
-
 406. (HTTP status code), 441 500 (HTTP status code), 390, 395
-
 a (HTML tag), 224, 241, 243, 345 Abelson, Hal, 205 absolute path, 447
 absolute positioning, 247, 251, 259,
-
 264, 271 abstract syntax tree, *see* syntax tree
-
 abstraction, 6, 42, 86, 87, 90, 97,
-
 98, 101, 130, 205, 221, 233,
-
 332, 338 acceleration, 290 Accept header, 340, 395, 441 access control,
 138, 163, 191, 404 Access-Control-Allow-Origin header,
-
 332 actionTypes object, 141 activeElement property, 344 actor, 276, 282,
 287, 288, 316 actorAt method, 287 addEntry function, 69 addEventListener
 method, 253, 292,
-
 386 addition, 14, 126 address, 324 address bar, 222, 324, 326 adoption,
 164 age difference (exercise), 103, 428 alert function, 27, 49, 225
 algorithm, 445 alignment, 122 all function, 340, 442 alpha, 374
@@ -20243,154 +19756,97 @@ ampersand character, 224, 327 analysis, 149, 153 ancestor element, 283
 ancestry example, 92, 94--96, 99, 101, 103 ANCESTRY_FILE data set, 93
 angle, 249, 305, 306, 372, 440 angle brackets, 223, 224 animate method,
 288 animation, 139, 146, 247, 248, 251,
-
 263, 271, 274, 276, 278,
-
 285, 286, 288, 290, 291,
-
 293, 294, 309, 310, 315,
-
 318, 320, 323, 439, 440 anonymous function, 192 appendChild method, 235,
 280, 436 Apple, 227 application (of functions), *see* function
 application
-
 apply method, 92, 107 approximation, 128 arc, 304--306 arc method, 305,
 440 arcTo method, 304, 305 area, 371 argument, 27, 49, 54, 176, 206
 arguments object, 79, 91, 426
-
 indexing, 80
-
 argv property, 379 arithmetic, 14, 20, 213 Armstrong, Joe, 105 array,
 64, 65, 67, 73, 84, 88, 89, 92, 93, 103, 128, 129, 162,
-
 168, 218, 276, 429 as grid, 129, 374 as table, 71 creation, 62, 98,
 130, 426 filtering, 94 indexing, 63, 73, 77, 88, 117,
-
 130, 132, 411, 426, 437 length of, 64, 130 methods, 76, 79, 84, 89,
 94,
-
 95, 104, 411 searching, 73, 77 traversal, 88
-
 Array constructor, 130 Array prototype, 108, 111 array-like object, 79,
 92, 201, 214,
-
 232, 233, 246, 345, 349,
-
 352, 383 arrow function, 135 artificial intelligence, 128, 140, 147,
 217, 430 artificial life, 128, 273, 357
-
 artificial stupidity (exercise), 147, 430
-
 ASCII art, 381 assert function, 161 assertion, 161, 162 assignment, 25,
 36, 182, 184, 219,
-
 436 assumption, 159, 162 asterisk, 14, 167 asynchronous I/O, 197, 330,
 376,
-
 377 asynchronous programming, 198--
-
 200, 295, 330, 333, 335,
-
 337, 345, 352, 376--378, 382,
-
 386, 390 attack, 332 attribute, 224, 238, 361, 443 authorization, 404
 autocompletion (exercise), 357, 443 autofocus attribute, 344 automatic
 semicolon insertion, 24 avatar, 273 average function, 97, 103, 428,
-
 429 axis, 289, 299, 311, 312
-
 Babbage, Charles, 61 background, 273, 280, 286, 287,
-
 316 background (CSS), 271, 273, 282 backgroundReadFile function, 198,
-
 332 backslash character, 15, 164, 166,
-
 179, 224, 396, 433, 446 backtracking, 174, 178 backward compatibility,
 190 ball, 323, 440 Banks, Ian, 272 bean counting (exercise), 60, 426
 beforeunload event, 265 behavior, 131, 140, 186, 217, 430,
-
 431 benchmark, 242 Berners-Lee, Tim, 324 best practices, 3 bezierCurveTo
 method, 303 binary data, 4, 11, 383 binary number, 11, 12, 72, 153,
-
 174, 350 binary operator, 14, 16, 23 bind method, 102, 107, 135 bit, 4,
 11, 12, 17, 72 bitmap graphics, 308, 323 Blob type, 353 block, 33, 34,
 42, 157, 158, 206 block comment, 39, 178 block element, 241, 243
 blocking, 197, 248, 266, 268, 330,
-
 377, 384 blur event, 264, 265 blur method, 344 body (HTML tag), 223,
 225, 230 body (HTTP), 326, 327, 329, 385,
-
 391, 392, 408 body property, 230, 231, 234 bold, 243 book analogy, 188,
 204 Book of Programming, 11, 376
-
 Boolean, 17, 30, 33, 68, 165, 212,
-
 213 conversion to, 21, 30, 34
-
 Boolean function, 30
-
 border (CSS), 241, 243 border-radius (CSS), 259 bouncing, 131, 275, 277,
 286, 289, 323 BouncingCritter type, 131 boundary, 171, 173, 179, 184,
 186,
-
 316, 432 box, 163, 229, 273, 323, 440 box shadow (CSS), 283 br (HTML
 tag), 443
-
 braces, *see* curly braces branching, 172, 174 branching recursion, 53,
 313 break keyword, 36, 37 breakpoint, 154 British English, 167 browser,
 2, 7, 27--29, 82, 193, 197,
-
 220, 222, 225--227, 253, 273,
-
 274, 323, 324, 326, 328,
-
 330, 332, 338, 339, 346,
-
 354, 356, 365, 368, 396,
-
 400, 401, 423 browser wars, 227 Browserify, 197 browsers, 9 brush, 360,
 365, 366, 370 bubbling, *see* event propagation bucket fill, 374, 445
 budget, 423 Buffer type, 383, 386, 387 bug, 86, 149, 153, 179, 181, 186,
-
 189, 190, 227, 396 business software, 328 button, 252, 326, 345, 358,
 370 button (HTML tag), 226, 253, 258,
-
 271, 346, 354, 357 buttons property, 261 byName object, 99, 103
-
 cache, 196, 198, 434 call method, 107, 111, 123, 136,
-
 142, 214 call stack, 48--50, 54, 156, 157,
-
 159, 160 callback function, 252, 293, 294,
-
 330, 332--335, 376, 377, 382,
-
 383, 386, 393, 416, 446 calling (of functions), *see* function
 application
-
 camel case, 38, 244 cancelAnimationFrame function,
-
 268 canvas, 274, 297, 300--305, 307-- 314, 319--322, 362, 367, 368,
-
 373, 441 context, 298, 299, 369 path, 301 size, 298, 300
-
 canvas (HTML tag), 298, 360 canvas property, 362 CanvasDisplay type,
 314--316, 318 capitalization, 38, 109, 168, 244,
-
 251, 328, 329, 387, 437 capture group, 169, 171, 176, 406 career, 272
 caret character, 166, 171, 184 carnivore, 148 carriage return, 183
 cascading, 245 Cascading Style Sheets, *see* CSS case conversion, 64
 case keyword, 37 case sensitivity, 168, 329, 433 casual computing, 1
-
 cat's hat (exercise), 251 catch keyword, 156, 157, 159, 160,
-
 163, 432 catch method, 337 CD, 11
-
 celery, 399 cell, 357 censored keyboard (exercise), 270,
-
 437 center, 284 centering, 248 century, 103, 429 certificate, 339
 chaining, 336, 394 change event, 344, 348, 356, 360,
-
 366, 369, 443, 447 chapter, 188 character, 15, 258, 347 character
 category, 185 character encoding, 383 charAt method, 60, 79 charCode
 property, 258, 437 charCodeAt method, 257 chat, 221 checkbox, 342, 348,
@@ -20399,37 +19855,27 @@ child node, 231, 233, 235, 262 childNodes property, 233, 237, 438
 choice, 172 Chrome, 227 circle, 248, 304, 305, 372 circle (SVG tag), 298
 circular dependency, 204, 434 circus, 76 class attribute, 235, 240, 245,
 280,
-
 282, 283, 362, 417
-
 className property, 240 cleaning up, 157, 285 clearing, 239, 297, 309,
 316, 441 clearInterval function, 268 clearRect method, 309, 441
 clearTimeout function, 267, 268 cleverness, 201 click event, 253, 255,
 259, 442,
-
 443, 447 client, 221, 338, 385, 400, 413 clientHeight property, 241
 clientWidth property, 241 clientX property, 260, 363 clientY property,
 260, 363 clipboard, 226, 270 clipping, 316 cloneNode method, 418
 cloning, 418 closePath method, 302 closing tag, 224, 225 closure, 50,
 91, 218, 352, 435, 436,
-
 438, 439 code, 8, 177, 272 structure of, 23, 44
-
 code golf, 186 code structure, 34, 42, 124, 188 coin, 273--275, 287,
 289--292, 319 Coin type, 278, 289 collaboration, 220 collection, 6, 62,
 65, 67, 84, 126,
-
 430 collision detection, 286, 287, 289--
-
 291, 440 colon character, 19, 37, 66, 243 color, 298, 300, 316, 360,
 365, 373 color (CSS), 243, 244 color picker, 365
-
 color picker (exercise), 373, 444 colWidths function, 116 comma
 character, 206 command key, 258 command line, 376, 378--380 comment, 39,
 93, 177, 182, 184, 218, 231, 400, 403, 409,
-
 419, 435 comment field reset (exercise), 422, 448
-
 COMMENT_NODE code, 231
 
 CommonJS, 194, 195, 197, 204,
