@@ -3860,15 +3860,13 @@ For these kinds of situations, JavaScript functions have an apply
 method. You pass it an array (or array-like object) of arguments, and it
 will call the function with those arguments.
 
+```
 function transparentWrapping(f) {
-
 return function() {
-
 return f.apply(null, arguments);
-
 };
-
 }
+```
 
 That's a useless function, but it shows the pattern we are interested
 in--- the function it returns passes all of the given arguments, and
@@ -3894,24 +3892,18 @@ into a computer-readable format.
 
 The file I created looks something like this:
 
+```
 &lbrack;
-
 {&quot;name&quot;: &quot;Emma de Milliano&quot;, &quot;sex&quot;: &quot;f&quot;,
-
 &quot;born&quot;: 1876, &quot;died&quot;: 1956,
-
 &quot;father&quot;: &quot;Petrus de Milliano&quot;,
-
 &quot;mother&quot;: &quot;Sophia van Damme&quot;},
-
 {&quot;name&quot;: &quot;Carolus Haverbeke&quot;, &quot;sex&quot;: &quot;m&quot;,
-
 &quot;born&quot;: 1832, &quot;died&quot;: 1905, &quot;father&quot;: &quot;Carel Haverbeke&quot;,
 &quot;mother&quot;: &quot;Maria van Brussel&quot;},&hellip;
-
 and so on
-
 &rbrack;
+```
 
 This format is called JSON (pronounced "Jason"), which stands for
 JavaScript Object Notation. It is widely used as a data storage and
@@ -3928,12 +3920,12 @@ convert data from and to this format. The first takes a JavaScript value
 and returns a JSON-encoded string. The second takes such a string and
 converts it to the value it encodes.
 
+```
 var string = JSON.stringify({name: &quot;X&quot;, born: 1980});
-
 console.log(string); // ~→~ {&quot;name&quot;:&quot;X&quot;,&quot;born&quot;:1980}
 console.log(JSON.parse(string).born);
-
 // ~→~ 1980
+```
 
 The variable ANCESTRY_FILE, available in the sandbox for this chapter
 and in [a downloadable
@@ -3942,10 +3934,11 @@ website([*eloquentjavascript.net/code#5*](http://eloquentjavascript.net/code#{}5
 contains the content of my JSON file as a string. Let's decode it and
 see how many people it contains.
 
+```
 var ancestry = JSON.parse(ANCESTRY_FILE);
 console.log(ancestry.length);
-
 // ~→~ 39
+```
 
 ## Filtering an array
 
@@ -3953,27 +3946,19 @@ To find the people in the ancestry data set who were young in 1924, the
 following function might be helpful. It filters out the elements in an
 array that don't pass a test.
 
+```
 function filter(array, test) {
-
 var passed = &lbrack;&rbrack;;
-
 for (var i = 0; i &lt; array.length; i++) { if (test(array&lbrack;i&rbrack;))
-
 passed.push(array&lbrack;i&rbrack;);
-
 }
-
 return passed;
-
 }
-
 console.log(filter(ancestry, function(person) {
-
 return person.born &gt; 1900 && person.born &lt; 1925;
-
 }));
-
 // ~→~ &lbrack;{name: &quot;Philibert Haverbeke&quot;, &hellip;}, &hellip;&rbrack;
+```
 
 This uses the argument named test, a function value, to fill in a "gap"
 in the computation. The test function is called for each element, and
@@ -3992,13 +3977,12 @@ Like forEach, filter is also a standard method on arrays. The example
 defined the function only in order to show what it does internally. From
 now on, we'll use it like this instead:
 
+```
 console.log(ancestry.filter(function(person) {
-
 return person.father == &quot;Carel Haverbeke&quot;;
-
 }));
-
 // ~→~ &lbrack;{name: &quot;Carolus Haverbeke&quot;, &hellip;}&rbrack;
+```
 
 ## Transforming with map
 
@@ -4011,32 +3995,22 @@ elements and building a new array from the returned values. The new
 array will have the same length as the input array, but its content will
 have been "mapped" to a new form by the function.
 
+```
 function map(array, transform) {
-
 var mapped = &lbrack;&rbrack;;
-
 for (var i = 0; i &lt; array.length; i++)
 mapped.push(transform(array&lbrack;i&rbrack;));
-
 return mapped;
-
 }
-
 var overNinety = ancestry.filter(function(person) {
-
 return person.died - person.born &gt; 90;
-
 });
-
 console.log(map(overNinety, function(person) {
-
 return person.name;
-
 }));
-
 // ~→~ &lbrack;&quot;Clara Aernoudts&quot;, &quot;Emile Haverbeke&quot;,
-
 // &quot;Maria Haverbeke&quot;&rbrack;
+```
 
 Interestingly, the people who lived to at least 90 years of age are the
 same three people who we saw before---the people who were young in the
@@ -4062,22 +4036,17 @@ The parameters to the reduce function are, apart from the array, a
 combining function and a start value. This function is a little less
 straightforward than filter and map, so pay careful attention.
 
+```
 function reduce(array, combine, start) { var current = start; for (var
 i = 0; i &lt; array.length; i++)
-
 current = combine(current, array&lbrack;i&rbrack;);
-
 return current;
-
 }
-
 console.log(reduce(&lbrack;1, 2, 3, 4&rbrack;, function(a, b) {
-
 return a + b;
-
 }, 0));
-
 // ~→~ 10
+```
 
 The standard array method reduce, which of course corresponds to this
 function, has an added convenience. If your array contains at least one
@@ -4088,34 +4057,28 @@ reducing at the second element.
 To use reduce to find my most ancient known ancestor, we can write
 something like this:
 
+```
 console.log(ancestry.reduce(function(min, cur) {
-
 if (cur.born &lt; min.born) return cur; else return min;
-
 }));
-
 // ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
+```
 
 ## Composability
-
 Consider how we would have written the previous example (finding the
 person with the earliest year of birth) without higher-order functions.
 
 The code is not that much worse.
 
+```
 var min = ancestry&lbrack;0&rbrack;;
-
 for (var i = 1; i &lt; ancestry.length; i++) {
-
 var cur = ancestry&lbrack;i&rbrack;; if (cur.born &lt; min.born)
-
 min = cur;
-
 }
-
 console.log(min);
-
 // ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
+```
 
 There are a few more variables, and the program is two lines longer but
 still quite easy to understand.
@@ -4124,24 +4087,18 @@ Higher-order functions start to shine when you need to *compose*
 functions. As an example, let's write code that finds the average age
 for men and for women in the data set.
 
+```
 function average(array) {
-
 function plus(a, b) { return a + b; }
-
 return array.reduce(plus) / array.length;
-
 }
-
 function age(p) { return p.died - p.born; } function male(p) { return
 p.sex == &quot;m&quot;; } function female(p) { return p.sex == &quot;f&quot;; }
-
 console.log(average(ancestry.filter(male).map(age)));
-
 // ~→~ 61.67
-
 console.log(average(ancestry.filter(female).map(age)));
-
 // ~→~ 54.56
+```
 
 (It's a bit silly that we have to define plus as a function, but
 operators in JavaScript, unlike functions, are not values, so you can't
