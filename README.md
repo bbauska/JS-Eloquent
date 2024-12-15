@@ -445,7 +445,7 @@ different digits, you have only 2, and the weight of each increases by a
 factor of 2 from right to left. Here are the bits that make up the
 number 13, with the weights of the digits shown below them:
 
-&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;1
+&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;1&nbsp;0&nbsp;1
 
 128 64 32 16 8 4 2 1
 
