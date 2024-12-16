@@ -1,6 +1,6 @@
 ---
 title: |
-  Eloquent JavaScript - 21 chapters
+  Eloquent JS - 21 chapters
 author: "Marijn Haverbene"
 date first editted: "11/20/2024 9+pm"
 date late editted: "11/21/2024 1+pm"
