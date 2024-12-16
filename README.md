@@ -75,13 +75,13 @@ might just get lost in it.
 
 There will be times when reading this book feels terribly frustrating.
 If you are new to programming, there will be a lot of new material to
-digest. Much of this material will then be *combined* in ways that
+digest. Much of this material will then be <i>combined</i> in ways that
 require you to make additional connections.
 
 It is up to you to make the necessary effort. When you are struggling to
 follow the book, do not jump to any conclusions about your own
 capabilities. You are fine---you just need to keep at it. Take a break,
-reread some material, and *always* make sure you read and understand the
+reread some material, and <i>always</i> make sure you read and understand the
 example programs and exercises. Learning is hard work, but everything
 you learn is yours and will make subsequent learning easier.
 
@@ -90,7 +90,7 @@ The computer programmer is a creator of universes for which he &lbrack;sic&rbrac
 alone is responsible. Universes of virtually unlimited complexity can
 be created in the form of computer programs.
 
----Joseph Weizenbaum, *Computer Power and Human Reason*
+---Joseph Weizenbaum, <i>Computer Power and Human Reason</i>
 </blockquote>
 
 A program is many things. It is a piece of text typed by a programmer,
@@ -123,7 +123,7 @@ Many programmers believe that this complexity is best managed by using
 only a small set of well-understood techniques in their programs. They
 have composed strict rules ("best practices") prescribing the form
 programs should have, and the more zealous among them will consider
-those who go outside of this safe little zone to be *bad* programmers.
+those who go outside of this safe little zone to be <i>bad</i> programmers.
 
 What hostility to the richness of programming---to try to reduce it to
 something straightforward and predictable, to place a taboo on all the
@@ -212,11 +212,13 @@ program has decided that count is not 11 yet.
 Here is the same program in JavaScript:
 
 ```
-var total = 0, count = 1; while (count &lt;= 10) {
-total += count; count += 1;
+var total = 0, count = 1; 
+while (count &lt;= 10) {
+  total += count; 
+  count += 1;
 }
 console.log(total);
-// ~→~ 55
+// <i>~→~ 55</i>
 ```
 
 This version gives us a few more improvements. Most importantly, there
@@ -240,7 +242,7 @@ collection of numbers:
 
 ```
 console.log(sum(range(1, 10)));
-// ~→~ 55
+// <i>~→~ 55</i>
 ```
 
 The moral of this story is that the same program can be expressed in
@@ -281,7 +283,7 @@ standard, after the Ecma International organization that did the
 standardization. In practice, the terms ECMAScript and JavaScript can be
 used interchangeably---they are two names for the same language.
 
-There are those who will say *terrible* things about the JavaScript
+There are those who will say <i>terrible</i> things about the JavaScript
 language. Many of these things are true. When I was required to write
 something in JavaScript for the first time, I quickly came to despise
 it. It would accept almost anything I typed but interpret it in a way
@@ -297,7 +299,7 @@ This flexibility also has its advantages, though. It leaves space for a
 lot of techniques that are impossible in more rigid languages, and as
 you will see (for example in Chapter 10) it can be used to overcome some
 of JavaScript's shortcomings. After learning the language properly and
-working with it for a while, I have learned to actually *like*
+working with it for a while, I have learned to actually <i>like</i>
 JavaScript.
 
 There have been several versions of JavaScript. ECMAScript version 3 was
@@ -338,10 +340,10 @@ go beyond the exercises.
 
 The easiest way to run the example code in the book, and to experiment
 with it, is to look it up in the online version of the book at
-[*eloquentjavascript.net*](http://eloquentjavascript.net/). There, you
+[<i>eloquentjavascript.net</i>](http://eloquentjavascript.net/). There, you
 can click any code example to edit and run it and to see the output it
 produces. To work on the exercises, go to
-[*eloquentjavascript.net/code*](http://eloquentjavascript.net/code),
+[<i>eloquentjavascript.net/code</i>](http://eloquentjavascript.net/code),
 which provides starting code for each coding exercise and allows you to
 look at the solutions.
 
@@ -364,7 +366,7 @@ browsers and the way JavaScript is used to program them. Finally, two
 chapters are devoted to Node.js, another environment to program
 JavaScript in.
 
-Throughout the book, there are five *project chapters*, which describe
+Throughout the book, there are five <i>project chapters</i>, which describe
 larger example programs to give you a taste of real programming. In
 order of appearance, we will work through building an artificial life
 simulation, a programming language, a platform game, a paint program,
@@ -376,7 +378,7 @@ structures (such as the while word you saw in this introduction),
 functions (writing your own operations), and data structures. After
 these, you will be able to write simple programs. Next, Chapters 5 and 6
 introduce techniques to use functions and objects to write more
-*abstract* code and thus keep complexity under control.
+<i>abstract</i> code and thus keep complexity under control.
 
 After a first project chapter, the first part of the book continues with
 chapters on error handling and fixing, on regular expressions (an
@@ -414,16 +416,16 @@ front.
 
 ```
 console.log(fac(8));
-// ~→~ 40320 Good luck!
+// <i>~→~ 40320 Good luck!</i>
 ```
 
 <blockquote>
-*"Below the surface of the machine, the program moves. Without effort,
+<i>"Below the surface of the machine, the program moves. Without effort,
 it expands and contracts. In great harmony, electrons scatter and
 regroup. The forms on the monitor are but ripples on the water. The
-essence stays invisibly below."*
+essence stays invisibly below."</i>
 
----Master Yuan-Ma, *The Book of Programming*
+---Master Yuan-Ma, <i>The Book of Programming</i>
 </blockquote>
 
 <h3>1. Values, Types, and Operators</h3>
@@ -469,7 +471,7 @@ magnitude more.
 
 To be able to work with such quantities of bits without getting lost,
 you can separate them into chunks that represent pieces of information.
-In a JavaScript environment, those chunks are called *values*. Though
+In a JavaScript environment, those chunks are called <i>values</i>. Though
 all values are made of bits, they play different roles. Every value has
 a type that determines its role. There are six basic types of values in
 JavaScript:
@@ -478,7 +480,7 @@ JavaScript:
 
 To create a value, you must merely invoke its name. This is convenient.
 You don't have to gather building material for your values or pay for
-them. You just call for one, and *woosh*, you have it. They are not
+them. You just call for one, and <i>woosh</i>, you have it. They are not
 created from thin air, of course. Every value has to be stored
 somewhere, and if you want to use a gigantic amount of them at the same
 time, you might run out of bits. Fortunately, this is a problem only if
@@ -492,7 +494,7 @@ values.
 
 <h4>Numbers</h4>
 
-Values of the *number* type are, unsurprisingly, numeric values. In a
+Values of the <i>number</i> type are, unsurprisingly, numeric values. In a
 JavaScript program, they are written as follows:
 
 13
@@ -503,14 +505,14 @@ Use that in a program, and it will cause the bit pattern for the number
 JavaScript uses a fixed number of bits, namely 64 of them, to store a
 single number value. There are only so many patterns you can make with
 64 bits, which means that the amount of different numbers that can be
-represented is limited. For *N* decimal digits, the amount of numbers
-that can be represented is 10*^N^*. Similarly, given 64 binary digits,
+represented is limited. For <i>N</i> decimal digits, the amount of numbers
+that can be represented is 10<i>^N^</i>. Similarly, given 64 binary digits,
 you can represent 2^64^ different numbers, which is about 18 quintillion
 (an 18 with 18 zeros after it). This is a lot.
 
 Computer memory used to be a lot smaller, and people tended to use
 groups of 8 or 16 bits to represent their numbers. It was easy to
-accidentally *overflow* such small numbers---to end up with a number
+accidentally <i>overflow</i> such small numbers---to end up with a number
 that did not fit into the given amount of bits. Today, even personal
 computers have plenty of memory, so you are free to use 64-bit chunks,
 which means you need to worry about overflow only when dealing with
@@ -536,10 +538,10 @@ number:
 
 That is 2.998 × 10^8^ = 299,800,000.
 
-Calculations with whole numbers (also called *integers*) smaller than
+Calculations with whole numbers (also called <i>integers</i>) smaller than
 the aforementioned 9 quadrillion are guaranteed to always be precise.
 Unfortunately, calculations with fractional numbers are generally not.
-Just as *π* (pi) cannot be precisely expressed by a finite number of
+Just as <i>π</i> (pi) cannot be precisely expressed by a finite number of
 decimal digits, many numbers lose some precision when only 64 bits are
 available to store them. This is a shame, but it causes practical
 problems only in specific situations. The important thing is to be aware
@@ -556,7 +558,7 @@ new number from them. Here is what they look like in JavaScript:
 100 + 4 &ast; 11
 ```
 
-The + and &ast; symbols are called *operators*. The first stands for
+The + and &ast; symbols are called <i>operators</i>. The first stands for
 addition, and the second stands for multiplication. Putting an operator
 between two values will apply it to those values and produce a new
 value.
@@ -574,7 +576,7 @@ For subtraction, there is the - operator, and division can be done with
 the / operator.
 
 When operators appear together without parentheses, the order in which
-they are applied is determined by the *precedence* of the operators. The
+they are applied is determined by the <i>precedence</i> of the operators. The
 example shows that multiplication comes before addition. The / operator
 has the same precedence as &ast;. Likewise for + and -. When multiple
 operators with the same precedence appear next to each other, as in 1 -
@@ -584,11 +586,11 @@ These rules of precedence are not something you should worry about. When
 in doubt, just add parentheses.
 
 There is one more arithmetic operator, which you might not immediately
-recognize. The % symbol is used to represent the *remainder* operation.
+recognize. The % symbol is used to represent the <i>remainder</i> operation.
 X % Y is the remainder of dividing X by Y. For example, 314 % 100
 produces 14, and 144 % 12 gives 0. Remainder's precedence is the same as
 that of multiplication and division. You'll often see this operator
-referred to as *modulo*, though technically *remainder* is more
+referred to as <i>modulo</i>, though technically <i>remainder</i> is more
 accurate.
 
 <h4>Special numbers</h4>
@@ -609,7 +611,7 @@ numeric operations that don't yield a precise, meaningful result.
 
 <h4>Strings</h4>
 
-The next basic data type is the *string*. Strings are used to represent
+The next basic data type is the <i>string</i>. Strings are used to represent
 text. They are written by enclosing their content in quotes.
 
 ```
@@ -622,14 +624,14 @@ quotes at the start and the end of the string match.
 
 Almost anything can be put between quotes, and JavaScript will make a
 string value out of it. But a few characters are more difficult. You can
-imagine how putting quotes between quotes might be hard. *Newlines* (the
+imagine how putting quotes between quotes might be hard. <i>Newlines</i> (the
 characters you get when you press Enter) also can't be put between
 quotes. The string has to stay on a single line.
 
 To make it possible to include such characters in a string, the
 following notation is used: whenever a backslash (&bsol;&bsol;) is found inside
 quoted text, it indicates that the character after it has a special
-meaning. This is called *escaping* the character. A quote that is
+meaning. This is called <i>escaping</i> the character. A quote that is
 preceded by a backslash will not end the string but be part of it. When
 an n character occurs after a backslash, it is interpreted as a newline.
 Similarly, a t after a backslash means a tab character. Take the
@@ -655,7 +657,7 @@ is written like &quot;&bsol;&bsol;n&quot;." can be expressed:
 ```
 
 Strings cannot be divided, multiplied, or subtracted, but the + operator
-*can* be used on them. It does not add, but it *concatenates*---it glues
+<i>can</i> be used on them. It does not add, but it <i>concatenates</i>---it glues
 two strings together. The following line will produce the string
 &quot;concatenate&quot;:
 
@@ -672,10 +674,10 @@ Not all operators are symbols. Some are written as words. One example is
 the typeof operator, which produces a string value naming the type of
 the value you give it.
 
-```
-console.log(typeof 4.5) // ~→~ number console.log(typeof &quot;x&quot;)
+<pre>
+console.log(typeof 4.5) // <i>~→~ number console.log(typeof &quot;x&quot;)</i>
 // ~→~ string
-```
+</pre>
 
 We will use console.log in example code to indicate that we want to see
 the result of evaluating something. When you run such code, the value
@@ -683,30 +685,30 @@ produced should be shown on the screen, though how it appears will
 depend on the JavaScript environment you use to run it.
 
 The other operators we saw all operated on two values, but typeof takes
-only one. Operators that use two values are called *binary* operators,
-while those that take one are called *unary* operators. The minus
+only one. Operators that use two values are called <i>binary</i> operators,
+while those that take one are called <i>unary</i> operators. The minus
 operator can be used both as a binary operator and as a unary operator.
 
 ```
 console.log(- (10 - 2))
-// ~→~ -8
+// <i>~→~ -8</i>
 ```
 
 <h4>Boolean values</h4>
 
 Often, you will need a value that simply distinguishes between two
 possibilities, like "yes" and "no" or "on" and "off". For this,
-JavaScript has a *Boolean* type, which has just two values: true and
+JavaScript has a <i>Boolean</i> type, which has just two values: true and
 false (which are written simply as those words).
 
 <h5>Comparisons</h5>
 
 Here is one way to produce Boolean values:
 
-```
-console.log(3 &gt; 2) // ~→~ true console.log(3 &lt; 2)
-// ~→~ false
-```
+<pre>
+console.log(3 &gt; 2) // <i>~→~ true console.log(3 &lt; 2)</i>
+// <i>~→~ false</i>
+</pre>
 
 The &gt; and &lt; signs are the traditional symbols for "is greater than"
 and "is less than", respectively. They are binary operators. Applying
@@ -715,15 +717,15 @@ this case.
 
 Strings can be compared in the same way.
 
-```
+<pre>
 console.log(&quot;Aardvark&quot; &lt; &quot;Zoroaster&quot;)
-// ~→~ true
-```
+// <i>~→~ true</i>
+</pre>
 
 The way strings are ordered is more or less alphabetic: uppercase
 letters are always "less" than lowercase ones, so &quot;Z&quot; &lt; &quot;a&quot; is
 true, and nonalphabetic characters (!, -, and so on) are also included
-in the ordering. The actual comparison is based on the *Unicode*
+in the ordering. The actual comparison is based on the <i>Unicode</i>
 standard. This standard assigns a number to virtually every character
 you would ever need, including characters from Greek, Arabic, Japanese,
 Tamil, and so on. Having such numbers is useful for storing strings
@@ -735,48 +737,50 @@ one.
 Other similar operators are &gt;= (greater than or equal to), &lt;= (less
 than or equal to), == (equal to), and != (not equal to).
 
-```
+<pre>
 console.log(&quot;Itchy&quot; != &quot;Scratchy&quot;)
-// ~→~ true
-```
+// <i>~→~ true</i>
+</pre>
 
 There is only one value in JavaScript that is not equal to itself, and
 that is NaN, which stands for "not a number".
 
-```
+<pre>
 console.log(NaN == NaN)
-// ~→~ false
-```
+// <i>~→~ false</i>
+</pre>
 
 NaN is supposed to denote the result of a nonsensical computation, and
-as such, it isn't equal to the result of any *other* nonsensical
+as such, it isn't equal to the result of any <i>other</i> nonsensical
 computations.
 
 <h5>Logical operators</h5>
 
 There are also some operations that can be applied to Boolean values
-themselves. JavaScript supports three logical operators: *and*, *or*,
-and *not*. These can be used to "reason" about Booleans.
+themselves. JavaScript supports three logical operators: <i>and</i>, <i>or</i>,
+and <i>not</i>. These can be used to "reason" about Booleans.
 
-The && operator represents logical *and*. It is a binary operator, and
+The && operator represents logical <i>and</i>. It is a binary operator, and
 its result is true only if both the values given to it are true.
 
 ```
 console.log(true && false)
-// ~→~ false console.log(true && true)
-// ~→~ true
+// <i>~→~ false</i>
+console.log(true && true)
+// <i>~→~ true</i>
 ```
 
-The &vert;&vert; operator denotes logical *or*. It produces true if either of
+The &vert;&vert; operator denotes logical <i>or</i>. It produces true if either of
 the values given to it is true.
 
-```
+<pre>
 console.log(false &vert;&vert; true)
-// ~→~ true console.log(false &vert;&vert; false)
-// ~→~ false
-```
+// <i>~→~ true</i>
+console.log(false &vert;&vert; false)
+// <i>~→~ false</i>
+</pre>
 
-*Not* is written as an exclamation mark (!). It is a unary operator that
+<i>Not</i> is written as an exclamation mark (!). It is a unary operator that
 flips the value given to it---!true produces false and !false gives
 true.
 
@@ -788,24 +792,24 @@ operators (&gt;, ==, and so on), and then the rest. This order has been
 chosen such that, in typical expressions like the following one, as few
 parentheses as possible are necessary:
 
-```
+<pre>
 1 + 1 == 2 && 10 &ast; 10 &gt; 50
-```
+</pre>
 
 The last logical operator I will discuss is not unary, not binary, but
-*ternary*, operating on three values. It is written with a question mark
+<i>ternary</i>, operating on three values. It is written with a question mark
 and a colon, like this:
 
-```
+<pre>
 console.log(true ? 1 : 2);
-// ~→~ 1
+// <i>~→~ 1</i>
 
 console.log(false ? 1 : 2);
-// ~→~ 2
-```
+// <i>~→~ 2</i>
+</pre>
 
-This one is called the *conditional* operator (or sometimes just
-*ternary* operator since it is the only such operator in the language).
+This one is called the <i>conditional</i> operator (or sometimes just
+<i>ternary</i> operator since it is the only such operator in the language).
 The value on the left of the question mark "picks" which of the other
 two values will come out. When it is true, the middle value is chosen,
 and when it is false, the value on the right comes out.
@@ -818,7 +822,7 @@ but they carry no information.
 
 Many operations in the language that don't produce a meaningful value
 (you'll see some later) yield undefined simply because they have to
-yield *some* value.
+yield <i>some</i> value.
 
 The difference in meaning between undefined and null is an accident of
 JavaScript's design, and it doesn't matter most of the time. In the
@@ -831,25 +835,27 @@ In the introduction, I mentioned that JavaScript goes out of its way to
 accept almost any program you give it, even programs that do odd things.
 This is nicely demonstrated by the following expressions:
 
-```
+<pre>
 console.log(8 &ast; null)
-// ~→~ 0
+// <i>~→~ 0</i>
 
 console.log(&quot;5&quot; - 1)
-// ~→~ 4
+// <i>~→~ 4</i>
 
 console.log(&quot;5&quot; + 1)
-// ~→~ 51
+// <i>~→~ 51</i>
 
-console.log(&quot;five&quot; &ast; 2) // ~→~ NaN
+console.log(&quot;five&quot; &ast; 2) 
+// <i>~→~ NaN</i>
+
 console.log(false == 0)
-// ~→~ true
+// <i>~→~ true</i>
 ```
 
 When an operator is applied to the "wrong" type of value, JavaScript
 will quietly convert that value to the type it wants, using a set of
-rules that often aren't what you want or expect. This is called *type
-coercion*. So the null in the first expression becomes 0, and the &quot;5&quot;
+rules that often aren't what you want or expect. This is called <i>type
+coercion</i>. So the null in the first expression becomes 0, and the &quot;5&quot;
 in the second expression becomes 5 (from string to number). Yet in the
 third expression, + tries string concatenation before numeric addition,
 so the 1 is converted to &quot;1&quot; (from number to string).
@@ -870,11 +876,12 @@ type. However, when null or undefined occurs on either side of the
 operator, it produces true only if both sides are one of null or
 undefined.
 
-```
+<pre>
 console.log(null == undefined);
-// ~→~ true console.log(null == 0);
-// ~→~ false
-```
+// <i>~→~ true</i>
+console.log(null == 0);
+// <i>~→~ false</i>
+</pre>
 
 That last piece of behavior is often useful. When you want to test
 whether a value has a real value instead of null or undefined, you can
@@ -995,7 +1002,6 @@ The simplest kind of statement is an expression with a semicolon after
 it. This is a program:
 
 1;
-
 !false;
 
 It is a useless program, though. An expression can be content to just
@@ -1030,7 +1036,7 @@ var caught = 5 &ast; 5;
 ```
 
 And that gives us our second kind of statement. The special word
-(*keyword*) var indicates that this sentence is going to define a
+(<i>keyword</i>) var indicates that this sentence is going to define a
 variable. It is followed by the name of the variable and, if we want to
 immediately give it a value, by an = operator and an expression.
 
@@ -1041,10 +1047,10 @@ After a variable has been defined, its name can be used as an
 expression. The value of such an expression is the value the variable
 currently holds. Here's an example:
 
-```
+<pre>
 var ten = 10; console.log(ten &ast; ten);
 // ~→~ 100
-```
+</pre>
 
 Variable names can be any word that isn't a reserved word (such as var).
 They may not include spaces. Digits can also be part of variable
@@ -1058,18 +1064,20 @@ variables to disconnect them from their current value and have them
 point to a new one.
 
 ```
-var mood = &quot;light&quot;; console.log(mood);
-// ~→~ light mood = &quot;dark&quot;; console.log(mood);
-// ~→~ dark
+var mood = &quot;light&quot;; 
+console.log(mood);
+// <i>~→~ light mood = &quot;dark&quot;;</i>
+console.log(mood);
+// <i>~→~ dark</i>
 ```
 
 You should imagine variables as tentacles, rather than boxes. They do
-not *contain* values; they *grasp* them---two variables can refer to the
+not <i>contain</i> values; they <i>grasp</i> them---two variables can refer to the
 same value. A program can access only the values that it still has a
 hold on. When you need to remember something, you grow a tentacle to
 hold on to it or you reattach one of your existing tentacles to it.
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 03.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 03. three horizontal blue lines (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
   <img src="./images/image003.jpg"
   title=""
@@ -1083,7 +1091,8 @@ still owes you, you create a variable. And then when he pays back &dollar;35,
 you give this variable a new value.
 
 ```
-var luigisDebt = 140; luigisDebt = luigisDebt - 35;
+var luigisDebt = 140; 
+luigisDebt = luigisDebt - 35;
 console.log(luigisDebt);
 // ~→~ 105
 ```
@@ -1103,7 +1112,7 @@ console.log(one + two);
 
 <h3>Keywords and reserved words</h3>
 
-Words with a special meaning, such as var, are *keywords*, and they may
+Words with a special meaning, such as var, are <i>keywords</i>, and they may
 not be used as variable names. There are also a number of words that are
 "reserved for use" in future versions of JavaScript. These are also
 officially not allowed to be used as variable names, though some
@@ -1122,7 +1131,7 @@ problem when a variable definition does not work as expected.
 <h3>The environment</h3>
 
 The collection of variables and their values that exist at a given time
-is called the *environment*. When a program starts up, this environment
+is called the <i>environment</i>. When a program starts up, this environment
 is not empty. It always contains variables that are part of the language
 standard, and most of the time, it has variables that provide ways to
 interact with the surrounding system. For example, in a browser, there
@@ -1132,8 +1141,8 @@ loaded website and to read mouse and keyboard input.
 <h3>Functions</h3>
 
 A lot of the values provided in the default environment have the type
-*function*. A function is a piece of program wrapped in a value. Such
-values can be *applied* in order to run the wrapped program. For
+<i>function</i>. A function is a piece of program wrapped in a value. Such
+values can be <i>applied</i> in order to run the wrapped program. For
 example, in a browser environment, the variable alert holds a function
 that shows a little dialog box with a message. It is used like this:
 
@@ -1150,13 +1159,13 @@ alert(&quot;Good morning!&quot;);
 </p>
 <!-- ![](./images/image4.jpg){width="4.023651574803149in" height="0.6651115485564304in"} -->
 
-Executing a function is called *invoking*, *calling*, or *applying* it.
+Executing a function is called <i>invoking</i>, <i>calling</i>, or <i>applying</i> it.
 You can call a function by putting parentheses after an expression that
 produces a function value. Usually you'll directly use the name of the
 variable that holds the function. The values between the parentheses are
 given to the program inside the function. In the example, the alert
 function uses the string that we give it as the text to show in the
-dialog box. Values given to functions are called *arguments*. The alert
+dialog box. Values given to functions are called <i>arguments</i>. The alert
 function needs only one of them, but other functions might need a
 different number or different types of arguments.
 
@@ -1166,7 +1175,7 @@ The alert function can be useful as an output device when experimenting,
 but clicking away all those little windows will get on your nerves. In
 past examples, we've used console.log to output values. Most JavaScript
 systems (including all modern web browsers and Node.js) provide a
-console .log function that writes out its arguments to *some* text
+console .log function that writes out its arguments to <i>some</i> text
 output device. In browsers, the output lands in the JavaScript console.
 This part of the browser interface is hidden by default, but most
 browsers open it when you press F12 or, on Mac, when you press
@@ -1187,7 +1196,7 @@ in Chapter 4.
 
 <h3>Return values</h3>
 
-Showing a dialog box or writing text to the screen is a *side effect*. A
+Showing a dialog box or writing text to the screen is a <i>side effect</i>. A
 lot of functions are useful because of the side effects they produce.
 Functions may also produce values, and in that case, they don't need to
 have a side effect to be useful. For example, the function Math.max
@@ -1198,7 +1207,7 @@ console.log(Math.max(2, 4));
 // ~→~ 4
 ```
 
-When a function produces a value, it is said to *return* that value.
+When a function produces a value, it is said to <i>return</i> that value.
 Anything that produces a value is an expression in JavaScript, which
 means function calls can be used within larger expressions. Here a call
 to Math .min, which is the opposite of Math.max, is used as an input to
@@ -1274,7 +1283,7 @@ Here is the rather trivial schematic representation of straight control flow:
 <h3>Conditional execution</h3>
 
 Executing statements in straight-line order isn't the only option we
-have. An alternative is *conditional execution*, where we choose between
+have. An alternative is <i>conditional execution</i>, where we choose between
 two different routes based on a Boolean value, like this:
 
 Conditional execution is written with the if keyword in JavaScript. In
@@ -1346,9 +1355,9 @@ console.log(0); console.log(2); console.log(4); console.log(6);
 console.log(8); console.log(10); console.log(12);
 
 That works, but the idea of writing a program is to make something
-*less* work, not more. If we needed all even numbers less than 1,000,
+<i>less</i> work, not more. If we needed all even numbers less than 1,000,
 the previous would be unworkable. What we need is a way to repeat some
-code. This form of control flow is called a *loop*:
+code. This form of control flow is called a <i>loop</i>:
 
 Looping control flow allows us to go back to some point in the program
 where we were before and repeat it with our current program state. If we
@@ -1374,7 +1383,7 @@ our variable. Whenever we need to execute multiple statements inside a
 loop, we wrap them in curly braces ({ and }). Braces do for statements
 what parentheses do for expressions: they group them together, making
 them count as a single statement. A sequence of statements wrapped in
-braces is called a *block*.
+braces is called a <i>block</i>.
 
 Many JavaScript programmers wrap every single loop or if body in braces.
 They do this both for the sake of consistency and to avoid having to add
@@ -1464,9 +1473,9 @@ example. The only change is that all the statements that are related to
 the "state" of the loop are now grouped together.
 
 The parentheses after a for keyword must contain two semicolons. The
-part before the first semicolon *initializes* the loop, usually by
-defining a variable. The second part is the expression that *checks*
-whether the loop must continue. The final part *updates* the state of
+part before the first semicolon <i>initializes</i> the loop, usually by
+defining a variable. The second part is the expression that <i>checks</i>
+whether the loop must continue. The final part <i>updates</i> the state of
 the loop after every iteration. In most cases, this is shorter and
 clearer than a while construct.
 
@@ -1509,7 +1518,7 @@ break statement inside is executed.
 
 If you were to leave out that break statement or accidentally write a
 condition that always produces true, your program would get stuck in an
-*infinite loop*. A program stuck in an infinite loop will never finish
+<i>infinite loop</i>. A program stuck in an infinite loop will never finish
 running, which is usually a bad thing.
 
 The continue keyword is similar to break, in that it influences the
@@ -1605,7 +1614,7 @@ Often, raw code does not convey all the information you want a program
 to convey to human readers, or it conveys it in such a cryptic way that
 people might not understand it. At other times, you might just feel
 poetic or want to include some thoughts as part of your program. This is
-what *comments* are for.
+what <i>comments</i> are for.
 
 A comment is a piece of text that is part of a program but is completely
 ignored by the computer. JavaScript has two ways of writing comments. To
@@ -1669,7 +1678,7 @@ solve the exercise. If you run into problems, consider reading the hints
 (!interactive after the exercise!)at the end of the book. Full solutions
 to the exercises are not included in this book, but you can find them
 online at
-[*eloquentjavascript.net/code*](http://eloquentjavascript.net/code). If
+[<i>eloquentjavascript.net/code</i>](http://eloquentjavascript.net/code). If
 you want to learn something from the exercises, I recommend looking at
 the solutions only after you've solved the exercise, or at least after
 you've attacked it long and hard enough to have a slight headache.
@@ -1735,9 +1744,9 @@ size = 8 and change the program so that it works for any size,
 outputting a grid of the given width and height.
 
 <blockquote>
-*"People think that computer science is the art of geniuses but the
+<i>"People think that computer science is the art of geniuses but the
 actual reality is the opposite, just many people doing things that
-build on each other, like a wall of mini stones."*
+build on each other, like a wall of mini stones."</i>
 
 ---Donald Knuth
 </blockquote>
@@ -1758,9 +1767,9 @@ style. But in programming, it is indispensable.
 
 Typical adult English speakers have some 20,000 words in their
 vocabulary. Few programming languages come with 20,000 commands built
-in. And the vocabulary that *is* available tends to be more precisely
+in. And the vocabulary that <i>is</i> available tends to be more precisely
 defined, and thus less flexible, than in human language. Therefore, we
-usually *have* to add some of our own vocabulary to avoid repeating
+usually <i>have</i> to add some of our own vocabulary to avoid repeating
 ourselves too much.
 
 ## Defining a function
@@ -1779,8 +1788,8 @@ console.log(square(12));
 ```
 
 A function is created by an expression that starts with the keyword
-function. Functions have a set of *parameters* (in this case, only x)
-and a *body*, which contains the statements that are to be executed when
+function. Functions have a set of <i>parameters</i> (in this case, only x)
+and a <i>body</i>, which contains the statements that are to be executed when
 the function is called. The function body must always be wrapped in
 braces, even when it consists of only a single statement (as in the
 previous example).
@@ -1815,18 +1824,18 @@ the function to return undefined.
 ## Parameters and scopes
 
 The parameters to a function behave like regular variables, but their
-initial values are given by the *caller* of the function, not the code
+initial values are given by the <i>caller</i> of the function, not the code
 in the function itself.
 
 An important property of functions is that the variables created
-inside of them, including their parameters, are *local* to the
+inside of them, including their parameters, are <i>local</i> to the
 function. This means, for example, that the result variable in the
 power example will be newly created every time the function is called,
 and these separate incarnations do not interfere with each other.
 
 This "localness" of variables applies only to the parameters and to
 variables declared with the var keyword inside the function body.
-Variables declared outside of any function are called *global*, because
+Variables declared outside of any function are called <i>global</i>, because
 they are visible throughout the program. It is possible to access such
 variables from inside a function, as long as you haven't declared a
 local variable with the same name.
@@ -1852,7 +1861,7 @@ console.log(x);
 This behavior helps prevent accidental interference between functions.
 If all variables were shared by the whole program, it'd take a lot of
 effort to make sure no name is ever used for two different purposes. And
-if you *did* reuse a variable name, you might see strange effects from
+if you <i>did</i> reuse a variable name, you might see strange effects from
 unrelated code messing with the value of your variable. By treating
 function-local variables as existing only within the function, the
 language makes it possible to read and understand functions as small
@@ -1860,7 +1869,7 @@ universes, without having to worry about all the code at once.
 
 ## Nested scope
 
-JavaScript distinguishes not just between *global* and *local*
+JavaScript distinguishes not just between <i>global</i> and <i>local</i>
 variables. Functions can be created inside other functions, producing
 several degrees of locality.
 
@@ -1896,10 +1905,10 @@ contain
 
 it. The set of variables visible inside a function is determined by the
 place of that function in the program text. All variables from blocks
-*around* a function's definition are visible---meaning both those in
+<i>around</i> a function's definition are visible---meaning both those in
 function bodies that enclose it and those at the top level of the
-program. This approach to variable visibility is called *lexical
-scoping*.
+program. This approach to variable visibility is called <i>lexical
+scoping</i>.
 
 People who have experience with other programming languages might expect
 that any block of code between braces produces a new local environment.
@@ -1921,8 +1930,8 @@ they are useful only to group the body of an if statement or a loop.
 
 If you find this odd, you're not alone. The next version of JavaScript
 will introduce a let keyword, which works like var but creates a
-variable that is local to the enclosing *block*, not the enclosing
-*function*.
+variable that is local to the enclosing <i>block</i>, not the enclosing
+<i>function</i>.
 
 ## Functions as values
 
@@ -1959,7 +1968,7 @@ return x &ast; x;
 }
 ```
 
-This is a function *declaration*. The statement defines the variable
+This is a function <i>declaration</i>. The statement defines the variable
 square and points it at the given function. So far so good. There is one
 subtlety with this form of function definition, however.
 
@@ -1970,7 +1979,7 @@ return &quot;We STILL have no flying cars.&quot;;
 }
 ```
 
-This code works, even though the function is defined *below* the code
+This code works, even though the function is defined <i>below</i> the code
 that uses it. This is because function declarations are not part of the
 regular top-to-bottom flow of control. They are conceptually moved to
 the top of their scope and can be used by all the code in that scope.
@@ -2024,7 +2033,7 @@ returns, the computer must remember the context from which the function
 was called. In one case, console.log has to jump back to the greet
 function. In the other case, it jumps back to the end of the program.
 
-The place where the computer stores this context is the *call stack*.
+The place where the computer stores this context is the <i>call stack</i>.
 Every time a function is called, the current context is put on top of
 this "stack". When the function returns, it removes the top context from
 the stack and uses it to continue execution.
