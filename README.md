@@ -3753,8 +3753,10 @@ the previous chapter. It contains two array-traversing loops.
 ```
 function gatherCorrelations(journal) {
 var phis = {};
-for (var entry = 0; entry &lt; journal.length; entry++) {
-var events = journal&lbrack;entry&rbrack;.events; for (var i = 0; i &lt;
+for (var entry = 0; entry &lt; 
+journal.length; entry++) {
+var events = journal&lbrack;entry&rbrack;.events; 
+for (var i = 0; i &lt;
 events.length; i++) {
 var event = events&lbrack;i&rbrack;; if (!(event in phis))
 phis&lbrack;event&rbrack; = phi(tableFor(event, journal));
@@ -3922,7 +3924,8 @@ converts it to the value it encodes.
 
 ```
 var string = JSON.stringify({name: &quot;X&quot;, born: 1980});
-console.log(string); // ~→~ {&quot;name&quot;:&quot;X&quot;,&quot;born&quot;:1980}
+console.log(string); 
+// ~→~ {&quot;name&quot;:&quot;X&quot;,&quot;born&quot;:1980}
 console.log(JSON.parse(string).born);
 // ~→~ 1980
 ```
@@ -5043,44 +5046,26 @@ array.
 ```
 function repeat(string, times) { var result = &quot;&quot;; for (var i = 0; i
 &lt; times; i++)
-
 result += string;
-
 return result;
-
 }
-
 function TextCell(text) {
-
 this.text = text.split(&quot;&bsol;&bsol;n&quot;);
-
 }
-
 TextCell.prototype.minWidth = function() { return
 this.text.reduce(function(width, line) {
-
 return Math.max(width, line.length);
-
 }, 0);
-
 };
-
 TextCell.prototype.minHeight = function() {
-
 return this.text.length;
-
 };
-
 TextCell.prototype.draw = function(width, height) { var result = &lbrack;&rbrack;;
 for (var i = 0; i &lt; height; i++) {
 var line = this.text&lbrack;i&rbrack; &vert;&vert; &quot;&quot;;
-
 result.push(line + repeat(&quot; &quot;, width - line.length));
-
 }
-
 return result;
-
 };
 ```
 
@@ -5092,32 +5077,22 @@ required length.
 Let's try everything we've written so far by building up a 5 × 5
 checkerboard.
 
+```
 var rows = &lbrack;&rbrack;; for (var i = 0; i &lt; 5; i++) { var row = &lbrack;&rbrack;; for
 (var j = 0; j &lt; 5; j++) {
-
 if ((j + i) % 2 == 0)
-
 row.push(new TextCell(&quot;##&quot;));
-
 else
-
 row.push(new TextCell(&quot; &quot;));
-
 }
-
 rows.push(row);
-
 }
-
 console.log(drawTable(rows));
-
 // ~→~ &bsol;## &bsol;## &bsol;## // &bsol;## &bsol;##
-
 // &bsol;## &bsol;## &bsol;##
-
 // &bsol;## &bsol;##
-
 // &bsol;## &bsol;## &bsol;##
+```
 
 It works! But since all cells have the same size, the table-layout code
 doesn't really do anything interesting.
@@ -5131,28 +5106,21 @@ We will want to highlight the top row, which contains the column names,
 by underlining the cells with a series of dash characters. No
 problem---we simply write a cell type that handles underlining.
 
+```
 function UnderlinedCell(inner) {
-
 this.inner = inner;
-
 };
-
 UnderlinedCell.prototype.minWidth = function() { return
 this.inner.minWidth();
-
 };
-
 UnderlinedCell.prototype.minHeight = function() { return
 this.inner.minHeight() + 1;
-
 };
-
 UnderlinedCell.prototype.draw = function(width, height) { return
 this.inner.draw(width, height - 1)
-
 .concat(&lbrack;repeat(&quot;-&quot;, width)&rbrack;);
-
 };
+```
 
 An underlined cell *contains* another cell. It reports its minimum size
 as being the same as that of its inner cell (by calling through to that
@@ -5165,32 +5133,23 @@ cell and concatenate a single line full of dashes to it.
 Having an underlining mechanism, we can now write a function that builds
 up a grid of cells from our data set.
 
+```
 function dataTable(data) {
-
 var keys = Object.keys(data&lbrack;0&rbrack;); var headers =
 keys.map(function(name) {
-
 return new UnderlinedCell(new TextCell(name));
-
 });
-
 var body = data.map(function(row) {
-
 return keys.map(function(name) {
-
 return new TextCell(String(row&lbrack;name&rbrack;));
-
 }); });
-
 return &lbrack;headers&rbrack;.concat(body);
-
 } console.log(drawTable(dataTable(MOUNTAINS))); // ~→~ name height
 country
-
 // &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;-//
 Kilimanjaro 5895 Tanzania
-
 // &hellip; etcetera
+```
 
 The standard Object.keys function returns an array of property names in
 an object. The top row of the table must contain underlined cells that
@@ -5223,27 +5182,19 @@ Fortunately, JavaScript provides a technique that gets us the best of
 both worlds. We can specify properties that, from the outside, look like
 normal properties but secretly have methods associated with them.
 
+```
 var pile = {
-
 elements: &lbrack;&quot;eggshell&quot;, &quot;orange peel&quot;, &quot;worm&quot;&rbrack;, get height() {
-
 return this.elements.length;
-
 },
-
 set height(value) {
-
 console.log(&quot;Ignoring attempt to set height to&quot;, value);
-
 } };
-
 console.log(pile.height);
-
 // ~→~ 3
-
 pile.height = 100;
-
 // ~→~ Ignoring attempt to set height to 100
+```
 
 In object literal, the get or set notation for properties allows you to
 specify a function to be run when the property is read or written. You
@@ -5251,18 +5202,15 @@ can also add such a property to an existing object, for example a
 prototype, using the Object.defineProperty function (which we previously
 used to create nonenumerable properties).
 
+```
 Object.defineProperty(TextCell.prototype, &quot;heightProp&quot;, { get:
 function() { return this.text.length; }
-
 });
-
 var cell = new TextCell(&quot;no&bsol;&bsol;nway&quot;); console.log(cell.heightProp);
-
 // ~→~ 2
-
 cell.heightProp = 100; console.log(cell.heightProp);
-
 // ~→~ 2
+```
 
 You can use a similar set property, in the object passed to
 defineProperty , to specify a setter method. When a getter but no setter
@@ -5280,26 +5228,19 @@ We could simply write a whole new constructor with all three methods in
 its prototype. But prototypes may themselves have prototypes, and this
 allows us to do something clever.
 
+```
 function RTextCell(text) {
-
 TextCell.call(this, text);
-
 }
-
 RTextCell.prototype = Object.create(TextCell.prototype);
-
 RTextCell.prototype.draw = function(width, height) { var result =
 &lbrack;&rbrack;; for (var i = 0; i &lt; height; i++) {
-
 var line = this.text&lbrack;i&rbrack; &vert;&vert; &quot;&quot;;
-
 result.push(repeat(&quot; &quot;, width - line.length) + line);
-
 }
-
 return result;
-
 };
+```
 
 We reuse the constructor and the minHeight and minWidth methods from the
 regular TextCell. An RTextCell is now basically equivalent to a
@@ -5319,37 +5260,25 @@ these properties by adding them to our new prototype.
 Now, if we slightly adjust the dataTable function to use RTextCells for
 cells whose value is a number, we get the table we were aiming for.
 
+```
 function dataTable(data) {
-
 var keys = Object.keys(data&lbrack;0&rbrack;); var headers =
 keys.map(function(name) {
-
 return new UnderlinedCell(new TextCell(name));
-
 });
-
 var body = data.map(function(row) {
-
 return keys.map(function(name) { var value = row&lbrack;name&rbrack;; // This was
 changed:
-
 if (typeof value == &quot;number&quot;)
-
 return new RTextCell(String(value));
-
 else
-
 return new TextCell(String(value));
-
 }); });
-
 return &lbrack;headers&rbrack;.concat(body);
-
 }
-
 console.log(drawTable(dataTable(MOUNTAINS)));
-
 // ~→~&hellip; beautifully aligned table
+```
 
 Inheritance is a fundamental part of the object-oriented tradition,
 alongside encapsulation and polymorphism. But while the latter two are
@@ -5378,16 +5307,14 @@ It is occasionally useful to know whether an object was derived from a
 specific constructor. For this, JavaScript provides a binary operator
 called instanceof.
 
+```
 console.log(new RTextCell(&quot;A&quot;) instanceof RTextCell);
-
 // ~→~ true console.log(new RTextCell(&quot;A&quot;) instanceof TextCell); //
 ~→~ true
-
 console.log(new TextCell(&quot;A&quot;) instanceof RTextCell);
-
 // ~→~ false console.log(&lbrack;1&rbrack; instanceof Array);
-
 // ~→~ true
+```
 
 The operator will see through inherited types. An RTextCell is an
 instance of TextCell because RTextCell.prototype derives from
@@ -5442,9 +5369,7 @@ and *y* values.
 
 Add a getter property length to the prototype that computes the length
 of the vector---that is, the distance of the point (*x*, *y*) from the
-origin (0,
-
-0).
+origin (0, 0).
 
 #### Another cell
 
@@ -5503,22 +5428,17 @@ not accurate, so we can freely cut such corners.
 We can define a world with a *plan*, an array of strings that lays out
 the world's grid using one character per square.
 
+```
 var plan = &lbrack;&quot;############################&quot;, &quot;# &bsol;# &bsol;# o ##&quot;, &quot;#
 #&quot;, &quot;# &bsol;##### #&quot;,
-
 &quot;## &bsol;# &bsol;# &bsol;## #&quot;,
-
 &quot;### &bsol;## &bsol;# #&quot;,
-
 &quot;# &bsol;### &bsol;# #&quot;,
-
 &quot;# &bsol;#### #&quot;,
-
 &quot;# &bsol;## o #&quot;, &quot;# o &bsol;# o &bsol;### #&quot;,
-
 &quot;# &bsol;# #&quot;,
-
 &quot;############################&quot;&rbrack;;
+```
 
 The "#" characters in this plan represent walls and rocks, and the "o"
 characters represent critters. The spaces, as you might have guessed,
@@ -5538,16 +5458,14 @@ identified by their x- and y-coordinates. We use a simple type, Vector
 (as seen in the exercises for the previous chapter), to represent these
 coordinate pairs.
 
+```
 function Vector(x, y) {
-
 this.x = x; this.y = y;
-
 }
-
 Vector.prototype.plus = function(other) { return new Vector(this.x +
 other.x, this.y + other.y);
-
 };
+```
 
 Next, we need an object type that models the grid itself. A grid is part
 of a world, but we are making it a separate object (which will be a
@@ -5559,24 +5477,23 @@ To store a grid of values, we have several options. We can use an array
 of row arrays and use two property accesses to get to a specific square,
 like this:
 
+```
 var grid = &lbrack;&lbrack;&quot;top left&quot;, &quot;top middle&quot;, &quot;top right&quot;&rbrack;,
-
 &lbrack;&quot;bottom left&quot;, &quot;bottom middle&quot;, &quot;bottom right&quot;&rbrack;&rbrack;;
-
 console.log(grid&lbrack;1&rbrack;&lbrack;2&rbrack;);
-
 // ~→~ bottom right
+```
 
 Or we can use a single array, with size width × height, and decide that
 the element at (*x*,*y*) is found at position *x* + (*y* × width) in the
 array.
 
+```
 var grid = &lbrack;&quot;top left&quot;, &quot;top middle&quot;, &quot;top right&quot;,
-
 &quot;bottom left&quot;, &quot;bottom middle&quot;, &quot;bottom right&quot;&rbrack;;
 console.log(grid&lbrack;2 + (1 &ast; 3)&rbrack;);
-
 // ~→~ bottom right
+```
 
 Since the actual access to this array will be wrapped in methods on the
 grid object type, it doesn't matter to outside code which approach we
@@ -5586,39 +5503,31 @@ number as an argument, it creates a new empty array of the given length.
 
 This code defines the Grid object, with some basic methods:
 
+```
 function Grid(width, height) {
-
 this.space = new Array(width &ast; height); this.width = width;
-
 this.height = height;
-
 }
-
 Grid.prototype.isInside = function(vector) { return vector.x &gt;= 0 &&
 vector.x &lt; this.width && vector.y &gt;= 0 && vector.y &lt; this.height;
-
 };
-
 Grid.prototype.get = function(vector) { return this.space&lbrack;vector.x +
 this.width &ast; vector.y&rbrack;;
-
 };
-
 Grid.prototype.set = function(vector, value) { this.space&lbrack;vector.x +
 this.width &ast; vector.y&rbrack; = value;
-
 };
+```
 
 And here is a trivial test:
 
+```
 var grid = new Grid(5, 5);
-
 console.log(grid.get(new Vector(1, 1)));
-
 // ~→~ undefined grid.set(new Vector(1, 1), &quot;X&quot;);
 console.log(grid.get(new Vector(1, 1)));
-
 // ~→~ X
+```
 
 ## A critter's programming interface
 
@@ -5639,25 +5548,18 @@ surroundings. We name the eight surrounding squares by their compass
 directions: &quot;n&quot; for north, &quot;ne&quot; for northeast, and so on. Here's the
 object we will use to map from direction names to coordinate offsets:
 
+```
 var directions = {
-
 &quot;n&quot;: new Vector( 0, -1),
-
 &quot;ne&quot;: new Vector( 1, -1),
-
 &quot;e&quot;: new Vector( 1, 0),
-
 &quot;se&quot;: new Vector( 1, 1),
-
 &quot;s&quot;: new Vector( 0, 1),
-
 &quot;sw&quot;: new Vector(-1, 1),
-
 &quot;w&quot;: new Vector(-1, 0),
-
 &quot;nw&quot;: new Vector(-1, -1)
-
 };
+```
 
 The view object has a method look, which takes a direction and returns a
 character, for example &quot;&bsol;&bsol;#&quot; when there is a wall in that direction,
@@ -5669,32 +5571,23 @@ The second returns an array containing all directions with that
 character. For example, a creature sitting left (west) of a wall will
 get &lbrack;&quot;ne&quot;, &quot;e&quot;,
 
+```
 &quot;se&quot;&rbrack; when calling findAll on its view object with the &quot;&bsol;&bsol;#&quot;
 character as argument.
-
 Here is a simple, stupid critter that just follows its nose until it
 hits an obstacle and then bounces off in a random open direction:
-
 function randomElement(array) {
-
 return array&lbrack;Math.floor(Math.random() &ast; array.length)&rbrack;;
-
 }
-
 var directionNames = &quot;n ne e se s sw w nw&quot;.split(&quot; &quot;);
-
 function BouncingCritter() {
-
 this.direction = randomElement(directionNames);
-
 };
-
 BouncingCritter.prototype.act = function(view) { if
 (view.look(this.direction) != &quot; &quot;)
-
 this.direction = view.find(&quot; &quot;) &vert;&vert; &quot;s&quot;;
-
 return {type: &quot;move&quot;, direction: this.direction}; };
+```
 
 The randomElement helper function simply picks a random element from an
 array, using Math.random plus some arithmetic to get a random index.
@@ -5723,24 +5616,18 @@ each character in the map means. It contains a constructor for every
 character---except for the space character, which always refers to null,
 the value we'll use to represent empty space.
 
+```
 function elementFromChar(legend, ch) { if (ch == &quot; &quot;) return null;
-
 var element = new legend&lbrack;ch&rbrack;(); element.originChar = ch;
-
 return element;
-
 }
-
 function World(map, legend) {
-
 var grid = new Grid(map&lbrack;0&rbrack;.length, map.length); this.grid = grid;
 this.legend = legend;
-
 map.forEach(function(line, y) { for (var x = 0; x &lt; line.length; x++)
-
 grid.set(new Vector(x, y), elementFromChar(legend, line&lbrack;x&rbrack;)); });
-
 }
+```
 
 In elementFromChar, first we create an instance of the right type by
 looking up the character's constructor and applying new to it. Then we
@@ -5751,36 +5638,24 @@ We need this originChar property when implementing the world's toString
 method. This method builds up a maplike string from the world's current
 state by performing a two-dimensional loop over the squares on the grid.
 
+```
 function charFromElement(element) {
-
 if (element == null)
-
 return &quot; &quot;;
-
 else
-
 return element.originChar;
-
 }
-
 World.prototype.toString = function() { var output = &quot;&quot;;
-
 for (var y = 0; y &lt; this.grid.height; y++) {
-
 for (var x = 0; x &lt; this.grid.width; x++) {
-
 var element = this.grid.get(new Vector(x, y)); output +=
 charFromElement(element);
-
 }
-
 output += &quot;&bsol;&bsol;n&quot;;
-
 }
-
 return output;
-
 };
+```
 
 A wall is a simple object---it is used only for taking up space and has
 no act method. function Wall() {}
@@ -5789,25 +5664,18 @@ When we try the World object by creating an instance based on the plan
 from earlier in the chapter and then calling toString on it, we get a
 string very similar to the plan we put in.
 
+```
 var world = new World(plan, {&quot;#&quot;: Wall,
-
 &quot;o&quot;: BouncingCritter});
-
 console.log(world.toString()); // ~→~ &bsol;############################
-
 // &bsol;# &bsol;# &bsol;# o &bsol;## // &bsol;# &bsol;# // &bsol;# &bsol;##### &bsol;#
-
 // &bsol;## &bsol;# &bsol;# &bsol;## &bsol;#
-
 // &bsol;### &bsol;## &bsol;# &bsol;#
-
 // &bsol;# &bsol;### &bsol;# &bsol;#
-
 // &bsol;# &bsol;#### &bsol;#
-
 // &bsol;# &bsol;## o &bsol;# // &bsol;# o &bsol;# o &bsol;### &bsol;# // &bsol;# &bsol;# &bsol;#
-
 // &bsol;############################
+```
 
 ## this and its scope
 
@@ -5832,21 +5700,16 @@ to inner functions.
 Another solution is to use the bind method, which allows us to provide
 an explicit this object to bind to.
 
+```
 var test = {
-
 prop: 10,
-
 addPropTo: function(array) { return array.map(function(elt) {
-
 return this.prop + elt;
-
 }.bind(this));
-
 } };
-
 console.log(test.addPropTo(&lbrack;5&rbrack;));
-
 // ~→~ &lbrack;15&rbrack;
+```
 
 The function passed to map is the result of the bind call and thus has
 its this bound to the first argument given to bind---the outer
@@ -5857,23 +5720,17 @@ take an optional second argument that can also be used to provide a this
 for the calls to the iteration function. So you could express the
 previous example in a slightly simpler way.
 
+```
 var test = {
-
 prop: 10,
-
 addPropTo: function(array) { return array.map(function(elt) {
-
 return this.prop + elt;
-
 }, this); // ← no bind
-
 }
-
 };
-
 console.log(test.addPropTo(&lbrack;5&rbrack;));
-
 // ~→~ &lbrack;15&rbrack;
+```
 
 This works only for higher-order functions that support such a *context*
 parameter. When they don't, you'll need to use one of the other
@@ -5885,20 +5742,16 @@ argument. For example, here is a forEach method for our Grid type, which
 calls a given function for each element in the grid that isn't null or
 undefined:
 
+```
 Grid.prototype.forEach = function(f, context) { for (var y = 0; y &lt;
 this.height; y++) {
-
 for (var x = 0; x &lt; this.width; x++) {
-
 var value = this.space&lbrack;x + y &ast; this.width&rbrack;; if (value != null)
-
 f.call(context, value, new Vector(x, y));
-
 }
-
 }
-
 };
+```
 
 ## Animating life
 
@@ -5915,52 +5768,39 @@ that we haven't looked at yet, and we'll allow them to move *again* when
 we reach that square. Thus, we have to keep an array of critters that
 have already had their turn and ignore them when we see them again.
 
+```
 World.prototype.turn = function() { var acted = &lbrack;&rbrack;;
-
 this.grid.forEach(function(critter, vector) {
-
 if (critter.act && acted.indexOf(critter) == -1) {
-
 acted.push(critter);
-
 this.letAct(critter, vector);
-
 } }, this);
-
 };
+```
 
 We use the second parameter to the grid's forEach method to be able to
 access the correct this inside the inner function. The letAct method
 contains the actual logic that allows the critters to move.
 
+```
 World.prototype.letAct = function(critter, vector) { var action =
 critter.act(new View(this, vector)); if (action && action.type ==
 &quot;move&quot;) {
-
 var dest = this.checkDestination(action, vector); if (dest &&
 this.grid.get(dest) == null) {
-
 this.grid.set(vector, null);
-
 this.grid.set(dest, critter);
-
 }
-
 }
-
 };
-
 World.prototype.checkDestination = function(action, vector) { if
 (directions.hasOwnProperty(action.direction)) {
-
 var dest = vector.plus(directions&lbrack;action.direction&rbrack;); if
 (this.grid.isInside(dest))
-
 return dest;
-
 }
-
 };
+```
 
 First, we simply ask the critter to act, passing it a view object that
 knows about the world and the critter's current position in that world
@@ -9612,25 +9452,19 @@ Or imagine you are building a giant robotic dinosaur and need to program
 its behavior. JavaScript might not be the most effective way to do this.
 You might instead opt for a language that looks like this:
 
+```
 behavior walk
-
 perform when
-
 destination ahead
-
 actions
-
 move left-foot move right-foot
-
 behavior attack
-
 perform when
-
 Godzilla in-view actions
-
 fire laser-eyes launch arm-rockets
+```
 
-This is what is usually called a *domain-specific language*, a language
+This is what is usually called a <i>domain-specific language</i>, a language
 tailored to express a narrow domain of knowledge. Such a language can be
 more expressive than a general-purpose language because it is designed
 to express exactly the things that need expressing in its domain and
@@ -9656,11 +9490,11 @@ The following program illustrates this: function f returns a function
 that adds its argument to f's argument, meaning that it needs access to
 the local scope inside f to be able to use variable a.
 
+```
 run(&quot;do(define(f, fun(a, fun(b, +(a, b)))),&quot;,
-
 &quot; print(f(4)(5)))&quot;);
-
-// ~→~ 9
+// <i>~→~ 9</i>
+```
 
 Go back to the definition of the fun form and explain which mechanism
 causes this to work.
@@ -10314,28 +10148,20 @@ document for text nodes containing a given string and returns true when
 it has found one:
 
 function talksAbout(node, string) {
-
-if (node.nodeType == document.ELEMENT_NODE) { for (var i = 0; i &lt;
-node.childNodes.length; i++) {
-
-if (talksAbout(node.childNodes&lbrack;i&rbrack;, string))
-
-return true;
-
+  if (node.nodeType == document.ELEMENT_NODE) { 
+    for (var i = 0; 
+      i &lt; node.childNodes.length; i++) {
+      if (talksAbout(node.childNodes&lbrack;i&rbrack;, string))
+        return true;
+      }
+        return false;
+      } else if (node.nodeType == document.TEXT_NODE) { 
+	    return node.nodeValue.indexOf(string) &gt; -1;
+      }
 }
-
-return false;
-
-} else if (node.nodeType == document.TEXT_NODE) { return
-node.nodeValue.indexOf(string) &gt; -1;
-
-}
-
-}
-
 console.log(talksAbout(document.body, &quot;book&quot;));
-
-// ~→~ true
+// <i>~→~ true</i>
+```
 
 The nodeValue property of a text node refers to the string of text that
 it represents.
@@ -21628,3 +21454,7 @@ Zawinski, Jamie, 164 zero-based counting, 60, 63, 170 zeroPad function,
 
 [Project: Skill-Sharing Website
 [448](#project-skill-sharing-website-1)](#project-skill-sharing-website-1)
+
+<!-- readme.md of JS-Eloquent in bbauska.github.com... -->
+<!-- @nbsp; <br/> -->
+<!-- the end 12/15/2024 @5:41pm -->
