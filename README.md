@@ -850,7 +850,7 @@ console.log(&quot;five&quot; &ast; 2)
 
 console.log(false == 0)
 // <i>~→~ true</i>
-<pre>
+</pre>
 
 When an operator is applied to the "wrong" type of value, JavaScript
 will quietly convert that value to the type it wants, using a set of
@@ -4177,17 +4177,14 @@ To be able to go from a parent's name to the actual object that
 represents this person, we first build up an object that associates
 names with people.
 
+```
 var byName = {};
-
 ancestry.forEach(function(person) {
-
 byName&lbrack;person.name&rbrack; = person;
-
 });
-
 console.log(byName&lbrack;&quot;Philibert Haverbeke&quot;&rbrack;);
-
 // ~→~ {name: &quot;Philibert Haverbeke&quot;, &hellip;}
+```
 
 Now, the problem is not entirely as simple as following the father
 properties and counting how many we need to reach Pauwels. There are
@@ -4221,24 +4218,18 @@ Given a person, a function to combine values from the two parents of a
 given person, and a default value, reduceAncestors condenses a value
 from a family tree.
 
+```
 function reduceAncestors(person, f, defaultValue) {
-
 function valueFor(person) {
-
 if (person == null)
-
 return defaultValue;
-
 else
-
 return f(person, valueFor(byName&lbrack;person.mother&rbrack;),
 valueFor(byName&lbrack;person.father&rbrack;));
-
 }
-
 return valueFor(person);
-
 }
+```
 
 The inner function (valueFor) handles a single person. Through the magic
 of recursion, it can simply call itself to handle the father and the
