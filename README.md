@@ -211,7 +211,7 @@ program has decided that count is not 11 yet.
 
 Here is the same program in JavaScript:
 
-```
+<pre>
 var total = 0, count = 1; 
 while (count &lt;= 10) {
   total += count; 
@@ -219,7 +219,7 @@ while (count &lt;= 10) {
 }
 console.log(total);
 // <i>~→~ 55</i>
-```
+</pre>
 
 This version gives us a few more improvements. Most importantly, there
 is no need to specify the way we want the program to jump back and forth
@@ -240,10 +240,10 @@ the convenient operations range and sum available, which respectively
 create a collection of numbers within a range and compute the sum of a
 collection of numbers:
 
-```
+<pre>
 console.log(sum(range(1, 10)));
 // <i>~→~ 55</i>
-```
+</pre>
 
 The moral of this story is that the same program can be expressed in
 long and short, unreadable and readable ways. The first version of the
@@ -402,22 +402,22 @@ of programs---sometimes they are self-sufficient fragments, and
 sometimes they just refer to part of a nearby program. Programs (of
 which you have already seen a few), are written as follows:
 
-```
+<pre>
 function fac(n) {
 if (n == 0) return 1;
 else
 return fac(n - 1) &ast; n;
 }
-```
+</pre>
 
 Sometimes, in order to show the output that a program produces, the
 expected output is written after it, with two slashes and an arrow in
 front.
 
-```
+<pre>
 console.log(fac(8));
 // <i>~→~ 40320 Good luck!</i>
-```
+</pre>
 
 <blockquote>
 <i>"Below the surface of the machine, the program moves. Without effort,
@@ -554,9 +554,9 @@ The main thing to do with numbers is arithmetic. Arithmetic operations
 such as addition or multiplication take two number values and produce a
 new number from them. Here is what they look like in JavaScript:
 
-```
+<pre>
 100 + 4 &ast; 11
-```
+</pre>
 
 The + and &ast; symbols are called <i>operators</i>. The first stands for
 addition, and the second stands for multiplication. Putting an operator
@@ -568,9 +568,9 @@ is the multiplication done before the adding? As you might have guessed,
 the multiplication happens first. But as in mathematics, you can change
 this by wrapping the addition in parentheses.
 
-```
+<pre>
 (100 + 4) &ast; 11
-```
+</pre>
 
 For subtraction, there is the - operator, and division can be done with
 the / operator.
@@ -614,10 +614,10 @@ numeric operations that don't yield a precise, meaningful result.
 The next basic data type is the <i>string</i>. Strings are used to represent
 text. They are written by enclosing their content in quotes.
 
-```
+<pre>
 &quot;Patch my boat with chewing gum&quot;
 &apos;Monkeys wave goodbye&apos;
-```
+</pre>
 
 Both single and double quotes can be used to mark strings as long as the
 quotes at the start and the end of the string match.
@@ -637,10 +637,10 @@ an n character occurs after a backslash, it is interpreted as a newline.
 Similarly, a t after a backslash means a tab character. Take the
 following string:
 
-```
+<pre>
 &quot;This is the first line&bsol;&bsol;nAnd this is the second&quot; 
 The actual text contained is this:
-```
+</pre>
 
 This is the first line
 
@@ -652,18 +652,18 @@ each other, they will collapse together, and only one will be left in
 the resulting string value. This is how the string "A newline character
 is written like &quot;&bsol;&bsol;n&quot;." can be expressed:
 
-```
+<pre>
 &quot;A newline character is written like &bsol;&bsol;&quot;&bsol;&bsol;&bsol;&bsol;n&bsol;&bsol;&quot;.&quot;
-```
+</pre>
 
 Strings cannot be divided, multiplied, or subtracted, but the + operator
 <i>can</i> be used on them. It does not add, but it <i>concatenates</i>---it glues
 two strings together. The following line will produce the string
 &quot;concatenate&quot;:
 
-```
+<pre>
 &quot;con&quot; + &quot;cat&quot; + &quot;e&quot; + &quot;nate&quot;
-```
+</pre>
 
 There are more ways of manipulating strings, which we will discuss when
 we get to methods in Chapter 4.
@@ -689,10 +689,10 @@ only one. Operators that use two values are called <i>binary</i> operators,
 while those that take one are called <i>unary</i> operators. The minus
 operator can be used both as a binary operator and as a unary operator.
 
-```
+<pre>
 console.log(- (10 - 2))
 // <i>~→~ -8</i>
-```
+</pre>
 
 <h4>Boolean values</h4>
 
@@ -763,12 +763,12 @@ and <i>not</i>. These can be used to "reason" about Booleans.
 The && operator represents logical <i>and</i>. It is a binary operator, and
 its result is true only if both the values given to it are true.
 
-```
+<pre>
 console.log(true && false)
 // <i>~→~ false</i>
 console.log(true && true)
 // <i>~→~ true</i>
-```
+</pre>
 
 The &vert;&vert; operator denotes logical <i>or</i>. It produces true if either of
 the values given to it is true.
@@ -850,7 +850,7 @@ console.log(&quot;five&quot; &ast; 2)
 
 console.log(false == 0)
 // <i>~→~ true</i>
-```
+<pre>
 
 When an operator is applied to the "wrong" type of value, JavaScript
 will quietly convert that value to the type it wants, using a set of
@@ -917,11 +917,11 @@ that can be converted to true and will return the value on its right
 otherwise. This conversion works as you'd expect for Boolean values and
 should do something analogous for values of other types.
 
-```
+<pre>
 console.log(null &vert;&vert; &quot;user&quot;)
 // ~→~ user console.log(&quot;Karl&quot; &vert;&vert; &quot;user&quot;)
 // ~→~ Karl
-```
+</pre>
 
 This functionality allows the &vert;&vert; operator to be used as a way to fall
 back on a default value. If you give it an expression that might produce
@@ -1031,9 +1031,9 @@ not change the old values, and the new value has to be immediately used
 or it will dissipate again. To catch and hold values, JavaScript
 provides a thing called a *variable*.
 
-```
+<pre>
 var caught = 5 &ast; 5;
-```
+</pre>
 
 And that gives us our second kind of statement. The special word
 (<i>keyword</i>) var indicates that this sentence is going to define a
@@ -1063,13 +1063,13 @@ value forever. The = operator can be used at any time on existing
 variables to disconnect them from their current value and have them
 point to a new one.
 
-```
+<pre>
 var mood = &quot;light&quot;; 
 console.log(mood);
 // <i>~→~ light mood = &quot;dark&quot;;</i>
 console.log(mood);
 // <i>~→~ dark</i>
-```
+</pre>
 
 You should imagine variables as tentacles, rather than boxes. They do
 not <i>contain</i> values; they <i>grasp</i> them---two variables can refer to the
@@ -1090,12 +1090,12 @@ Let's look at an example. To remember the number of dollars that Luigi
 still owes you, you create a variable. And then when he pays back &dollar;35,
 you give this variable a new value.
 
-```
+<pre>
 var luigisDebt = 140; 
 luigisDebt = luigisDebt - 35;
 console.log(luigisDebt);
 // ~→~ 105
-```
+</pre>
 
 When you define a variable without giving it a value, the tentacle has
 nothing to grasp, so it ends in thin air. If you ask for the value of an
@@ -1104,11 +1104,11 @@ empty variable, you'll get the value undefined.
 A single var statement may define multiple variables. The definitions
 must be separated by commas.
 
-```
+<pre>
 var one = 1, two = 2;
 console.log(one + two);
 // ~→~ 3
-```
+</pre>
 
 <h3>Keywords and reserved words</h3>
 
@@ -1146,9 +1146,9 @@ values can be <i>applied</i> in order to run the wrapped program. For
 example, in a browser environment, the variable alert holds a function
 that shows a little dialog box with a message. It is used like this:
 
-```
+<pre>
 alert(&quot;Good morning!&quot;);
-```
+</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 04.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1182,11 +1182,11 @@ browsers open it when you press F12 or, on Mac, when you press
 Command-Option-I. If that does not work, search through the menus for an
 item named "web console" or "developer tools".
 
-```
+<pre>
 var x = 30;
 console.log(&quot;the value of x is&quot;, x);
 // ~→~ the value of x is 30
-```
+</pre>
 
 Though variable names cannot contain period characters, console.log
 clearly has one. This is because console.log isn't a simple variable. It
@@ -1202,10 +1202,10 @@ Functions may also produce values, and in that case, they don't need to
 have a side effect to be useful. For example, the function Math.max
 takes any number of number values and gives back the greatest.
 
-```
+<pre>
 console.log(Math.max(2, 4));
 // ~→~ 4
-```
+</pre>
 
 When a function produces a value, it is said to <i>return</i> that value.
 Anything that produces a value is an expression in JavaScript, which
@@ -1213,10 +1213,10 @@ means function calls can be used within larger expressions. Here a call
 to Math .min, which is the opposite of Math.max, is used as an input to
 the plus operator:
 
-```
+<pre>
 console.log(Math.min(2, 4) + 100);
 // ~→~ 102
-```
+</pre>
 
 The next chapter explains how to write your own functions.
 
@@ -1227,9 +1227,9 @@ up windows. You can ask the user an OK/Cancel question using confirm.
 This returns a Boolean: true if the user clicks OK and false if the user
 clicks Cancel.
 
-```
+<pre>
 confirm(&quot;Shall we, then?&quot;);
-```
+</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 05.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1245,9 +1245,9 @@ argument is the question, the second one is the text that the user
 starts with. A line of text can be typed into the dialog window, and the
 function will return this text as a string.
 
-```
+<pre>
 prompt(&quot;Tell me everything you know.&quot;, &quot;&hellip;&quot;);
-```
+</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 06.  (##) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p align="left">
@@ -1292,11 +1292,11 @@ a certain condition holds. For example, in the previous program, we
 might want to show the square of the input only if the input is actually
 a number. var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;));
 
-```
+<pre>
 if (!isNaN(theNumber))
 alert(&quot;Your number is the square root of &quot; + theNumber &ast;
 theNumber);
-```
+</pre>
 
 With this modification, if you enter "cheese", no output will be shown.
 
@@ -1316,26 +1316,25 @@ represented by the second arrow in the diagram. The else keyword can be
 used, together with if, to create two separate, alternative execution
 paths.
 
-```
+<pre>
 var theNumber = Number(prompt(&quot;Pick a number&quot;, &quot;&quot;));
 if (!isNaN(theNumber))
-alert(&quot;Your number is the square root of &quot; + theNumber &ast;
-theNumber);
+  alert(&quot;Your number is the square root of &quot; + theNumber &ast; theNumber);
 else
-alert(&quot;Hey. Why didn&apos;t you give me a number?&quot;);
-```
+  alert(&quot;Hey. Why didn&apos;t you give me a number?&quot;);
+</pre>
 
 If we have more than two paths to choose from, multiple if/else pairs
 can be "chained" together. Here's an example: var num =
 Number(prompt(&quot;Pick a number&quot;, &quot;0&quot;));
 
-```
+<pre>
 if (num &lt; 10)
 alert(&quot;Small&quot;);
 else if (num &lt; 100) alert(&quot;Medium&quot;);
 else
 alert(&quot;Large&quot;);
-```
+</pre>
 
 The program will first check whether num is less than 10. If it is, it
 chooses that branch, shows &quot;Small&quot;, and is done. If it isn't, it takes
@@ -1363,7 +1362,7 @@ Looping control flow allows us to go back to some point in the program
 where we were before and repeat it with our current program state. If we
 combine this with a variable that counts, we can do something like this:
 
-```
+<pre>
 var number = 0; 
 while (number &lt;= 12) { console.log(number);
   number = number + 2;
@@ -1371,7 +1370,7 @@ while (number &lt;= 12) { console.log(number);
 // ~→~ 0
 // ~→~ 2
 // &hellip; etcetera
-```
+</pre>
 
 A statement starting with the keyword while creates a loop. The word
 while is followed by an expression in parentheses and then a statement,
@@ -1405,14 +1404,14 @@ count how often we have multiplied this result by 2. The loop tests
 whether the second variable has reached 10 yet and then updates both
 variables.
 
-```
+<pre>
 var result = 1; var counter = 0;
 while (counter &lt; 10) { result = result &ast; 2;
   counter = counter + 1;
 }
 console.log(result);
 // ~→~ 1024
-```
+</pre>
 
 The counter could also start at 1 and check for &lt;= 10, but, for reasons
 that will become apparent in Chapter 4, it is a good idea to get used to
@@ -1423,11 +1422,11 @@ only on one point: a do loop always executes its body at least once, and
 it starts testing whether it should stop only after that first
 execution. To reflect this, the test appears after the body of the loop:
 
-```
+<pre>
 do {
 var name = prompt(&quot;Who are you?&quot;);
 } while (!name); console.log(name);
-```
+</pre>
 
 This program will force you to enter a name. It will ask again and again
 until it gets something that is not an empty string. Applying the !
@@ -1459,14 +1458,14 @@ loop body, the counter is updated to track progress.
 Because this pattern is so common, JavaScript and similar languages
 provide a slightly shorter and more comprehensive form, the for loop.
 
-```
+<pre>
 for (var number = 0; 
   number &lt;= 12; number = number + 2)
   console.log(number);
 // ~→~ 0
 // ~→~ 2
 // &hellip; etcetera
-```
+</pre>
 
 This program is exactly equivalent to the earlier even-number-printing
 example. The only change is that all the statements that are related to
@@ -1481,12 +1480,12 @@ clearer than a while construct.
 
 Here is the code that computes 2^10^, using for instead of while:
 
-```
+<pre>
 var result = 1;
 for (var counter = 0; counter &lt; 10; counter = counter + 1)
 result = result &ast; 2; console.log(result);
 // ~→~ 1024
-```
+</pre>
 
 Note that even though no block is opened with a {, the statement in the
 loop is still indented two spaces to make it clear that it "belongs" to
@@ -1501,12 +1500,12 @@ immediately jumping out of the enclosing loop.
 This program illustrates the break statement. It finds the first number
 that is both greater than or equal to 20 and divisible by 7.
 
-```
+<pre>
 for (var current = 20; ; current++) {
 if (current % 7 == 0) break; }
 console.log(current);
 // ~→~ 21
-```
+</pre>
 
 Using the remainder (%) operator is an easy way to test whether a number
 is divisible by another number. If it is, the remainder of their
@@ -1533,9 +1532,9 @@ counter + 1;
 
 JavaScript provides a shortcut for this:
 
-```
+<pre>
 counter += 1;
-```
+</pre>
 
 Similar shortcuts work for many other operators, such as result &ast;= 2 to
 double result or counter -= 1 to count downward.
@@ -1561,7 +1560,7 @@ uses for this (which it inherited from the C/Java line of programming
 languages) is somewhat awkward---a chain of if statements often looks
 better. Here is an example:
 
-```
+<pre>
 switch (prompt(&quot;What is the weather like?&quot;)) {
 case &quot;rainy&quot;:
 console.log(&quot;Remember to bring an umbrella.&quot;); break;
@@ -1571,7 +1570,7 @@ console.log(&quot;Go outside.&quot;);
 break; default: console.log(&quot;Unknown weather type!&quot;);
 break;
 }
-```
+</pre>
 
 You may put any number of case labels inside the block opened by switch.
 The program will jump to the label that corresponds to the value that
@@ -1590,10 +1589,10 @@ multiple words to clearly describe what the variable represents. These
 are pretty much your choices for writing a variable name with several
 words in it:
 
-```
+<pre>
 fuzzylittleturtle fuzzy_little_turtle FuzzyLittleTurtle
 fuzzyLittleTurtle
-```
+</pre>
 
 The first style can be hard to read. Personally, I like the look of the
 underscores, though that style is a little painful to type. The standard
@@ -1624,12 +1623,12 @@ then the comment text after it.
 var accountBalance = calculateBalance(account); // It&apos;s a green
 hollow where a river sings accountBalance.adjust();
 
-```
+<pre>
 // Madly catching white tatters in the grass. var report = new Report();
 // Where the sun on the proud mountain rings:
 addToReport(accountBalance, report);
 // It&apos;s a little valley, foaming like light in a glass.
-```
+</pre>
 
 A // comment goes only to the end of the line. A section of text between
 /&ast; and &ast;/ will be ignored, regardless of whether it contains line
@@ -1643,10 +1642,10 @@ a few years ago. Since then, it has often dropped by, showing up in
 phone numbers and the serial numbers of products that I&apos;ve bought. It
 obviously likes me, so I&apos;ve decided to keep it.
 
-```
+<pre>
 &ast;/
 var myNumber = 11213;
-```
+</pre>
 
 <h3>Summary</h3>
 
@@ -1688,7 +1687,7 @@ you've attacked it long and hard enough to have a slight headache.
 Write a loop that makes seven calls to console.log to output the
 following triangle:
 
-```
+<pre>
 &bsol;#
 &bsol;##
 &bsol;###
@@ -1696,16 +1695,16 @@ following triangle:
 &bsol;#####
 &bsol;######
 &bsol;#######
-```
+</pre>
 
 It may be useful to know that you can find the length of a string by
 writing .length after it.
 
-```
+<pre>
 var abc = &quot;abc&quot;;
 console.log(abc.length);
 // ~→~ 3
-```
+</pre>
 
 #### FizzBuzz
 
@@ -1731,13 +1730,13 @@ board.
 
 Passing this string to console.log should show something like this:
 
-```
+<pre>
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;# &bsol;#
 &bsol;# &bsol;# &bsol;# &bsol;#
 &bsol;# &bsol;# &bsol;# &bsol;#
-```
+</pre>
 
 When you have a program that generates this pattern, define a variable
 size = 8 and change the program so that it works for any size,
@@ -1779,13 +1778,13 @@ value given to the variable happens to be a function. For example, the
 following code defines the variable square to refer to a function that
 produces the square of a given number:
 
-```
+<pre>
 var square = function(x) {
 return x &ast; x;
 };
 console.log(square(12));
 // ~→~ 144
-```
+</pre>
 
 A function is created by an expression that starts with the keyword
 function. Functions have a set of <i>parameters</i> (in this case, only x)
@@ -1798,7 +1797,7 @@ A function can have multiple parameters or no parameters at all. In the
 following example, makeNoise does not list any parameter names, whereas
 power lists two:
 
-```
+<pre>
 var makeNoise = function() {
 console.log(&quot;Pling!&quot;);
 };
@@ -1811,7 +1810,7 @@ return result;
 };
 console.log(power(2, 10));
 // ~→~ 1024
-```
+</pre>
 
 Some functions produce a value, such as power and square, and some
 don't, such as makeNoise, which produces only a side effect. A return
@@ -1846,7 +1845,7 @@ variable as local and thus changes only the local variable. The second
 does not declare x locally, so references to x inside of it refer to the
 global variable x defined at the top of the example.
 
-```
+<pre>
 var x = &quot;outside&quot;;
 var f1 = function() {
 var x = &quot;inside f1&quot;;
@@ -1856,7 +1855,7 @@ x = &quot;inside f2&quot;;
 }; f2();
 console.log(x);
 // ~→~ inside f2
-```
+</pre>
 
 This behavior helps prevent accidental interference between functions.
 If all variables were shared by the whole program, it'd take a lot of
@@ -1876,7 +1875,7 @@ several degrees of locality.
 For example, this rather nonsensical function has two functions inside
 of it:
 
-```
+<pre>
 var landscape = function() { var result = &quot;&quot;; 
 var flat = function(size) {
 for (var count = 0; count &lt; size; count++)
@@ -1892,7 +1891,7 @@ flat(3); mountain(4); flat(6); mountain(1); flat(1); return result;
 };
 console.log(landscape());
 // ~→~ &lowbar;&lowbar;&lowbar;/&apos;&apos;&apos;&apos;&bsol;&bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/&apos;&bsol;&bsol;&lowbar;
-```
+</pre>
 
 The flat and mountain functions can "see" the variable called result,
 since they are inside the function that defines it. But they cannot see
@@ -1915,14 +1914,14 @@ that any block of code between braces produces a new local environment.
 But in JavaScript, functions are the only things that create a new
 scope. You are allowed to use free-standing blocks.
 
-```
+<pre>
 var something = 1;
 {
 var something = 2;
 // Do stuff with variable something&hellip;
 }
 // Outside of the block again&hellip;
-```
+</pre>
 
 But the something inside the block refers to the same variable as the
 one outside the block. In fact, although blocks like this are allowed,
@@ -1946,12 +1945,12 @@ it as an argument to a function, and so on. Similarly, a variable that
 holds a function is still just a regular variable and can be assigned a
 new value, like so:
 
-```
+<pre>
 var launchMissiles = function(value) {
 missileSystem.launch(&quot;now&quot;);
 }; if (safeMode)
 launchMissiles = function(value) {/&ast; do nothing &ast;/};
-```
+</pre>
 
 In Chapter 5, we will discuss the wonderful things that can be done by
 passing around function values to other functions.
@@ -1962,22 +1961,22 @@ There is a slightly shorter way to say "var square = &hellip;function". The
 function keyword can also be used at the start of a statement, as in the
 following:
 
-```
+<pre>
 function square(x) {
 return x &ast; x;
 }
-```
+</pre>
 
 This is a function <i>declaration</i>. The statement defines the variable
 square and points it at the given function. So far so good. There is one
 subtlety with this form of function definition, however.
 
-```
+<pre>
 console.log(&quot;The future says:&quot;, future());
 function future() {
 return &quot;We STILL have no flying cars.&quot;;
 }
-```
+</pre>
 
 This code works, even though the function is defined <i>below</i> the code
 that uses it. This is because function declarations are not part of the
@@ -1995,12 +1994,12 @@ forbids it. If you want your programs to behave consistently, only use
 this form of functiondefining statements in the outermost block of a
 function or program.
 
-```
+<pre>
 function example() { function a() {} // Okay if (something) {
 function b() {} // Danger!
 }
 }
-```
+</pre>
 
 ## The call stack
 
@@ -2008,11 +2007,11 @@ It will be helpful to take a closer look at the way control flows
 through functions. Here is a simple program that makes a few function
 calls:
 
-```
+<pre>
 function greet(who) {
 console.log(&quot;Hello &quot; + who);
 } greet(&quot;Harry&quot;); console.log(&quot;Bye&quot;);
-```
+</pre>
 
 A run through this program goes roughly like this: the call to greet
 causes control to jump to the start of that function (line 2). It calls
@@ -2046,7 +2045,7 @@ infinite back-and-forth between two functions. Rather, it *would* be
 infinite, if the computer had an infinite stack. As it is, we will run
 out of space, or "blow the stack".
 
-```
+<pre>
 function chicken() {
 return egg();
 }
@@ -2054,7 +2053,7 @@ function egg() {
 return chicken();
 }
 console.log(chicken() + &quot; came first.&quot;); // ~→~ ??
-```
+</pre>
 
 ## Optional Arguments
 
@@ -2080,7 +2079,7 @@ called either with two arguments or with a single argument, in which
 case the exponent is assumed to be two, and the function behaves like
 square.
 
-```
+<pre>
 function power(base, exponent) {
 if (exponent == undefined)
 exponent = 2; var result = 1;
@@ -2092,7 +2091,7 @@ console.log(power(4));
 // ~→~ 16
 console.log(power(4, 3));
 // ~→~ 64
-```
+</pre>
 
 In the next chapter, we will see a way in which a function body can get
 at the exact list of arguments that were passed. This is helpful because
@@ -2100,10 +2099,10 @@ it makes it possible for a function to accept any number of arguments.
 For example, console.log makes use of this---it outputs all of the
 values it is given.
 
-```
+<pre>
 console.log(&quot;R&quot;, 2, &quot;D&quot;, 2);
 // ~→~ R 2 D 2
-```
+</pre>
 
 ## Closure
 
@@ -2116,7 +2115,7 @@ The following code shows an example of this. It defines a function,
 wrapValue, which creates a local variable. It then returns a function
 that accesses and returns this local variable.
 
-```
+<pre>
 function wrapValue(n) {
 var localVariable = n;
 return function() { return localVariable; };
@@ -2126,7 +2125,7 @@ console.log(wrap1());
 // ~→~ 1
 console.log(wrap2());
 // ~→~ 2
-```
+</pre>
 
 This is allowed and works as you'd hope---the variable can still be
 accessed. In fact, multiple instances of the variable can be alive at
@@ -2143,13 +2142,13 @@ variables but also allows for some creative use of function values.
 With a slight change, we can turn the previous example into a way to
 create functions that multiply by an arbitrary amount.
 
-```
+<pre>
 function multiplier(factor) { return function(number) { return number &ast; factor;
 };
 }
 var twice = multiplier(2); console.log(twice(5));
 // ~→~ 10
-```
+</pre>
 
 The explicit localVariable from the wrapValue example isn't needed since
 a parameter is itself a local variable.
@@ -2175,7 +2174,7 @@ care not to overflow the stack. A function that calls itself is called
 different style. Take, for example, this alternative implementation of
 power:
 
-```
+<pre>
 function power(base, exponent) {
 if (exponent == 0)
 return 1;
@@ -2184,7 +2183,7 @@ return base &ast; power(base, exponent - 1);
 }
 console.log(power(2, 3));
 // ~→~ 8
-```
+</pre>
 
 This is rather close to the way mathematicians define exponentiation and
 arguably describes the concept in a more elegant way than the looping
@@ -2240,7 +2239,7 @@ produce that number? For example, the number 13 could be reached by
 first multiplying by 3 and then adding 5 twice, whereas the number 15
 cannot be reached at all. Here is a recursive solution:
 
-```
+<pre>
 function findSolution(target) { function find(start, history) {
 
 if (start == target)
@@ -2255,7 +2254,7 @@ return find(1, &quot;1&quot;);
 }
 console.log(findSolution(24));
 // ~→~ (((1 &ast; 3) + 5) &ast; 3)
-```
+</pre>
 
 Note that this program doesn't necessarily find the *shortest* sequence
 of operations. It is satisfied when it finds any sequence at all.
@@ -2285,7 +2284,7 @@ To better understand how this function produces the effect we're looking
 for, let's look at all the calls to find that are made when searching
 for a solution for the number 13.
 
-```
+<pre>
 find(1, &quot;1&quot;)
 find(6, &quot;(1 + 5)&quot;)
 find(11, &quot;((1 + 5) + 5)&quot;)
@@ -2297,7 +2296,7 @@ find(18, &quot;((1 + 5) &ast; 3)&quot;)
 too big
 find(3, &quot;(1 &ast; 3)&quot;)
 find(8, &quot;((1 &ast; 3) + 5)&quot;) find(13, &quot;(((1 &ast; 3) + 5) + 5)&quot;) found!
-```
+</pre>
 
 The indentation suggests the depth of the call stack. The first time
 find is called it calls itself twice to explore the solutions that start
@@ -2344,7 +2343,7 @@ long.
 
 That clearly asks for a function of two arguments. Let's get coding.
 
-```
+<pre>
 function printFarmInventory(cows, chickens) {
 var cowString = String(cows); while (cowString.length &lt; 3)
 cowString = &quot;0&quot; + cowString;
@@ -2354,7 +2353,7 @@ chickenString = &quot;0&quot; + chickenString;
 console.log(chickenString + &quot; Chickens&quot;);
 }
 printFarmInventory(7, 11);
-```
+</pre>
 
 Adding .length after a string value will give us the length of that
 string. Thus, the while loops keep adding zeros in front of the number
@@ -2369,7 +2368,7 @@ We sure can. But just as we're in the process of copying and pasting
 those four lines one more time, we stop and reconsider. There has to be
 a better way. Here's a first attempt:
 
-```
+<pre>
 function printZeroPaddedWithLabel(number, label) {
 var numberString = String(number); while (numberString.length &lt; 3)
 numberString = &quot;0&quot; + numberString;
@@ -2381,7 +2380,7 @@ printZeroPaddedWithLabel(chickens, &quot;Chickens&quot;);
 printZeroPaddedWithLabel(pigs, &quot;Pigs&quot;);
 }
 printFarmInventory(7, 11, 3);
-```
+</pre>
 
 It works! But that name, printZeroPaddedWithLabel, is a little awkward.
 It conflates three things---printing, zero-padding, and adding a
@@ -2390,7 +2389,7 @@ label---into a single function.
 Instead of lifting out the repeated part of our program wholesale, let's
 try to pick out a single *concept*.
 
-```
+<pre>
 function zeroPad(number, width) { var string = String(number); while
 (string.length &lt; width)
 string = &quot;0&quot; + string;
@@ -2402,7 +2401,7 @@ console.log(zeroPad(chickens, 3) + &quot; Chickens&quot;);
 console.log(zeroPad(pigs, 3) + &quot; Pigs&quot;);
 }
 printFarmInventory(7, 16, 3);
-```
+</pre>
 
 A function with a nice, obvious name like zeroPad makes it easier for
 someone who reads the code to figure out what it does. And it is useful
@@ -2463,13 +2462,13 @@ keyword, when used as an expression, can create a function value. When
 used as a statement, it can be used to declare a variable and give it a
 function as its value.
 
-```
+<pre>
 // Create a function value f var f = function(a) { console.log(a + 2);
 };
 // Declare g to be a function function g(a, b) {
 return a &ast; b &ast; 3.5;
 }
-```
+</pre>
 
 A key aspect in understanding functions is understanding local scopes.
 Parameters and variables declared inside a function are local to the
@@ -2616,13 +2615,13 @@ Fortunately, JavaScript provides a data type specifically for storing
 sequences of values. It is called an *array* and is written as a list of
 values between square brackets, separated by commas.
 
-```
+<pre>
 var listOfNumbers = &lbrack;2, 3, 5, 7, 11&rbrack;;
 console.log(listOfNumbers&lbrack;1&rbrack;);
 // ~→~ 3
 console.log(listOfNumbers&lbrack;1 - 1&rbrack;);
 // ~→~ 2
-```
+</pre>
 
 The notation for getting at the elements inside an array also uses
 square brackets. A pair of square brackets immediately after an
@@ -2651,10 +2650,10 @@ Almost all JavaScript values have properties. The exceptions are null
 and undefined. If you try to access a property on one of these
 nonvalues, you get an error.
 
-```
+<pre>
 null.length;
 // ~→~ TypeError: Cannot read property &apos;length&apos; of null
-```
+</pre>
 
 The two most common ways to access properties in JavaScript are with a
 dot and with square brackets. Both value.x and value&lbrack;x&rbrack; access a
@@ -2689,12 +2688,12 @@ because that is easier to write than array&lbrack;&quot;length&quot;&rbrack;.
 Both string and array objects contain, in addition to the length
 property, a number of properties that refer to function values.
 
-```
+<pre>
 var doh = &quot;Doh&quot;;
 console.log(typeof doh.toUpperCase);
 // ~→~ function console.log(doh.toUpperCase());
 // ~→~ DOH
-```
+</pre>
 
 Every string has a toUpperCase property. When called, it will return a
 copy of the string, in which all letters have been converted to
@@ -2704,16 +2703,16 @@ Interestingly, even though the call to toUpperCase does not pass any
 arguments, the function somehow has access to the string &quot;Doh&quot;, the
 value whose property we called. How this works is described in Chapter
 
-```
+<pre>
 6&bsol;.
-```
+</pre>
 
 Properties that contain functions are generally called *methods* of the
 value they belong to. As in, "toUpperCase is a method of a string".
 
 This example demonstrates some methods that array objects have:
 
-```
+<pre>
 var mack = &lbrack;&rbrack;;
 mack.push(&quot;Mack&quot;); mack.push(&quot;the&quot;, &quot;Knife&quot;);
 console.log(mack);
@@ -2723,7 +2722,7 @@ console.log(mack.pop());
 // ~→~ Knife
 console.log(mack);
 // ~→~ &lbrack;&quot;Mack&quot;, &quot;the&quot;&rbrack;
-```
+</pre>
 
 The push method can be used to add values to the end of an array. The
 pop method does the opposite: it removes the value at the end of the
@@ -2744,7 +2743,7 @@ Values of the type *object* are arbitrary collections of properties, and
 we can add or remove these properties as we please. One way to create an
 object is by using a curly brace notation.
 
-```
+<pre>
 var day1 = {
 squirrel: false,
 events: &lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;, &quot;running&quot;,
@@ -2755,7 +2754,7 @@ console.log(day1.squirrel);
 console.log(day1.wolf); // ~→~ undefined day1.wolf = false;
 console.log(day1.wolf);
 // ~→~ false
-```
+</pre>
 
 Inside the curly braces, we can give a list of properties separated by
 commas. Each property is written as a name, followed by a colon,
@@ -2765,12 +2764,12 @@ lines, indenting it like in the previous example improves readability.
 Properties whose names are not valid variable names or valid numbers
 have to be quoted.
 
-```
+<pre>
 var descriptions = {
 work: &quot;Went to work&quot;,
 &quot;touched tree&quot;: &quot;Touched a tree&quot;
 };
-```
+</pre>
 
 This means that curly braces have *two* meanings in JavaScript. At the
 start of a statement, they start a block of statements. In any other
@@ -2806,14 +2805,14 @@ unary operator that, when applied to a property access expression, will
 remove the named property from the object. This is not a common thing to
 do, but it is possible.
 
-```
+<pre>
 var anObject = {left: 1, right: 2}; console.log(anObject.left);
 // ~→~ 1
 delete anObject.left;
 console.log(anObject.left); // ~→~ undefined console.log(&quot;left&quot; in anObject);
 // ~→~ false console.log(&quot;right&quot; in anObject);
 // ~→~ true
-```
+</pre>
 
 The binary in operator, when applied to a string and an object, returns
 a Boolean value that indicates whether that object has that property.
@@ -2838,7 +2837,7 @@ in a neat row, labeled with numbers.
 
 So we can represent Jacques' journal as an array of objects.
 
-```
+<pre>
 var journal = &lbrack;
 {events: &lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;,
 &quot;running&quot;, &quot;television&quot;&rbrack;, squirrel: false},
@@ -2848,7 +2847,7 @@ var journal = &lbrack;
 &quot;peanuts&quot;, &quot;beer&quot;&rbrack;, squirrel: true},
 /&ast; and so on&hellip; &ast;/
 &rbrack;;
-```
+</pre>
 
 ## Mutability
 
@@ -2873,7 +2872,7 @@ But with objects, there is a difference between having two references to
 the same object and having two different objects that contain the same
 properties. Consider the following code:
 
-```
+<pre>
 var object1 = {value: 10}; 
 var object2 = object1; 
 var object3 = {value: 10};
@@ -2884,7 +2883,7 @@ console.log(object2.value);
 // ~→~ 15
 console.log(object3.value);
 // ~→~ 10
-```
+</pre>
 
 The object1 and object2 variables grasp the *same* object, which is why
 changing object1 also changes the value of object2. The variable object3
@@ -2903,7 +2902,7 @@ be one of the exercises at the end of this chapter).
 So Jacques starts up his JavaScript interpreter and sets up the
 environment he needs to keep his journal.
 
-```
+<pre>
 var journal = &lbrack;&rbrack;;
 function addEntry(events, didITurnIntoASquirrel) {
 journal.push({
@@ -2911,19 +2910,19 @@ events: events,
 squirrel: didITurnIntoASquirrel
 });
 }
-```
+</pre>
 
 And then, every evening at ten---or sometimes the next morning, after
 climbing down from the top shelf of his bookcase---he records the day.
 
-```
+<pre>
 addEntry(&lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;, &quot;running&quot;,
 &quot;television&quot;&rbrack;, false); addEntry(&lbrack;&quot;work&quot;, &quot;ice cream&quot;,
 &quot;cauliflower&quot;, &quot;lasagna&quot;,
 &quot;touched tree&quot;, &quot;brushed teeth&quot;&rbrack;, false); addEntry(&lbrack;&quot;weekend&quot;,
 &quot;cycling&quot;, &quot;break&quot;, &quot;peanuts&quot;,
 &quot;beer&quot;&rbrack;, true);
-```
+</pre>
 
 Once he has enough data points, he intends to compute the correlation
 between his squirrelification and each of the day's events and ideally
@@ -2995,7 +2994,7 @@ decimal notation, we will store this number at index 2 of the array.
 This is the function that computes the *φ* coefficient from such an
 array:
 
-```
+<pre>
 function phi(table) {
 return (table&lbrack;3&rbrack; &ast; table&lbrack;0&rbrack; - table&lbrack;2&rbrack; &ast; table&lbrack;1&rbrack;) /
 Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) &ast; (table&lbrack;0&rbrack; + table&lbrack;1&rbrack;) &ast;
@@ -3006,7 +3005,7 @@ Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) &ast; (table&lbrack;
 console.log(phi(&lbrack;76, 9, 4, 1&rbrack;));
 
 // ~→~ 0.068599434
-```
+</pre>
 
 This is simply a direct translation of the *φ* formula into JavaScript.
 Math .sqrt is the square root function, as provided by the Math object
@@ -3024,7 +3023,7 @@ To extract a two-by-two table for a specific event from this journal, we
 must loop over all the entries and tally up how many times the event
 occurs in relation to squirrel transformations.
 
-```
+<pre>
 function hasEvent(event, entry) {
   return entry.events.indexOf(event) != -1;
 }
@@ -3039,7 +3038,7 @@ function tableFor(event, journal) {
 }
 console.log(tableFor(&quot;pizza&quot;, JOURNAL));
 // ~→~ &lbrack;76, 9, 4, 1&rbrack;
-```
+</pre>
 
 The hasEvent function tests whether an entry contains a given event.
 Arrays have an indexOf method that tries to find a given value (in this
@@ -3072,7 +3071,7 @@ can use the square bracket access notation to create and read the
 properties and can use the in operator to test whether a given property
 exists.
 
-```
+<pre>
 var map = {};
 function storePhi(event, phi) {
 map&lbrack;event&rbrack; = phi;
@@ -3082,7 +3081,7 @@ console.log(&quot;pizza&quot; in map);
 // ~→~ true
 console.log(map&lbrack;&quot;touched tree&quot;&rbrack;);
 // ~→~ -0.081
-```
+</pre>
 
 A *map* is a way to go from values in one domain (in this case, event
 names) to corresponding values in another domain (in this case, *φ*
@@ -3099,13 +3098,13 @@ provides a loop construct specifically for going over the properties of
 an object. It looks a little like a normal for loop but distinguishes
 itself by the use of the word in.
 
-```
+<pre>
 for (var event in map)
 console.log(&quot;The correlation for &apos;&quot; + event +
 &quot;&apos; is &quot; + map&lbrack;event&rbrack;);
 // ~→~ The correlation for &apos;pizza&apos; is 0.069
 // ~→~ The correlation for &apos;touched tree&apos; is -0.081
-```
+</pre>
 
 ## The final analysis
 
@@ -3116,7 +3115,7 @@ the event types we have seen so far. Whenever we run across a type that
 isn't in the phis object yet, we compute its correlation and add it to
 the object.
 
-```
+<pre>
 function gatherCorrelations(journal) {
   var phis = {};
   for (var entry = 0; entry &lt; journal.length; entry++) {
@@ -3131,24 +3130,24 @@ function gatherCorrelations(journal) {
 var correlations = gatherCorrelations(JOURNAL);
 console.log(correlations.pizza);
 // ~→~ 0.068599434
-```
+</pre>
 
 Let's see what came out.
 
-```
+<pre>
 for (var event in correlations)
 console.log(event + &quot;: &quot; + correlations&lbrack;event&rbrack;);
 // ~→~ carrot: 0.0140970969 // ~→~ exercise: 0.0685994341 // ~→~
 weekend: 0.1371988681 // ~→~ bread: -0.0757554019 // ~→~ pudding:
 -0.0648203724 // and so on&hellip;
-```
+</pre>
 
 Most correlations seem to lie close to zero. Eating carrots, bread, or
 pudding apparently does not trigger squirrel-lycanthropy. It *does* seem
 to occur somewhat more often on weekends, however. Let's filter the
 results to show only correlations greater than 0.1 or less than -0.1.
 
-```
+<pre>
 for (var event in correlations) {
 var correlation = correlations&lbrack;event&rbrack;; if (correlation &gt; 0.1 &vert;&vert;
 correlation &lt; -0.1)
@@ -3159,7 +3158,7 @@ console.log(event + &quot;: &quot; + correlation);
 // ~→~ candy: 0.1296407447 // ~→~ work: -0.1371988681 // ~→~
 spaghetti: 0.2425356250 // ~→~ reading: 0.1106828054
 // ~→~ peanuts: 0.5902679812
-```
+</pre>
 
 A-ha! There are two factors whose correlation is clearly stronger than
 the others. Eating peanuts has a strong positive effect on the chance of
@@ -3168,7 +3167,7 @@ negative effect.
 
 Interesting. Let's try something.
 
-```
+<pre>
 for (var i = 0; i &lt; JOURNAL.length; i++) {
 var entry = JOURNAL&lbrack;i&rbrack;; if (hasEvent(&quot;peanuts&quot;, entry) &&
 !hasEvent(&quot;brushed teeth&quot;, entry)) entry.events.push(&quot;peanut
@@ -3176,7 +3175,7 @@ teeth&quot;);
 }
 console.log(phi(tableFor(&quot;peanut teeth&quot;, JOURNAL)));
 // ~→~ 1
-```
+</pre>
 
 Well, that's unmistakable! The phenomenon occurs precisely when Jacques
 eats peanuts and fails to brush his teeth. If only he weren't such a
@@ -3203,7 +3202,7 @@ We saw push and pop, which add and remove elements at the end of an
 array, earlier in this chapter. The corresponding methods for adding and
 removing things at the start of an array are called unshift and shift.
 
-```
+<pre>
 var todoList = &lbrack;&rbrack;; function rememberTo(task) {
 todoList.push(task);
 }
@@ -3213,7 +3212,7 @@ return todoList.shift();
 function urgentlyRememberTo(task) {
 todoList.unshift(task);
 }
-```
+</pre>
 
 The previous program manages lists of tasks. You add tasks to the end of
 the list by calling rememberTo(&quot;eat&quot;), and when you're ready to do
@@ -3225,12 +3224,12 @@ The indexOf method has a sibling called lastIndexOf, which starts
 searching for the given element at the end of the array instead of the
 front.
 
-```
+<pre>
 console.log(&lbrack;1, 2, 3, 2, 1&rbrack;.indexOf(2));
 // ~→~ 1
 console.log(&lbrack;1, 2, 3, 2, 1&rbrack;.lastIndexOf(2));
 // ~→~ 3
-```
+</pre>
 
 Both indexOf and lastIndexOf take an optional second argument that
 indicates where to start searching from.
@@ -3239,12 +3238,12 @@ Another fundamental method is slice, which takes a start index and an
 end index and returns an array that has only the elements between those
 indices. The start index is inclusive, the end index exclusive.
 
-```
+<pre>
 console.log(&lbrack;0, 1, 2, 3, 4&rbrack;.slice(2, 4));
 // ~→~ &lbrack;2, 3&rbrack;
 console.log(&lbrack;0, 1, 2, 3, 4&rbrack;.slice(2));
 // ~→~ &lbrack;2, 3, 4&rbrack;
-```
+</pre>
 
 When the end index is not given, slice will take all of the elements
 after the start index. Strings also have a slice method, which has a
@@ -3256,25 +3255,25 @@ and slice in action. It takes an array and an index, and it returns a
 new array that is a copy of the original array with the element at the
 given index removed.
 
-```
+<pre>
 function remove(array, index) {
 return array.slice(0, index)
 .concat(array.slice(index + 1));
 }
 console.log(remove(&lbrack;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;&rbrack;, 2));
 // ~→~ &lbrack;&quot;a&quot;, &quot;b&quot;, &quot;d&quot;, &quot;e&quot;&rbrack;
-```
+</pre>
 
 ## Strings and their properties
 
 We can read properties like length and toUpperCase from string values.
 But if you try to add a new property, it doesn't stick.
 
-```
+<pre>
 var myString = &quot;Fido&quot;; myString.myProperty = &quot;value&quot;;
 console.log(myString.myProperty);
 // ~→~ undefined
-```
+</pre>
 
 Values of type string, number, and Boolean are not objects, and though
 the language doesn't complain if you try to set new properties on them,
@@ -3285,41 +3284,41 @@ But these types do have some built-in properties. Every string value has
 a number of methods. The most useful ones are probably slice and
 indexOf, which resemble the array methods of the same name.
 
-```
+<pre>
 console.log(&quot;coconuts&quot;.slice(4, 7)); // ~→~ nut
 console.log(&quot;coconut&quot;.indexOf(&quot;u&quot;));
 // ~→~ 5
-```
+</pre>
 
 One difference is that a string's indexOf can take a string containing
 more than one character, whereas the corresponding array method looks
 only for a single element.
 
-```
+<pre>
 console.log(&quot;one two three&quot;.indexOf(&quot;ee&quot;));
 // ~→~ 11
-```
+</pre>
 
 The trim method removes whitespace (spaces, newlines, tabs, and similar
 characters) from the start and end of a string.
 
-```
+<pre>
 console.log(&quot; okay &bsol;&bsol;n &quot;.trim());
 // ~→~ okay
-```
+</pre>
 
 We have already seen the string type's length property. Accessing the
 individual characters in a string can be done with the charAt method but
 also by simply reading numeric properties, like you'd do for an array.
 
-```
+<pre>
 var string = &quot;abc&quot;; console.log(string.length);
 // ~→~ 3
 console.log(string.charAt(0));
 // ~→~ a
 console.log(string&lbrack;1&rbrack;);
 // ~→~ b
-```
+</pre>
 
 ## The arguments object
 
@@ -3342,12 +3341,12 @@ If that sounds a lot like an array to you, you're right, it *is* a lot
 like an array. But this object, unfortunately, does not have any array
 methods (like slice or indexOf), so it is a little harder to use than a
 
-```
+<pre>
 real array. function argumentCounter() {
 console.log(&quot;You gave me&quot;, arguments.length, &quot;arguments.&quot;);
 }
 argumentCounter(&quot;Straw man&quot;, &quot;Tautology&quot;, &quot;Ad hominem&quot;); // ~→~
-```
+</pre>
 
 You gave me 3 arguments.
 
@@ -3356,15 +3355,15 @@ typically loop over the values in their arguments object. They can be
 used to create very pleasant interfaces. For example, remember how we
 created the entries to Jacques' journal.
 
-```
+<pre>
 addEntry(&lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;, &quot;running&quot;,
 &quot;television&quot;&rbrack;, false);
-```
+</pre>
 
 Since he is going to be calling this function a lot, we could create an
 alternative that is easier to call.
 
-```
+<pre>
 function addEntry(squirrel) {
 var entry = {events: &lbrack;&rbrack;, squirrel: squirrel};
 for (var i = 1; i &lt; arguments.length; i++)
@@ -3373,7 +3372,7 @@ journal.push(entry);
 }
 addEntry(true, &quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;,
 &quot;running&quot;, &quot;television&quot;);
-```
+</pre>
 
 This version reads its first argument (squirrel) in the normal way and
 then goes over the rest of the arguments (the loop starts at index 1,
@@ -3409,14 +3408,14 @@ JavaScript number---is available as Math.PI. (There is an old
 programming tradition of writing the names of constant values in all
 caps.)
 
-```
+<pre>
 function randomPointOnCircle(radius) { var angle = Math.random() &ast; 2
 &ast; Math.PI; return {x: radius &ast; Math.cos(angle), y: radius &ast;
 Math.sin(angle)};
 }
 console.log(randomPointOnCircle(2));
 // ~→~ {x: 0.3667, y: 1.966}
-```
+</pre>
 
 If sines and cosines are not something you are very familiar with, don't
 worry. When they are used in this book, in Chapter 13, I'll explain
@@ -3426,12 +3425,12 @@ The previous example uses Math.random. This is a function that returns a
 new pseudorandom number between zero (inclusive) and one (exclusive)
 every time you call it.
 
-```
+<pre>
 console.log(Math.random()); // ~→~ 0.36993729369714856
 console.log(Math.random()); // ~→~ 0.727367032552138
 console.log(Math.random());
 // ~→~ 0.40180766698904335
-```
+</pre>
 
 Though computers are deterministic machines---they always react the same
 way if given the same input---it is possible to have them produce
@@ -3447,10 +3446,10 @@ If we want a whole random number instead of a fractional one, we can use
 Math.floor (which rounds down to the nearest whole number) on the result
 of Math.random.
 
-```
+<pre>
 console.log(Math.floor(Math.random() &ast; 10));
 // ~→~ 2
-```
+</pre>
 
 Multiplying the random number by 10 gives us a number greater than or
 equal to zero, and below 10. Since Math.floor rounds down, this
@@ -3467,12 +3466,12 @@ approached as an object in JavaScript. Each global variable is present
 as a property of this object. In browsers, the global scope object is
 stored in the window variable.
 
-```
+<pre>
 var myVar = 10; console.log(&quot;myVar&quot; in window);
 // ~→~ true
 console.log(window.myVar);
 // ~→~ 10
-```
+</pre>
 
 ## Summary
 
@@ -17797,7 +17796,7 @@ If the data looks valid, the handler stores an object that represents
 the new talk in the talks object, possibly overwriting an existing talk
 with this title, and again calls registerChange.
 
-```
+<pre>
 router.add(&quot;PUT&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
 readStreamAsJSON(request, function(error, talk) {
@@ -17813,13 +17812,13 @@ respond(response, 204, null);
 }
 });
 });
-```
+</pre>
 
 Adding a comment to a talk works similarly. We use readStreamAsJSON to
 get the content of the request, validate the resulting data, and store
 it as a comment when it looks valid.
 
-```
+<pre>
 router.add(&quot;POST&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&bsol;&bsol;/comments&dollar;/,
 function(request, response, title) {
 readStreamAsJSON(request, function(error, comment) {
@@ -17834,7 +17833,7 @@ respond(response, 204, null);
 } else { respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos;
 found&quot;);
 } }); });
-```
+</pre>
 
 Trying to add a comment to a nonexistent talk should return a 404 error,
 of course.
@@ -17850,13 +17849,13 @@ There will be various situations in which we have to send a list of
 talks to the client, so we first define a small helper function that
 attaches the serverTime field to such responses.
 
-```
+<pre>
 function sendTalks(talks, response) {
 respondJSON(response, 200, {
 serverTime: Date.now(), talks: talks
 });
 }
-```
+</pre>
 
 The handler itself needs to look at the query parameters in the
 request's URL to see whether a changesSince parameter is given. If you
@@ -17865,7 +17864,7 @@ will also parse the query part of a URL. The object it returns will have
 a query property, which holds another object that maps parameter names
 to values.
 
-```
+<pre>
 router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&dollar;/, function(request, response) { var
 query = require(&quot;url&quot;).parse(request.url, true).query; if
 (query.changesSince == null) {
@@ -17881,7 +17880,7 @@ else
 waitForChanges(since, response);
 }
 } });
-```
+</pre>
 
 When the changesSince parameter is missing, the handler simply builds up
 a list of all talks and returns that.
@@ -18007,13 +18006,13 @@ Thus, if we want a page to show up when a browser is pointed at our
 server, we should put it in public/index.html. This is how our index
 file starts:
 
-```
+<pre>
 &lt;!doctype html&gt;
 &lt;title&gt;Skill Sharing&lt;/title&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;skillsharing.css&quot;&gt; &lt;h1&gt;Skill sharing&lt;/h1&gt;
 &lt;p&gt;Your name: &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;&lt;/p&gt;
 &lt;div id=&quot;talks&quot;&gt;&lt;/div&gt;
-```
+</pre>
 
 It defines the document title and includes a style sheet, which defines
 a few styles to, among other things, add a border around talks. Then it
@@ -18027,20 +18026,20 @@ server.
 
 Next comes the form that is used to create a new talk.
 
-```
+<pre>
 &lt;form id=&quot;newtalk&quot;&gt;
 &lt;h3&gt;Submit a talk&lt;/h3&gt;
 Title: &lt;input type=&quot;text&quot; style=&quot;width: 40em&quot; name=&quot;title&quot;&gt;
 &lt;br&gt;
-```
+</pre>
 
 Summary: &lt;input type=&quot;text&quot; style=&quot;width: 40em&quot; name=&quot;
 summary&quot;&gt;
 
-```
+<pre>
 &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;
-```
+</pre>
 
 The script will add a &quot;submit&quot; event handler to this form, from which
 it can make the HTTP request that tells the server about the talk.
@@ -18049,7 +18048,7 @@ Next comes a rather mysterious block, which has its display style set to
 none, preventing it from actually showing up on the page. Can you guess
 what it is for?
 
-```
+<pre>
 &lt;div id=&quot;template&quot; style=&quot;display: none&quot;&gt;
 &lt;div class=&quot;talk&quot;&gt;
 &lt;h2&gt;{{title}}&lt;/h2&gt;
@@ -18065,7 +18064,7 @@ what it is for?
 &lt;div class=&quot;comment&quot;&gt;
 &lt;span class=&quot;name&quot;&gt;{{author}}&lt;/span&gt;: {{message}} &lt;/div&gt;
 &lt;/div&gt;
-```
+</pre>
 
 Creating complicated DOM structures with JavaScript code produces ugly
 code. You can make the code slightly better by introducing helper
@@ -18081,9 +18080,9 @@ between double braces with the values of a specific talk.
 Finally, the HTML document includes the script file that contains the
 client-side code.
 
-```
+<pre>
 &lt;script src=&quot;skillsharing_client.js&quot;&gt;&lt;/script&gt;
-```
+</pre>
 
 #### Starting up
 
@@ -18093,7 +18092,7 @@ HTTP requests, we will again define a small wrapper around
 XMLHttpRequest, which accepts an object to configure the request as well
 as a callback to call when the request finishes.
 
-```
+<pre>
 function request(options, callback) {
 var req = new XMLHttpRequest();
 req.open(options.method &vert;&vert; &quot;GET&quot;, options.pathname, true);
@@ -18107,12 +18106,12 @@ callback(new Error(&quot;Network error&quot;));
 });
 req.send(options.body &vert;&vert; null);
 }
-```
+</pre>
 
 The initial request displays the talks it receives on the screen and
 starts the long-polling process by calling waitForChanges.
 
-```
+<pre>
 var lastServerTime = 0;
 request({pathname: &quot;talks&quot;}, function(error, response) {
 if (error) {
@@ -18122,7 +18121,7 @@ response = JSON.parse(response); displayTalks(response.talks);
 lastServerTime = response.serverTime;
 waitForChanges();
 } });
-```
+</pre>
 
 The lastServerTime variable is used to track the time of the last update
 that was received from the server. After the initial request, the
@@ -18136,11 +18135,11 @@ doing nothing without explanation. So we define a simple function called
 reportError, which at least shows the user a dialog that tells them
 something went wrong.
 
-```
+<pre>
 function reportError(error) { if (error)
 alert(error.toString());
 }
-```
+</pre>
 
 The function checks whether there *is* an actual error, and it alerts
 only when there is one. That way, we can also directly pass this
@@ -18161,7 +18160,7 @@ and to update it when something changes. It will use the shownTalks
 object, which associates talk titles with DOM nodes, to remember the
 talks it currently has on the screen.
 
-```
+<pre>
 var talkDiv = document.querySelector(&quot;#talks&quot;); var shownTalks =
 Object.create(null);
 function displayTalks(talks) {
@@ -18178,7 +18177,7 @@ shownTalks&lbrack;talk.title&rbrack; = node;
 }
 });
 }
-```
+</pre>
 
 Building up the DOM structure for talks is done using the templates that
 were included in the HTML document. First, we must define
@@ -18190,7 +18189,7 @@ name, which is a child of the element with ID &quot;template&quot;. Using the
 querySelector method makes this easy. There were templates named &quot;
 talk&quot; and &quot;comment&quot; in the HTML page.
 
-```
+<pre>
 function instantiateTemplate(name, values) {
 function instantiateText(text) {
 return text.replace(/&bsol;&bsol;{&bsol;&bsol;{(&bsol;&bsol;w+)&bsol;&bsol;}&bsol;&bsol;}/g, function(&lowbar;, name) {
@@ -18212,7 +18211,7 @@ return node;
 var template = document.querySelector(&quot;#template .&quot; + name);
 return instantiate(template);
 }
-```
+</pre>
 
 The cloneNode method, which all DOM nodes have, creates a copy of a
 node. It won't copy the node's child nodes unless true is given as a
@@ -18227,7 +18226,7 @@ title property.
 This is a crude approach to templating, but it is enough to implement
 drawTalk.
 
-```
+<pre>
 function drawTalk(talk) {
 var node = instantiateTemplate(&quot;talk&quot;, talk); var comments =
 node.querySelector(&quot;.comments&quot;);
@@ -18243,7 +18242,7 @@ event.preventDefault();
 addComment(talk.title, form.elements.comment.value); form.reset();
 }); return node;
 }
-```
+</pre>
 
 After instantiating the &quot;talk&quot; template, there are various things that
 need to be patched up. First, the comments have to be filled in by
@@ -18259,31 +18258,31 @@ and addComment to perform the actual actions required to delete a talk
 or add a comment. These will need to build up URLs that refer to talks
 with a given title, for which we define the talkURL helper function.
 
-```
+<pre>
 function talkURL(title) {
 return &quot;talks/&quot; + encodeURIComponent(title);
 }
-```
+</pre>
 
 The deleteTalk function fires off a DELETE request and reports the error
 when that fails.
 
-```
+<pre>
 function deleteTalk(title) {
 request({pathname: talkURL(title), method: &quot;DELETE&quot;}, reportError);
 }
-```
+</pre>
 
 Adding a comment requires building up a JSON representation of the
 comment and submitting that as part of a POST request.
 
-```
+<pre>
 function addComment(title, comment) {
 var comment = {author: nameField.value, message: comment};
 request({pathname: talkURL(title) + &quot;/comments&quot;, body:
 JSON.stringify(comment), method: &quot;POST&quot;}, reportError);
 }
-```
+</pre>
 
 The nameField variable used to set the comment's author property is a
 reference to the &lt;input&gt; field at the top of the page that allows the
@@ -18301,7 +18300,7 @@ The form at the bottom of the page, for proposing a new talk, gets a
 effect (which would cause a page reload), clears the form, and fires off
 a PUT request to create the talk. var talkForm =
 
-```
+<pre>
 document.querySelector(&quot;#newtalk&quot;);
 talkForm.addEventListener(&quot;submit&quot;, function(event) {
 event.preventDefault();
@@ -18311,7 +18310,7 @@ presenter: nameField.value,
 summary: talkForm.elements.summary.value
 })}, reportError); talkForm.reset();
 });
-```
+</pre>
 
 #### Noticing changes
 
@@ -18325,7 +18324,7 @@ Given the mechanism that we implemented in our server and the way we
 defined displayTalks to handle updates of talks that are already on the
 page, the actual long polling is surprisingly simple.
 
-```
+<pre>
 function waitForChanges() {
 request({pathname: &quot;talks?changesSince=&quot; + lastServerTime},
 function(error, response) {
@@ -18339,7 +18338,7 @@ waitForChanges();
 }
 });
 }
-```
+</pre>
 
 This function is called once when the program starts up and then keeps
 calling itself to ensure that a polling request is always active. When
@@ -18401,12 +18400,12 @@ could specify the &quot;talk&quot; template to loop over the array held in a
 talk's comments property and render the nodes that make up a comment for
 every element in the array. It could look like this:
 
-```
+<pre>
 &lt;div class=&quot;comments&quot;&gt;
 &lt;div class=&quot;comment&quot; template-repeat=&quot;comments&quot;&gt;
 &lt;span class=&quot;name&quot;&gt;{{author}}&lt;/span&gt;: {{message}} &lt;/div&gt;
 &lt;/div&gt;
-```
+</pre>
 
 The idea is that whenever a node with a template-repeat attribute is
 found during template instantiation, the instantiating code loops over
@@ -18978,9 +18977,9 @@ decide to handle &quot;keypress&quot; instead, which identifies the actual
 character typed, you have to make sure you test for both cases. One way
 to do that would be this:
 
-```
+<pre>
 /&lbrack;qwx&rbrack;/i.test(String.fromCharCode(event.charCode))
-```
+</pre>
 
 #### Mouse trail
 
@@ -19358,7 +19357,7 @@ stream and calls a callback function with the result, using the usual
 pattern of passing any errors it encounters as the first argument to the
 callback:
 
-```
+<pre>
 function readStreamAsString(stream, callback) {
 var data = &quot;&quot;;
 stream.on(&quot;data&quot;, function(chunk) {
@@ -19371,7 +19370,7 @@ stream.on(&quot;error&quot;, function(error) {
 callback(error);
 });
 }
-```
+</pre>
 
 #### Fixing a leak
 
@@ -19493,7 +19492,7 @@ served.
 
 **Index**
 
-```
+</pre>
 &ast; operator, 14, 20, 167
 &ast;= operator, 36
 &bsol;+ operator, 14, 16, 20, 97, 167
