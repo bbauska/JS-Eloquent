@@ -4,6 +4,7 @@ title: |
 author: "Marijn Haverbene"
 date first editted: "11/20/2024 9+pm"
 date late editted: "11/21/2024 1+pm"
+date late editted: "12/18/2024 4+pm"
 output: 
   markdown:
     with some style
@@ -3542,7 +3543,7 @@ confused with the array). A list is a nested set of objects, with the
 first object holding a reference to the second, the second to the third,
 and so on.
 
-```
+<pre>
 var list = {
 value: 1, rest: { value: 2, rest: {
 value: 3,
@@ -3550,18 +3551,18 @@ rest: null
 }
 }
 };
-```
+</pre>
 
 The resulting objects form a chain, like this:
 
-```
+<pre>
 value: 1
 rest:
 value: 2
 rest:
 value: 3
 rest: null
-```
+</pre>
 
 A nice thing about lists is that they can share parts of their
 structure.
@@ -3618,13 +3619,13 @@ space for these bugs to hide, making them hard to find.
 Let's briefly go back to the final two example programs in the
 introduction. The first is self-contained and six lines long.
 
-```
+<pre>
 var total = 0, count = 1; while (count &lt;= 10) {
 total += count;
 count += 1;
 }
 console.log(total);
-```
+</pre>
 
 The second relies on two external functions and is one line long.
 console.log(sum(range(1, 10)));
@@ -3690,11 +3691,11 @@ abstractions. But sometimes they fall short.
 In the previous chapter, this type of for loop made several
 appearances:
 
-```
+<pre>
 var array = &lbrack;1, 2, 3&rbrack;; for (var i = 0; i &lt; array.length; i++) {
 var current = array&lbrack;i&rbrack;; console.log(current);
 }
-```
+</pre>
 
 It's trying to say, "For each element in the array, log it to the
 console". But it uses a roundabout way that involves a counter variable
@@ -3709,17 +3710,17 @@ So let's try to abstract this into a function. Can you think of a way?
 Well, it's easy to write a function that goes over an array and calls
 console.log on every element.
 
-```
+<pre>
 function logEach(array) { for (var i = 0; i &lt; array.length; i++)
 console.log(array&lbrack;i&rbrack;);
 }
-```
+</pre>
 
 But what if we want to do something other than logging the elements?
 Since "doing something" can be represented as a function and functions
 are just values, we can pass our action as a function value.
 
-```
+<pre>
 function forEach(array, action) {
 for (var i = 0; i &lt; array.length; i++) action(array&lbrack;i&rbrack;);
 }
@@ -3727,18 +3728,18 @@ forEach(&lbrack;&quot;Wampeter&quot;, &quot;Foma&quot;, &quot;Granfalloon&quot;&
 // ~→~ Wampeter
 // ~→~ Foma
 // ~→~ Granfalloon
-```
+</pre>
 
 Often, you don't pass a predefined function to forEach but create a
 function value on the spot instead.
 
-```
+<pre>
 var numbers = &lbrack;1, 2, 3, 4, 5&rbrack;, sum = 0; forEach(numbers,
 function(number) {
 sum += number;
 }); console.log(sum);
 // ~→~ 15
-```
+</pre>
 
 This looks quite a lot like the classical for loop, with its body
 written as a block below it. However, now the body is inside the
@@ -3758,7 +3759,7 @@ function to be executed for each element.
 To illustrate how helpful this is, let's look back at a function from
 the previous chapter. It contains two array-traversing loops.
 
-```
+<pre>
 function gatherCorrelations(journal) {
 var phis = {};
 for (var entry = 0; entry &lt; 
@@ -3779,7 +3780,7 @@ journal.forEach(function(entry) { entry.events.forEach(function(event)
 if (!(event in phis))
 phis&lbrack;event&rbrack; = phi(tableFor(event, journal)); }); }); return phis;
 }
-```
+</pre>
 
 ## Higher-order functions
 
@@ -3794,17 +3795,17 @@ Higher-order functions allow us to abstract over *actions*, not just
 values. They come in several forms. For example, you can have functions
 that create new functions.
 
-```
+<pre>
 function greaterThan(n) {
 return function(m) { return m &gt; n; };
 }
 var greaterThan10 = greaterThan(10); console.log(greaterThan10(11));
 // ~→~ true
-```
+</pre>
 
 And you can have functions that change other functions.
 
-```
+<pre>
 function noisy(f) {
 return function(arg) {
 console.log(&quot;calling with&quot;, arg);
@@ -3814,11 +3815,11 @@ console.log(&quot;called with&quot;, arg, &quot;- got&quot;, val); return val;
 noisy(Boolean)(0);
 // ~→~ calling with 0
 // ~→~ called with 0 - got false
-```
+</pre>
 
 You can even write functions that provide new types of control flow.
 
-```
+<pre>
 function unless(test, then) {
 if (!test) then();
 }
@@ -3832,7 +3833,7 @@ console.log(n, &quot;is even&quot;);
 });
 // ~→~ 0 is even
 // ~→~ 2 is even
-```
+</pre>
 
 The lexical scoping rules that we discussed in Chapter 3 work to our
 advantage when using functions in this way. In the previous example, the
@@ -3849,7 +3850,7 @@ outer function. And that is usually a good thing.
 The noisy function defined earlier, which wraps its argument in another
 function, has a rather serious deficit.
 
-```
+<pre>
 function noisy(f) {
 return function(arg) {
 console.log(&quot;calling with&quot;, arg);
@@ -3857,7 +3858,7 @@ var val = f(arg);
 console.log(&quot;called with&quot;, arg, &quot;- got&quot;, val); return val;
 };
 }
-```
+</pre>
 
 If f takes more than one parameter, it gets only the first one. We could
 add a bunch of arguments to the inner function (arg1, arg2, and so on)
@@ -3870,13 +3871,13 @@ For these kinds of situations, JavaScript functions have an apply
 method. You pass it an array (or array-like object) of arguments, and it
 will call the function with those arguments.
 
-```
+<pre>
 function transparentWrapping(f) {
 return function() {
 return f.apply(null, arguments);
 };
 }
-```
+</pre>
 
 That's a useless function, but it shows the pattern we are interested
 in--- the function it returns passes all of the given arguments, and
@@ -3902,7 +3903,7 @@ into a computer-readable format.
 
 The file I created looks something like this:
 
-```
+<pre>
 &lbrack;
 {&quot;name&quot;: &quot;Emma de Milliano&quot;, &quot;sex&quot;: &quot;f&quot;,
 &quot;born&quot;: 1876, &quot;died&quot;: 1956,
@@ -3913,7 +3914,7 @@ The file I created looks something like this:
 &quot;mother&quot;: &quot;Maria van Brussel&quot;},&hellip;
 and so on
 &rbrack;
-```
+</pre>
 
 This format is called JSON (pronounced "Jason"), which stands for
 JavaScript Object Notation. It is widely used as a data storage and
@@ -3930,13 +3931,13 @@ convert data from and to this format. The first takes a JavaScript value
 and returns a JSON-encoded string. The second takes such a string and
 converts it to the value it encodes.
 
-```
+<pre>
 var string = JSON.stringify({name: &quot;X&quot;, born: 1980});
 console.log(string); 
 // ~→~ {&quot;name&quot;:&quot;X&quot;,&quot;born&quot;:1980}
 console.log(JSON.parse(string).born);
 // ~→~ 1980
-```
+</pre>
 
 The variable ANCESTRY_FILE, available in the sandbox for this chapter
 and in [a downloadable
@@ -3945,11 +3946,11 @@ website([*eloquentjavascript.net/code#5*](http://eloquentjavascript.net/code#{}5
 contains the content of my JSON file as a string. Let's decode it and
 see how many people it contains.
 
-```
+<pre>
 var ancestry = JSON.parse(ANCESTRY_FILE);
 console.log(ancestry.length);
 // ~→~ 39
-```
+</pre>
 
 ## Filtering an array
 
@@ -3957,7 +3958,7 @@ To find the people in the ancestry data set who were young in 1924, the
 following function might be helpful. It filters out the elements in an
 array that don't pass a test.
 
-```
+<pre>
 function filter(array, test) {
 var passed = &lbrack;&rbrack;;
 for (var i = 0; i &lt; array.length; i++) { if (test(array&lbrack;i&rbrack;))
@@ -3969,7 +3970,7 @@ console.log(filter(ancestry, function(person) {
 return person.born &gt; 1900 && person.born &lt; 1925;
 }));
 // ~→~ &lbrack;{name: &quot;Philibert Haverbeke&quot;, &hellip;}, &hellip;&rbrack;
-```
+</pre>
 
 This uses the argument named test, a function value, to fill in a "gap"
 in the computation. The test function is called for each element, and
@@ -3988,12 +3989,12 @@ Like forEach, filter is also a standard method on arrays. The example
 defined the function only in order to show what it does internally. From
 now on, we'll use it like this instead:
 
-```
+<pre>
 console.log(ancestry.filter(function(person) {
 return person.father == &quot;Carel Haverbeke&quot;;
 }));
 // ~→~ &lbrack;{name: &quot;Carolus Haverbeke&quot;, &hellip;}&rbrack;
-```
+</pre>
 
 ## Transforming with map
 
@@ -4006,7 +4007,7 @@ elements and building a new array from the returned values. The new
 array will have the same length as the input array, but its content will
 have been "mapped" to a new form by the function.
 
-```
+<pre>
 function map(array, transform) {
 var mapped = &lbrack;&rbrack;;
 for (var i = 0; i &lt; array.length; i++)
@@ -4021,7 +4022,7 @@ return person.name;
 }));
 // ~→~ &lbrack;&quot;Clara Aernoudts&quot;, &quot;Emile Haverbeke&quot;,
 // &quot;Maria Haverbeke&quot;&rbrack;
-```
+</pre>
 
 Interestingly, the people who lived to at least 90 years of age are the
 same three people who we saw before---the people who were young in the
@@ -4047,7 +4048,7 @@ The parameters to the reduce function are, apart from the array, a
 combining function and a start value. This function is a little less
 straightforward than filter and map, so pay careful attention.
 
-```
+<pre>
 function reduce(array, combine, start) { var current = start; for (var
 i = 0; i &lt; array.length; i++)
 current = combine(current, array&lbrack;i&rbrack;);
@@ -4057,7 +4058,7 @@ console.log(reduce(&lbrack;1, 2, 3, 4&rbrack;, function(a, b) {
 return a + b;
 }, 0));
 // ~→~ 10
-```
+</pre>
 
 The standard array method reduce, which of course corresponds to this
 function, has an added convenience. If your array contains at least one
@@ -4068,12 +4069,12 @@ reducing at the second element.
 To use reduce to find my most ancient known ancestor, we can write
 something like this:
 
-```
+<pre>
 console.log(ancestry.reduce(function(min, cur) {
 if (cur.born &lt; min.born) return cur; else return min;
 }));
 // ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
-```
+</pre>
 
 ## Composability
 Consider how we would have written the previous example (finding the
@@ -4081,7 +4082,7 @@ person with the earliest year of birth) without higher-order functions.
 
 The code is not that much worse.
 
-```
+<pre>
 var min = ancestry&lbrack;0&rbrack;;
 for (var i = 1; i &lt; ancestry.length; i++) {
 var cur = ancestry&lbrack;i&rbrack;; if (cur.born &lt; min.born)
@@ -4089,7 +4090,7 @@ min = cur;
 }
 console.log(min);
 // ~→~ {name: &quot;Pauwels van Haverbeke&quot;, born: 1535, &hellip;}
-```
+</pre>
 
 There are a few more variables, and the program is two lines longer but
 still quite easy to understand.
@@ -4098,7 +4099,7 @@ Higher-order functions start to shine when you need to *compose*
 functions. As an example, let's write code that finds the average age
 for men and for women in the data set.
 
-```
+<pre>
 function average(array) {
 function plus(a, b) { return a + b; }
 return array.reduce(plus) / array.length;
@@ -4109,7 +4110,7 @@ console.log(average(ancestry.filter(male).map(age)));
 // ~→~ 61.67
 console.log(average(ancestry.filter(female).map(age)));
 // ~→~ 54.56
-```
+</pre>
 
 (It's a bit silly that we have to define plus as a function, but
 operators in JavaScript, unlike functions, are not values, so you can't
@@ -4177,14 +4178,14 @@ To be able to go from a parent's name to the actual object that
 represents this person, we first build up an object that associates
 names with people.
 
-```
+<pre>
 var byName = {};
 ancestry.forEach(function(person) {
 byName&lbrack;person.name&rbrack; = person;
 });
 console.log(byName&lbrack;&quot;Philibert Haverbeke&quot;&rbrack;);
 // ~→~ {name: &quot;Philibert Haverbeke&quot;, &hellip;}
-```
+</pre>
 
 Now, the problem is not entirely as simple as following the father
 properties and counting how many we need to reach Pauwels. There are
@@ -4218,7 +4219,7 @@ Given a person, a function to combine values from the two parents of a
 given person, and a default value, reduceAncestors condenses a value
 from a family tree.
 
-```
+<pre>
 function reduceAncestors(person, f, defaultValue) {
 function valueFor(person) {
 if (person == null)
@@ -4229,7 +4230,7 @@ valueFor(byName&lbrack;person.father&rbrack;));
 }
 return valueFor(person);
 }
-```
+</pre>
 
 The inner function (valueFor) handles a single person. Through the magic
 of recursion, it can simply call itself to handle the father and the
@@ -4957,7 +4958,7 @@ The first part of the program computes arrays of minimum column widths
 and row heights for a grid of cells. The rows variable will hold an
 array of arrays, with each inner array representing a row of cells.
 
-```
+<pre>
 function rowHeights(rows) {
   return rows.map(function(row) {
     return row.reduce(function(max, cell) {
@@ -4970,7 +4971,7 @@ function colWidths(rows) {
       return Math.max(max, row&lbrack;i&rbrack;.minWidth());
     }, 0); });
 }
-```
+</pre>
 
 Using a variable name starting with an underscore (&lowbar;) or consisting
 entirely of a single underscore is a way to indicate (to human readers)
@@ -4992,7 +4993,7 @@ widest cell at that index.
 
 Here's the code to draw a table:
 
-```
+<pre>
 function drawTable(rows) {
   var heights = rowHeights(rows); var widths = colWidths(rows);
   function drawLine(blocks, lineNo) {
@@ -5010,7 +5011,7 @@ function drawTable(rows) {
   }
   return rows.map(drawRow).join(&quot;&bsol;&bsol;n&quot;); 
 }
-```
+</pre>
 
 The drawTable function uses the internal helper function drawRow to draw
 all rows and then joins them together with newline characters.
@@ -5042,7 +5043,7 @@ up a string at every occurrence of its argument and returns an array of
 the pieces. The minWidth method finds the maximum line width in this
 array.
 
-```
+<pre>
 function repeat(string, times) { var result = &quot;&quot;; for (var i = 0; i
 &lt; times; i++)
 result += string;
@@ -5066,7 +5067,7 @@ result.push(line + repeat(&quot; &quot;, width - line.length));
 }
 return result;
 };
-```
+</pre>
 
 The code uses a helper function called repeat, which builds a string
 whose value is the string argument repeated times number of times. The
@@ -5076,7 +5077,7 @@ required length.
 Let's try everything we've written so far by building up a 5 × 5
 checkerboard.
 
-```
+<pre>
 var rows = &lbrack;&rbrack;; for (var i = 0; i &lt; 5; i++) { var row = &lbrack;&rbrack;; for
 (var j = 0; j &lt; 5; j++) {
 if ((j + i) % 2 == 0)
@@ -5091,7 +5092,7 @@ console.log(drawTable(rows));
 // &bsol;## &bsol;## &bsol;##
 // &bsol;## &bsol;##
 // &bsol;## &bsol;## &bsol;##
-```
+</pre>
 
 It works! But since all cells have the same size, the table-layout code
 doesn't really do anything interesting.
@@ -5105,7 +5106,7 @@ We will want to highlight the top row, which contains the column names,
 by underlining the cells with a series of dash characters. No
 problem---we simply write a cell type that handles underlining.
 
-```
+<pre>
 function UnderlinedCell(inner) {
 this.inner = inner;
 };
@@ -5119,7 +5120,7 @@ UnderlinedCell.prototype.draw = function(width, height) { return
 this.inner.draw(width, height - 1)
 .concat(&lbrack;repeat(&quot;-&quot;, width)&rbrack;);
 };
-```
+</pre>
 
 An underlined cell *contains* another cell. It reports its minimum size
 as being the same as that of its inner cell (by calling through to that
@@ -5132,7 +5133,7 @@ cell and concatenate a single line full of dashes to it.
 Having an underlining mechanism, we can now write a function that builds
 up a grid of cells from our data set.
 
-```
+<pre>
 function dataTable(data) {
 var keys = Object.keys(data&lbrack;0&rbrack;); var headers =
 keys.map(function(name) {
@@ -5148,7 +5149,7 @@ country
 // &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;- &hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;&hyphen;-//
 Kilimanjaro 5895 Tanzania
 // &hellip; etcetera
-```
+</pre>
 
 The standard Object.keys function returns an array of property names in
 an object. The top row of the table must contain underlined cells that
@@ -5181,7 +5182,7 @@ Fortunately, JavaScript provides a technique that gets us the best of
 both worlds. We can specify properties that, from the outside, look like
 normal properties but secretly have methods associated with them.
 
-```
+<pre>
 var pile = {
 elements: &lbrack;&quot;eggshell&quot;, &quot;orange peel&quot;, &quot;worm&quot;&rbrack;, get height() {
 return this.elements.length;
@@ -5193,7 +5194,7 @@ console.log(pile.height);
 // ~→~ 3
 pile.height = 100;
 // ~→~ Ignoring attempt to set height to 100
-```
+</pre>
 
 In object literal, the get or set notation for properties allows you to
 specify a function to be run when the property is read or written. You
@@ -5201,7 +5202,7 @@ can also add such a property to an existing object, for example a
 prototype, using the Object.defineProperty function (which we previously
 used to create nonenumerable properties).
 
-```
+<pre>
 Object.defineProperty(TextCell.prototype, &quot;heightProp&quot;, { get:
 function() { return this.text.length; }
 });
@@ -5209,7 +5210,7 @@ var cell = new TextCell(&quot;no&bsol;&bsol;nway&quot;); console.log(cell.height
 // ~→~ 2
 cell.heightProp = 100; console.log(cell.heightProp);
 // ~→~ 2
-```
+</pre>
 
 You can use a similar set property, in the object passed to
 defineProperty , to specify a setter method. When a getter but no setter
@@ -5227,7 +5228,7 @@ We could simply write a whole new constructor with all three methods in
 its prototype. But prototypes may themselves have prototypes, and this
 allows us to do something clever.
 
-```
+<pre>
 function RTextCell(text) {
 TextCell.call(this, text);
 }
@@ -5239,7 +5240,7 @@ result.push(repeat(&quot; &quot;, width - line.length) + line);
 }
 return result;
 };
-```
+</pre>
 
 We reuse the constructor and the minHeight and minWidth methods from the
 regular TextCell. An RTextCell is now basically equivalent to a
@@ -5259,7 +5260,7 @@ these properties by adding them to our new prototype.
 Now, if we slightly adjust the dataTable function to use RTextCells for
 cells whose value is a number, we get the table we were aiming for.
 
-```
+<pre>
 function dataTable(data) {
 var keys = Object.keys(data&lbrack;0&rbrack;); var headers =
 keys.map(function(name) {
@@ -5277,7 +5278,7 @@ return &lbrack;headers&rbrack;.concat(body);
 }
 console.log(drawTable(dataTable(MOUNTAINS)));
 // ~→~&hellip; beautifully aligned table
-```
+</pre>
 
 Inheritance is a fundamental part of the object-oriented tradition,
 alongside encapsulation and polymorphism. But while the latter two are
@@ -5306,14 +5307,14 @@ It is occasionally useful to know whether an object was derived from a
 specific constructor. For this, JavaScript provides a binary operator
 called instanceof.
 
-```
+<pre>
 console.log(new RTextCell(&quot;A&quot;) instanceof RTextCell);
 // ~→~ true console.log(new RTextCell(&quot;A&quot;) instanceof TextCell); //
 ~→~ true
 console.log(new TextCell(&quot;A&quot;) instanceof RTextCell);
 // ~→~ false console.log(&lbrack;1&rbrack; instanceof Array);
 // ~→~ true
-```
+</pre>
 
 The operator will see through inherited types. An RTextCell is an
 instance of TextCell because RTextCell.prototype derives from
@@ -5427,7 +5428,7 @@ not accurate, so we can freely cut such corners.
 We can define a world with a *plan*, an array of strings that lays out
 the world's grid using one character per square.
 
-```
+<pre>
 var plan = &lbrack;&quot;############################&quot;, &quot;# &bsol;# &bsol;# o ##&quot;, &quot;#
 #&quot;, &quot;# &bsol;##### #&quot;,
 &quot;## &bsol;# &bsol;# &bsol;## #&quot;,
@@ -5437,7 +5438,7 @@ var plan = &lbrack;&quot;############################&quot;, &quot;# &bsol;# &bs
 &quot;# &bsol;## o #&quot;, &quot;# o &bsol;# o &bsol;### #&quot;,
 &quot;# &bsol;# #&quot;,
 &quot;############################&quot;&rbrack;;
-```
+</pre>
 
 The "#" characters in this plan represent walls and rocks, and the "o"
 characters represent critters. The spaces, as you might have guessed,
@@ -5457,14 +5458,14 @@ identified by their x- and y-coordinates. We use a simple type, Vector
 (as seen in the exercises for the previous chapter), to represent these
 coordinate pairs.
 
-```
+<pre>
 function Vector(x, y) {
 this.x = x; this.y = y;
 }
 Vector.prototype.plus = function(other) { return new Vector(this.x +
 other.x, this.y + other.y);
 };
-```
+</pre>
 
 Next, we need an object type that models the grid itself. A grid is part
 of a world, but we are making it a separate object (which will be a
@@ -5476,23 +5477,23 @@ To store a grid of values, we have several options. We can use an array
 of row arrays and use two property accesses to get to a specific square,
 like this:
 
-```
+<pre>
 var grid = &lbrack;&lbrack;&quot;top left&quot;, &quot;top middle&quot;, &quot;top right&quot;&rbrack;,
 &lbrack;&quot;bottom left&quot;, &quot;bottom middle&quot;, &quot;bottom right&quot;&rbrack;&rbrack;;
 console.log(grid&lbrack;1&rbrack;&lbrack;2&rbrack;);
 // ~→~ bottom right
-```
+</pre>
 
 Or we can use a single array, with size width × height, and decide that
 the element at (*x*,*y*) is found at position *x* + (*y* × width) in the
 array.
 
-```
+<pre>
 var grid = &lbrack;&quot;top left&quot;, &quot;top middle&quot;, &quot;top right&quot;,
 &quot;bottom left&quot;, &quot;bottom middle&quot;, &quot;bottom right&quot;&rbrack;;
 console.log(grid&lbrack;2 + (1 &ast; 3)&rbrack;);
 // ~→~ bottom right
-```
+</pre>
 
 Since the actual access to this array will be wrapped in methods on the
 grid object type, it doesn't matter to outside code which approach we
@@ -5502,7 +5503,7 @@ number as an argument, it creates a new empty array of the given length.
 
 This code defines the Grid object, with some basic methods:
 
-```
+<pre>
 function Grid(width, height) {
 this.space = new Array(width &ast; height); this.width = width;
 this.height = height;
@@ -5516,17 +5517,17 @@ this.width &ast; vector.y&rbrack;;
 Grid.prototype.set = function(vector, value) { this.space&lbrack;vector.x +
 this.width &ast; vector.y&rbrack; = value;
 };
-```
+</pre>
 
 And here is a trivial test:
 
-```
+<pre>
 var grid = new Grid(5, 5);
 console.log(grid.get(new Vector(1, 1)));
 // ~→~ undefined grid.set(new Vector(1, 1), &quot;X&quot;);
 console.log(grid.get(new Vector(1, 1)));
 // ~→~ X
-```
+</pre>
 
 ## A critter's programming interface
 
@@ -5547,7 +5548,7 @@ surroundings. We name the eight surrounding squares by their compass
 directions: &quot;n&quot; for north, &quot;ne&quot; for northeast, and so on. Here's the
 object we will use to map from direction names to coordinate offsets:
 
-```
+<pre>
 var directions = {
 &quot;n&quot;: new Vector( 0, -1),
 &quot;ne&quot;: new Vector( 1, -1),
@@ -5558,7 +5559,7 @@ var directions = {
 &quot;w&quot;: new Vector(-1, 0),
 &quot;nw&quot;: new Vector(-1, -1)
 };
-```
+</pre>
 
 The view object has a method look, which takes a direction and returns a
 character, for example &quot;&bsol;&bsol;#&quot; when there is a wall in that direction,
@@ -5570,7 +5571,7 @@ The second returns an array containing all directions with that
 character. For example, a creature sitting left (west) of a wall will
 get &lbrack;&quot;ne&quot;, &quot;e&quot;,
 
-```
+<pre>
 &quot;se&quot;&rbrack; when calling findAll on its view object with the &quot;&bsol;&bsol;#&quot;
 character as argument.
 Here is a simple, stupid critter that just follows its nose until it
@@ -5586,7 +5587,7 @@ BouncingCritter.prototype.act = function(view) { if
 (view.look(this.direction) != &quot; &quot;)
 this.direction = view.find(&quot; &quot;) &vert;&vert; &quot;s&quot;;
 return {type: &quot;move&quot;, direction: this.direction}; };
-```
+</pre>
 
 The randomElement helper function simply picks a random element from an
 array, using Math.random plus some arithmetic to get a random index.
@@ -5615,7 +5616,7 @@ each character in the map means. It contains a constructor for every
 character---except for the space character, which always refers to null,
 the value we'll use to represent empty space.
 
-```
+<pre>
 function elementFromChar(legend, ch) { if (ch == &quot; &quot;) return null;
 var element = new legend&lbrack;ch&rbrack;(); element.originChar = ch;
 return element;
@@ -5626,7 +5627,7 @@ this.legend = legend;
 map.forEach(function(line, y) { for (var x = 0; x &lt; line.length; x++)
 grid.set(new Vector(x, y), elementFromChar(legend, line&lbrack;x&rbrack;)); });
 }
-```
+</pre>
 
 In elementFromChar, first we create an instance of the right type by
 looking up the character's constructor and applying new to it. Then we
@@ -5637,7 +5638,7 @@ We need this originChar property when implementing the world's toString
 method. This method builds up a maplike string from the world's current
 state by performing a two-dimensional loop over the squares on the grid.
 
-```
+<pre>
 function charFromElement(element) {
 if (element == null)
 return &quot; &quot;;
@@ -5654,7 +5655,7 @@ output += &quot;&bsol;&bsol;n&quot;;
 }
 return output;
 };
-```
+</pre>
 
 A wall is a simple object---it is used only for taking up space and has
 no act method. function Wall() {}
@@ -5663,7 +5664,7 @@ When we try the World object by creating an instance based on the plan
 from earlier in the chapter and then calling toString on it, we get a
 string very similar to the plan we put in.
 
-```
+<pre>
 var world = new World(plan, {&quot;#&quot;: Wall,
 &quot;o&quot;: BouncingCritter});
 console.log(world.toString()); // ~→~ &bsol;############################
@@ -5674,7 +5675,7 @@ console.log(world.toString()); // ~→~ &bsol;############################
 // &bsol;# &bsol;#### &bsol;#
 // &bsol;# &bsol;## o &bsol;# // &bsol;# o &bsol;# o &bsol;### &bsol;# // &bsol;# &bsol;# &bsol;#
 // &bsol;############################
-```
+</pre>
 
 ## this and its scope
 
@@ -5699,7 +5700,7 @@ to inner functions.
 Another solution is to use the bind method, which allows us to provide
 an explicit this object to bind to.
 
-```
+<pre>
 var test = {
 prop: 10,
 addPropTo: function(array) { return array.map(function(elt) {
@@ -5708,7 +5709,7 @@ return this.prop + elt;
 } };
 console.log(test.addPropTo(&lbrack;5&rbrack;));
 // ~→~ &lbrack;15&rbrack;
-```
+</pre>
 
 The function passed to map is the result of the bind call and thus has
 its this bound to the first argument given to bind---the outer
@@ -5719,7 +5720,7 @@ take an optional second argument that can also be used to provide a this
 for the calls to the iteration function. So you could express the
 previous example in a slightly simpler way.
 
-```
+<pre>
 var test = {
 prop: 10,
 addPropTo: function(array) { return array.map(function(elt) {
@@ -5729,7 +5730,7 @@ return this.prop + elt;
 };
 console.log(test.addPropTo(&lbrack;5&rbrack;));
 // ~→~ &lbrack;15&rbrack;
-```
+</pre>
 
 This works only for higher-order functions that support such a *context*
 parameter. When they don't, you'll need to use one of the other
@@ -5741,7 +5742,7 @@ argument. For example, here is a forEach method for our Grid type, which
 calls a given function for each element in the grid that isn't null or
 undefined:
 
-```
+<pre>
 Grid.prototype.forEach = function(f, context) { for (var y = 0; y &lt;
 this.height; y++) {
 for (var x = 0; x &lt; this.width; x++) {
@@ -5750,7 +5751,7 @@ f.call(context, value, new Vector(x, y));
 }
 }
 };
-```
+</pre>
 
 ## Animating life
 
@@ -5767,7 +5768,7 @@ that we haven't looked at yet, and we'll allow them to move *again* when
 we reach that square. Thus, we have to keep an array of critters that
 have already had their turn and ignore them when we see them again.
 
-```
+<pre>
 World.prototype.turn = function() { var acted = &lbrack;&rbrack;;
 this.grid.forEach(function(critter, vector) {
 if (critter.act && acted.indexOf(critter) == -1) {
@@ -5775,13 +5776,13 @@ acted.push(critter);
 this.letAct(critter, vector);
 } }, this);
 };
-```
+</pre>
 
 We use the second parameter to the grid's forEach method to be able to
 access the correct this inside the inner function. The letAct method
 contains the actual logic that allows the critters to move.
 
-```
+<pre>
 World.prototype.letAct = function(critter, vector) { var action =
 critter.act(new View(this, vector)); if (action && action.type ==
 &quot;move&quot;) {
@@ -5799,7 +5800,7 @@ var dest = vector.plus(directions&lbrack;action.direction&rbrack;); if
 return dest;
 }
 };
-```
+</pre>
 
 First, we simply ask the critter to act, passing it a view object that
 knows about the world and the critter's current position in that world
@@ -6847,14 +6848,14 @@ sure that, during its execution, the top-level variable context holds a
 specific context value. After it finishes, it restores this variable to
 its old value.
 
-```
+<pre>
 var context = null;
 function withContext(newContext, body) {
 var oldContext = context; context = newContext; var result = body();
 context = oldContext;
 return result;
 }
-```
+</pre>
 
 What if body raises an exception? In that case, the call to withContext
 will be thrown off the stack by the exception, and context will never be
@@ -6867,7 +6868,7 @@ trying to run the code in the try block". If a function has to clean
 something up, the cleanup code should usually be put into a finally
 block.
 
-```
+<pre>
 function withContext(newContext, body) {
 var oldContext = context; context = newContext;
 try {
@@ -6875,13 +6876,13 @@ return body();
 } finally { context = oldContext;
 }
 }
-```
+</pre>
 
 Note that we no longer have to store the result of body (which we want
 to return) in a variable. Even if we return directly from the try block,
 the finally block will be run. Now we can do this and be safe:
 
-```
+<pre>
 try {
 withContext(5, function() {
 if (context &lt; 10)
@@ -6891,7 +6892,7 @@ console.log(&quot;Ignoring: &quot; + e);
 // ~→~ Ignoring: Error: Not enough context!
 console.log(context);
 // ~→~ null
-```
+</pre>
 
 Even though the function called from withContext exploded, withContext
 itself still properly cleaned up the context variable.
@@ -6934,14 +6935,15 @@ might have introduced a bug somewhere that is causing an exception. Here
 is an example, which *attempts* to keep on calling promptDirection until
 it gets a valid answer:
 
-```
+<pre>
 for (;;) { try {
-var dir = promtDirection(&quot;Where?&quot;); // ← typo!
-console.log(&quot;You chose &quot;, dir);
-break; } catch (e) { console.log(&quot;Not a valid direction. Try
-again.&quot;);
+  var dir = promtDirection(&quot;Where?&quot;); // ← typo!
+  console.log(&quot;You chose &quot;, dir);
+  break; } catch (e) { 
+    console.log(&quot;Not a valid direction. Try again.&quot;);
+  }
 }
-}
+</pre>
 
 The for (;;) construct is a way to intentionally create a loop that
 doesn't terminate on its own. We break out of the loop only when a valid
@@ -6971,14 +6973,14 @@ the message, the code will stop working.
 Rather, let's define a new type of error and use instanceof to identify
 it.
 
-```
+<pre>
 function InputError(message) {
 this.message = message;
 this.stack = (new Error()).stack;
 }
 InputError.prototype = Object.create(Error.prototype);
 InputError.prototype.name = &quot;InputError&quot;;
-```
+</pre>
 
 The prototype is made to derive from Error.prototype so that instanceof
 
@@ -6993,17 +6995,17 @@ its own.
 
 Now promptDirection can throw such an error.
 
-```
+<pre>
 function promptDirection(question) { var result = prompt(question,
 &quot;&quot;); if (result.toLowerCase() == &quot;left&quot;) return &quot;L&quot;; if
 (result.toLowerCase() == &quot;right&quot;) return &quot;R&quot;;
 throw new InputError(&quot;Invalid direction: &quot; + result);
 }
-```
+</pre>
 
 And the loop can catch it more carefully.
 
-```
+</pre>
 for (;;) {
 try {
 var dir = promptDirection(&quot;Where?&quot;); console.log(&quot;You chose &quot;,
@@ -7014,7 +7016,7 @@ else
 throw e;
 }
 }
-```
+<pre>
 
 This will catch only instances of InputError and let unrelated
 exceptions through. If you reintroduce the typo, the undefined variable
@@ -7025,7 +7027,7 @@ error will be properly reported.
 *Assertions* are a tool to do basic sanity checking for programmer
 errors. Consider this helper function, assert:
 
-```
+</pre>
 function AssertionFailed(message) {
 this.message = message;
 }
@@ -7038,7 +7040,7 @@ function lastElement(array) {
 assert(array.length &gt; 0, &quot;empty array in lastElement&quot;); return
 array&lbrack;array.length - 1&rbrack;;
 }
-```
+</pre>
 
 This provides a compact way to enforce expectations, helpfully blowing
 up the program if the stated condition does not hold. For instance, the
@@ -7086,7 +7088,7 @@ Make sure you handle only the exceptions you are trying to handle.
 
 Consider the following (rather contrived) object:
 
-```
+<pre>
 var box = {
 locked: true,
 unlock: function() { this.locked = false; }, lock: function() {
@@ -7095,7 +7097,7 @@ this.locked = true; },
 if (this.locked) throw new Error(&quot;Locked!&quot;); return this.&lowbar;content;
 }
 };
-```
+</pre>
 
 It is a box with a lock. Inside is an array, but you can get at it only
 when the box is unlocked. Directly accessing the &lowbar;content property is
@@ -7167,11 +7169,11 @@ Regular expression objects have a number of methods. The simplest one is
 test. If you pass it a string, it will return a Boolean telling you
 whether the string contains a match of the pattern in the expression.
 
-```
+<pre>
 console.log(/abc/.test(&quot;abcde&quot;)); // ~→~ true
 console.log(/abc/.test(&quot;abxde&quot;));
 // ~→~ false
-```
+</pre>
 
 A regular expression consisting of only nonspecial characters simply
 represents that sequence of characters. If *abc* occurs anywhere in the
@@ -7191,12 +7193,12 @@ match any of the characters between the brackets.
 Both of the following expressions match all strings that contain a
 digit:
 
-```
+<pre>
 console.log(/&lbrack;0123456789&rbrack;/.test(&quot;in 1992&quot;));
 // ~→~ true
 console.log(/&lbrack;0-9&rbrack;/.test(&quot;in 1992&quot;));
 // ~→~ true
-```
+</pre>
 
 Within square brackets, a dash (-) between two characters can be used to
 indicate a range of characters, where the ordering is determined by the
@@ -7207,7 +7209,7 @@ and matches any digit.
 There are a number of common character groups that have their own
 built-in shortcuts. Digits are one of them: &bsol;&bsol;d means the same thing as
 
-```
+<pre>
 &lbrack;0-9&rbrack;.
 &bsol;&bsol;d Any digit character
 &bsol;&bsol;w An alphanumeric character ("word character")
@@ -7215,11 +7217,11 @@ built-in shortcuts. Digits are one of them: &bsol;&bsol;d means the same thing a
 &bsol;&bsol;D A character that is *not* a digit
 &bsol;&bsol;W A nonalphanumeric character
 &bsol;&bsol;S A nonwhitespace character
-```
+</pre>
 
 . Any character except for newline
 
-```
+<pre>
 So you could match a date and time format like 30-01-2003 15:20 with the
 following expression:
 var dateTime = /&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d-&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d&bsol;&bsol;d &bsol;&bsol;d&bsol;&bsol;d:&bsol;&bsol;d&bsol;&bsol;d/;
@@ -7227,7 +7229,7 @@ console.log(dateTime.test(&quot;30-01-2003 15:20&quot;));
 // ~→~ true
 console.log(dateTime.test(&quot;30-jan-2003 15:20&quot;));
 // ~→~ false
-```
+</pre>
 
 That looks completely awful, doesn't it? It has way too many
 backslashes, producing background noise that makes it hard to spot the
@@ -7243,12 +7245,12 @@ To *invert* a set of characters---that is, to express that you want to
 match any character *except* the ones in the set---you can write a
 caret (&Hat;) character after the opening bracket.
 
-```
+<pre>
 var notBinary = /&lbrack;&Hat;01&rbrack;/;
 console.log(notBinary.test(&quot;1100100010100110&quot;)); // ~→~ false
 console.log(notBinary.test(&quot;1100100010200110&quot;));
 // ~→~ true
-```
+</pre>
 
 ## Repeating parts of a pattern
 
@@ -7259,7 +7261,7 @@ When you put a plus sign (+) after something in a regular expression, it
 indicates that the element may be repeated more than once. Thus, /&bsol;&bsol;d+/
 matches one or more digit characters.
 
-```
+<pre>
 console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;123&apos;&quot;));
 // ~→~ true
 console.log(/&apos;&bsol;&bsol;d+&apos;/.test(&quot;&apos;&apos;&quot;));
@@ -7268,7 +7270,7 @@ console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;123&apos;&quot;));
 // ~→~ true
 console.log(/&apos;&bsol;&bsol;d&ast;&apos;/.test(&quot;&apos;&apos;&quot;));
 // ~→~ true
-```
+</pre>
 
 The star (&ast;) has a similar meaning but also allows the pattern to match
 zero times. Something with a star after it never prevents a pattern from
@@ -10961,7 +10963,7 @@ the whole window because in the browser the global scope is equivalent
 to the window object. Every DOM element has its own addEventListener
 method, which allows you to listen specifically on that element.
 
-```
+<pre>
 &lt;button&gt;Click me&lt;/button&gt;
 &lt;p&gt;No handler here.&lt;/p&gt;
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;);
@@ -10969,6 +10971,7 @@ button.addEventListener(&quot;click&quot;, function() {
 console.log(&quot;Button clicked.&quot;);
 });
 &lt;/script&gt;
+</pre>
 
 The example attaches a handler to the button node. Thus, clicks on the
 button cause that handler to run, whereas clicks on the rest of the
@@ -10983,7 +10986,7 @@ already been registered.
 The removeEventListener method, called with arguments similar to as
 addEventListener, removes a handler.
 
-```
+<pre>
 &lt;button&gt;Act-once button&lt;/button&gt;
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;); function
 once() {
@@ -10991,7 +10994,7 @@ console.log(&quot;Done.&quot;);
 button.removeEventListener(&quot;click&quot;, once); }
 button.addEventListener(&quot;click&quot;, once);
 &lt;/script&gt;
-```
+</pre>
 
 To be able to unregister a handler function, we give it a name (such as
 once) so that we can pass it to both addEventListener and
@@ -11005,7 +11008,7 @@ us additional information about the event. For example, if we want to
 know *which* mouse button was pressed, we can look at the event object's
 which property.
 
-```
+<pre>
 &lt;button&gt;Click me any way you want&lt;/button&gt;
 &lt;script&gt; var button = document.querySelector(&quot;button&quot;);
 button.addEventListener(&quot;mousedown&quot;, function(event) {
@@ -11016,7 +11019,7 @@ else if (event.which == 3)
 console.log(&quot;Right button&quot;);
 });
 &lt;/script&gt;
-```
+</pre>
 
 The information stored in an event object differs per type of event.
 We'll discuss various types later in this chapter. The object's type
@@ -11049,7 +11052,7 @@ the handler for the button calls stopPropagation, which will prevent the
 handler on the paragraph from running. When the button is clicked with
 another mouse button, both handlers will run.
 
-```
+<pre>
 &lt;p&gt;A paragraph with a &lt;button&gt;button&lt;/button&gt;.&lt;/p&gt;
 
 &lt;script&gt; var para = document.querySelector(&quot;p&quot;); var button =
@@ -11063,7 +11066,7 @@ if (event.which == 3)
 event.stopPropagation();
 });
 &lt;/script&gt;
-```
+</pre>
 
 Most event objects have a target property that refers to the node where
 they originated. You can use this property to ensure that you're not
@@ -11077,6 +11080,7 @@ click handler on the outer node and have it use the target property to
 figure out whether a button was clicked, rather than register individual
 handlers on all of the buttons.
 
+<pre>
 &lt;button&gt;A&lt;/button&gt;
 
 &lt;button&gt;B&lt;/button&gt;
@@ -11090,6 +11094,7 @@ if (event.target.nodeName == &quot;BUTTON&quot;)
 console.log(&quot;Clicked&quot;, event.target.textContent); });
 
 &lt;/script&gt;
+</pre>
 
 ## Default actions
 
@@ -11108,6 +11113,7 @@ This can be used to implement your own keyboard shortcuts or context
 menu. It can also be used to obnoxiously interfere with the behavior
 that users expect. For example, here is a link that cannot be followed:
 
+<pre>
 &lt;a href=&quot;https://developer.mozilla.org/&quot;&gt;MDN&lt;/a&gt;
 
 &lt;script&gt; var link = document.querySelector(&quot;a&quot;);
@@ -11118,6 +11124,7 @@ console.log(&quot;Nope.&quot;); event.preventDefault();
 });
 
 &lt;/script&gt;
+</pre>
 
 Try not to do such things unless you have a really good reason to. For
 people using your page, it can be unpleasant when the behavior they
@@ -13191,18 +13198,21 @@ single control point, this one has two---one for each of the line's
 endpoints. Here is a similar sketch to illustrate the behavior of such a
 curve:
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
-
 &lt;script&gt; var cx =
-document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); cx.beginPath();
-cx.moveTo(10, 90);
+document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); 
+  cx.beginPath();
+  cx.moveTo(10, 90);
 
-// control1=(10,10) control2=(90,10) goal=(50,90) cx.bezierCurveTo(10,
-10, 90, 10, 50, 90);
+// control1=(10,10) control2=(90,10) goal=(50,90) cx.bezierCurveTo(10,10, 90, 10, 50, 90);
 
-cx.lineTo(90, 10); cx.lineTo(10, 10); cx.closePath(); cx.stroke();
-
+cx.lineTo(90, 10); 
+cx.lineTo(10, 10); 
+cx.closePath(); 
+cx.stroke();
 &lt;/script&gt;
+</pre>
 
 The two control points specify the direction at both ends of the curve.
 The further they are away from their corresponding point, the more the
@@ -13227,21 +13237,21 @@ so that it forms part of a circle with the given radius. The arcTo
 method then draws the rounded part, as well as a line from the starting
 position to the start of the rounded part.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
-
-&lt;script&gt; var cx =
-document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); cx.beginPath();
+&lt;script&gt; 
+var cx = document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); 
+cx.beginPath();
 cx.moveTo(10, 10);
 
-// control=(90,10) goal=(90,90) radius=20 cx.arcTo(90, 10, 90, 90,
-20); cx.moveTo(10, 10);
+// control=(90,10) goal=(90,90) radius=20 cx.arcTo(90, 10, 90, 90, 20); 
+cx.moveTo(10, 10);
 
-// control=(90,10) goal=(90,90) radius=80 cx.arcTo(90, 10, 90, 90,
-80);
+// control=(90,10) goal=(90,90) radius=80 cx.arcTo(90, 10, 90, 90, 80);
 
 cx.stroke();
-
 &lt;/script&gt;
+</pre>
 
 This produces two rounded corners with different radii.
 
@@ -13265,6 +13275,7 @@ angle starts counting at the point to the right of the circle's center
 and goes clockwise from there. You can use a start of 0 and an end
 bigger than 2*π* (say, 7) to draw a full circle.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13281,6 +13292,7 @@ cx.arc(150, 50, 40, 0, 0.5 &ast; Math.PI);
 cx.stroke();
 
 &lt;/script&gt;
+</pre>
 
 The resulting picture contains a line from the right of the full circle
 (first call to arc) to the right of the quarter-circle (second call).
@@ -13300,6 +13312,7 @@ results.
 The results variable contains an array of objects that represent the
 survey responses.
 
+<pre>
 var results = &lbrack;
 
 {name: &quot;Satisfied&quot;, count: 1043, color: &quot;lightblue&quot;},
@@ -13311,6 +13324,7 @@ var results = &lbrack;
 {name: &quot;No comment&quot;, count: 175, color: &quot;silver&quot;}
 
 &rbrack;;
+</pre>
 
 To draw a pie chart, we draw a number of pie slices, each made up of an
 arc and a pair of lines to the center of that arc. We can compute the
@@ -13318,6 +13332,7 @@ angle taken up by each arc by dividing a full circle (2*π*) by the total
 number of responses and then multiplying that number (the angle per
 response) by the number of people who picked a given choice.
 
+<pre>
 &lt;canvas width=&quot;200&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13345,6 +13360,7 @@ cx.fill();
 });
 
 &lt;/script&gt;
+</pre>
 
 This draws the following chart:
 
@@ -13361,6 +13377,7 @@ A 2D canvas drawing context provides the methods fillText and strokeText
 is what you need. It will fill the given text with the current
 fillColor.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13370,6 +13387,7 @@ cx.font = &quot;28px Georgia&quot;; cx.fillStyle = &quot;fuchsia&quot;;
 cx.fillText(&quot;I can draw text, too!&quot;, 10, 50);
 
 &lt;/script&gt;
+</pre>
 
 You can specify the size, style, and font of the text with the font
 property. This example just gives a font size and family name. You can
@@ -13402,6 +13420,7 @@ it. But it cannot immediately start drawing from this picture because
 the browser may not have fetched it yet. To deal with this, we register
 a &quot;load&quot; event handler and do the drawing after the image has loaded.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13414,6 +13433,7 @@ x += 30) cx.drawImage(img, x, 10);
 });
 
 &lt;/script&gt;
+</pre>
 
 By default, drawImage will draw the image at its original size. You can
 also give it two additional arguments to dictate a different width and
@@ -13443,6 +13463,7 @@ We know that each *sprite*, each subpicture, is 24 pixels wide and 30
 pixels high. The following code loads the image and then sets up an
 interval (repeated timer) to draw the next *frame*:
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13473,6 +13494,7 @@ cycle &ast; spriteW, 0, spriteW, spriteH,
 });
 
 &lt;/script&gt;
+</pre>
 
 The cycle variable tracks our position in the animation. Each frame, it
 is incremented and then clipped back to the 0 to 7 range by using the
@@ -13489,6 +13511,7 @@ Calling the scale method will cause anything drawn after it to be
 scaled. This method takes two parameters, one to set a horizontal scale
 and one to set a vertical scale.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13499,6 +13522,7 @@ cx.beginPath(); cx.arc(50, 50, 40, 0, 7); cx.lineWidth = 3;
 cx.stroke();
 
 &lt;/script&gt;
+</pre>
 
 Due to the call to scale, the circle is drawn three times as wide and
 half as high.
@@ -13533,6 +13557,7 @@ drawn 20 pixels to the right. If we first move the center of the
 coordinate system to (50,50) and then rotate by 20 degrees (0.1*π* in
 radians), that rotation will happen *around* point (50,50).
 
+<pre>
 translate(50, 50)
 
 rotate(0.1&ast;Math.PI)
@@ -13540,6 +13565,7 @@ rotate(0.1&ast;Math.PI)
 rotate(0.1&ast;Math.PI)
 
 translate(50, 50)
+</pre>
 
 But if we *first* rotate by 20 degrees and *then* translate by (50,50),
 the translation will happen in the rotated coordinate system and thus
@@ -13549,21 +13575,18 @@ applied matters.
 To flip a picture around the vertical line at a given x position, we can
 do the following:
 
+<pre>
 function flipHorizontally(context, around) {
 context.translate(around, 0); context.scale(-1, 1);
 context.translate(-around, 0);
 }
+</pre>
 
 We move the y-axis to where we want our mirror to be, apply the
 mirroring, and finally move the y-axis back to its proper place in the
 mirrored universe. The following picture explains why this works:
 
-mirror
-
-1
-2
-3
-4
+<image>
 
 This shows the coordinate systems before and after mirroring across the
 central line. If we draw a triangle at a positive x position, it would,
@@ -13577,6 +13600,7 @@ translation and makes triangle 4 appear exactly where it should.
 We can now draw a mirrored character at position (100,0) by flipping the
 world around the character's vertical center.
 
+<pre>
 &lt;canvas&gt;&lt;/canvas&gt;
 
 &lt;script&gt; var cx =
@@ -13590,6 +13614,7 @@ spriteW, spriteH,
 
 });
 &lt;/script&gt;
+</pre>
 
 ## Storing and clearing transformations
 
@@ -13622,6 +13647,7 @@ itself twice---first rotated to the left and then rotated to the right.
 Every call reduces the length of the branch drawn, and the recursion
 stops when the length drops below 8.
 
+<pre>
 &lt;canvas width=&quot;600&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
 &lt;script&gt; var cx =
 document.querySelector(&quot;canvas&quot;).getContext(&quot;2d&quot;); function
@@ -13635,6 +13661,7 @@ cx.restore();
 }
 cx.translate(300, 0); branch(60, 0.5, 0.8);
 &lt;/script&gt;
+</pre>
 
 The result is a simple fractal.
 
@@ -13717,7 +13744,7 @@ The updateViewport method is similar to DOMDisplay's
 scrollPlayerIntoView method. It checks whether the player is too close
 to the edge of the screen and moves the viewport when this is the case.
 
-```
+<pre>
 CanvasDisplay.prototype.updateViewport = function() { var view =
 this.viewport, margin = view.width / 3;
 
@@ -13741,7 +13768,7 @@ else if (center.y &gt; view.top + view.height - margin)
 
 view.top = Math.min(center.y + margin - view.height,
 this.level.height - view.height); };
-```
+</pre>
 
 The calls to Math.max and Math.min ensure that the viewport does not end
 up showing space outside of the level. Math.max(x, 0) ensures that the
@@ -13751,7 +13778,7 @@ value stays below a given bound.
 When clearing the display, we'll use a slightly different color
 depending on whether the game is won (brighter) or lost (darker).
 
-```
+<pre>
 CanvasDisplay.prototype.clearDisplay = function() { if
 (this.level.status == &quot;won&quot;)
 
@@ -13766,13 +13793,13 @@ else
 this.cx.fillStyle = &quot;rgb(52, 166, 251)&quot;;
 
 this.cx.fillRect(0, 0, this.canvas.width, this.canvas.height); };
-```
+</pre>
 
 To draw the background, we run through the tiles that are visible in the
 current viewport, using the same trick used in obstacleAt in the
 previous chapter.
 
-```
+<pre>
 var otherSprites = document.createElement(&quot;img&quot;); otherSprites.src =
 &quot;img/sprites.png&quot;;
 
@@ -13798,7 +13825,7 @@ screenX, screenY, scale, scale);
 }
 
 };
-```
+</pre>
 
 Tiles that are not empty (null) are drawn with drawImage. The
 otherSprites image contains the pictures used for elements other than
@@ -13835,7 +13862,7 @@ instead of 16 pixels, to allow some space for feet and arms---the method
 has to adjust the x-coordinate and width by a given amount
 (playerXOverlap).
 
-```
+<pre>
 var playerSprites = document.createElement(&quot;img&quot;); playerSprites.src
 = &quot;img/player.png&quot;; var playerXOverlap = 4;
 
@@ -13864,12 +13891,12 @@ x, y, width, height);
 this.cx.restore();
 
 };
-```
+</pre>
 
 The drawPlayer method is called by drawActors, which is responsible for
 drawing all the actors in the game.
 
-```
+<pre>
 CanvasDisplay.prototype.drawActors = function() {
 this.level.actors.forEach(function(actor) {
 
@@ -13890,7 +13917,7 @@ x, y, width, height);
 } }, this);
 
 };
-```
+</pre>
 
 When drawing something that is not the player, we look at its type to
 find the offset of the correct sprite. The lava tile is found at offset
@@ -14941,20 +14968,20 @@ The &lt;textarea&gt; requires a matching &lt;/textarea&gt; closing tag and uses
 the text between those two, instead of using its value attribute, as
 starting text.
 
-```
+<pre>
 &lt;textarea&gt; one two three
 &lt;/textarea&gt;
-```
+</pre>
 
 Finally, the &lt;select&gt; tag is used to create a field that allows the
 user to select from a number of predefined options.
 
-```
+<pre>
 &lt;select&gt;
 &lt;option&gt;Pancakes&lt;/option&gt;
 &lt;option&gt;Pudding&lt;/option&gt;
 &lt;option&gt;Ice cream&lt;/option&gt; &lt;/select&gt;
-```
+</pre>
 
 Such a field looks like this:
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -15944,7 +15971,7 @@ This is what a color picker may look like:
 </p>
 <!-- ![](./images/image74.jpg){width="3.0315398075240596in" height="3.171996937882765in"} -->
 
-```
+<pre>
 controls.color = function(cx) {
 var input = elt(&quot;input&quot;, {type: &quot;color&quot;});
 input.addEventListener(&quot;change&quot;, function() {
@@ -15952,14 +15979,14 @@ cx.fillStyle = input.value; cx.strokeStyle = input.value;
 });
 return elt(&quot;span&quot;, null, &quot;Color: &quot;, input);
 };
-```
+</pre>
 
 Whenever the value of the color field changes, the drawing context's
 fillStyle and strokeStyle are updated to hold the new value.
 
 The field for configuring the brush size works similarly.
 
-```
+<pre>
 controls.brushSize = function(cx) {
 var select = elt(&quot;select&quot;);
 var sizes = &lbrack;1, 2, 3, 5, 8, 12, 25, 35, 50, 75, 100&rbrack;;
@@ -15972,7 +15999,7 @@ cx.lineWidth = select.value;
 });
 return elt(&quot;span&quot;, null, &quot;Brush size: &quot;, select);
 };
-```
+</pre>
 
 The code generates options from an array of brush sizes, and again
 ensures that the canvas' lineWidth is updated when a brush size is
@@ -16000,7 +16027,7 @@ data into a link and would be noticeably slow. Instead, we rig the link
 to update its href attribute whenever it is focused with the keyboard or
 the mouse is moved over it.
 
-```
+<pre>
 controls.save = function(cx) {
 var link = elt(&quot;a&quot;, {href: &quot;/&quot;}, &quot;Save&quot;); function update() {
 try {
@@ -16014,7 +16041,7 @@ throw e;
 link.addEventListener(&quot;mouseover&quot;, update);
 link.addEventListener(&quot;focus&quot;, update); return link;
 };
-```
+</pre>
 
 Thus, the link just quietly sits there, pointing at the wrong thing, but
 when the user approaches it, it magically updates itself to point at the
@@ -16056,7 +16083,7 @@ The final two controls are used to load images from local files and from
 URLs. We'll need the following helper function, which tries to load an
 image file from a URL and replace the contents of the canvas with it:
 
-```
+<pre>
 function loadImageURL(cx, url) {
 var image = document.createElement(&quot;img&quot;);
 image.addEventListener(&quot;load&quot;, function() {
@@ -16066,7 +16093,7 @@ cx.drawImage(image, 0, 0); cx.fillStyle = color; cx.strokeStyle =
 color; cx.lineWidth = size;
 }); image.src = url;
 }
-```
+</pre>
 
 We want to change the size of the canvas to precisely fit the image. For
 some reason, changing the size of a canvas will cause its drawing
@@ -16662,13 +16689,13 @@ functions for working with files and directories.
 For example, there is a function called readFile, which reads a file and
 then calls a callback with the file's contents.
 
-```
+<pre>
 var fs = require(&quot;fs&quot;);
 fs.readFile(&quot;file.txt&quot;, &quot;utf8&quot;, function(error, text) {
 if (error)
 throw error;
 console.log(&quot;The file contained:&quot;, text); });
-```
+</pre>
 
 The second argument to readFile indicates the *character encoding* used
 to decode the file into a string. There are several ways in which text
@@ -16680,18 +16707,18 @@ data and will give you a Buffer object instead of a string. This is an
 array-like object that contains numbers representing the bytes in the
 files.
 
-```
+<pre>
 var fs = require(&quot;fs&quot;);
 fs.readFile(&quot;file.txt&quot;, function(error, buffer) {
 if (error)
 throw error;
 console.log(&quot;The file contained&quot;, buffer.length, &quot;bytes.&quot;,
 &quot;The first byte is:&quot;, buffer&lbrack;0&rbrack;); });
-```
+</pre>
 
 A similar function, writeFile, is used to write a file to disk.
 
-```
+<pre>
 var fs = require(&quot;fs&quot;);
 fs.writeFile(&quot;graffiti.txt&quot;, &quot;Node was here&quot;, function(err) {
 if (err)
@@ -16699,7 +16726,7 @@ console.log(&quot;Failed to write file:&quot;, err);
 else
 console.log(&quot;File written.&quot;);
 });
-```
+</pre>
 
 Here, it was not necessary to specify the encoding since writeFile will
 assume that if it is given a string to write, rather than a Buffer
@@ -16716,10 +16743,10 @@ Many of the functions in &quot;fs&quot; come in both synchronous and
 asynchronous variants. For example, there is a synchronous version of
 readFile called readFileSync.
 
-```
+<pre>
 var fs = require(&quot;fs&quot;);
 console.log(fs.readFileSync(&quot;file.txt&quot;, &quot;utf8&quot;));
-```
+</pre>
 
 Synchronous functions require less ceremony to use and can be useful in
 simple scripts, where the extra speed provided by asynchronous I/O is
@@ -16735,7 +16762,7 @@ running HTTP servers and making HTTP requests.
 
 This is all it takes to start a simple HTTP server:
 
-```
+<pre>
 var http = require(&quot;http&quot;);
 var server = http.createServer(function(request, response) {
 response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
@@ -16744,7 +16771,7 @@ request.url + &quot;&lt;/code&gt;&lt;/p&gt;&quot;);
 response.end();
 });
 server.listen(8000);
-```
+</pre>
 
 If you run this script on your own machine, you can point your web
 browser at *<http://localhost:8000/hello* to make a request to your
@@ -17508,13 +17535,13 @@ that implements the client-side system.
 
 A GET request to /talks returns a JSON document like this:
 
-```
+<pre>
 {&quot;serverTime&quot;: 1405438911833,
 &quot;talks&quot;: &lbrack;{&quot;title&quot;: &quot;Unituning&quot;,
 &quot;presenter&quot;: &quot;Carlos&quot;,
 &quot;summary&quot;: &quot;Modifying your cycle for extra style&quot;,
 &quot;comment&quot;: &lbrack;&rbrack;}&rbrack;}
-```
+</pre>
 
 The serverTime field will be used to make reliable long polling
 possible. I will return to it later.
@@ -17528,19 +17555,19 @@ Since talk titles may contain spaces and other characters that may not
 appear normally in a URL, title strings must be encoded with the
 encodeURIComponent function when building up such a URL.
 
-```
+<pre>
 console.log(&quot;/talks/&quot; + encodeURIComponent(&quot;How to Idle&quot;));
 // ~→~ /talks/How%20to%20Idle
-```
+</pre>
 
 A request to create a talk about idling might look something like this:
 
-```
+<pre>
 PUT /talks/How%20to%20Idle HTTP/1.1
 Content-Type: application/json Content-Length: 92
 {&quot;presenter&quot;: &quot;Dana&quot;,
 &quot;summary&quot;: &quot;Standing still on a unicycle&quot;}
-```
+</pre>
 
 Such URLs also support GET requests to retrieve the JSON representation
 of a talk and DELETE requests to delete a talk.
@@ -17550,13 +17577,13 @@ Adding a comment to a talk is done with a POST request to a URL like
 /talks/Unituning/comments, with a JSON object that has author and
 message properties as the body of the request.
 
-```
+<pre>
 POST /talks/Unituning/comments HTTP/1.1
 Content-Type: application/json
 Content-Length: 72
 {&quot;author&quot;: &quot;Alice&quot;,
 &quot;message&quot;: &quot;Will you talk about raising a cycle?&quot;}
-```
+</pre>
 
 To support long polling, GET requests to /talks may include a query
 parameter called changesSince, which is used to indicate that the client
@@ -17582,7 +17609,7 @@ receives was created. The client can then simply store this time and
 pass it along in its next polling request to make sure that it receives
 exactly the updates that it has not seen before.
 
-```
+<pre>
 GET /talks?changesSince=1405438911833 HTTP/1.1
 (time passes)
 HTTP/1.1 200 OK
@@ -17590,7 +17617,7 @@ Content-Type: application/json Content-Length: 95
 {&quot;serverTime&quot;: 1405438913401,
 &quot;talks&quot;: &lbrack;{&quot;title&quot;: &quot;Unituning&quot;,
 &quot;deleted&quot;: true}&rbrack;}
-```
+</pre>
 
 When a talk has been changed, has been newly created, or has a comment
 added, the full representation of the talk is included in the response
@@ -17638,7 +17665,7 @@ write one ourselves to illustrate the principle.
 
 This is router.js, which we will later require from our server module:
 
-```
+<pre>
 var Router = module.exports = function() {
 this.routes = &lbrack;&rbrack;;
 };
@@ -17658,7 +17685,7 @@ route.handler.apply(null, &lbrack;request, response&rbrack;
 return true;
 });
 };
-```
+</pre>
 
 The module exports the Router constructor. A router object allows new
 handlers to be registered with the add method and can resolve requests
@@ -17694,7 +17721,7 @@ parameters and can be passed directly to createServer to create a server
 that serves *only* files. We want to first check for requests that we
 handle specially, though, so we wrap it in another function.
 
-```
+<pre>
 var http = require(&quot;http&quot;); var Router = require(&quot;./router&quot;); var
 ecstatic = require(&quot;ecstatic&quot;); var fileServer = ecstatic({root:
 &quot;./public&quot;}); var router = new Router();
@@ -17702,12 +17729,12 @@ http.createServer(function(request, response) {
 if (!router.resolve(request, response))
 fileServer(request, response);
 }).listen(8000);
-```
+</pre>
 
 The respond and respondJSON helper functions are used throughout the
 server code to send off responses with a single function call.
 
-```
+<pre>
 function respond(response, status, data, type) {
 response.writeHead(status, {
 &quot;Content-Type&quot;: type &vert;&vert; &quot;text/plain&quot;
@@ -17717,7 +17744,7 @@ response.end(data);
 function respondJSON(response, status, data) {
 respond(response, status, JSON.stringify(data),
 &quot;application/json&quot;); }
-```
+</pre>
 
 #### Talks as resources
 
@@ -17731,7 +17758,7 @@ The handler for requests that GET a single talk must look up the talk
 and respond either with the talk's JSON data or with a 404 error
 response. var talks = Object.create(null);
 
-```
+<pre>
 router.add(&quot;GET&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/, function(request,
 response, title) {
 if (title in talks)
@@ -17739,11 +17766,11 @@ respondJSON(response, 200, talks&lbrack;title&rbrack;);
 else
 respond(response, 404, &quot;No talk &apos;&quot; + title + &quot;&apos; found&quot;);
 });
-```
+</pre>
 
 Deleting a talk is done by removing it from the talks object.
 
-```
+<pre>
 router.add(&quot;DELETE&quot;, /&Hat;&bsol;&bsol;/talks&bsol;&bsol;/(&lbrack;&Hat;&bsol;&bsol;/&rbrack;+)&dollar;/,
 function(request, response, title) {
 if (title in talks) {
@@ -17751,7 +17778,7 @@ delete talks&lbrack;title&rbrack;; registerChange(title);
 }
 respond(response, 204, null);
 });
-```
+</pre>
 
 The registerChange function, which we will define later, notifies
 waiting long-polling requests about the change.
@@ -17760,7 +17787,7 @@ To retrieve the content of JSON-encoded request bodies, we define a
 function called readStreamAsJSON, which reads all content from a stream,
 parses it as JSON, and then calls a callback function.
 
-```
+<pre>
 function readStreamAsJSON(stream, callback) {
 var data = &quot;&quot;;
 stream.on(&quot;data&quot;, function(chunk) {
@@ -17774,7 +17801,7 @@ stream.on(&quot;error&quot;, function(error) {
 callback(error);
 });
 }
-```
+</pre>
 
 One handler that needs to read JSON responses is the PUT handler, which
 is used to create new talks. It has to check whether the data it was
@@ -21457,3 +21484,4 @@ Zawinski, Jamie, 164 zero-based counting, 60, 63, 170 zeroPad function,
 <!-- readme.md of JS-Eloquent in bbauska.github.com... -->
 <!-- @nbsp; <br/> -->
 <!-- the end 12/15/2024 @5:41pm -->
+<!-- the end 12/18/2024 @4:55pm -->
