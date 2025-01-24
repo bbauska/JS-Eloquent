@@ -1331,9 +1331,9 @@ Number(prompt(&quot;Pick a number&quot;, &quot;0&quot;));
 
 <pre>
 if (num &lt; 10)
-alert(&quot;Small&quot;);
+  alert(&quot;Small&quot;);
 else if (num &lt; 100) alert(&quot;Medium&quot;);
-else
+  else
 alert(&quot;Large&quot;);
 </pre>
 
@@ -1364,7 +1364,7 @@ where we were before and repeat it with our current program state. If we
 combine this with a variable that counts, we can do something like this:
 
 <pre>
-var number = 0; 
+var number = 0;
 while (number &lt;= 12) { console.log(number);
   number = number + 2;
 }
@@ -1410,8 +1410,8 @@ var result = 1; var counter = 0;
 while (counter &lt; 10) { result = result &ast; 2;
   counter = counter + 1;
 }
-console.log(result);
-// ~→~ 1024
+
+console.log(result);  // ~→~ 1024
 </pre>
 
 The counter could also start at 1 and check for &lt;= 10, but, for reasons
@@ -1425,7 +1425,7 @@ execution. To reflect this, the test appears after the body of the loop:
 
 <pre>
 do {
-var name = prompt(&quot;Who are you?&quot;);
+  var name = prompt(&quot;Who are you?&quot;);
 } while (!name); console.log(name);
 </pre>
 
@@ -1503,9 +1503,8 @@ that is both greater than or equal to 20 and divisible by 7.
 
 <pre>
 for (var current = 20; ; current++) {
-if (current % 7 == 0) break; }
-console.log(current);
-// ~→~ 21
+  if (current % 7 == 0) break; }
+    console.log(current);  // ~→~ 21
 </pre>
 
 Using the remainder (%) operator is an easy way to test whether a number
@@ -1542,7 +1541,7 @@ double result or counter -= 1 to count downward.
 
 This allows us to shorten our counting example a little more.
 
-for (var number = 0; number &lt;= 12; number += 2) console.log(number);
+<pre>for (var number = 0; number &lt;= 12; number += 2) console.log(number);</pre>
 
 For counter += 1 and counter -= 1, there are even shorter equivalents:
 counter ++ and counter&dash;-.
@@ -1551,9 +1550,11 @@ counter ++ and counter&dash;-.
 
 It is common for code to look like this:
 
+<pre>
 if (variable == &quot;value1&quot;) action1(); else if (variable ==
 &quot;value2&quot;) action2(); else if (variable == &quot;value3&quot;) action3();
 else defaultAction();
+</pre>
 
 There is a construct called switch that is intended to solve such a
 "dispatch" in a more direct way. Unfortunately, the syntax JavaScript
@@ -1563,13 +1564,13 @@ better. Here is an example:
 
 <pre>
 switch (prompt(&quot;What is the weather like?&quot;)) {
-case &quot;rainy&quot;:
-console.log(&quot;Remember to bring an umbrella.&quot;); break;
-case &quot;sunny&quot;: console.log(&quot;Dress lightly.&quot;);
-case &quot;cloudy&quot;:
-console.log(&quot;Go outside.&quot;);
-break; default: console.log(&quot;Unknown weather type!&quot;);
-break;
+  case &quot;rainy&quot;:
+  console.log(&quot;Remember to bring an umbrella.&quot;); break;
+  case &quot;sunny&quot;: console.log(&quot;Dress lightly.&quot;);
+  case &quot;cloudy&quot;:
+  console.log(&quot;Go outside.&quot;);
+  break; default: console.log(&quot;Unknown weather type!&quot;);
+  break;
 }
 </pre>
 
@@ -1781,10 +1782,10 @@ produces the square of a given number:
 
 <pre>
 var square = function(x) {
-return x &ast; x;
+  return x &ast; x;
 };
-console.log(square(12));
-// ~→~ 144
+
+console.log(square(12));  // ~→~ 144
 </pre>
 
 A function is created by an expression that starts with the keyword
@@ -1800,17 +1801,18 @@ power lists two:
 
 <pre>
 var makeNoise = function() {
-console.log(&quot;Pling!&quot;);
+  console.log(&quot;Pling!&quot;);
 };
+
 makeNoise(); // ~→~ Pling!
 var power = function(base, exponent) {
-var result = 1;
-for (var count = 0; count &lt; exponent; count++)
-result &ast;= base;
-return result;
+  var result = 1;
+  for (var count = 0; count &lt; exponent; count++)
+  result &ast;= base;
+  return result;
 };
-console.log(power(2, 10));
-// ~→~ 1024
+
+console.log(power(2, 10));  // ~→~ 1024
 </pre>
 
 Some functions produce a value, such as power and square, and some
@@ -1849,13 +1851,14 @@ global variable x defined at the top of the example.
 <pre>
 var x = &quot;outside&quot;;
 var f1 = function() {
-var x = &quot;inside f1&quot;;
-}; f1(); console.log(x); // ~→~ outside
+  var x = &quot;inside f1&quot;;
+}; f1(); 
+console.log(x); // ~→~ outside
+
 var f2 = function() {
-x = &quot;inside f2&quot;;
+  x = &quot;inside f2&quot;;
 }; f2();
-console.log(x);
-// ~→~ inside f2
+console.log(x);  // ~→~ inside f2
 </pre>
 
 This behavior helps prevent accidental interference between functions.
@@ -1877,18 +1880,19 @@ For example, this rather nonsensical function has two functions inside
 of it:
 
 <pre>
-var landscape = function() { var result = &quot;&quot;; 
-var flat = function(size) {
-for (var count = 0; count &lt; size; count++)
-result += &quot;&lowbar;&quot;;
-};
-var mountain = function(size) {
-result += &quot;/&quot;;
-for (var count = 0; count &lt; size; count++)
-result += &quot;&apos;&quot;;
-result += &quot;&bsol;&bsol;&bsol;&bsol;&quot;;
-};
-flat(3); mountain(4); flat(6); mountain(1); flat(1); return result;
+var landscape = function() { 
+  var result = &quot;&quot;; 
+  var flat = function(size) {
+    for (var count = 0; count &lt; size; count++)
+    result += &quot;&lowbar;&quot;;
+  };
+  var mountain = function(size) {
+    result += &quot;/&quot;;
+    for (var count = 0; count &lt; size; count++)
+    result += &quot;&apos;&quot;;
+    result += &quot;&bsol;&bsol;&bsol;&bsol;&quot;;
+  };
+  flat(3); mountain(4); flat(6); mountain(1); flat(1); return result;
 };
 console.log(landscape());
 // ~→~ &lowbar;&lowbar;&lowbar;/&apos;&apos;&apos;&apos;&bsol;&bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/&apos;&bsol;&bsol;&lowbar;
@@ -1901,9 +1905,7 @@ The environment outside of the landscape function doesn't see any of the
 variables defined inside landscape.
 
 In short, each local scope can also see all the local scopes that
-contain
-
-it. The set of variables visible inside a function is determined by the
+contain it. The set of variables visible inside a function is determined by the
 place of that function in the program text. All variables from blocks
 <i>around</i> a function's definition are visible---meaning both those in
 function bodies that enclose it and those at the top level of the
@@ -1918,8 +1920,8 @@ scope. You are allowed to use free-standing blocks.
 <pre>
 var something = 1;
 {
-var something = 2;
-// Do stuff with variable something&hellip;
+  var something = 2;
+  // Do stuff with variable something&hellip;
 }
 // Outside of the block again&hellip;
 </pre>
@@ -1948,9 +1950,9 @@ new value, like so:
 
 <pre>
 var launchMissiles = function(value) {
-missileSystem.launch(&quot;now&quot;);
+  missileSystem.launch(&quot;now&quot;);
 }; if (safeMode)
-launchMissiles = function(value) {/&ast; do nothing &ast;/};
+  launchMissiles = function(value) {/&ast; do nothing &ast;/};
 </pre>
 
 In Chapter 5, we will discuss the wonderful things that can be done by
@@ -1964,7 +1966,7 @@ following:
 
 <pre>
 function square(x) {
-return x &ast; x;
+  return x &ast; x;
 }
 </pre>
 
@@ -1975,7 +1977,7 @@ subtlety with this form of function definition, however.
 <pre>
 console.log(&quot;The future says:&quot;, future());
 function future() {
-return &quot;We STILL have no flying cars.&quot;;
+  return &quot;We STILL have no flying cars.&quot;;
 }
 </pre>
 
@@ -1996,9 +1998,11 @@ this form of functiondefining statements in the outermost block of a
 function or program.
 
 <pre>
-function example() { function a() {} // Okay if (something) {
-function b() {} // Danger!
-}
+function example() { 
+  function a() {} // Okay 
+  if (something) {
+    function b() {} // Danger!
+  }
 }
 </pre>
 
@@ -2010,8 +2014,10 @@ calls:
 
 <pre>
 function greet(who) {
-console.log(&quot;Hello &quot; + who);
-} greet(&quot;Harry&quot;); console.log(&quot;Bye&quot;);
+  console.log(&quot;Hello &quot; + who);
+} 
+greet(&quot;Harry&quot;);
+console.log(&quot;Bye&quot;);
 </pre>
 
 A run through this program goes roughly like this: the call to greet
@@ -2048,10 +2054,11 @@ out of space, or "blow the stack".
 
 <pre>
 function chicken() {
-return egg();
+  return egg();
 }
+
 function egg() {
-return chicken();
+  return chicken();
 }
 console.log(chicken() + &quot; came first.&quot;); // ~→~ ??
 </pre>
@@ -2082,16 +2089,14 @@ square.
 
 <pre>
 function power(base, exponent) {
-if (exponent == undefined)
-exponent = 2; var result = 1;
-for (var count = 0; count &lt; exponent; count++)
-result &ast;= base;
-return result;
+  if (exponent == undefined)
+  exponent = 2; var result = 1;
+  for (var count = 0; count &lt; exponent; count++)
+  result &ast;= base;
+  return result;
 }
-console.log(power(4));
-// ~→~ 16
-console.log(power(4, 3));
-// ~→~ 64
+console.log(power(4));  // ~→~ 16
+console.log(power(4, 3));  // ~→~ 64
 </pre>
 
 In the next chapter, we will see a way in which a function body can get
@@ -2101,8 +2106,7 @@ For example, console.log makes use of this---it outputs all of the
 values it is given.
 
 <pre>
-console.log(&quot;R&quot;, 2, &quot;D&quot;, 2);
-// ~→~ R 2 D 2
+console.log(&quot;R&quot;, 2, &quot;D&quot;, 2);  // ~→~ R 2 D 2
 </pre>
 
 ## Closure
@@ -2118,14 +2122,12 @@ that accesses and returns this local variable.
 
 <pre>
 function wrapValue(n) {
-var localVariable = n;
-return function() { return localVariable; };
+  var localVariable = n;
+  return function() { return localVariable; };
 }
 var wrap1 = wrapValue(1); var wrap2 = wrapValue(2);
-console.log(wrap1());
-// ~→~ 1
-console.log(wrap2());
-// ~→~ 2
+console.log(wrap1());  // ~→~ 1
+console.log(wrap2());  // ~→~ 2
 </pre>
 
 This is allowed and works as you'd hope---the variable can still be
@@ -2144,11 +2146,12 @@ With a slight change, we can turn the previous example into a way to
 create functions that multiply by an arbitrary amount.
 
 <pre>
-function multiplier(factor) { return function(number) { return number &ast; factor;
-};
+function multiplier(factor) { 
+  return function(number) { 
+    return number &ast; factor;
+  };
 }
-var twice = multiplier(2); console.log(twice(5));
-// ~→~ 10
+var twice = multiplier(2); console.log(twice(5));  // ~→~ 10
 </pre>
 
 The explicit localVariable from the wrapValue example isn't needed since
@@ -2177,13 +2180,12 @@ power:
 
 <pre>
 function power(base, exponent) {
-if (exponent == 0)
-return 1;
+  if (exponent == 0)
+  return 1;
 else
-return base &ast; power(base, exponent - 1);
+  return base &ast; power(base, exponent - 1);
 }
-console.log(power(2, 3));
-// ~→~ 8
+console.log(power(2, 3));  // ~→~ 8
 </pre>
 
 This is rather close to the way mathematicians define exponentiation and
@@ -2241,20 +2243,19 @@ first multiplying by 3 and then adding 5 twice, whereas the number 15
 cannot be reached at all. Here is a recursive solution:
 
 <pre>
-function findSolution(target) { function find(start, history) {
-
-if (start == target)
-return history;
-else if (start &gt; target)
-return null;
-else
-return find(start + 5, &quot;(&quot; + history + &quot; + 5)&quot;) &vert;&vert; find(start &ast;
-3, &quot;(&quot; + history + &quot; &ast; 3)&quot;);
+function findSolution(target) { 
+  function find(start, history) {
+    if (start == target)
+    return history;
+    else if (start &gt; target)
+    return null;
+    else
+    return find(start + 5, &quot;(&quot; + history + &quot; + 5)&quot;) &vert;&vert; find(start &ast;
+    3, &quot;(&quot; + history + &quot; &ast; 3)&quot;);
+  }
+  return find(1, &quot;1&quot;);
 }
-return find(1, &quot;1&quot;);
-}
-console.log(findSolution(24));
-// ~→~ (((1 &ast; 3) + 5) &ast; 3)
+console.log(findSolution(24));  // ~→~ (((1 &ast; 3) + 5) &ast; 3)
 </pre>
 
 Note that this program doesn't necessarily find the *shortest* sequence
@@ -2346,12 +2347,12 @@ That clearly asks for a function of two arguments. Let's get coding.
 
 <pre>
 function printFarmInventory(cows, chickens) {
-var cowString = String(cows); while (cowString.length &lt; 3)
-cowString = &quot;0&quot; + cowString;
-console.log(cowString + &quot; Cows&quot;); var chickenString =
-String(chickens); while (chickenString.length &lt; 3)
-chickenString = &quot;0&quot; + chickenString;
-console.log(chickenString + &quot; Chickens&quot;);
+  var cowString = String(cows); while (cowString.length &lt; 3)
+  cowString = &quot;0&quot; + cowString;
+  console.log(cowString + &quot; Cows&quot;); var chickenString =
+  String(chickens); while (chickenString.length &lt; 3)
+  chickenString = &quot;0&quot; + chickenString;
+  console.log(chickenString + &quot; Chickens&quot;);
 }
 printFarmInventory(7, 11);
 </pre>
@@ -2371,14 +2372,14 @@ a better way. Here's a first attempt:
 
 <pre>
 function printZeroPaddedWithLabel(number, label) {
-var numberString = String(number); while (numberString.length &lt; 3)
-numberString = &quot;0&quot; + numberString;
-console.log(numberString + &quot; &quot; + label);
+  var numberString = String(number); while (numberString.length &lt; 3)
+  numberString = &quot;0&quot; + numberString;
+  console.log(numberString + &quot; &quot; + label);
 }
 function printFarmInventory(cows, chickens, pigs) {
-printZeroPaddedWithLabel(cows, &quot;Cows&quot;);
-printZeroPaddedWithLabel(chickens, &quot;Chickens&quot;);
-printZeroPaddedWithLabel(pigs, &quot;Pigs&quot;);
+  printZeroPaddedWithLabel(cows, &quot;Cows&quot;);
+  printZeroPaddedWithLabel(chickens, &quot;Chickens&quot;);
+  printZeroPaddedWithLabel(pigs, &quot;Pigs&quot;);
 }
 printFarmInventory(7, 11, 3);
 </pre>
@@ -2391,15 +2392,16 @@ Instead of lifting out the repeated part of our program wholesale, let's
 try to pick out a single *concept*.
 
 <pre>
-function zeroPad(number, width) { var string = String(number); while
-(string.length &lt; width)
-string = &quot;0&quot; + string;
-return string;
+function zeroPad(number, width) { 
+  var string = String(number); while
+  (string.length &lt; width)
+  string = &quot;0&quot; + string;
+  return string;
 }
 function printFarmInventory(cows, chickens, pigs) {
-console.log(zeroPad(cows, 3) + &quot; Cows&quot;);
-console.log(zeroPad(chickens, 3) + &quot; Chickens&quot;);
-console.log(zeroPad(pigs, 3) + &quot; Pigs&quot;);
+  console.log(zeroPad(cows, 3) + &quot; Cows&quot;);
+  console.log(zeroPad(chickens, 3) + &quot; Chickens&quot;);
+  console.log(zeroPad(pigs, 3) + &quot; Pigs&quot;);
 }
 printFarmInventory(7, 16, 3);
 </pre>
@@ -2464,10 +2466,12 @@ used as a statement, it can be used to declare a variable and give it a
 function as its value.
 
 <pre>
-// Create a function value f var f = function(a) { console.log(a + 2);
+// Create a function value f 
+var f = function(a) {
+  console.log(a + 2);
 };
 // Declare g to be a function function g(a, b) {
-return a &ast; b &ast; 3.5;
+  return a &ast; b &ast; 3.5;
 }
 </pre>
 
@@ -2750,11 +2754,9 @@ squirrel: false,
 events: &lbrack;&quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;, &quot;running&quot;,
 &quot;television&quot;&rbrack;
 };
-console.log(day1.squirrel);
-// ~→~ false
+console.log(day1.squirrel);  // ~→~ false
 console.log(day1.wolf); // ~→~ undefined day1.wolf = false;
-console.log(day1.wolf);
-// ~→~ false
+console.log(day1.wolf);  // ~→~ false
 </pre>
 
 Inside the curly braces, we can give a list of properties separated by
@@ -2767,8 +2769,8 @@ have to be quoted.
 
 <pre>
 var descriptions = {
-work: &quot;Went to work&quot;,
-&quot;touched tree&quot;: &quot;Touched a tree&quot;
+  work: &quot;Went to work&quot;,
+  &quot;touched tree&quot;: &quot;Touched a tree&quot;
 };
 </pre>
 
@@ -2807,8 +2809,7 @@ remove the named property from the object. This is not a common thing to
 do, but it is possible.
 
 <pre>
-var anObject = {left: 1, right: 2}; console.log(anObject.left);
-// ~→~ 1
+var anObject = {left: 1, right: 2}; console.log(anObject.left);  // ~→~ 1
 delete anObject.left;
 console.log(anObject.left); // ~→~ undefined console.log(&quot;left&quot; in anObject);
 // ~→~ false console.log(&quot;right&quot; in anObject);
@@ -2877,13 +2878,10 @@ properties. Consider the following code:
 var object1 = {value: 10}; 
 var object2 = object1; 
 var object3 = {value: 10};
-console.log(object1 == object2); // ~→~ true console.log(object1 == object3);
-// ~→~ false
+console.log(object1 == object2); // ~→~ true console.log(object1 == object3);  // ~→~ false
 object1.value = 15;
-console.log(object2.value);
-// ~→~ 15
-console.log(object3.value);
-// ~→~ 10
+console.log(object2.value);  // ~→~ 15
+console.log(object3.value);  // ~→~ 10
 </pre>
 
 The object1 and object2 variables grasp the *same* object, which is why
@@ -2906,10 +2904,10 @@ environment he needs to keep his journal.
 <pre>
 var journal = &lbrack;&rbrack;;
 function addEntry(events, didITurnIntoASquirrel) {
-journal.push({
-events: events,
-squirrel: didITurnIntoASquirrel
-});
+  journal.push({
+    events: events,
+    squirrel: didITurnIntoASquirrel
+  });
 }
 </pre>
 
@@ -2997,15 +2995,13 @@ array:
 
 <pre>
 function phi(table) {
-return (table&lbrack;3&rbrack; &ast; table&lbrack;0&rbrack; - table&lbrack;2&rbrack; &ast; table&lbrack;1&rbrack;) /
-Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) &ast; (table&lbrack;0&rbrack; + table&lbrack;1&rbrack;) &ast;
-(table&lbrack;1&rbrack; + table&lbrack;3&rbrack;) &ast;
-(table&lbrack;0&rbrack; + table&lbrack;2&rbrack;));
+  return (table&lbrack;3&rbrack; &ast; table&lbrack;0&rbrack; - table&lbrack;2&rbrack; &ast; table&lbrack;1&rbrack;) /
+  Math.sqrt((table&lbrack;2&rbrack; + table&lbrack;3&rbrack;) &ast; (table&lbrack;0&rbrack; + table&lbrack;1&rbrack;) &ast;
+  (table&lbrack;1&rbrack; + table&lbrack;3&rbrack;) &ast;
+  (table&lbrack;0&rbrack; + table&lbrack;2&rbrack;));
 }
 
-console.log(phi(&lbrack;76, 9, 4, 1&rbrack;));
-
-// ~→~ 0.068599434
+console.log(phi(&lbrack;76, 9, 4, 1&rbrack;));  // ~→~ 0.068599434
 </pre>
 
 This is simply a direct translation of the *φ* formula into JavaScript.
@@ -3037,6 +3033,7 @@ function tableFor(event, journal) {
     }
   return table;
 }
+
 console.log(tableFor(&quot;pizza&quot;, JOURNAL));
 // ~→~ &lbrack;76, 9, 4, 1&rbrack;
 </pre>
@@ -3075,13 +3072,11 @@ exists.
 <pre>
 var map = {};
 function storePhi(event, phi) {
-map&lbrack;event&rbrack; = phi;
+  map&lbrack;event&rbrack; = phi;
 }
 storePhi(&quot;pizza&quot;, 0.069); storePhi(&quot;touched tree&quot;, -0.081);
-console.log(&quot;pizza&quot; in map);
-// ~→~ true
-console.log(map&lbrack;&quot;touched tree&quot;&rbrack;);
-// ~→~ -0.081
+console.log(&quot;pizza&quot; in map);  // ~→~ true
+console.log(map&lbrack;&quot;touched tree&quot;&rbrack;);  // ~→~ -0.081
 </pre>
 
 A *map* is a way to go from values in one domain (in this case, event
@@ -3138,9 +3133,14 @@ Let's see what came out.
 <pre>
 for (var event in correlations)
 console.log(event + &quot;: &quot; + correlations&lbrack;event&rbrack;);
-// ~→~ carrot: 0.0140970969 // ~→~ exercise: 0.0685994341 // ~→~
-weekend: 0.1371988681 // ~→~ bread: -0.0757554019 // ~→~ pudding:
--0.0648203724 // and so on&hellip;
+
+// ~→~ carrot: 0.0140970969 
+// ~→~ exercise: 0.0685994341 
+// ~→~
+weekend: 0.1371988681 
+// ~→~ bread: -0.0757554019 
+// ~→~ pudding: -0.0648203724 
+// and so on&hellip;
 </pre>
 
 Most correlations seem to lie close to zero. Eating carrots, bread, or
@@ -3170,12 +3170,11 @@ Interesting. Let's try something.
 
 <pre>
 for (var i = 0; i &lt; JOURNAL.length; i++) {
-var entry = JOURNAL&lbrack;i&rbrack;; if (hasEvent(&quot;peanuts&quot;, entry) &&
-!hasEvent(&quot;brushed teeth&quot;, entry)) entry.events.push(&quot;peanut
-teeth&quot;);
+  var entry = JOURNAL&lbrack;i&rbrack;; if (hasEvent(&quot;peanuts&quot;, entry) &&
+  !hasEvent(&quot;brushed teeth&quot;, entry)) entry.events.push(&quot;peanut
+  teeth&quot;);
 }
-console.log(phi(tableFor(&quot;peanut teeth&quot;, JOURNAL)));
-// ~→~ 1
+console.log(phi(tableFor(&quot;peanut teeth&quot;, JOURNAL)));  // ~→~ 1
 </pre>
 
 Well, that's unmistakable! The phenomenon occurs precisely when Jacques
@@ -3205,13 +3204,13 @@ removing things at the start of an array are called unshift and shift.
 
 <pre>
 var todoList = &lbrack;&rbrack;; function rememberTo(task) {
-todoList.push(task);
+  todoList.push(task);
 }
 function whatIsNext() {
-return todoList.shift();
+  return todoList.shift();
 }
 function urgentlyRememberTo(task) {
-todoList.unshift(task);
+  todoList.unshift(task);
 }
 </pre>
 
@@ -3258,8 +3257,8 @@ given index removed.
 
 <pre>
 function remove(array, index) {
-return array.slice(0, index)
-.concat(array.slice(index + 1));
+  return array.slice(0, index)
+  .concat(array.slice(index + 1));
 }
 console.log(remove(&lbrack;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;&rbrack;, 2));
 // ~→~ &lbrack;&quot;a&quot;, &quot;b&quot;, &quot;d&quot;, &quot;e&quot;&rbrack;
@@ -3296,16 +3295,14 @@ more than one character, whereas the corresponding array method looks
 only for a single element.
 
 <pre>
-console.log(&quot;one two three&quot;.indexOf(&quot;ee&quot;));
-// ~→~ 11
+console.log(&quot;one two three&quot;.indexOf(&quot;ee&quot;));  // ~→~ 11
 </pre>
 
 The trim method removes whitespace (spaces, newlines, tabs, and similar
 characters) from the start and end of a string.
 
 <pre>
-console.log(&quot; okay &bsol;&bsol;n &quot;.trim());
-// ~→~ okay
+console.log(&quot; okay &bsol;&bsol;n &quot;.trim());  // ~→~ okay
 </pre>
 
 We have already seen the string type's length property. Accessing the
@@ -3313,12 +3310,9 @@ individual characters in a string can be done with the charAt method but
 also by simply reading numeric properties, like you'd do for an array.
 
 <pre>
-var string = &quot;abc&quot;; console.log(string.length);
-// ~→~ 3
-console.log(string.charAt(0));
-// ~→~ a
-console.log(string&lbrack;1&rbrack;);
-// ~→~ b
+var string = &quot;abc&quot;; console.log(string.length);  // ~→~ 3
+console.log(string.charAt(0));  // ~→~ a
+console.log(string&lbrack;1&rbrack;);  // ~→~ b
 </pre>
 
 ## The arguments object
@@ -3330,9 +3324,10 @@ function. Remember that in JavaScript you are allowed to pass more (or
 fewer) arguments to a function than the number of parameters the
 function itself declares.
 
+<pre>
 function noArguments() {} noArguments(1, 2, 3); // This is okay
-function threeArguments(a, b, c) {} threeArguments(); // And so is
-this
+function threeArguments(a, b, c) {} threeArguments(); // And so is this
+</pre>
 
 The arguments object has a length property that tells us the number of
 arguments that were really passed to the function. It also has a
@@ -3344,8 +3339,9 @@ methods (like slice or indexOf), so it is a little harder to use than a
 
 <pre>
 real array. function argumentCounter() {
-console.log(&quot;You gave me&quot;, arguments.length, &quot;arguments.&quot;);
+  console.log(&quot;You gave me&quot;, arguments.length, &quot;arguments.&quot;);
 }
+
 argumentCounter(&quot;Straw man&quot;, &quot;Tautology&quot;, &quot;Ad hominem&quot;); // ~→~
 </pre>
 
@@ -3366,10 +3362,10 @@ alternative that is easier to call.
 
 <pre>
 function addEntry(squirrel) {
-var entry = {events: &lbrack;&rbrack;, squirrel: squirrel};
-for (var i = 1; i &lt; arguments.length; i++)
-entry.events.push(arguments&lbrack;i&rbrack;);
-journal.push(entry);
+  var entry = {events: &lbrack;&rbrack;, squirrel: squirrel};
+  for (var i = 1; i &lt; arguments.length; i++)
+  entry.events.push(arguments&lbrack;i&rbrack;);
+  journal.push(entry);
 }
 addEntry(true, &quot;work&quot;, &quot;touched tree&quot;, &quot;pizza&quot;,
 &quot;running&quot;, &quot;television&quot;);
@@ -3427,10 +3423,9 @@ new pseudorandom number between zero (inclusive) and one (exclusive)
 every time you call it.
 
 <pre>
-console.log(Math.random()); // ~→~ 0.36993729369714856
-console.log(Math.random()); // ~→~ 0.727367032552138
-console.log(Math.random());
-// ~→~ 0.40180766698904335
+console.log(Math.random());  // ~→~ 0.36993729369714856
+console.log(Math.random());  // ~→~ 0.727367032552138
+console.log(Math.random());  // ~→~ 0.40180766698904335
 </pre>
 
 Though computers are deterministic machines---they always react the same
@@ -3447,15 +3442,11 @@ If we want a whole random number instead of a fractional one, we can use
 Math.floor (which rounds down to the nearest whole number) on the result
 of Math.random.
 
-<pre>
-console.log(Math.floor(Math.random() &ast; 10));
-// ~→~ 2
-</pre>
+<pre>console.log(Math.floor(Math.random() &ast; 10));  // ~→~ 2</pre>
 
 Multiplying the random number by 10 gives us a number greater than or
 equal to zero, and below 10. Since Math.floor rounds down, this
 expression will produce, with equal chance, any number from 0 through 9&bsol;.
-
 
 There are also the functions Math.ceil (for "ceiling", which rounds up
 to a whole number) and Math.round (to the nearest whole number).
@@ -3468,10 +3459,8 @@ as a property of this object. In browsers, the global scope object is
 stored in the window variable.
 
 <pre>
-var myVar = 10; console.log(&quot;myVar&quot; in window);
-// ~→~ true
-console.log(window.myVar);
-// ~→~ 10
+var myVar = 10; console.log(&quot;myVar&quot; in window);  // ~→~ true
+console.log(window.myVar);  // ~→~ 10
 </pre>
 
 ## Summary
@@ -3545,11 +3534,12 @@ and so on.
 
 <pre>
 var list = {
-value: 1, rest: { value: 2, rest: {
-value: 3,
-rest: null
-}
-}
+  value: 1, rest: { 
+    value: 2, rest: {
+      value: 3,
+      rest: null
+    }
+  }
 };
 </pre>
 
@@ -3621,8 +3611,8 @@ introduction. The first is self-contained and six lines long.
 
 <pre>
 var total = 0, count = 1; while (count &lt;= 10) {
-total += count;
-count += 1;
+  total += count;
+  count += 1;
 }
 console.log(total);
 </pre>
